@@ -4,17 +4,17 @@ var MASTER_DRUG_DB = [
   {
     "name": "ボスミン1mg/ml（エピネフリン）",
     "category": "循環器",
-    "conc": 0.01,
-    "concText": "0.1mg/10ml",
+    "conc": 1,
+    "concText": "1mg/mL",
     "species": {
       "犬": {
-        "lo": 0.1,
-        "hi": 0.2,
+        "lo": 0.01,
+        "hi": 0.01,
         "note": "心停止：0.0025mg/kg IV\n気管支拡張：0.025mg/kg\n生食９ml＋ボスミン1ml＝10ml(10倍希釈）\n心停止：0.2ml/kg IV (3-5分毎）\nアナフィラキシー：0.1-0.2ml/kg IV IM SC"
       },
       "猫": {
-        "lo": 0.1,
-        "hi": 0.2,
+        "lo": 0.01,
+        "hi": 0.01,
         "note": "0.1-0.2ml,IV\n0.1ml,IV,IM,SC"
       },
       "ウサギ": {

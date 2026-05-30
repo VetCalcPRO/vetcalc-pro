@@ -1405,6 +1405,10 @@ select.ea-fi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w
 </div>
 
 <div class="wrap"><div id="grid" class="g2"></div></div>
+<div id="vcFooter">
+  本ツールは計算補助ツールです。投与量は必ず添付文書で確認してください。<br>
+  <a onclick="localStorage.removeItem('vetcalc_disclaimer_agreed');location.reload()">免責事項を再確認</a>
+</div>
 <div id="calcPanel"></div>
 
 <!-- 血漿浸透圧シート -->
@@ -3358,3 +3362,12 @@ select.ea-fi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w
     <button id="dcAgreeBtn" onclick="agreeDisclaimer()" disabled>同意して開始</button>
   </div>
 </div>
+
+<!-- フッター免責 -->
+<style>
+#vcFooter{
+  text-align:center;padding:10px 16px 24px;
+  font-size:11px;color:var(--mu,#6b7590);line-height:1.6;
+}
+#vcFooter a{color:var(--mu,#6b7590);text-decoration:underline;cursor:pointer;}
+</style>

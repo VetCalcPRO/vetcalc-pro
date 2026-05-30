@@ -6,7 +6,7 @@
 
 ## 使い方
 
-👉 **[https://vetcalcpro.github.io/vetcalc-pro/](https://vetcalcpro.github.io/vetcalc-pro/)**
+👉 **[https://YOUR_USERNAME.github.io/VetCalcPRO/](https://YOUR_USERNAME.github.io/VetCalcPRO/)**
 
 ブラウザで開くだけで使えます。インストール不要。
 
@@ -22,6 +22,7 @@
 | 薬用量計算 | 体重入力で即座に投与量を計算（244薬剤） |
 | CRI計算 | 持続点滴（γ計算含む） |
 | BSA計算 | 体表面積（化学療法用） |
+| 血液ガス解析 | pH・BE・補正式 |
 | 血漿浸透圧 | 計算式・評価 |
 | 療法食計算 | カロリー・給餌量 |
 | 錠剤計算 | 分割・日数マトリクス |

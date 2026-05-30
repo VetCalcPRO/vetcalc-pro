@@ -2170,6 +2170,9 @@ function openMgmt(){
     +'<button class="mbtn" onclick="openSort()">🔀 表示順を並び替え<small>カテゴリー内でドラッグして並び替え</small></button>'
     +'<button class="mbtn dn" onclick="resetAll()">⚠️ 全データをリセット<small>元の157剤データに戻す</small></button>'
     +'<button class="mbtn" style="color:#6b7590" onclick="clearLS()">🗑 キャッシュをクリア<small>表示がおかしい時はこちら</small></button>'
+    +'</div>'
+    +'<div style="border-top:1px solid var(--bd);margin-top:12px;padding-top:12px">'
+    +'<button class="mbtn" style="color:var(--mu)" onclick="localStorage.removeItem(\'vetcalc_disclaimer_agreed\');closeAll();setTimeout(()=>checkDisclaimer(),100)">📋 免責事項を確認<small>同意内容を再確認・再同意</small></button>'
     +'</div>';
   openSheet('shMgmt');
 }

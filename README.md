@@ -6,7 +6,7 @@
 
 ## 使い方
 
-👉 **[https://vetcalcpro.github.io/vetcalc-pro/](https://vetcalcpro.github.io/vetcalc-pro/)**
+👉 **[https://YOUR_USERNAME.github.io/VetCalcPRO/](https://YOUR_USERNAME.github.io/VetCalcPRO/)**
 
 ブラウザで開くだけで使えます。インストール不要。
 

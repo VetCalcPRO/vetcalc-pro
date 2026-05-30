@@ -2804,3 +2804,23 @@ function closeGammaSheet(){
 }
 
 
+
+// ===== 免責同意 =====
+var DISCLAIMER_KEY = 'vetcalc_disclaimer_agreed';
+function checkDisclaimer(){
+  if(!localStorage.getItem(DISCLAIMER_KEY)){
+    document.getElementById('disclaimerOverlay').style.display='flex';
+  }
+}
+function updateDisclaimerBtn(){
+  var c1 = document.getElementById('dc1').checked;
+  var c2 = document.getElementById('dc2').checked;
+  var btn = document.getElementById('dcAgreeBtn');
+  btn.disabled = !(c1 && c2);
+  btn.style.opacity = (c1 && c2) ? '1' : '0.4';
+}
+function agreeDisclaimer(){
+  localStorage.setItem(DISCLAIMER_KEY, '1');
+  document.getElementById('disclaimerOverlay').style.display='none';
+}
+window.addEventListener('DOMContentLoaded', checkDisclaimer);

@@ -3294,3 +3294,67 @@ select.ea-fi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w
 
 </body>
 </html>
+
+<!-- 免責同意オーバーレイ -->
+<style>
+#disclaimerOverlay{
+  display:none;position:fixed;inset:0;z-index:9999;
+  background:rgba(0,0,0,.85);
+  align-items:center;justify-content:center;padding:16px;
+}
+.dc-box{
+  background:var(--bg2,#1c1f2e);border-radius:16px;
+  max-width:420px;width:100%;padding:24px 20px;
+  border:1px solid var(--bd,#2a2d3e);
+}
+.dc-icon{font-size:28px;text-align:center;margin-bottom:8px;}
+.dc-title{font-size:18px;font-weight:700;text-align:center;color:var(--tx,#e8eaf0);margin-bottom:16px;}
+.dc-list{list-style:none;padding:0;margin:0 0 20px;}
+.dc-list li{
+  font-size:13px;color:var(--tx2,#a0a4b8);line-height:1.6;
+  padding:8px 0 8px 20px;border-bottom:1px solid var(--bd,#2a2d3e);
+  position:relative;
+}
+.dc-list li:last-child{border-bottom:none;}
+.dc-list li::before{content:'•';position:absolute;left:4px;color:var(--wn,#ff9f0a);}
+.dc-checks{margin-bottom:20px;}
+.dc-check{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid var(--bd,#2a2d3e);}
+.dc-check:last-child{border-bottom:none;}
+.dc-check input[type=checkbox]{
+  width:20px;height:20px;flex-shrink:0;
+  accent-color:var(--ac,#4c8eff);margin-top:1px;cursor:pointer;
+}
+.dc-check label{font-size:13px;color:var(--tx,#e8eaf0);line-height:1.5;cursor:pointer;}
+#dcAgreeBtn{
+  width:100%;padding:14px;border:none;border-radius:10px;
+  background:var(--ac,#4c8eff);color:#fff;
+  font-size:16px;font-weight:700;font-family:inherit;
+  cursor:pointer;transition:.2s;
+}
+#dcAgreeBtn:disabled{cursor:not-allowed;}
+</style>
+
+<div id="disclaimerOverlay">
+  <div class="dc-box">
+    <div class="dc-icon">⚠️</div>
+    <div class="dc-title">ご利用にあたって</div>
+    <ul class="dc-list">
+      <li>獣医療従事者向けの計算補助ツールです。一般の方の自己判断での使用は想定していません。</li>
+      <li>本アプリは医療機器ではなく、診断・治療・予防を目的としたものではありません。</li>
+      <li>表示される投与量・調製量は参考値です。患者の体重・年齢・基礎疾患・併用薬等により必ず調整が必要です。</li>
+      <li>最終的な処方判断は獣医師の責任で行ってください。必ず最新の添付文書・ガイドラインを確認してください。</li>
+      <li>本アプリの使用によって生じた一切の損害について開発者は責任を負いません。</li>
+    </ul>
+    <div class="dc-checks">
+      <div class="dc-check">
+        <input type="checkbox" id="dc1" onchange="updateDisclaimerBtn()">
+        <label for="dc1">私は獣医療従事者（またはその監督下にある資格者）です</label>
+      </div>
+      <div class="dc-check">
+        <input type="checkbox" id="dc2" onchange="updateDisclaimerBtn()">
+        <label for="dc2">本アプリが医療機器ではなく参照ツールであることを理解しました</label>
+      </div>
+    </div>
+    <button id="dcAgreeBtn" onclick="agreeDisclaimer()" disabled>同意して開始</button>
+  </div>
+</div>

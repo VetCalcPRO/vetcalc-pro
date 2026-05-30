@@ -1,0 +1,3222 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEEUlEQVR4nO2XbUxbVRzGn3tvuaXtLW3vVkbLyzCuGxiZaOaGGN2cI2TtsqhBMzAY8QNZovtglGSGDyTGZEbNTPTDYmIUxwTJyGCxxWEgRVlifIkRiWRAZbyUAmWWru+3b38/kDalG+oHA8bwJDe553+e5P87zzk5N5dBlsRSM2XX/k15ZvqZzDG7mc3v1oPdaGKzINjNbp4NwWxF80yxf2/ZBvifA0AsNdP1734lIqJrQ9+TWGpe91zusxMR0eiYI107eLSZLnUP0JxzmaKxGPkDIZp0zNOb77SnPWPj05SpcFiiScc8vfXeZ1RgOpn2sQDQ0T0AADh2+ADy9bo0nFpQ4kRtNTI9jz9aiW9sH6K+rgaXur/G/uoXcfBoM86d74BWI9yxwMt9duy4x4LDljPQ5KnQ+toLaDv70voEDPueolWvn4iIWlreHc9RPvSDWGqmV9/4IE2vNxwZ5fmK/gWXWyIi6r4yRJrCmoBceHiUld0/BKbcxrD3XeNyKoYVuuqpVAKfd1qXgTIrUGa9cKFrhohocXFFUuiqp8TdxxMsAEhSFD1X7QCApqani2Oh0EoykZAanq0BAPTZRujW0rKrquoBrdGg5wGgp3fI53M5R6SA3ykX1MXaopInNYXFRxRacS8lk7HsJHiVUJibp9mdGodXPROhVc+N9CG82LUWcXn5vcKhQ/s1pQbRfeDBMgDAJ5/2uokoYTDoFSn/7IRjgogSckEwKrQ6E8txcpbj5LxKZVDqxPJsANOeErm5pmptW64M+gEgGgy4ZCnDbzdu4pexKVRWmNDU9Eyxzx8CADimnbAPXncAwC1vML3J+fni2sqUgvGOjc9QQ70lv6HeYolEokmny42PL1rx9rmPFlPzskxzxxcDqKww4dQpszEclhJryXwVjUuSFwBGx2fEpWUPCnaJqKurNVitw26G4+R/BdDZZXM/3/D6j7xKKBT0+ZWJWCwY9HqXAIBXCcZ190DP1WGEQhFoNGpZQcFOeSwWp/b23lkA4HJyVElOJr7S8j4iUpQaG08Wtrae3qMX82I7d2hhqX0EbWebNgSJBgMLnplpm8/l/JZhWZlCq9un1Ill6xIIBMPos40gdfi+tA67F27OzQKAXFCXAIB95Gc8YTlDpxuPLzc3P1fS1vZybjyewJL7D3T2DG4IkEogu37XryElk3Hv/OwgESXWXAyjLSo5xnIcn/LEwuGVgHvpJyIihU7cKxfUxQCYuBTxxCXJq9SJZQBw2+UcSUSjvo0AZNkFAGBYVsarBKMU8M8DAK9Q7spsDgA5CoU+z1j0WOS293fJ75sLe1cnGYBlZbJcXlAXbRjFP0lgM7XlH6NtgG2AbQA2+19tM+WZ6WfY1MtWNAf+Azchc+I8bSnAnw8837RrKLxhAAAAAElFTkSuQmCC">
+  <link rel="apple-touch-icon" href="data:image/png;base64,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">
+  <link rel="shortcut icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEEUlEQVR4nO2XbUxbVRzGn3tvuaXtLW3vVkbLyzCuGxiZaOaGGN2cI2TtsqhBMzAY8QNZovtglGSGDyTGZEbNTPTDYmIUxwTJyGCxxWEgRVlifIkRiWRAZbyUAmWWru+3b38/kDalG+oHA8bwJDe553+e5P87zzk5N5dBlsRSM2XX/k15ZvqZzDG7mc3v1oPdaGKzINjNbp4NwWxF80yxf2/ZBvifA0AsNdP1734lIqJrQ9+TWGpe91zusxMR0eiYI107eLSZLnUP0JxzmaKxGPkDIZp0zNOb77SnPWPj05SpcFiiScc8vfXeZ1RgOpn2sQDQ0T0AADh2+ADy9bo0nFpQ4kRtNTI9jz9aiW9sH6K+rgaXur/G/uoXcfBoM86d74BWI9yxwMt9duy4x4LDljPQ5KnQ+toLaDv70voEDPueolWvn4iIWlreHc9RPvSDWGqmV9/4IE2vNxwZ5fmK/gWXWyIi6r4yRJrCmoBceHiUld0/BKbcxrD3XeNyKoYVuuqpVAKfd1qXgTIrUGa9cKFrhohocXFFUuiqp8TdxxMsAEhSFD1X7QCApqani2Oh0EoykZAanq0BAPTZRujW0rKrquoBrdGg5wGgp3fI53M5R6SA3ykX1MXaopInNYXFRxRacS8lk7HsJHiVUJibp9mdGodXPROhVc+N9CG82LUWcXn5vcKhQ/s1pQbRfeDBMgDAJ5/2uokoYTDoFSn/7IRjgogSckEwKrQ6E8txcpbj5LxKZVDqxPJsANOeErm5pmptW64M+gEgGgy4ZCnDbzdu4pexKVRWmNDU9Eyxzx8CADimnbAPXncAwC1vML3J+fni2sqUgvGOjc9QQ70lv6HeYolEokmny42PL1rx9rmPFlPzskxzxxcDqKww4dQpszEclhJryXwVjUuSFwBGx2fEpWUPCnaJqKurNVitw26G4+R/BdDZZXM/3/D6j7xKKBT0+ZWJWCwY9HqXAIBXCcZ190DP1WGEQhFoNGpZQcFOeSwWp/b23lkA4HJyVElOJr7S8j4iUpQaG08Wtrae3qMX82I7d2hhqX0EbWebNgSJBgMLnplpm8/l/JZhWZlCq9un1Ill6xIIBMPos40gdfi+tA67F27OzQKAXFCXAIB95Gc8YTlDpxuPLzc3P1fS1vZybjyewJL7D3T2DG4IkEogu37XryElk3Hv/OwgESXWXAyjLSo5xnIcn/LEwuGVgHvpJyIihU7cKxfUxQCYuBTxxCXJq9SJZQBw2+UcSUSjvo0AZNkFAGBYVsarBKMU8M8DAK9Q7spsDgA5CoU+z1j0WOS293fJ75sLe1cnGYBlZbJcXlAXbRjFP0lgM7XlH6NtgG2AbQA2+19tM+WZ6WfY1MtWNAf+Azchc+I8bSnAnw8837RrKLxhAAAAAElFTkSuQmCC">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#12151e">
+<link rel="manifest" href="manifest.json">
+<title>VetCalc PRO</title>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js');
+  });
+}
+</script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=JetBrains+Mono:wght@400;700&display=swap');
+:root{
+  --bg:#12151e; --cri:#a855f7; --cri2:#7c3aed;--pn:#1a1e28;--bd:#272e42;--tx:#dde2f0;--mu:#7b84a0;
+  --ac:#4c8eff;--ok:#1fcc7a;--dn:#ff4d6d;--wn:#ffb020;
+  --bsa:#a78bfa; /* BSA accent: purple */
+  /* Mode colors */
+  --inj:#4c8eff;   /* injection: blue */
+  --ora:#22c55e;   /* oral: green */
+  --top:#f97316;   /* topical: orange */
+  --calc:#e879f9;  /* calc: fuchsia */
+  /* Card size & font scale */
+  --card-pad:14px 12px;
+  --card-min-h:90px;
+  --font-nm:13px;
+  --font-cv:23px;
+  --font-cat:10px;
+  --font-csub:10px;
+  --card-min-w:160px;
+  --grid-gap:8px;
+  --hdr-h:120px;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+body{background:var(--bg);color:var(--tx);font-family:'Noto Sans JP',sans-serif;display:flex;flex-direction:column;height:100dvh;height:100vh;overflow:hidden;overscroll-behavior:none;}
+
+/* HEADER */
+.hdr{background:var(--pn);border-bottom:1px solid var(--bd);padding:10px 14px 6px;
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  transition:transform .3s cubic-bezier(.4,0,.2,1);}
+.hdr.hidden{transform:translateY(-105%);}
+.htop{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+.logo{font-size:18px;font-weight:900;letter-spacing:-1px;color:var(--tx);}
+.logo b{color:var(--ac);}
+.hbts{display:flex;gap:6px;align-items:center;}
+.ib{background:none;border:none;color:var(--mu);font-size:18px;cursor:pointer;padding:6px;border-radius:6px;line-height:1;}
+.ib:active{background:var(--bd);}
+.sp-sel{background:var(--pn);border:1px solid var(--bd);border-radius:20px;padding:4px 10px;font-size:13px;color:var(--tx);font-family:inherit;outline:none;}
+
+/* MODE TOGGLE BAR */
+.mode-bar{display:flex;gap:6px;margin-bottom:8px;}
+.mode-btn{flex:1;padding:7px 6px;border-radius:8px;border:1px solid var(--bd);background:var(--pn);color:var(--mu);font-size:12px;font-weight:700;font-family:inherit;cursor:pointer;text-align:center;transition:.15s;display:flex;align-items:center;justify-content:center;gap:4px;}
+.mode-btn.on-inj{background:rgba(76,142,255,.15);border-color:var(--inj);color:var(--inj);}
+.mode-btn.on-ora{background:rgba(34,197,94,.15);border-color:var(--ora);color:var(--ora);}
+.mode-btn.on-top{background:rgba(249,115,22,.15);border-color:var(--top);color:var(--top);}
+.mode-btn.on-calc{background:rgba(232,121,249,.15);border-color:var(--calc);color:var(--calc);}
+
+/* MODE INDICATOR STRIP */
+.mode-strip{height:3px;border-radius:0;margin:0 -14px;margin-top:6px;transition:.3s;}
+.strip-inj{background:linear-gradient(90deg,var(--inj),#6c5ce7);}
+.strip-ora{background:linear-gradient(90deg,var(--ora),#0f9a4e);}
+.strip-top{background:linear-gradient(90deg,var(--top),#f5c518);}
+.strip-calc{background:linear-gradient(90deg,var(--calc),#818cf8);}
+
+/* CALC PANEL */
+#calcPanel{display:none;flex:1;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;padding:8px 10px 100px;min-width:0;}
+#calcPanel.active{display:flex;flex-direction:column;}
+.calc-tabs{display:flex;gap:5px;overflow-x:auto;padding:4px 0 6px;scrollbar-width:none;margin-bottom:8px;}
+.calc-tabs::-webkit-scrollbar{display:none;}
+.calc-tab{padding:4px 12px;border-radius:16px;background:var(--pn);border:1px solid var(--bd);white-space:nowrap;font-size:11px;color:var(--mu);cursor:pointer;flex-shrink:0;}
+.calc-tab.on{background:var(--calc);border-color:var(--calc);color:#fff;}
+.calc-cards{display:grid;gap:8px;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));width:100%;align-content:start;}
+.calc-card{background:var(--pn);border-left:3px solid var(--calc);border-radius:10px;padding:14px 12px;cursor:pointer;min-height:70px;}
+.calc-card:active{opacity:.8;}
+.calc-card-icon{font-size:20px;margin-bottom:4px;}
+.calc-card-name{font-size:12px;font-weight:700;color:var(--tx);}
+.calc-card-desc{font-size:10px;color:var(--mu);margin-top:2px;}
+.calc-card.wip .calc-card-name::after{content:' 🔧';opacity:.4;}
+.calc-card.wip{opacity:.5;pointer-events:none;}
+
+/* 血漿浸透圧ツール */
+.osmo-lbl{font-size:11px;color:var(--mu);font-weight:700;letter-spacing:.05em;display:block;margin-bottom:4px;}
+.osmo-unit{font-weight:400;font-size:10px;}
+.osmo-inp{width:100%;padding:14px 10px;background:var(--bg);border:1px solid var(--bd);border-radius:10px;color:var(--tx);font-size:26px;font-family:'JetBrains Mono',monospace;font-weight:700;text-align:right;outline:none;-moz-appearance:textfield;}
+.osmo-inp::-webkit-outer-spin-button,.osmo-inp::-webkit-inner-spin-button{-webkit-appearance:none;}
+.osmo-inp:focus{border-color:var(--calc);}
+.osmo-badge{text-align:center;font-size:18px;font-weight:900;padding:14px;border-radius:12px;margin-bottom:12px;letter-spacing:.03em;}
+.osmo-badge.ok{background:rgba(31,204,122,.15);color:var(--ok);}
+.osmo-badge.wn{background:rgba(255,176,32,.18);color:var(--wn);}
+.osmo-badge.mid{background:rgba(255,107,53,.18);color:#ff6b35;}
+.osmo-badge.dn{background:rgba(255,77,109,.18);color:var(--dn);}
+.osmo-result-box{background:var(--bg);border-radius:10px;padding:12px 14px;margin-bottom:12px;}
+.osmo-formula-row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;}
+.osmo-formula-row+.osmo-formula-row{border-top:1px solid var(--bd);}
+.osmo-formula-label{font-size:11px;color:var(--mu);}
+.osmo-val{font-size:22px;font-weight:900;font-family:'JetBrains Mono',monospace;color:var(--calc);}
+.osmo-scale{margin-bottom:10px;}
+.osmo-scale-bar{position:relative;height:10px;border-radius:5px;background:var(--bd);overflow:hidden;margin-bottom:4px;}
+.osmo-scale-zones{display:flex;height:10px;border-radius:5px;overflow:hidden;margin-top:-10px;}
+.osmo-scale-marker{position:absolute;top:-2px;width:4px;height:14px;background:#fff;border-radius:2px;transform:translateX(-50%);transition:left .3s;box-shadow:0 0 6px rgba(0,0,0,.5);}
+.osmo-scale-label{position:absolute;top:14px;font-size:9px;color:var(--mu);transform:translateX(-50%);}
+.osmo-legend{display:flex;gap:12px;justify-content:center;font-size:11px;margin-top:16px;}
+.osmo-leg.ok{color:var(--ok);}
+.osmo-leg.wn{color:var(--wn);}
+.osmo-leg.dn{color:var(--dn);}
+
+/* K・P補正 */
+.kp-section-title{font-size:12px;font-weight:700;color:var(--calc);letter-spacing:.06em;margin:10px 0 8px;text-transform:uppercase;}
+.kp-k-input-row{display:flex;align-items:flex-end;gap:12px;margin-bottom:12px;}
+.kp-inp-wrap{flex:0 0 140px;}
+.kp-k-badge{flex:1;text-align:center;font-size:13px;font-weight:700;padding:10px 6px;border-radius:10px;min-height:46px;display:flex;align-items:center;justify-content:center;}
+.kp-k-badge.ok{background:rgba(31,204,122,.15);color:var(--ok);}
+.kp-k-badge.wn{background:rgba(255,176,32,.18);color:var(--wn);}
+.kp-k-badge.dn{background:rgba(255,77,109,.18);color:var(--dn);}
+.kp-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:10px;border:1px solid var(--bd);}
+.kp-table{width:100%;border-collapse:collapse;font-size:12px;}
+.kp-table th{background:var(--bg);color:var(--mu);font-size:10px;font-weight:700;padding:7px 5px;text-align:center;white-space:nowrap;}
+.kp-table td{padding:10px 5px;text-align:center;border-top:1px solid var(--bd);font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--tx);white-space:nowrap;}
+.kp-table td.kp-kcl{font-size:20px;font-weight:900;color:var(--calc);}
+.kp-table tr.kp-active td.kp-kcl{color:#fff;}
+.kp-table tr.kp-active td{background:rgba(232,121,249,.13);color:#fff;font-weight:700;}
+.kp-table tr.kp-active td:first-child{color:var(--calc);}
+.kp-table td.kp-speed{color:var(--wn);font-weight:700;}
+/* KCL早見表 */
+.kp-hayami-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:10px;border:1px solid var(--bd);margin-bottom:8px;}
+.kp-hayami{width:100%;border-collapse:collapse;font-size:11px;}
+.kp-hayami th{background:var(--bg);color:var(--mu);font-size:10px;font-weight:700;padding:6px 5px;text-align:center;white-space:nowrap;}
+.kp-hayami th.kp-hd-target{color:var(--calc);font-size:11px;}
+.kp-hayami td{padding:8px 5px;text-align:center;border-top:1px solid var(--bd);font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--tx);}
+.kp-hayami td.kp-hname{font-size:11px;font-family:inherit;color:var(--mu);text-align:left;padding-left:8px;}
+.kp-hayami td.kp-hvol{font-size:11px;color:var(--mu);}
+.kp-hayami td.kp-hval{color:var(--ac);font-weight:700;font-size:15px;}
+.kp-p-box{background:var(--bg);border-radius:10px;padding:12px 14px;margin-bottom:12px;}
+.kp-p-row{display:flex;gap:8px;padding:5px 0;font-size:12px;}
+.kp-p-row+.kp-p-row{border-top:1px solid var(--bd);}
+.kp-p-label{color:var(--mu);min-width:54px;flex-shrink:0;font-size:11px;padding-top:1px;}
+.kp-mg-note{background:rgba(255,176,32,.1);border:1px solid rgba(255,176,32,.3);border-radius:10px;padding:12px 14px;font-size:12px;color:var(--wn);line-height:1.6;}
+
+/* 輸液量計算 */
+.fl-dehy-guide{font-size:11px;color:var(--wn);background:rgba(255,176,32,.1);border:1px solid rgba(255,176,32,.25);border-radius:8px;padding:8px 12px;margin-bottom:12px;}
+.fl-result-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:4px;}
+.fl-result-card{background:var(--bg);border-radius:10px;padding:12px 10px;text-align:center;}
+.fl-result-total{grid-column:1/-1;background:rgba(232,121,249,.1);border:1px solid rgba(232,121,249,.3);}
+.fl-rc-label{font-size:10px;color:var(--mu);margin-bottom:4px;}
+.fl-rc-val{font-size:22px;font-weight:900;font-family:'JetBrains Mono',monospace;color:var(--calc);}
+.fl-result-total .fl-rc-val{font-size:26px;}
+.fl-rc-sub{font-size:10px;color:var(--mu);margin-top:2px;}
+.fl-speed-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;}
+.fl-speed-card{background:var(--bg);border-radius:10px;padding:12px 10px;text-align:center;}
+.fl-sp-animal{font-size:12px;color:var(--mu);margin-bottom:2px;}
+.fl-sp-val{font-size:22px;font-weight:900;font-family:'JetBrains Mono',monospace;color:var(--wn);}
+.fl-sp-unit{font-size:11px;color:var(--mu);}
+.fl-sp-ref{font-size:10px;color:var(--mu);margin-top:2px;}
+.fl-urine-note{background:rgba(76,142,255,.08);border:1px solid rgba(76,142,255,.2);border-radius:10px;padding:10px 14px;font-size:12px;color:var(--tx);}
+
+/* チョコレート中毒 */
+.choco-list{display:flex;flex-direction:column;gap:6px;margin-bottom:4px;}
+.choco-row{display:flex;align-items:center;gap:8px;background:var(--bg);border-radius:8px;padding:8px 10px;}
+.choco-name{flex:1;font-size:12px;color:var(--tx);}
+.choco-conc{font-size:10px;color:var(--mu);min-width:80px;text-align:right;}
+.choco-inp{width:72px;padding:6px 8px;background:var(--pn);border:1px solid var(--bd);border-radius:7px;color:var(--tx);font-size:16px;font-family:'JetBrains Mono',monospace;text-align:right;outline:none;-moz-appearance:textfield;}
+.choco-inp::-webkit-outer-spin-button,.choco-inp::-webkit-inner-spin-button{-webkit-appearance:none;}
+.choco-inp:focus{border-color:var(--calc);}
+.choco-inp.has-val{border-color:var(--wn);background:rgba(255,176,32,.08);}
+.choco-unit{font-size:11px;color:var(--mu);}
+.choco-scale-wrap{margin:10px 0 4px;}
+.choco-scale-bar{position:relative;height:12px;border-radius:6px;overflow:hidden;display:flex;}
+.choco-zone{height:100%;}
+.choco-symptom{margin-top:12px;background:var(--bg);border-radius:10px;padding:12px 14px;font-size:11px;color:var(--tx);line-height:1.7;border-left:3px solid var(--dn);}
+
+/* MODE LABEL in header */
+.mode-label{font-size:10px;color:var(--mu);margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.mode-label b{font-size:11px;}
+
+.sbar{background:var(--pn);border:1px solid var(--bd);border-radius:8px;padding:8px 12px;color:var(--tx);width:100%;font-size:16px;font-family:inherit;outline:none;margin-bottom:6px;}
+.sbar:focus{border-color:var(--ac);}
+.tabrow{display:flex;gap:5px;overflow-x:auto;padding:4px 0 2px;scrollbar-width:none;}
+.tabrow::-webkit-scrollbar{display:none;}
+.tab{padding:4px 11px;border-radius:16px;background:var(--pn);border:1px solid var(--bd);white-space:nowrap;font-size:11px;color:var(--mu);cursor:pointer;flex-shrink:0;}
+.tab.on{color:#fff;border-color:currentColor;}
+.tab.on-inj.on{background:var(--inj);border-color:var(--inj);}
+.tab.on-ora.on{background:var(--ora);border-color:var(--ora);}
+.tab.on-top.on{background:var(--top);border-color:var(--top);}
+
+/* GRID */
+.wrap{flex:1;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;padding:var(--hdr-h,0px) 10px 100px;min-width:0;transition:padding-top .3s cubic-bezier(.4,0,.2,1);}
+#grid{display:grid;gap:var(--grid-gap);min-width:0;width:100%;}
+.g2{grid-template-columns:repeat(auto-fill,minmax(var(--card-min-w),1fr));}
+.g1{grid-template-columns:1fr;}
+
+/* CARDS - base height increased by 30pt */
+.card{background:var(--pn);border-left:3px solid #444;border-radius:10px;padding:var(--card-pad);cursor:pointer;position:relative;min-height:var(--card-min-h);min-width:0;overflow:hidden;-webkit-tap-highlight-color:transparent;}
+.card:active{opacity:.8;}
+.card.dim{opacity:.32;}
+.cat{font-size:var(--font-cat);color:var(--mu);margin-bottom:2px;}
+.nm{font-size:var(--font-nm);font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:6px;}
+.cv{font-family:'JetBrains Mono',monospace;font-size:var(--font-cv);font-weight:700;display:block;line-height:1;}
+.cv em{font-size:12px;font-style:normal;color:var(--mu);margin-left:2px;}
+.cv.inj{color:var(--inj);}
+.cv.ora{color:var(--ora);}
+.cv.top{color:var(--top);}
+.cv.ref{font-size:13px;color:var(--wn);}
+.cv.nd{font-size:16px;color:var(--mu);}
+.csub{font-size:var(--font-csub);color:var(--mu);text-decoration:none;display:block;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.edot{position:absolute;top:8px;right:8px;width:6px;height:6px;background:var(--ok);border-radius:50%;}
+
+/* CARD MODE BADGE */
+.cbadge{position:absolute;bottom:8px;right:8px;font-size:9px;padding:2px 5px;border-radius:4px;font-weight:700;opacity:.7;}
+.cbadge.inj{background:rgba(76,142,255,.2);color:var(--inj);}
+.cbadge.ora{background:rgba(34,197,94,.2);color:var(--ora);}
+.cbadge.top{background:rgba(249,115,22,.2);color:var(--top);}
+
+/* COPY TOAST */
+.copy-sheet{position:fixed;bottom:-110%;left:0;right:0;background:var(--pn);border-radius:20px 20px 0 0;padding:20px 18px 40px;z-index:1000;max-height:70vh;overflow-y:auto;transition:.35s cubic-bezier(.4,0,.2,1);box-shadow:0 -4px 40px rgba(0,0,0,.5);}
+.copy-sheet.on{bottom:0;}
+.copy-pre{background:var(--bg);border:1px solid var(--bd);border-radius:8px;padding:12px;font-size:12px;font-family:'JetBrains Mono',monospace;color:var(--tx);white-space:pre-wrap;word-break:break-all;margin:12px 0;max-height:40vh;overflow-y:auto;}
+/* FAB */
+.fab-wrap{position:fixed;bottom:16px;left:0;right:0;z-index:80;display:flex;justify-content:center;gap:10px;}
+.fab{color:#fff;padding:13px 28px;border-radius:30px;font-weight:700;font-size:15px;border:none;font-family:inherit;cursor:pointer;transition:.2s;}
+.fab.inj{background:linear-gradient(135deg,var(--inj),#6c5ce7);}
+.fab.ora{background:linear-gradient(135deg,var(--ora),#0f9a4e);}
+.fab.top{background:linear-gradient(135deg,var(--top),#f5c518);}
+.fab-sm{background:var(--pn);border:1px solid var(--bd);color:var(--tx);padding:11px 14px;border-radius:30px;font-size:18px;cursor:pointer;line-height:1;}
+
+/* BACKDROP + SHEETS */
+#bd{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:900;opacity:0;pointer-events:none;transition:.25s;}
+#bd.on{opacity:1;pointer-events:all;}
+.sh{position:fixed;bottom:-110%;left:0;right:0;background:var(--pn);border-radius:20px 20px 0 0;padding:20px 18px 40px;z-index:1000;max-height:90vh;overflow-y:auto;transition:.35s cubic-bezier(.4,0,.2,1);box-shadow:0 -4px 40px rgba(0,0,0,.5);}
+.sh.on{bottom:0;}
+.shh{width:40px;height:4px;background:var(--bd);border-radius:2px;margin:0 auto 16px;}
+.sht{font-size:17px;font-weight:700;display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;}
+.shx{background:none;border:none;color:var(--mu);font-size:24px;cursor:pointer;padding:0 4px;font-family:inherit;}
+
+/* FORM */
+label{font-size:12px;color:var(--mu);display:block;margin:12px 0 4px;}
+label.f1{margin-top:0;}
+.fi{width:100%;padding:11px;background:var(--bg);border:1px solid var(--bd);color:var(--tx);font-size:16px;border-radius:8px;font-family:inherit;outline:none;}
+.fi:focus{border-color:var(--ac);}
+.fi.sm{font-size:13px;padding:7px;font-family:'JetBrains Mono',monospace;}
+select.fi{font-size:15px;}
+.bprim{width:100%;padding:13px;background:var(--ac);border:none;color:#fff;border-radius:10px;font-weight:700;font-size:16px;font-family:inherit;cursor:pointer;margin-top:14px;}
+.brow{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;}
+.bsec{padding:8px 14px;background:var(--bg);border:1px solid var(--bd);color:var(--tx);border-radius:20px;font-size:13px;cursor:pointer;font-family:inherit;}
+.bsec.w{color:var(--wn);}
+.bsec.d{color:var(--dn);}
+.box{background:var(--bg);border:1px solid var(--bd);border-radius:10px;padding:12px;margin-bottom:12px;}
+.boxt{font-size:11px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;}
+.sphdr{display:grid;grid-template-columns:56px 1fr 1fr;gap:6px;margin-bottom:4px;}
+.sphdr span{font-size:11px;color:var(--mu);text-align:center;}
+.sprow{display:grid;grid-template-columns:56px 1fr 1fr;gap:6px;align-items:center;margin-bottom:4px;}
+.sprow label{margin:0;font-size:13px;}
+
+/* DETAIL */
+.dname{font-size:18px;font-weight:900;margin-bottom:4px;}
+.dsub{font-size:13px;color:var(--mu);margin-bottom:16px;}
+.dr{border-bottom:1px solid var(--bd);padding:10px 0;display:flex;justify-content:space-between;align-items:flex-start;}
+.dr:last-of-type{border-bottom:none;}
+.dr.act{background:rgba(76,142,255,.07);border-radius:8px;margin:0 -4px;padding:10px 4px;}
+.drn{font-size:14px;}
+.drn.bold{font-weight:700;}
+.nt{font-size:11px;color:var(--wn);margin-top:3px;white-space:pre-wrap;word-break:break-all;max-width:55vw;}
+.drv{text-align:right;flex-shrink:0;margin-left:8px;}
+.dmv{font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:700;display:block;}
+.dmg{font-size:11px;color:var(--mu);}
+.memo{background:var(--bg);border:1px solid var(--bd);border-radius:8px;padding:10px;font-size:12px;color:var(--mu);margin-top:12px;white-space:pre-wrap;}
+.ref-link{display:flex;align-items:center;gap:8px;margin-top:10px;padding:9px 12px;background:rgba(76,142,255,.08);border:1px solid rgba(76,142,255,.25);border-radius:8px;text-decoration:none;color:var(--inj);font-size:12px;}
+.ref-link:active{background:rgba(76,142,255,.18);}
+.ref-link .ref-badge{font-size:10px;padding:2px 6px;border-radius:4px;background:rgba(76,142,255,.2);white-space:nowrap;}
+
+
+/* DETAIL FULLSCREEN */
+#shDtl{border-radius:0;max-height:100vh;height:100vh;padding:20px 20px 40px;}
+#shDtl.on{bottom:0;}
+#shDtl .dname{font-size:24px;}
+#shDtl .dsub{font-size:15px;}
+#shDtl .drow{padding:14px 0;}
+#shDtl .dlbl{font-size:14px;}
+#shDtl .dmv{font-size:22px;}
+#shDtl .dmg{font-size:13px;}
+#shDtl .memo{font-size:14px;}
+#shDtl .bsec{font-size:15px;padding:10px 18px;}
+#shDtl .mode-info{font-size:15px;}
+#shDtl .ref-link{font-size:14px;padding:12px 14px;}
+#shDtl .nt{font-size:22px;}
+
+/* MODE INFO BOX in detail */
+.mode-info{border-radius:8px;padding:10px 12px;margin-bottom:12px;font-size:13px;}
+.mode-info.inj{background:rgba(76,142,255,.1);border:1px solid rgba(76,142,255,.3);color:var(--inj);}
+.mode-info.ora{background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.3);color:var(--ora);}
+.mode-info.top{background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.3);color:var(--top);}
+
+/* MGMT */
+.srow{display:flex;gap:10px;margin-bottom:16px;}
+.stat{flex:1;background:var(--bg);border-radius:8px;padding:10px;text-align:center;}
+.stat span{font-size:22px;font-weight:900;color:var(--ac);display:block;}
+.stat small{font-size:11px;color:var(--mu);}
+.mbtn{width:100%;padding:13px 14px;background:var(--bg);border:1px solid var(--bd);color:var(--tx);border-radius:10px;font-weight:600;font-size:14px;font-family:inherit;cursor:pointer;margin-bottom:10px;text-align:left;display:flex;flex-direction:column;gap:2px;}
+.mbtn small{font-size:11px;color:var(--mu);font-weight:400;}
+.mbtn.dn{color:var(--dn);}
+
+/* SIZE SETTINGS */
+.sz-slider{width:100%;-webkit-appearance:none;height:6px;border-radius:3px;background:var(--bd);outline:none;margin-top:6px;}
+.sz-slider::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--ac);cursor:pointer;border:2px solid var(--bg);}
+.sz-preset{padding:7px 12px;border-radius:8px;border:1px solid var(--bd);background:var(--bg);color:var(--mu);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;transition:.15s;}
+.sz-preset.on{background:var(--ac);color:#fff;border-color:var(--ac);}
+/* Color theme swatches */
+.theme-section{margin-bottom:12px;}
+.theme-section-label{font-size:10px;font-weight:700;color:var(--mu);letter-spacing:.4px;margin-bottom:7px;text-transform:uppercase;}
+.theme-base-row{display:flex;gap:8px;}
+.theme-base-btn{flex:1;padding:10px 6px;border-radius:10px;border:2px solid var(--bd);background:transparent;color:var(--mu);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;text-align:center;transition:.2s;line-height:1.2;}
+.theme-base-btn.on{border-color:var(--tx);color:var(--tx);}
+.theme-accent-row{display:flex;gap:8px;}
+.theme-ac-sw{flex:1;height:40px;border-radius:10px;cursor:pointer;border:2px solid transparent;transition:.2s;flex-shrink:0;box-shadow:0 2px 6px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;}
+.theme-ac-sw.on{border-color:var(--tx);box-shadow:0 0 0 1px var(--tx),0 4px 10px rgba(0,0,0,.5);}
+.theme-ac-dot{width:16px;height:16px;border-radius:50%;border:2px solid rgba(255,255,255,.25);}
+/* ===== かんたん追加パネル ===== */
+#easyAddPanel{display:none;position:fixed;inset:0;z-index:500;background:var(--bg);overflow-y:auto;padding-bottom:60px;}
+#easyAddPanel.open{display:block;}
+.ea-hdr{background:var(--pn);border-bottom:1px solid var(--bd);padding:13px 16px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;}
+.ea-hdr-left{display:flex;align-items:center;gap:10px;}
+.ea-back{background:none;border:none;color:var(--mu);font-size:22px;cursor:pointer;padding:2px 6px;line-height:1;}
+.ea-hdr-title{font-size:16px;font-weight:900;letter-spacing:-.5px;}
+.ea-hdr-title b{color:var(--ac);}
+.ea-hdr-sub{font-size:11px;color:var(--mu);margin-top:1px;}
+.ea-close{background:none;border:none;color:var(--mu);font-size:24px;cursor:pointer;padding:0 4px;}
+.ea-steps{display:flex;align-items:center;padding:14px 20px 6px;gap:0;max-width:480px;margin:0 auto;}
+.ea-si{display:flex;flex-direction:column;align-items:center;flex:1;position:relative;}
+.ea-si:not(:last-child)::after{content:'';position:absolute;top:14px;left:50%;width:100%;height:2px;background:var(--bd);z-index:0;transition:background .3s;}
+.ea-si.done:not(:last-child)::after{background:var(--ac);}
+.ea-circle{width:28px;height:28px;border-radius:50%;background:var(--bd);color:var(--mu);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;position:relative;z-index:1;transition:background .3s,transform .2s;}
+.ea-si.active .ea-circle{background:var(--ac);color:#fff;transform:scale(1.15);}
+.ea-si.done .ea-circle{background:var(--ac);color:#fff;}
+.ea-slabel{font-size:10px;color:var(--mu);margin-top:4px;text-align:center;white-space:nowrap;}
+.ea-si.active .ea-slabel{color:var(--ac);font-weight:700;}
+.ea-card{max-width:480px;margin:16px auto 0;padding:0 14px;}
+.ea-card-inner{background:var(--pn);border-radius:16px;padding:22px 18px;border:1px solid var(--bd);}
+.ea-page{display:none;}
+.ea-page.active{display:block;}
+.ea-card-title{font-size:17px;font-weight:700;color:var(--tx);margin-bottom:5px;}
+.ea-card-desc{font-size:12px;color:var(--mu);margin-bottom:18px;line-height:1.5;}
+.ea-field{margin-bottom:16px;}
+.ea-field label{display:block;font-size:12px;font-weight:700;color:var(--mu);margin-bottom:6px;}
+.ea-field .req{color:var(--dn);margin-left:3px;font-size:10px;}
+.ea-field .opt{color:var(--mu);font-weight:400;font-size:10px;margin-left:4px;}
+.ea-fi{width:100%;padding:12px 13px;border:1.5px solid var(--bd);border-radius:10px;font-size:16px;font-family:inherit;color:var(--tx);background:var(--bg);transition:border-color .2s;-webkit-appearance:none;appearance:none;outline:none;}
+.ea-fi:focus{border-color:var(--ac);}
+.ea-fi::placeholder{color:var(--mu);}
+select.ea-fi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M0 0l6 8 6-8z' fill='%237b84a0'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;}
+.ea-conc-row{display:flex;gap:8px;}
+.ea-conc-row .ea-fi:first-child{flex:1;}
+.ea-conc-row select.ea-fi{width:110px;flex-shrink:0;}
+.ea-route-grid{display:flex;gap:8px;}
+.ea-route-btn{flex:1;background:var(--bg);border:1.5px solid var(--bd);border-radius:10px;padding:11px 6px;text-align:center;cursor:pointer;transition:.15s;-webkit-tap-highlight-color:transparent;}
+.ea-route-btn .ea-icon{font-size:20px;display:block;}
+.ea-route-btn .ea-name{font-size:11px;color:var(--mu);margin-top:3px;font-weight:700;display:block;}
+.ea-route-btn.on{border-color:var(--ac);background:var(--pn);}
+.ea-route-btn.on .ea-name{color:var(--ac);}
+.ea-sp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+.ea-sp-btn{background:var(--bg);border:1.5px solid var(--bd);border-radius:10px;padding:10px 4px;text-align:center;cursor:pointer;transition:.15s;-webkit-tap-highlight-color:transparent;}
+.ea-sp-btn .ea-sp-icon{font-size:20px;display:block;}
+.ea-sp-btn .ea-sp-name{font-size:11px;color:var(--mu);margin-top:3px;font-weight:700;display:block;}
+.ea-sp-btn.on{border-color:var(--ac);background:var(--pn);}
+.ea-sp-btn.on .ea-sp-name{color:var(--ac);}
+.ea-dose-row{background:var(--bg);border-radius:12px;padding:13px;margin-bottom:9px;border:1.5px solid var(--bd);}
+.ea-dose-row.active{border-color:var(--ac);}
+.ea-dose-title{font-size:13px;font-weight:700;margin-bottom:9px;display:flex;align-items:center;gap:5px;color:var(--tx);}
+.ea-dose-inputs{display:grid;grid-template-columns:1fr auto 1fr;gap:6px;align-items:center;}
+.ea-dose-sep{text-align:center;color:var(--mu);font-size:13px;}
+.ea-dose-unit{font-size:11px;color:var(--mu);text-align:center;margin-top:4px;}
+.ea-hint{border-left:3px solid var(--ac);border-radius:0 8px 8px 0;padding:10px 12px;font-size:12px;color:var(--tx);line-height:1.5;margin-bottom:14px;background:var(--pn);}
+.ea-summary{background:var(--bg);border-radius:12px;padding:13px;margin-bottom:14px;border:1px solid var(--bd);}
+.ea-sum-row{display:flex;justify-content:space-between;padding:5px 0;font-size:13px;}
+.ea-sum-row:not(:last-child){border-bottom:1px solid var(--bd);}
+.ea-sum-label{color:var(--mu);}
+.ea-sum-value{font-weight:700;color:var(--tx);}
+.ea-btn-primary{width:100%;background:var(--ac);color:#fff;border:none;border-radius:12px;padding:15px;font-size:15px;font-weight:700;font-family:inherit;cursor:pointer;transition:.15s;-webkit-tap-highlight-color:transparent;}
+.ea-btn-primary:active{opacity:.85;transform:scale(.98);}
+.ea-btn-secondary{width:100%;background:transparent;color:var(--mu);border:1.5px solid var(--bd);border-radius:12px;padding:13px;font-size:14px;font-weight:700;font-family:inherit;cursor:pointer;transition:.15s;margin-top:10px;-webkit-tap-highlight-color:transparent;}
+.ea-btn-secondary:active{background:var(--bd);}
+.ea-btn-row{display:flex;gap:10px;margin-top:4px;}
+.ea-btn-row .ea-btn-primary,.ea-btn-row .ea-btn-secondary{margin-top:0;}
+.ea-done{text-align:center;padding:20px 0 10px;}
+.ea-done-icon{font-size:60px;display:block;margin-bottom:14px;animation:eaPop .4s cubic-bezier(.175,.885,.32,1.275);}
+@keyframes eaPop{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+.ea-done-title{font-size:21px;font-weight:700;color:var(--tx);margin-bottom:6px;}
+.ea-done-name{font-size:15px;color:var(--mu);margin-bottom:20px;}
+
+/* Size preset buttons */
+.sz-pre-row{display:flex;gap:8px;margin-bottom:14px;}
+.sz-pre{flex:1;padding:10px 6px;border-radius:10px;border:1px solid var(--bd);background:var(--bg);color:var(--mu);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;transition:.15s;text-align:center;}
+.sz-pre.on{background:var(--ac);color:#fff;border-color:var(--ac);}
+
+/* PROTOCOL SETS */
+.proto-card{background:var(--pn);border:1px solid var(--bd);border-radius:12px;padding:14px;margin-bottom:10px;cursor:pointer;transition:.15s;}
+.proto-card:active{opacity:.8;}
+.proto-card-name{font-size:15px;font-weight:700;margin-bottom:4px;}
+.proto-card-meta{font-size:11px;color:var(--mu);}
+.proto-drug-row{display:flex;justify-content:space-between;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--bd);}
+.proto-drug-row:last-child{border-bottom:none;}
+.proto-drug-name{font-size:13px;font-weight:700;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.proto-drug-val{font-family:'JetBrains Mono',monospace;font-size:18px;font-weight:700;color:var(--inj);text-align:right;flex-shrink:0;margin-left:8px;}
+.proto-drug-val.oral{color:var(--ora);}
+.proto-drug-val.top{color:var(--top);}
+.proto-drug-val.ref{font-size:11px;color:var(--wn);}
+.proto-drug-note{font-size:10px;color:var(--mu);margin-top:2px;}
+.drug-pick-row{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--bd);}
+.drug-pick-row:last-child{border-bottom:none;}
+.drug-pick-name{flex:1;font-size:13px;}
+.drug-pick-cat{font-size:10px;color:var(--mu);}
+.fab-proto{background:linear-gradient(135deg,#7c3aed,#4c8eff);color:#fff;padding:13px 22px;border-radius:30px;font-weight:700;font-size:14px;border:none;font-family:inherit;cursor:pointer;}
+
+@media print {
+  .hdr,.fab-wrap,#bd,#toast,.sh { display:none !important; }
+  #proto-print { display:block !important; }
+  body { background:#fff; color:#000; }
+  .proto-print-row { display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #ccc; }
+}
+#proto-print { display:none; }
+
+/* TOAST */
+#toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--ok);color:#fff;padding:10px 20px;border-radius:20px;font-weight:700;font-size:14px;z-index:2000;opacity:0;transition:.3s;pointer-events:none;white-space:nowrap;}
+#toast.on{opacity:1;transform:translateX(-50%) translateY(0);}
+
+/* ========== やさしいモード ========== */
+.ib.easy-on{background:rgba(34,197,94,.2);color:var(--ok);}
+#easyPanel{display:none;position:fixed;inset:0;z-index:500;background:var(--bg);overflow-y:auto;padding-bottom:40px;}
+#easyPanel.open{display:block;}
+.easy-hdr{background:var(--pn);border-bottom:1px solid var(--bd);padding:14px 16px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;}
+.easy-hdr-title{font-size:17px;font-weight:900;letter-spacing:-.5px;}
+.easy-hdr-title b{color:var(--ok);}
+.easy-close{background:none;border:none;color:var(--mu);font-size:24px;cursor:pointer;padding:0 4px;}
+.easy-body{padding:16px;}
+.easy-step{background:var(--pn);border-radius:14px;padding:16px;margin-bottom:12px;border:1px solid var(--bd);}
+.easy-step-label{font-size:11px;font-weight:700;color:var(--mu);letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.easy-step-num{background:var(--ok);color:#fff;border-radius:50%;width:18px;height:18px;font-size:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:900;}
+.easy-sp-btns{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+.easy-sp-btn{padding:10px 4px;border-radius:10px;border:1px solid var(--bd);background:var(--bg);color:var(--tx);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;text-align:center;transition:.15s;}
+.easy-sp-btn.on{background:var(--ok);border-color:var(--ok);color:#fff;}
+.easy-w-row{display:flex;align-items:center;gap:10px;margin-top:6px;}
+.easy-w-inp{flex:1;padding:12px;background:var(--bg);border:1px solid var(--bd);color:var(--tx);font-size:22px;font-family:'JetBrains Mono',monospace;font-weight:700;border-radius:10px;text-align:center;outline:none;}
+.easy-w-inp:focus{border-color:var(--ok);}
+.easy-w-btn{background:var(--bd);border:none;color:var(--tx);font-size:22px;font-weight:700;border-radius:10px;padding:10px 16px;cursor:pointer;flex-shrink:0;line-height:1;}
+.easy-w-unit{font-size:15px;color:var(--mu);font-weight:700;min-width:24px;}
+.easy-drug-search{width:100%;padding:11px 14px;background:var(--bg);border:1px solid var(--bd);color:var(--tx);font-size:16px;border-radius:10px;font-family:inherit;outline:none;margin-bottom:10px;}
+.easy-drug-search:focus{border-color:var(--ok);}
+.easy-drug-list{max-height:220px;overflow-y:auto;display:flex;flex-direction:column;gap:6px;}
+.easy-drug-item{padding:10px 12px;border-radius:10px;border:1px solid var(--bd);background:var(--bg);cursor:pointer;transition:.1s;}
+.easy-drug-item:active{background:var(--bd);}
+.easy-drug-item.on{border-color:var(--ok);background:rgba(34,197,94,.1);}
+.easy-drug-name{font-size:14px;font-weight:700;}
+.easy-drug-cat{font-size:11px;color:var(--mu);margin-top:2px;}
+/* 結果表示 */
+.easy-result{background:var(--pn);border-radius:14px;padding:20px;margin-bottom:12px;border:2px solid var(--ok);}
+.easy-result-title{font-size:12px;color:var(--ok);font-weight:700;letter-spacing:.5px;margin-bottom:12px;}
+.easy-result-ml{font-family:'JetBrains Mono',monospace;font-size:44px;font-weight:700;color:var(--ok);line-height:1;margin-bottom:4px;}
+.easy-result-ml em{font-size:20px;font-style:normal;color:var(--mu);margin-left:4px;}
+.easy-result-mg{font-size:16px;color:var(--mu);margin-bottom:12px;}
+.easy-result-note{font-size:13px;color:var(--tx);background:var(--bg);border-radius:8px;padding:10px 12px;white-space:pre-wrap;line-height:1.6;}
+.easy-result-drug{font-size:15px;font-weight:700;margin-bottom:4px;}
+.easy-result-conc{font-size:12px;color:var(--mu);margin-bottom:12px;}
+
+/* ========== 並び替え画面 ========== */
+#shSort .sh{ max-height:90vh; }
+.sort-cat-sel{display:flex;gap:6px;flex-wrap:wrap;padding:4px 0 12px;}
+.sort-cat-btn{background:var(--bg);border:1px solid var(--bd);border-radius:16px;padding:6px 14px;font-size:12px;color:var(--mu);cursor:pointer;font-family:inherit;transition:.15s;}
+.sort-cat-btn.on{background:var(--ac);border-color:var(--ac);color:#fff;}
+.sort-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px;}
+.sort-item{display:flex;align-items:center;gap:10px;background:var(--pn);border:1px solid var(--bd);border-radius:10px;padding:10px 12px;cursor:grab;user-select:none;transition:.15s;}
+.sort-item.dragging{opacity:.4;cursor:grabbing;}
+.sort-item.drag-over{border-color:var(--ac);background:rgba(76,142,255,.08);}
+.sort-handle{font-size:18px;color:var(--mu);flex-shrink:0;}
+.sort-name{flex:1;font-size:13px;font-weight:600;color:var(--tx);}
+.sort-conc{font-size:11px;color:var(--mu);}
+.sort-save{width:100%;margin-top:16px;}
+
+/* ========== カードドラッグ並び替え ========== */
+.card.draggable{ cursor: grab; }
+.card.draggable:active{ cursor: grabbing; }
+.card.drag-dragging{ opacity:.35; transform:scale(.97); }
+.card.drag-over-top{ box-shadow: 0 -3px 0 0 var(--ac); }
+.card.drag-over-bot{ box-shadow: 0 3px 0 0 var(--ac); }
+.drag-handle{ position:absolute;top:6px;right:6px;font-size:14px;color:var(--bd);opacity:0;transition:.15s;pointer-events:none; }
+.card.draggable:hover .drag-handle, .card.draggable:active .drag-handle{ opacity:1; }
+
+/* インポートダイアログ */
+#importDialog { display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,.7); align-items:center; justify-content:center; }
+#importDialog.show { display:flex; }
+.imp-box { background:var(--bg2); border-radius:16px; padding:28px 24px; max-width:320px; width:90%; box-shadow:0 8px 32px rgba(0,0,0,.5); }
+.imp-box h3 { margin:0 0 8px; font-size:17px; color:var(--tx); }
+.imp-box p { margin:0 0 24px; font-size:14px; color:var(--mu); line-height:1.6; }
+.imp-btns { display:flex; flex-direction:column; gap:10px; }
+.imp-btns button { padding:13px; border:none; border-radius:10px; font-size:15px; font-weight:600; cursor:pointer; }
+.imp-btn-cancel { background:var(--bg3); color:var(--mu); }
+.imp-btn-merge  { background:var(--ac); color:#fff; }
+.imp-btn-replace{ background:#e74c3c; color:#fff; }
+
+/* 錠剤表示 */
+.cv.tab { font-size: 0.95em; letter-spacing: -0.02em; }
+/* 外用薬専用レイアウト */
+.top-note-box { background: rgba(76,142,255,.06); border:1px solid rgba(76,142,255,.18); border-radius:12px; padding:14px 16px; margin-bottom:12px; }
+.top-note-title { font-size:13px; font-weight:700; color:var(--top); margin-bottom:6px; }
+.top-note-line { font-size:12.5px; color:var(--tx); line-height:1.7; padding:1px 0; }
+.top-note-line.warn { color:#e0704a; }
+.top-note-line.good { color:#4caf50; }
+
+/* ===== VetCalc Diet SCREEN ===== */
+#hmPanel{display:none;position:fixed;inset:0;z-index:500;background:var(--bg);overflow-y:auto;padding-bottom:80px;}
+#hmPanel.open{display:block;}
+.hm-hdr{background:var(--pn);border-bottom:1px solid var(--bd);padding:13px 16px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:10;}
+.hm-hdr-title{font-size:16px;font-weight:700;flex:1;}
+.hm-back{background:none;border:none;color:var(--mu);font-size:22px;cursor:pointer;padding:0 4px;line-height:1;}
+.hm-body{padding:12px 14px;}
+.hm-sec-lbl{font-size:10px;font-weight:700;color:var(--mu);letter-spacing:.5px;text-transform:uppercase;margin:16px 0 8px;}
+/* 体重 */
+.hm-bw-row{display:flex;align-items:center;gap:10px;background:var(--pn);border:1px solid var(--bd);border-radius:12px;padding:12px 14px;}
+.hm-bw-label{font-size:13px;color:var(--mu);white-space:nowrap;}
+.hm-bw-input{flex:1;background:var(--bd);border:none;color:var(--tx);border-radius:8px;padding:10px 12px;font-size:20px;font-weight:700;font-family:inherit;outline:none;text-align:right;min-width:0;}
+.hm-bw-input:focus{outline:2px solid var(--ac);}
+.hm-bw-unit{font-size:15px;color:var(--mu);font-weight:700;}
+/* 3種カロリー */
+.hm-sp-row{display:flex;gap:6px;margin-bottom:8px;}
+.hm-sp-btn{flex:1;padding:7px 4px;border-radius:8px;border:1px solid var(--bd);background:var(--bg);color:var(--mu);font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;text-align:center;transition:.15s;}
+.hm-sp-btn.on{background:var(--ac);border-color:var(--ac);color:#fff;}
+.hm-stage-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:10px;}
+.hm-stage-btn{padding:9px 6px;border-radius:10px;border:1px solid var(--bd);background:var(--bg);color:var(--mu);font-size:12px;cursor:pointer;font-family:inherit;text-align:left;transition:.15s;display:flex;justify-content:space-between;align-items:center;gap:4px;}
+.hm-stage-btn .st-name{font-weight:700;font-size:12px;}
+.hm-stage-btn .st-coef{font-size:11px;opacity:.7;white-space:nowrap;}
+.hm-stage-btn.on{border-color:var(--ac);background:rgba(76,142,255,.12);color:var(--tx);}
+.hm-stage-btn.on .st-name{color:var(--ac);}
+.hm-stage-btn.on .st-coef{color:var(--ac);opacity:1;}
+/* BCS */
+.hm-bcs-row{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
+.hm-bcs-scale-btns{display:flex;gap:4px;margin-bottom:8px;}
+.hm-bcs-scale-btn{flex:1;padding:5px 4px;border-radius:7px;border:1px solid var(--bd);background:var(--bg);color:var(--mu);font-size:11px;font-weight:700;cursor:pointer;font-family:inherit;text-align:center;transition:.15s;}
+.hm-bcs-scale-btn.on{background:var(--ac);border-color:var(--ac);color:#fff;}
+.hm-bcs-bar-wrap{position:relative;margin-bottom:4px;}
+.hm-bcs-bar{display:flex;gap:3px;margin-bottom:2px;}
+.hm-bcs-seg{flex:1;height:14px;border-radius:4px;background:var(--bd);cursor:pointer;transition:.15s;position:relative;}
+.hm-bcs-seg.ideal{background:rgba(76,142,255,.25);}
+.hm-bcs-seg.active{transform:scaleY(1.3);}
+.hm-bcs-seg[data-bcs="1"].active,.hm-bcs-seg[data-bcs="2"].active,.hm-bcs-seg[data-bcs="3"].active{background:#60a5fa;}
+.hm-bcs-seg[data-bcs="4"].active,.hm-bcs-seg[data-bcs="5"].active{background:#22c55e;}
+.hm-bcs-seg[data-bcs="6"].active,.hm-bcs-seg[data-bcs="7"].active{background:#f59e0b;}
+.hm-bcs-seg[data-bcs="8"].active,.hm-bcs-seg[data-bcs="9"].active{background:#ef4444;}
+.hm-bcs-labels{display:flex;gap:3px;}
+.hm-bcs-lbl{flex:1;text-align:center;font-size:9px;color:var(--mu);}
+.hm-bcs-result{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;margin-top:6px;}
+.hm-bcs-res-card{background:var(--pn);border:1px solid var(--bd);border-radius:9px;padding:7px 5px;text-align:center;}
+.hm-bcs-res-val{font-size:15px;font-weight:700;color:var(--ac);}
+.hm-bcs-res-lbl{font-size:9px;color:var(--mu);margin-top:2px;}
+.hm-bcs-status{font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px;margin-left:auto;}
+.hm-bcs-status.thin{background:rgba(96,165,250,.15);color:#60a5fa;}
+.hm-bcs-status.ideal{background:rgba(34,197,94,.15);color:#22c55e;}
+.hm-bcs-status.over{background:rgba(245,158,11,.15);color:#f59e0b;}
+.hm-bcs-status.obese{background:rgba(239,68,68,.15);color:#ef4444;}
+.hm-ibw-note{font-size:10px;color:var(--mu);text-align:center;margin-top:4px;}
+/* IBW適用時のカード強調 */
+.hm-cal-card.ibw-active{border-color:#22c55e;background:rgba(34,197,94,.08);}
+.hm-calbox{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:4px;}
+.hm-cal-card{background:var(--pn);border:1px solid var(--bd);border-radius:10px;padding:10px 6px;text-align:center;}
+.hm-cal-card.selected{border-color:var(--ac);background:rgba(76,142,255,.1);}
+.hm-cal-val{font-size:17px;font-weight:700;color:var(--ac);}
+.hm-cal-val.main{font-size:22px;}
+.hm-cal-lbl{font-size:10px;color:var(--mu);margin-top:2px;line-height:1.3;}
+.hm-cal-coef{font-size:9px;color:var(--mu);margin-top:1px;}
+/* 食材テーブル */
+.hm-ing-table{width:100%;background:var(--pn);border:1px solid var(--bd);border-radius:12px;overflow:hidden;margin-bottom:8px;}
+.hm-ing-thead{display:grid;grid-template-columns:1fr 64px 58px 32px;gap:4px;padding:7px 10px;border-bottom:1px solid var(--bd);}
+.hm-ing-th{font-size:10px;font-weight:700;color:var(--mu);text-align:right;}
+.hm-ing-th:first-child{text-align:left;}
+.hm-ing-tbody{}
+.hm-ing-row{display:grid;grid-template-columns:1fr 64px 58px 32px;gap:4px;align-items:center;padding:5px 10px;border-bottom:1px solid var(--bd);}
+.hm-ing-row:last-child{border-bottom:none;}
+.hm-ing-name{font-size:13px;color:var(--tx);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.hm-ing-g{background:var(--bd);border:none;color:var(--tx);border-radius:6px;padding:5px 6px;font-size:14px;font-weight:700;font-family:inherit;outline:none;text-align:right;width:100%;}
+.hm-ing-g:focus{outline:2px solid var(--ac);}
+.hm-ing-kcal{font-size:12px;color:var(--mu);text-align:right;}
+.hm-ing-del{background:none;border:none;color:var(--bd);font-size:16px;cursor:pointer;padding:2px;line-height:1;text-align:center;}
+.hm-ing-del:active{color:var(--dn);}
+/* 合計行 */
+.hm-ing-total{display:grid;grid-template-columns:1fr 64px 58px 32px;gap:4px;align-items:center;padding:8px 10px;background:var(--bd);border-radius:0 0 10px 10px;}
+.hm-ing-total-lbl{font-size:12px;font-weight:700;color:var(--mu);}
+.hm-ing-total-g{font-size:13px;font-weight:700;color:var(--tx);text-align:right;}
+.hm-ing-total-kcal{font-size:16px;font-weight:900;text-align:right;}
+.hm-ing-total-kcal.ok{color:var(--ok);}
+.hm-ing-total-kcal.warn{color:var(--wn);}
+.hm-ing-total-kcal.ng{color:var(--dn);}
+/* 食材追加フォーム */
+.hm-add-form{background:var(--pn);border:1px solid var(--bd);border-radius:12px;padding:12px;}
+.hm-add-row{display:flex;gap:8px;margin-bottom:8px;align-items:center;}
+.hm-add-row:last-child{margin-bottom:0;}
+.hm-add-sel{flex:1;background:var(--bd);border:none;color:var(--tx);border-radius:8px;padding:9px 10px;font-size:13px;font-family:inherit;outline:none;min-width:0;}
+.hm-add-btn{background:var(--ac);color:#fff;border:none;border-radius:8px;padding:9px 16px;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap;font-family:inherit;}
+.hm-custom-toggle{font-size:12px;color:var(--ac);background:none;border:none;cursor:pointer;font-family:inherit;padding:0;}
+.hm-custom-form{margin-top:8px;display:none;}
+.hm-custom-form.open{display:block;}
+.hm-custom-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px;}
+.hm-custom-field{display:flex;flex-direction:column;gap:3px;}
+.hm-custom-lbl{font-size:10px;color:var(--mu);}
+.hm-custom-inp{background:var(--bd);border:none;color:var(--tx);border-radius:6px;padding:7px 8px;font-size:13px;font-family:inherit;outline:none;width:100%;text-align:right;}
+.hm-custom-inp:focus{outline:2px solid var(--ac);}
+.hm-custom-name-inp{text-align:left;}
+.hm-custom-add-btn{width:100%;background:var(--pn);color:var(--ac);border:1px solid var(--ac);border-radius:8px;padding:9px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;}
+/* 成分サマリー */
+.hm-nutr-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;background:var(--pn);border:1px solid var(--bd);border-radius:12px;padding:12px;}
+.hm-nutr-item{display:flex;justify-content:space-between;align-items:center;padding:3px 0;}
+.hm-nutr-key{font-size:12px;color:var(--mu);}
+.hm-nutr-val{font-size:13px;font-weight:700;color:var(--tx);}
+/* 按分 */
+.hm-blend-card{background:var(--pn);border:1px solid var(--bd);border-radius:12px;padding:14px;}
+.hm-blend-ratio-row{display:flex;gap:0;border:1px solid var(--bd);border-radius:8px;overflow:hidden;margin-bottom:12px;}
+.hm-blend-ratio-btn{flex:1;padding:7px 4px;border:none;background:var(--bg);color:var(--mu);font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;border-right:1px solid var(--bd);text-align:center;}
+.hm-blend-ratio-btn:last-child{border-right:none;}
+.hm-blend-ratio-btn.on{background:var(--ac);color:#fff;}
+.hm-blend-sel{width:100%;background:var(--bd);border:none;color:var(--tx);border-radius:8px;padding:9px 10px;font-size:13px;font-family:inherit;outline:none;margin-bottom:10px;}
+.hm-blend-result{background:var(--bg);border-radius:8px;padding:10px 12px;}
+.hm-blend-result-row{display:flex;justify-content:space-between;align-items:center;padding:3px 0;}
+.hm-blend-result-key{font-size:12px;color:var(--mu);}
+.hm-blend-result-val{font-size:13px;font-weight:700;color:var(--tx);}
+/* 外部リンク */
+.hm-links{display:flex;flex-direction:column;gap:6px;}
+.hm-link-btn{display:flex;align-items:center;gap:10px;background:var(--pn);border:1px solid var(--bd);border-radius:10px;padding:11px 14px;color:var(--tx);text-decoration:none;font-size:13px;}
+.hm-link-btn span{color:var(--mu);font-size:11px;margin-left:auto;}
+/* 超低脂肪メモ */
+.hm-memo-card{background:rgba(249,115,22,.08);border:1px solid rgba(249,115,22,.3);border-radius:12px;padding:12px 14px;}
+.hm-memo-title{font-size:12px;font-weight:700;color:var(--top);margin-bottom:6px;}
+.hm-memo-body{font-size:12px;color:var(--tx);line-height:1.7;}
+/* ===== DDx SCREEN ===== */
+#ddxPanel{display:none;position:fixed;inset:0;z-index:500;background:var(--bg);overflow-y:auto;padding-bottom:60px;}
+#ddxPanel.open{display:block;}
+.ddx-hdr{background:var(--pn);border-bottom:1px solid var(--bd);padding:13px 16px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:10;}
+.ddx-hdr-title{font-size:16px;font-weight:700;flex:1;}
+.ddx-back{background:none;border:none;color:var(--mu);font-size:22px;cursor:pointer;padding:0 4px;line-height:1;}
+.ddx-search-wrap{padding:10px 14px 0;background:var(--pn);border-bottom:1px solid var(--bd);position:sticky;top:48px;z-index:9;}
+.ddx-search{width:100%;background:var(--bd);border:none;color:var(--tx);border-radius:10px;padding:9px 14px;font-size:14px;font-family:inherit;outline:none;display:block;margin-bottom:8px;}
+.ddx-search:focus{outline:2px solid var(--ac);}
+.ddx-catbar{display:flex;gap:5px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none;}
+.ddx-catbar::-webkit-scrollbar{display:none;}
+.ddx-cattag{padding:4px 12px;border-radius:16px;background:var(--bg);border:1px solid var(--bd);white-space:nowrap;font-size:11px;color:var(--mu);cursor:pointer;flex-shrink:0;}
+.ddx-cattag.on{background:var(--ac);border-color:var(--ac);color:#fff;}
+.ddx-count{font-size:11px;color:var(--mu);padding:6px 16px;background:var(--pn);border-bottom:1px solid var(--bd);}
+.ddx-body{padding:10px 14px;}
+.ddx-item{background:var(--pn);border:1px solid var(--bd);border-radius:12px;margin-bottom:8px;overflow:hidden;}
+.ddx-item-hdr{padding:12px 14px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:8px;}
+.ddx-item-cat{font-size:10px;color:var(--mu);margin-bottom:2px;}
+.ddx-item-title{font-size:14px;font-weight:700;color:var(--tx);}
+.ddx-arrow{color:var(--mu);font-size:16px;transition:transform .2s;flex-shrink:0;}
+.ddx-item.open .ddx-arrow{transform:rotate(90deg);}
+.ddx-tree{display:none;padding:0 14px 12px;}
+.ddx-item.open .ddx-tree{display:block;}
+.ddx-node{padding:2px 0;line-height:1.5;}
+.ddx-node.lv0{font-size:13px;font-weight:700;color:var(--ac);margin-top:6px;}
+.ddx-node.lv1{font-size:13px;color:var(--tx);padding-left:12px;}
+.ddx-node.lv1::before{content:"• ";color:var(--mu);}
+.ddx-node.lv2{font-size:12px;color:var(--mu);padding-left:24px;}
+.ddx-node.lv2::before{content:"◦ ";}
+.ddx-node.lv3{font-size:12px;color:var(--mu);padding-left:36px;opacity:.8;}
+.ddx-node.lv3::before{content:"– ";}
+.ddx-node.lv4{font-size:11px;color:var(--mu);padding-left:48px;opacity:.7;}
+.ddx-node.lv4::before{content:"· ";}
+.ddx-empty{text-align:center;color:var(--mu);padding:40px 20px;font-size:14px;}
+
+/* ===== BSA PANEL ===== */
+#bsaPanel{display:none;position:fixed;inset:0;z-index:500;background:var(--bg);overflow-y:auto;padding-bottom:80px;}
+#bsaPanel.open{display:block;}
+.bsa-hdr{background:var(--pn);border-bottom:1px solid var(--bd);padding:13px 16px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:10;}
+.bsa-hdr-title{font-size:16px;font-weight:700;flex:1;}
+.bsa-back{background:none;border:none;color:var(--mu);font-size:22px;cursor:pointer;padding:0 4px;line-height:1;}
+.bsa-body{padding:14px;max-width:600px;margin:0 auto;}
+.bsa-sp-row{display:flex;gap:8px;margin-bottom:14px;}
+.bsa-sp-btn{flex:1;padding:10px 6px;background:var(--pn);border:1.5px solid var(--bd);border-radius:12px;color:var(--mu);font-size:13px;font-weight:700;font-family:inherit;cursor:pointer;text-align:center;transition:.15s;}
+.bsa-sp-btn .bsa-sp-icon{font-size:20px;display:block;margin-bottom:3px;}
+.bsa-sp-btn.on{border-color:var(--bsa);background:rgba(167,139,250,.12);color:var(--bsa);}
+.bsa-inp-card{background:var(--pn);border:1px solid var(--bd);border-radius:14px;padding:14px;margin-bottom:12px;}
+.bsa-inp-row{display:flex;align-items:center;gap:10px;justify-content:center;}
+.bsa-adj{background:var(--bd);border:none;color:var(--tx);font-size:20px;font-weight:700;border-radius:10px;padding:10px 14px;cursor:pointer;flex-shrink:0;line-height:1;}
+.bsa-adj:active{background:var(--bsa);color:#fff;}
+.bsa-w-inp{width:160px;padding:12px;background:var(--bg);border:1.5px solid var(--bd);color:var(--tx);font-size:36px;font-family:'JetBrains Mono',monospace;font-weight:700;border-radius:10px;text-align:center;outline:none;}
+.bsa-w-inp:focus{border-color:var(--bsa);}
+.bsa-result{background:var(--pn);border:2px solid var(--bsa);border-radius:14px;padding:18px;margin-bottom:12px;text-align:center;}
+.bsa-result.empty{border-color:var(--bd);opacity:.5;}
+.bsa-result-lbl{font-size:11px;font-weight:700;color:var(--bsa);letter-spacing:.5px;text-transform:uppercase;margin-bottom:6px;}
+.bsa-result-val{font-family:'JetBrains Mono',monospace;font-size:48px;font-weight:700;color:var(--bsa);line-height:1;}
+.bsa-result-val em{font-size:18px;font-style:normal;color:var(--mu);margin-left:4px;}
+.bsa-result-formula{font-size:11px;color:var(--mu);margin-top:8px;background:var(--bg);border-radius:8px;padding:7px 10px;font-family:'JetBrains Mono',monospace;}
+.bsa-info{background:rgba(167,139,250,.08);border:1px solid rgba(167,139,250,.2);border-radius:10px;padding:10px 12px;margin-bottom:12px;font-size:12px;color:var(--mu);line-height:1.6;}
+.bsa-info b{color:var(--bsa);}
+.bsa-sec-title{font-size:13px;font-weight:700;color:var(--tx);margin:16px 0 8px;display:flex;align-items:center;gap:8px;}
+.bsa-badge{font-size:10px;padding:2px 7px;border-radius:10px;font-weight:700;}
+.bsa-badge-dog{background:rgba(76,142,255,.2);color:var(--inj);}
+.bsa-badge-cat{background:rgba(167,139,250,.2);color:var(--bsa);}
+.bsa-chemo-table{background:var(--pn);border:1px solid var(--bd);border-radius:12px;overflow:hidden;margin-bottom:12px;}
+.bsa-chemo-hdr{display:grid;grid-template-columns:1fr 1fr 60px;gap:4px;padding:7px 12px;background:var(--bg);font-size:10px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:.4px;}
+.bsa-chemo-row{display:grid;grid-template-columns:1fr 1fr 60px;gap:4px;padding:10px 12px;border-top:1px solid var(--bd);align-items:center;}
+.bsa-chemo-name{font-size:15px;font-weight:700;}
+.bsa-chemo-dose{font-family:'JetBrains Mono',monospace;font-size:18px;font-weight:700;color:var(--ok);text-align:right;}
+.bsa-chemo-dose.zero{color:var(--mu);}
+.bsa-chemo-base{font-size:10px;color:var(--mu);text-align:right;}
+.bsa-lookup-wrap{margin-bottom:10px;}
+.bsa-lookup-toggle{width:100%;padding:10px 14px;background:var(--pn);border:1px solid var(--bd);border-radius:10px;color:var(--tx);font-size:13px;font-weight:700;font-family:inherit;cursor:pointer;display:flex;align-items:center;justify-content:space-between;}
+.bsa-lookup-toggle .arr{font-size:14px;color:var(--mu);transition:.2s;}
+.bsa-lookup-toggle.open .arr{transform:rotate(180deg);}
+.bsa-lookup-body{display:none;background:var(--pn);border:1px solid var(--bd);border-top:none;border-radius:0 0 10px 10px;overflow:hidden;}
+.bsa-lookup-body.open{display:block;}
+.bsa-lt-hdr{display:grid;grid-template-columns:1fr 1fr 16px 1fr 1fr;background:var(--bg);padding:6px 12px;font-size:10px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:.3px;}
+.bsa-lt-row{display:grid;grid-template-columns:1fr 1fr 16px 1fr 1fr;padding:5px 12px;border-top:1px solid var(--bd);font-size:13px;font-family:'JetBrains Mono',monospace;align-items:center;}
+.bsa-lt-row.hi{background:rgba(167,139,250,.10);border-left:2px solid var(--bsa);}
+.bsa-lt-val{color:var(--tx);}
+.bsa-lt-bsa{color:var(--bsa);font-weight:700;text-align:right;}
+.bsa-ref-block{background:var(--pn);border:1px solid var(--bd);border-radius:10px;padding:12px;margin-bottom:10px;}
+.bsa-ref-title{font-size:10px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:.4px;margin-bottom:8px;}
+.bsa-ref-link{display:flex;align-items:center;gap:8px;padding:8px 10px;background:rgba(76,142,255,.08);border:1px solid rgba(76,142,255,.2);border-radius:8px;text-decoration:none;color:var(--inj);font-size:12px;margin-bottom:6px;}
+.bsa-ref-link:last-child{margin-bottom:0;}
+
+/* ===== CRI ===== */
+
+/* ===== BASE (VetCalc PRO デザイン言語継承) ===== */
+
+
+
+
+/* ===== HEADER ===== */
+
+
+
+
+
+.hdr-title .badge{
+  font-size:10px; background:var(--cri); color:#fff;
+  padding:2px 7px; border-radius:10px; font-weight:700; letter-spacing:.5px;
+}
+
+.ver-tag{font-size:10px; color:var(--mu); font-family:'JetBrains Mono',monospace;}
+
+/* ===== DRUG SELECTOR ===== */
+.drug-grid{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:8px; padding:14px;
+}
+.drug-btn{
+  background:var(--pn); border:1.5px solid var(--bd);
+  border-radius:12px; padding:13px 10px;
+  cursor:pointer; transition:.15s; text-align:left;
+  display:flex; align-items:center; gap:10px;
+  -webkit-tap-highlight-color:transparent;
+}
+.drug-btn:active{opacity:.75;}
+.drug-btn.on{
+  border-color:var(--cri);
+  background:rgba(168,85,247,.1);
+}
+.drug-btn.flk{
+  grid-column:1/-1;
+  background:linear-gradient(135deg,rgba(168,85,247,.08),rgba(76,142,255,.08));
+  border-color:rgba(168,85,247,.4);
+}
+.drug-btn.flk.on{
+  border-color:var(--cri);
+  background:linear-gradient(135deg,rgba(168,85,247,.18),rgba(76,142,255,.18));
+}
+.db-icon{font-size:22px; flex-shrink:0;}
+.db-info{flex:1; min-width:0;}
+.db-name{font-size:13px; font-weight:700; color:var(--tx);}
+.db-conc{font-size:10px; color:var(--mu); margin-top:2px;}
+.db-range{font-size:10px; color:var(--cri); margin-top:1px; font-family:'JetBrains Mono',monospace;}
+
+/* ===== SECTION LABEL ===== */
+.sec-label{
+  font-size:10px; font-weight:700; color:var(--mu);
+  letter-spacing:.6px; text-transform:uppercase;
+  padding:0 14px 6px; margin-top:4px;
+}
+
+/* ===== CALCULATOR PANEL (ボトムシート風) ===== */
+#criCalcPanel{
+  position:fixed; inset:0; z-index:500;
+  background:var(--bg); overflow-y:auto;
+  padding-bottom:40px;
+  transform:translateY(100%);
+  transition:.3s cubic-bezier(.4,0,.2,1);
+}
+#criCalcPanel.open{transform:translateY(0);}
+
+.cp-hdr{
+  background:var(--pn); border-bottom:1px solid var(--bd);
+  padding:14px 16px; display:flex; align-items:center;
+  justify-content:space-between; position:sticky; top:0; z-index:10;
+}
+.cp-back{
+  background:none; border:none; color:var(--mu);
+  font-size:22px; cursor:pointer; padding:2px 8px; line-height:1;
+}
+.cp-drug-name{font-size:17px; font-weight:900;}
+.cp-drug-name span{color:var(--cri);}
+.cp-conc-badge{
+  font-size:10px; background:rgba(168,85,247,.2); color:var(--cri);
+  padding:3px 9px; border-radius:10px; font-weight:700;
+  font-family:'JetBrains Mono',monospace;
+}
+
+/* ===== FORM AREA ===== */
+.cp-
+
+.input-card{
+  background:var(--pn); border:1px solid var(--bd);
+  border-radius:14px; padding:16px; margin-bottom:12px;
+}
+.input-card-title{
+  font-size:11px; font-weight:700; color:var(--mu);
+  letter-spacing:.5px; text-transform:uppercase; margin-bottom:12px;
+  display:flex; align-items:center; gap:6px;
+}
+.input-card-title::before{
+  content:''; width:3px; height:14px;
+  background:var(--cri); border-radius:2px; flex-shrink:0;
+}
+
+.fi-row{display:flex; align-items:center; gap:10px; margin-bottom:12px;}
+.fi-row:last-child{margin-bottom:0;}
+.fi-label{font-size:12px; color:var(--mu); flex-shrink:0; width:110px; line-height:1.3;}
+.fi-label small{display:block; font-size:10px; color:var(--bd); margin-top:1px;}
+.fi-right{display:flex; align-items:center; gap:6px; flex:1;}
+.fi{
+  flex:1; padding:11px 12px;
+  background:var(--bg); border:1.5px solid var(--bd);
+  color:var(--tx); font-size:18px; font-weight:700;
+  font-family:'JetBrains Mono',monospace;
+  border-radius:10px; outline:none; text-align:right;
+  min-width:0; -webkit-appearance:none; appearance:none;
+}
+.fi:focus{border-color:var(--cri);}
+.fi-unit{font-size:12px; color:var(--mu); white-space:nowrap; flex-shrink:0; min-width:52px;}
+
+/* ±ボタン */
+.fi-step-btn{
+  background:var(--bd); border:none; color:var(--tx);
+  font-size:18px; font-weight:700; width:36px; height:36px;
+  border-radius:8px; cursor:pointer; flex-shrink:0;
+  display:flex; align-items:center; justify-content:center;
+  line-height:1;
+}
+
+/* FLK用：3薬剤横並び */
+.flk-dose-grid{
+  display:grid; grid-template-columns:1fr 1fr 1fr;
+  gap:8px; margin-bottom:8px;
+}
+.flk-col{text-align:center;}
+/* ===== メトクロプラミド専用UI ===== */
+.metoclo-dose-btn{
+  flex:1; padding:10px 6px; border-radius:10px;
+  border:1.5px solid var(--bd); background:var(--bg);
+  color:var(--mu); font-size:13px; font-weight:700;
+  font-family:inherit; cursor:pointer; transition:.15s;
+  text-align:center;
+}
+.metoclo-dose-btn.active{
+  border-color:var(--cri); background:rgba(168,85,247,.15);
+  color:var(--cri);
+}
+.flk-col-name{
+  font-size:11px; font-weight:700; padding:5px 6px;
+  border-radius:6px; margin-bottom:6px;
+}
+.flk-col-name.fen{background:rgba(76,142,255,.15); color:var(--ac);}
+.flk-col-name.lid{background:rgba(31,204,122,.15); color:var(--ok);}
+.flk-col-name.ket{background:rgba(255,176,32,.15); color:var(--wn);}
+.flk-fi{
+  width:100%; padding:9px 6px;
+  background:var(--bg); border:1.5px solid var(--bd);
+  color:var(--tx); font-size:16px; font-weight:700;
+  font-family:'JetBrains Mono',monospace;
+  border-radius:8px; outline:none; text-align:center;
+  -webkit-appearance:none; appearance:none;
+}
+.flk-fi:focus{border-color:var(--cri);}
+.flk-unit{font-size:10px; color:var(--mu); margin-top:3px;}
+
+/* 推奨レンジ表示 */
+.range-wrap{
+  margin-top:10px;
+  background:var(--bg); border:1px solid var(--bd);
+  border-radius:10px; padding:10px 12px;
+}
+.range-header{
+  display:flex; justify-content:space-between; align-items:center;
+  margin-bottom:8px;
+}
+.range-title{font-size:10px; color:var(--mu); font-weight:700; letter-spacing:.4px; text-transform:uppercase;}
+.range-val-badge{
+  font-size:11px; font-family:'JetBrains Mono',monospace;
+  font-weight:700; color:var(--cri);
+  background:rgba(168,85,247,.12); border-radius:6px;
+  padding:2px 8px;
+}
+.range-bar{height:6px; background:var(--bd); border-radius:3px; position:relative;}
+.range-fill{
+  position:absolute; top:0; height:100%;
+  background:linear-gradient(90deg,var(--ok),var(--cri));
+  border-radius:3px; transition:width .25s;
+}
+/* 現在値マーカー（表示専用） */
+.range-thumb{
+  position:absolute; top:50%; transform:translate(-50%,-50%);
+  width:18px; height:18px; border-radius:50%;
+  background:var(--cri); border:2px solid var(--bg);
+  box-shadow:0 0 0 2px var(--cri);
+  pointer-events:none; /* スライダー本体が受け取る */
+  transition:left .1s;
+}
+/* ネイティブ range input でスライダーを実現 */
+.dose-slider{
+  -webkit-appearance:none; appearance:none;
+  width:100%; height:6px; border-radius:3px;
+  background:transparent; /* range-bar の上に重ねる */
+  outline:none; cursor:pointer;
+  position:absolute; top:0; left:0;
+  margin:0; padding:0;
+  opacity:0; /* 透明にして range-bar を見せる */
+  z-index:2;
+}
+.dose-slider::-webkit-slider-thumb{
+  -webkit-appearance:none; appearance:none;
+  width:28px; height:28px; border-radius:50%;
+  cursor:pointer;
+}
+.dose-slider::-moz-range-thumb{
+  width:28px; height:28px; border-radius:50%;
+  border:none; cursor:pointer;
+}
+.range-bar{ position:relative; } /* 重ね合わせのベース */
+.range-minmax{
+  display:flex; justify-content:space-between;
+  margin-top:5px;
+}
+.range-minmax span{
+  font-size:11px; font-family:'JetBrains Mono',monospace;
+  color:var(--mu);
+}
+.range-minmax span b{color:var(--tx); font-weight:700;}
+
+/* FLK用レンジ（小サイズ） */
+.range-bar-wrap{margin-top:6px;}
+.range-bar-sm{height:4px; background:var(--bd); border-radius:2px; position:relative;}
+.flk-slider{
+  -webkit-appearance:none; appearance:none;
+  width:100%; height:4px; border-radius:2px;
+  background:transparent; outline:none; cursor:pointer;
+  position:absolute; top:0; left:0; margin:0; padding:0;
+  opacity:0; z-index:2;
+}
+.flk-slider::-webkit-slider-thumb{
+  -webkit-appearance:none; width:22px; height:22px; border-radius:50%; cursor:pointer;
+}
+.flk-slider::-moz-range-thumb{
+  width:22px; height:22px; border-radius:50%; border:none; cursor:pointer;
+}
+.range-fill-sm{
+  position:absolute; top:0; height:100%;
+  border-radius:2px; transition:width .1s;
+}
+.range-labels{display:flex; justify-content:space-between; font-size:9px; color:var(--mu); margin-top:3px;}
+
+/* ===== METHOD BLOCKS（バッグ法 / シリンジ法） ===== */
+.method-block{
+  background:var(--pn); border-radius:16px;
+  border:1.5px solid var(--bd);
+  margin-top:14px; overflow:hidden;
+  transition:border-color .2s;
+}
+.method-block.active{ border-color:var(--cri); }
+
+.method-header{
+  display:flex; align-items:center; gap:8px;
+  padding:12px 14px 10px;
+  border-bottom:1px solid var(--bd);
+}
+.method-header.bag    { background:rgba(76,142,255,.07); }
+.method-header.syringe{ background:rgba(255,77,109,.07); }
+
+.method-icon{ font-size:16px; }
+.method-title{
+  font-weight:800; font-size:14px; color:var(--tx);
+  flex:1;
+}
+
+/* 容量選択ボタン */
+.vol-selector{ display:flex; gap:5px; }
+.vol-btn{
+  padding:4px 9px; border-radius:8px;
+  border:1.5px solid var(--bd);
+  background:transparent; color:var(--mu);
+  font-size:12px; font-weight:700; font-family:inherit;
+  cursor:pointer; transition:.15s;
+}
+.vol-btn.active{
+  border-color:var(--ac); color:var(--ac);
+  background:rgba(76,142,255,.12);
+}
+
+/* 結果エリア */
+.method-
+.method-body.has-result{ color:var(--tx); }
+
+.m-row{
+  display:flex; justify-content:space-between;
+  align-items:baseline; padding:5px 0;
+  border-bottom:1px solid rgba(255,255,255,.04);
+}
+.m-row:last-child{ border-bottom:none; }
+.m-label{ color:var(--mu); font-size:12px; }
+.m-val{
+  font-family:'JetBrains Mono',monospace;
+  font-weight:700; font-size:18px; color:var(--ok);
+}
+.m-val.big{ font-size:22px; color:var(--cri); }
+.m-val .unit{ font-size:11px; color:var(--mu); font-weight:400; margin-left:2px; }
+.m-warn{ color:var(--wn) !important; font-size:14px !important; }
+
+/* 濃度入力行 */
+.conc-row{
+  display:flex; align-items:center; gap:8px;
+  padding:8px 14px; background:rgba(255,176,32,.06);
+  border-bottom:1px solid var(--bd);
+}
+.conc-label{
+  font-size:11px; color:var(--wn); font-weight:700;
+  white-space:nowrap; min-width:48px;
+}
+.conc-input{
+  width:80px; background:var(--bg); border:1.5px solid var(--wn);
+  border-radius:8px; color:var(--tx); font-family:'JetBrains Mono',monospace;
+  font-size:14px; font-weight:700; padding:5px 8px;
+  text-align:right; outline:none;
+}
+.conc-input:focus{ border-color:var(--ac); }
+.conc-input.modified{ border-color:var(--wn); background:rgba(255,176,32,.08); }
+.conc-unit{
+  font-size:12px; color:var(--mu); white-space:nowrap;
+}
+.conc-reset{
+  margin-left:auto; font-size:16px; cursor:pointer;
+  color:var(--mu); padding:4px 6px; border-radius:6px;
+  transition:.15s; user-select:none;
+}
+.conc-reset:hover{ color:var(--wn); background:rgba(255,176,32,.1); }
+
+/* ===== SPECIES SELECTOR ===== */
+.species-row{
+  display:flex; gap:8px; margin-bottom:4px;
+}
+.species-btn{
+  flex:1; padding:9px 6px; border-radius:10px;
+  border:1.5px solid var(--bd); background:transparent;
+  color:var(--mu); font-size:13px; font-weight:700;
+  font-family:inherit; cursor:pointer; transition:.15s;
+  display:flex; align-items:center; justify-content:center; gap:5px;
+}
+.species-btn.active{
+  border-color:var(--ok); color:var(--ok);
+  background:rgba(31,204,122,.1);
+}
+
+/* ===== SYRINGE 2-PHASE ===== */
+.syringe-phase{ border-top:1px solid var(--bd); }
+.phase-label{
+  font-size:10px; font-weight:700; letter-spacing:.5px;
+  color:var(--mu); padding:7px 14px 4px;
+  text-transform:uppercase;
+}
+.phase-label.active{ color:var(--cri); }
+
+/* 調整エリア */
+.sy-adjust{ padding:10px 14px 14px; }
+.sy-adjust-row{
+  display:flex; align-items:center;
+  justify-content:space-between; margin-bottom:10px;
+}
+.sy-adjust-label{
+  font-size:12px; color:var(--mu); font-weight:700;
+}
+.sy-adjust-ctrl{
+  display:flex; align-items:center; gap:8px;
+}
+.sy-fr-btn{
+  width:32px; height:32px; border-radius:8px;
+  border:1.5px solid var(--bd); background:var(--bg);
+  color:var(--tx); font-size:16px; font-weight:700;
+  cursor:pointer; display:flex; align-items:center;
+  justify-content:center; transition:.15s;
+}
+.sy-fr-btn:active{ background:var(--bd); }
+.sy-fr-val{
+  font-family:'JetBrains Mono',monospace;
+  font-size:22px; font-weight:700; color:var(--ac);
+  min-width:44px; text-align:center;
+}
+.sy-fr-unit{ font-size:11px; color:var(--mu); }
+
+/* スライダー */
+.sy-slider-wrap{ margin-bottom:14px; }
+.sy-slider{
+  -webkit-appearance:none; appearance:none;
+  width:100%; height:5px; border-radius:3px;
+  background:linear-gradient(90deg, var(--ac) var(--pct,5%), var(--bd) var(--pct,5%));
+  outline:none; cursor:pointer; margin-bottom:4px;
+}
+.sy-slider::-webkit-slider-thumb{
+  -webkit-appearance:none; width:22px; height:22px;
+  border-radius:50%; background:var(--ac);
+  border:2px solid var(--bg); box-shadow:0 0 0 2px var(--ac);
+  cursor:pointer;
+}
+.sy-slider::-moz-range-thumb{
+  width:22px; height:22px; border-radius:50%;
+  background:var(--ac); border:2px solid var(--bg); cursor:pointer;
+}
+.sy-slider-labels{
+  display:flex; justify-content:space-between;
+  font-size:10px; color:var(--mu);
+  font-family:'JetBrains Mono',monospace;
+}
+
+/* 固定レシピ表示 */
+.recipe-block{
+  background:var(--bg); border-radius:10px;
+  padding:10px 12px; margin-bottom:4px;
+  border:1px solid var(--bd);
+}
+.recipe-line{
+  display:flex; justify-content:space-between;
+  align-items:center; padding:3px 0;
+  font-size:13px;
+}
+.recipe-key{ color:var(--mu); font-size:12px; }
+.recipe-val{ color:var(--tx); font-weight:700; font-family:'JetBrains Mono',monospace; }
+.recipe-val.accent{ color:var(--cri); font-size:15px; }
+
+/* 目標投与量スライダー行 */
+.sy-target-row{
+  display:flex; align-items:center;
+  justify-content:space-between; margin-bottom:10px;
+}
+
+/* ▶ ポンプ流量 ビッグ表示 */
+.sy-pump-display{
+  background:var(--bg); border-radius:14px;
+  padding:18px 16px; text-align:center;
+  border:2px solid var(--ok);
+  margin-top:4px;
+}
+.sy-pump-label{
+  font-size:11px; color:var(--mu); font-weight:700;
+  letter-spacing:.5px; margin-bottom:2px;
+}
+.sy-pump-val{
+  font-family:'JetBrains Mono',monospace;
+  font-size:52px; font-weight:700; color:var(--ok);
+  line-height:1.0; letter-spacing:-2px;
+}
+.sy-pump-unit{
+  font-size:13px; color:var(--tx); font-weight:700;
+  margin-top:4px;
+}
+
+/* ===== CALC BUTTON ===== */
+.calc-btn{
+  width:100%; padding:16px;
+  background:linear-gradient(135deg,var(--cri2),var(--cri));
+  border:none; color:#fff; border-radius:14px;
+  font-weight:900; font-size:17px; font-family:inherit;
+  cursor:pointer; margin-top:4px; letter-spacing:-.3px;
+  transition:.15s; display:flex; align-items:center;
+  justify-content:center; gap:8px;
+}
+.calc-btn:active{opacity:.85; transform:scale(.98);}
+
+/* ===== RESULT CARD ===== */
+#resultCard{
+  display:none; margin-top:16px;
+  animation:slideUp .3s cubic-bezier(.4,0,.2,1);
+}
+@keyframes slideUp{from{transform:translateY(16px);opacity:0}to{transform:translateY(0);opacity:1}}
+#resultCard.show{display:block;}
+
+.result-main{
+  background:var(--pn); border:2px solid var(--cri);
+  border-radius:16px; padding:18px 16px; margin-bottom:10px;
+}
+.result-tag{
+  font-size:10px; color:var(--cri); font-weight:700;
+  letter-spacing:.6px; text-transform:uppercase; margin-bottom:14px;
+  display:flex; align-items:center; gap:6px;
+}
+.result-tag::before{
+  content:''; width:6px; height:6px;
+  background:var(--cri); border-radius:50%;
+  animation:pulse 1.5s infinite;
+}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+.result-row{
+  display:flex; justify-content:space-between; align-items:center;
+  padding:10px 0; border-bottom:1px solid var(--bd);
+}
+.result-row:last-child{border-bottom:none; padding-bottom:0;}
+.result-label{font-size:12px; color:var(--mu);}
+.result-val{
+  font-family:'JetBrains Mono',monospace;
+  font-weight:700; text-align:right;
+}
+.result-val.big{font-size:26px; color:var(--ok);}
+.result-val.mid{font-size:18px; color:var(--ac);}
+.result-val.warn{font-size:15px; color:var(--wn);}
+.result-unit{font-size:12px; color:var(--mu); margin-left:4px;}
+
+/* FLK結果：3列 */
+.flk-result-grid{
+  display:grid; grid-template-columns:1fr 1fr 1fr;
+  gap:8px; margin:12px 0 4px;
+}
+.flk-result-col{
+  background:var(--bg); border-radius:10px; padding:10px 8px; text-align:center;
+}
+.flk-result-name{font-size:10px; font-weight:700; margin-bottom:6px;}
+.flk-result-name.fen{color:var(--ac);}
+.flk-result-name.lid{color:var(--ok);}
+.flk-result-name.ket{color:var(--wn);}
+.flk-result-ml{
+  font-family:'JetBrains Mono',monospace;
+  font-size:20px; font-weight:700; line-height:1;
+}
+.flk-result-ml.fen{color:var(--ac);}
+.flk-result-ml.lid{color:var(--ok);}
+.flk-result-ml.ket{color:var(--wn);}
+.flk-result-unit{font-size:9px; color:var(--mu); margin-top:3px;}
+
+/* ラベル印刷カード */
+.label-card{
+  background:var(--bg); border:1px solid var(--bd);
+  border-radius:12px; padding:13px; margin-bottom:10px;
+}
+.label-card-title{
+  font-size:10px; color:var(--mu); font-weight:700;
+  letter-spacing:.5px; text-transform:uppercase; margin-bottom:10px;
+}
+.label-line{font-size:13px; color:var(--tx); padding:4px 0; line-height:1.6;}
+.label-line b{font-family:'JetBrains Mono',monospace; color:var(--ok);}
+
+/* 注意事項 */
+.warning-box{
+  background:rgba(255,176,32,.06); border:1px solid rgba(255,176,32,.25);
+  border-radius:10px; padding:11px 13px; margin-bottom:10px;
+}
+.warning-box-title{font-size:10px; color:var(--wn); font-weight:700; margin-bottom:5px;}
+.warning-box p{font-size:12px; color:var(--tx); line-height:1.6;}
+
+/* ===== TOAST ===== */
+#criToast{
+  position:fixed; bottom:24px; left:50%;
+  transform:translateX(-50%) translateY(20px);
+  background:var(--ok); color:#fff; padding:10px 20px;
+  border-radius:20px; font-weight:700; font-size:14px;
+  z-index:2000; opacity:0; transition:.3s; pointer-events:none;
+  white-space:nowrap;
+}
+#criToast.on{opacity:1; transform:translateX(-50%) translateY(0);}
+
+/* ===== 空状態 ===== */
+.empty-state{
+  text-align:center; padding:48px 24px; color:var(--mu);
+}
+.empty-state .icon{font-size:52px; margin-bottom:16px; display:block; opacity:.5;}
+.empty-state p{font-size:14px; line-height:1.7;}
+
+/* ===== ガンマ解説シート ===== */
+.gamma-help-btn{
+  display:flex;align-items:center;gap:6px;
+  background:rgba(168,85,247,.1);border:1.5px solid rgba(168,85,247,.35);
+  border-radius:8px;padding:8px 12px;color:var(--cri);
+  font-size:12px;font-weight:700;font-family:inherit;
+  cursor:pointer;width:100%;margin-bottom:14px;transition:.15s;
+}
+.gamma-help-btn:active{opacity:.7;}
+.gsheet-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,.55);
+  z-index:1900;opacity:0;pointer-events:none;transition:.3s;
+}
+.gsheet-overlay.on{opacity:1;pointer-events:all;}
+.gsheet{
+  position:fixed;bottom:-110%;left:0;right:0;
+  background:var(--pn);border-radius:20px 20px 0 0;
+  padding:20px 18px 52px;z-index:2000;
+  max-height:88vh;overflow-y:auto;
+  transition:.35s cubic-bezier(.4,0,.2,1);
+  box-shadow:0 -4px 40px rgba(0,0,0,.5);
+}
+.gsheet.on{bottom:0;}
+.gsheet-hdr{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:4px;
+}
+.gsheet-title{font-size:17px;font-weight:700;color:var(--cri);}
+.gsheet-close{
+  background:var(--bd);border:none;border-radius:50%;
+  width:32px;height:32px;font-size:18px;cursor:pointer;
+  color:var(--tx);line-height:1;
+}
+.gs-pill{
+  display:inline-block;background:rgba(168,85,247,.15);
+  color:var(--cri);font-size:10px;font-weight:700;
+  border-radius:20px;padding:2px 8px;margin-bottom:16px;
+}
+.gs-sec{margin-bottom:22px;}
+.gs-h{
+  font-size:13px;font-weight:700;color:var(--ac);
+  border-left:3px solid var(--ac);padding-left:8px;
+  margin-bottom:10px;
+}
+.gs-p{font-size:13px;line-height:1.85;color:var(--tx);margin-bottom:8px;}
+.gs-card{
+  background:var(--bg);border:1px solid var(--bd);
+  border-radius:10px;padding:12px 14px;margin-bottom:10px;
+}
+.gs-card.purple{
+  background:rgba(168,85,247,.07);
+  border-color:rgba(168,85,247,.3);
+}
+.gs-card.green{
+  background:rgba(31,204,122,.07);
+  border-color:rgba(31,204,122,.3);
+}
+.gs-card.blue{
+  background:rgba(76,142,255,.07);
+  border-color:rgba(76,142,255,.3);
+}
+.gs-card-title{font-size:10px;font-weight:700;color:var(--mu);margin-bottom:8px;letter-spacing:.4px;}
+.gs-big{font-size:20px;font-weight:900;color:var(--cri);font-family:'JetBrains Mono',monospace;}
+.gs-eq{font-size:13px;font-family:'JetBrains Mono',monospace;line-height:2;color:var(--tx);}
+.gs-eq .hi{color:var(--cri);font-weight:700;}
+.gs-eq .ok{color:var(--ok);font-weight:700;}
+.gs-eq .bl{color:var(--ac);font-weight:700;}
+.gs-tag{
+  display:inline-block;font-size:10px;font-weight:700;
+  border-radius:4px;padding:1px 6px;margin-right:4px;
+}
+.gs-tag.r{background:rgba(255,77,109,.2);color:var(--dn);}
+.gs-tag.g{background:rgba(31,204,122,.2);color:var(--ok);}
+
+
+/* 必要錠数計算ウィジェット */
+.rx-calc{background:rgba(76,142,255,.05);border:1px solid rgba(76,142,255,.2);border-radius:10px;padding:12px 14px;margin-top:14px;}
+.rx-calc-ttl{font-size:11px;font-weight:700;color:var(--mu);margin-bottom:9px;letter-spacing:.04em;text-transform:uppercase;}
+.rx-calc-row{display:flex;align-items:center;gap:5px;flex-wrap:wrap;}
+.rx-calc-sel,.rx-calc-inp{background:var(--bg);border:1px solid var(--bd);border-radius:6px;padding:5px 8px;font-size:13px;color:var(--tx);}
+.rx-calc-inp{width:54px;text-align:center;}
+.rx-calc-lbl{font-size:12px;color:var(--mu);}
+.rx-calc-result{font-family:'JetBrains Mono',monospace;font-size:18px;font-weight:800;color:var(--ac);margin-left:2px;}
+</style>
+</head>
+<body>
+<!-- インポートダイアログ -->
+<div id="importDialog">
+  <div class="imp-box">
+    <h3 id="impDialogTitle">データを読み込みます</h3>
+    <p id="impDialogMsg"></p>
+    <div class="imp-btns">
+      <button class="imp-btn-merge"   onclick="resolveImport('merge')">追加・統合する<br><small style="font-weight:400;font-size:12px;">同名は上書き、新規は追加</small></button>
+      <button class="imp-btn-replace" onclick="resolveImport('replace')">完全に置き換える<br><small style="font-weight:400;font-size:12px;">現在のデータをすべて削除</small></button>
+      <button class="imp-btn-cancel"  onclick="resolveImport('cancel')">キャンセル</button>
+    </div>
+  </div>
+</div>
+
+
+<div class="hdr">
+  <div class="htop">
+    <div class="logo">VetCalc <b id="modeLogo">PRO</b></div>
+    <div class="hbts">
+      <select class="sp-sel" id="spSel"></select>
+      <button class="ib" id="easyBtn" onclick="toggleEasyMode()" title="Nurseモード">🌿</button>
+      <button class="ib" onclick="openSizeSettings()" title="表示設定">&#x2630;</button>
+      <button class="ib" onclick="openMgmt()">&#9881;</button>
+    </div>
+  </div>
+  <!-- MODE TOGGLE -->
+  <div class="mode-bar">
+    <button class="mode-btn" id="mInj" onclick="setMode('injectable')">💉 注射薬</button>
+    <button class="mode-btn" id="mOra" onclick="setMode('oral')">💊 内服薬</button>
+    <button class="mode-btn" id="mTop" onclick="setMode('topical')">🧴 外用薬</button>
+    <button class="mode-btn" id="mCalc" onclick="setMode('calc')">🔢 計算</button>
+  </div>
+  <div class="mode-label" id="modeDesc"></div>
+  <input class="sbar" id="searchBar" placeholder="薬剤を検索...">
+  <div class="tabrow" id="tabrow"></div>
+  <div class="mode-strip" id="modeStrip"></div>
+</div>
+
+<div class="wrap"><div id="grid" class="g2"></div></div>
+<div id="calcPanel"></div>
+
+<!-- 血漿浸透圧シート -->
+<!-- 輸液量計算シート -->
+<div class="sh" id="shFluid">
+  <div class="shh"></div>
+  <div class="sht">🚿 輸液量計算 <button class="shx" onclick="closeAll()">&#215;</button></div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;">
+    <div>
+      <label class="osmo-lbl">体重 <span class="osmo-unit">kg</span></label>
+      <input type="number" id="flBW" class="osmo-inp" inputmode="decimal" step="0.1" placeholder="—" oninput="flCalc()">
+    </div>
+    <div>
+      <label class="osmo-lbl">脱水 <span class="osmo-unit">%</span></label>
+      <input type="number" id="flDehy" class="osmo-inp" inputmode="decimal" step="1" min="0" max="15" placeholder="—" oninput="flCalc()">
+    </div>
+  </div>
+
+  <!-- 脱水度ガイド -->
+  <div class="fl-dehy-guide" id="flDehyGuide" style="display:none"></div>
+
+  <!-- 結果 -->
+  <div id="flResult" style="display:none">
+    <div class="fl-result-grid">
+      <div class="fl-result-card">
+        <div class="fl-rc-label">欠乏量</div>
+        <div class="fl-rc-val" id="flDeficit">—</div>
+        <div class="fl-rc-sub">BW × 脱水% × 1000</div>
+      </div>
+      <div class="fl-result-card">
+        <div class="fl-rc-label">維持量</div>
+        <div class="fl-rc-val" id="flMaint">—</div>
+        <div class="fl-rc-sub">50–60 ml/kg/day</div>
+      </div>
+      <div class="fl-result-card fl-result-total">
+        <div class="fl-rc-label">合計必要量</div>
+        <div class="fl-rc-val" id="flTotal">—</div>
+        <div class="fl-rc-sub" id="flTotalSub"></div>
+      </div>
+    </div>
+
+    <!-- 初期補液速度 -->
+    <div class="kp-section-title" style="margin-top:14px;">初期1時間の補液速度</div>
+    <div class="fl-speed-grid">
+      <div class="fl-speed-card">
+        <div class="fl-sp-animal">🐕 犬</div>
+        <div class="fl-sp-val" id="flSpDog">—</div>
+        <div class="fl-sp-unit">ml/h</div>
+        <div class="fl-sp-ref">60–90 ml/kg</div>
+      </div>
+      <div class="fl-speed-card">
+        <div class="fl-sp-animal">🐈 猫</div>
+        <div class="fl-sp-val" id="flSpCat">—</div>
+        <div class="fl-sp-unit">ml/h</div>
+        <div class="fl-sp-ref">45–60 ml/kg</div>
+      </div>
+    </div>
+
+    <!-- 尿量目安 -->
+    <div class="fl-urine-note">
+      💧 尿量目安: <b id="flUrine">—</b> ml/h（35–45 ml/kg/day = 1 ml/kg/hr）
+    </div>
+
+    <!-- 維持輸液速度早見表 -->
+    <div class="kp-section-title" style="margin-top:16px;">維持輸液速度早見表</div>
+    <div style="font-size:10px;color:var(--mu);margin-bottom:6px;">犬: 132×BW<sup>0.75</sup>÷24hr &nbsp;／&nbsp; 猫: 80×BW<sup>0.75</sup>÷24hr</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;" id="flHayamiGrid"></div>
+  </div>
+
+  <div id="flEmpty" style="text-align:center;color:var(--mu);padding:30px 0;font-size:13px;">体重・脱水%を入力してください</div>
+  <button class="bsec" style="width:100%;margin-top:14px;text-align:center;" onclick="flClear()">🔄 クリア</button>
+</div>
+<!-- チョコレート中毒シート -->
+<div class="sh" id="shChoco">
+  <div class="shh"></div>
+  <div class="sht">🍫 チョコレート中毒 <button class="shx" onclick="closeAll()">&#215;</button></div>
+
+  <div style="margin-bottom:12px;">
+    <label class="osmo-lbl">体重 <span class="osmo-unit">kg</span></label>
+    <input type="number" id="chocoBW" class="osmo-inp" inputmode="decimal" step="0.1" placeholder="—" oninput="chocoCalc()" style="max-width:160px;">
+  </div>
+
+  <!-- 製品リスト -->
+  <div class="kp-section-title">摂取量を入力</div>
+  <div id="chocoList" class="choco-list"></div>
+
+  <!-- 結果 -->
+  <div id="chocoResult" style="display:none;margin-top:14px;">
+    <div id="chocoBadge" class="osmo-badge" style="margin-bottom:10px;"></div>
+    <div class="fl-result-grid" style="grid-template-columns:1fr 1fr 1fr;">
+      <div class="fl-result-card">
+        <div class="fl-rc-label">テオブロミン</div>
+        <div class="fl-rc-val" id="chocoTheo" style="font-size:18px;">—</div>
+        <div class="fl-rc-sub">mg/kg</div>
+      </div>
+      <div class="fl-result-card">
+        <div class="fl-rc-label">カフェイン</div>
+        <div class="fl-rc-val" id="chocoCaff" style="font-size:18px;">—</div>
+        <div class="fl-rc-sub">mg/kg</div>
+      </div>
+      <div class="fl-result-card fl-result-total" style="grid-column:auto;">
+        <div class="fl-rc-label">メチルキサンチン</div>
+        <div class="fl-rc-val" id="chocoMx" style="font-size:20px;">—</div>
+        <div class="fl-rc-sub">mg/kg</div>
+        <div style="margin-top:8px;font-size:10px;color:var(--mu);line-height:1.8;text-align:left;">
+          <span style="color:var(--wn);">▶ &gt;20</span> 嘔吐・下痢<br>
+          <span style="color:#ff6b35;">▶ 40–50</span> 重度症状<br>
+          <span style="color:var(--dn);">▶ &gt;60</span> 発作
+        </div>
+      </div>
+    </div>
+
+    <!-- 判定基準バー -->
+    <div class="choco-scale-wrap">
+      <div class="choco-scale-bar">
+        <div class="choco-zone" style="width:20%;background:rgba(31,204,122,.2);"></div>
+        <div class="choco-zone" style="width:20%;background:rgba(255,176,32,.25);"></div>
+        <div class="choco-zone" style="width:20%;background:rgba(255,107,53,.25);"></div>
+        <div class="choco-zone" style="width:40%;background:rgba(255,77,109,.25);"></div>
+        <div id="chocoMarker" class="osmo-scale-marker" style="display:none;"></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;font-size:9px;color:var(--mu);margin-top:2px;">
+        <span>0</span><span style="position:relative;left:-4px">20</span><span style="position:relative;left:-4px">40</span><span style="position:relative;left:-4px">60</span><span>100+</span>
+      </div>
+    </div>
+    <div class="osmo-legend" style="margin-top:6px;">
+      <span style="color:var(--ok);">●&nbsp;&lt;20 安全域</span>
+      <span style="color:var(--wn);">●&nbsp;20+ 嘔吐下痢</span>
+      <span style="color:#ff6b35;">●&nbsp;40+ 重度</span>
+      <span style="color:var(--dn);">●&nbsp;60+ 発作</span>
+    </div>
+
+    <!-- 症状テキスト -->
+    <div class="choco-symptom" id="chocoSymptom"></div>
+  </div>
+
+  <div style="font-size:10px;color:var(--mu);margin-top:12px;">監修: 札幌夜間動物病院 院長 川瀬広大先生</div>
+  <button class="bsec" style="width:100%;margin-top:10px;text-align:center;" onclick="chocoClear()">🔄 クリア</button>
+</div>
+
+<!-- テンシロンテストシート -->
+<div class="sh" id="shTransfusion">
+  <div class="shh"></div>
+  <div class="sht">🩸 輸血・アルブミン <button class="shx" onclick="closeAll()">&#215;</button></div>
+
+  <!-- 輸血量 -->
+  <div class="kp-section-title">輸血量計算</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;">
+    <div class="osmo-field">
+      <label class="osmo-lbl">動物種</label>
+      <select id="tfSpecies" class="osmo-inp" onchange="tfCalc()" style="font-size:14px;">
+        <option value="dog">犬（×90）</option>
+        <option value="cat">猫（×70）</option>
+      </select>
+    </div>
+    <div class="osmo-field">
+      <label class="osmo-lbl">体重 <span class="osmo-unit">kg</span></label>
+      <input type="number" id="tfBW" class="osmo-inp" inputmode="decimal" placeholder="—" oninput="tfCalc()">
+    </div>
+    <div class="osmo-field">
+      <label class="osmo-lbl">目標PCV <span class="osmo-unit">%</span></label>
+      <input type="number" id="tfTargetPCV" class="osmo-inp" inputmode="decimal" placeholder="—" oninput="tfCalc()">
+    </div>
+    <div class="osmo-field">
+      <label class="osmo-lbl">現PCV <span class="osmo-unit">%</span></label>
+      <input type="number" id="tfCurrentPCV" class="osmo-inp" inputmode="decimal" placeholder="—" oninput="tfCalc()">
+    </div>
+    <div class="osmo-field" style="grid-column:1/-1;">
+      <label class="osmo-lbl">ドナーPCV <span class="osmo-unit">%</span></label>
+      <input type="number" id="tfDonorPCV" class="osmo-inp" inputmode="decimal" placeholder="—" oninput="tfCalc()">
+    </div>
+  </div>
+  <div id="tfBloodResult" style="display:none;background:var(--bg2);border-radius:10px;padding:12px;margin-bottom:12px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;">
+      <span style="font-size:13px;color:var(--mu);">必要輸血量</span>
+      <span id="tfBloodVal" style="font-size:22px;font-weight:700;color:var(--ac);"></span>
+    </div>
+    <div style="font-size:11px;color:var(--mu);margin-top:4px;">式: BW × (目標PCV − 現PCV) ÷ ドナーPCV × <span id="tfFactor"></span></div>
+    <div id="tfMaxRate" style="font-size:12px;color:var(--mu);margin-top:6px;border-top:1px solid var(--bdr);padding-top:6px;"></div>
+  </div>
+  <div id="tfBloodEmpty" style="text-align:center;color:var(--mu);padding:12px 0;font-size:12px;">全項目を入力してください</div>
+
+  <!-- アルブミン -->
+  <div class="kp-section-title" style="margin-top:16px;">アルブミン投与量計算</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;">
+    <div class="osmo-field">
+      <label class="osmo-lbl">体重 <span class="osmo-unit">kg</span></label>
+      <input type="number" id="albBW" class="osmo-inp" inputmode="decimal" placeholder="—" oninput="albCalc()">
+    </div>
+    <div class="osmo-field">
+      <label class="osmo-lbl">目標ALB <span class="osmo-unit">g/dL</span></label>
+      <input type="number" id="albTarget" class="osmo-inp" inputmode="decimal" placeholder="2.0" oninput="albCalc()">
+    </div>
+    <div class="osmo-field" style="grid-column:1/-1;">
+      <label class="osmo-lbl">現ALB <span class="osmo-unit">g/dL</span></label>
+      <input type="number" id="albCurrent" class="osmo-inp" inputmode="decimal" placeholder="—" oninput="albCalc()">
+    </div>
+  </div>
+  <div id="albResult" style="display:none;background:var(--bg2);border-radius:10px;padding:12px;margin-bottom:12px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;">
+      <span style="font-size:13px;color:var(--mu);">アルブミン必要量</span>
+      <span id="albVal" style="font-size:22px;font-weight:700;color:var(--ac);"></span>
+    </div>
+    <div style="font-size:11px;color:var(--mu);margin-top:4px;">式: 10 × (目標ALB − 現ALB) × BW × 0.3</div>
+    <div id="albNote" style="font-size:12px;color:var(--mu);margin-top:6px;border-top:1px solid var(--bdr);padding-top:6px;"></div>
+  </div>
+  <div id="albEmpty" style="text-align:center;color:var(--mu);padding:12px 0;font-size:12px;">体重・目標ALB・現ALB を入力してください</div>
+
+  <div style="font-size:10px;color:var(--mu);margin-top:10px;border-top:1px solid var(--bd);padding-top:8px;">
+    <div style="margin-bottom:4px;">📄 参考文献</div>
+    <a href="https://pubmed.ncbi.nlm.nih.gov/18710318/" target="_blank" style="color:var(--ac);text-decoration:none;font-size:10px;">J Am Vet Med Assoc. 2008;233(4):607–12. PMID: 18710318</a>
+    <div style="margin-top:4px;margin-bottom:8px;line-height:1.6;">容態不良の犬73例に25%ヒトアルブミン製剤を投与した回顧的研究。アルブミン必要量(g) = 10×(目標ALB－現ALB)×BW×0.3で算出し、生食で10%希釈後12時間かけて投与。27%で副作用（呼吸・心拍数増加、重篤例では心停止4例）を認めた。</div>
+    <a href="https://www.jsvtm.org/post/journal%E9%96%B2%E8%A6%A7%E6%95%B0%E3%83%88%E3%83%83%E3%83%97%E3%81%AF%E3%83%92%E3%83%88-%E3%82%A2%E3%83%AB%E3%83%96%E3%83%9F%E3%83%B3%E8%A3%BD%E5%89%A4" target="_blank" style="color:var(--ac);text-decoration:none;font-size:10px;">日本獣医輸血研究会（JSVTM）Journal club：ヒトアルブミン製剤まとめ</a>
+    <div style="margin-top:4px;line-height:1.6;">上記文献を含む3報のまとめ記事（JSVTM）。蛋白漏出性腸症・細菌性腹膜炎症例へのヒトアルブミン投与の用法・用量・副作用を解説。</div>
+    <div style="margin-top:12px;padding:10px;background:var(--bg);border-radius:8px;border-left:3px solid var(--ac);">
+      <div style="font-size:13px;font-weight:700;color:var(--tx);margin-bottom:6px;">用法・用量（PMID: 18710318 考察より）</div>
+      <div style="font-size:12px;line-height:1.8;color:var(--tx);">目標：血中アルブミン濃度を <b>2.0–2.5 g/dL</b> に増加させる<br>投与方法：25%ヒトアルブミン製剤を生食で <b>10%まで希釈</b>し、輸血用フィルターを介して <b>12時間かけて</b>投与</div>
+    </div>
+  </div>
+  <button class="bsec" style="width:100%;margin-top:10px;text-align:center;" onclick="tfClear()">🔄 クリア</button>
+</div>
+
+<!-- テンシロンテストシート -->
+<div class="sh" id="shTensilon">
+  <div class="shh"></div>
+  <div class="sht">💉 テンシロンテスト <button class="shx" onclick="closeAll()">&#215;</button></div>
+
+  <div style="margin-bottom:16px;">
+    <label class="osmo-lbl">体重 <span class="osmo-unit">kg</span></label>
+    <input type="number" id="tensilonBW" class="osmo-inp" inputmode="decimal" step="0.1" placeholder="—" oninput="tensilonCalc()" style="max-width:160px;">
+  </div>
+
+  <div id="tensilonResult" style="display:none;">
+    <!-- エドロホニウム -->
+    <div class="kp-section-title" style="margin-bottom:8px;">エドロホニウム <span style="font-weight:400;font-size:10px;">10 mg/ml｜0.1–0.2 mg/kg</span></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;">
+      <!-- 低用量 -->
+      <div style="background:rgba(116,185,255,.1);border:1px solid rgba(116,185,255,.35);border-radius:10px;padding:10px;text-align:center;">
+        <div style="font-size:10px;font-weight:700;color:#74b9ff;letter-spacing:.05em;margin-bottom:8px;">低用量　0.1 mg/kg</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+          <div>
+            <div class="fl-rc-label">必要量</div>
+            <div class="fl-rc-val" id="tenEdroMgLo" style="font-size:18px;color:#74b9ff;">—</div>
+            <div class="fl-rc-sub">mg</div>
+          </div>
+          <div>
+            <div class="fl-rc-label">投与量</div>
+            <div class="fl-rc-val" id="tenEdroMlLo" style="font-size:18px;color:#74b9ff;">—</div>
+            <div class="fl-rc-sub">ml</div>
+          </div>
+        </div>
+      </div>
+      <!-- 高用量 -->
+      <div style="background:rgba(255,107,53,.1);border:1px solid rgba(255,107,53,.35);border-radius:10px;padding:10px;text-align:center;">
+        <div style="font-size:10px;font-weight:700;color:#ff6b35;letter-spacing:.05em;margin-bottom:8px;">高用量　0.2 mg/kg</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+          <div>
+            <div class="fl-rc-label">必要量</div>
+            <div class="fl-rc-val" id="tenEdroMgHi" style="font-size:18px;color:#ff6b35;">—</div>
+            <div class="fl-rc-sub">mg</div>
+          </div>
+          <div>
+            <div class="fl-rc-label">投与量</div>
+            <div class="fl-rc-val" id="tenEdroMlHi" style="font-size:18px;color:#ff6b35;">—</div>
+            <div class="fl-rc-sub">ml</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- アトロピン -->
+    <div class="kp-section-title" style="margin-bottom:8px;">アトロピン <span style="font-weight:400;font-size:10px;">0.5 mg/ml｜0.04 mg/kg</span></div>
+    <div class="fl-result-grid" style="grid-template-columns:1fr 1fr;gap:8px;">
+      <div class="fl-result-card">
+        <div class="fl-rc-label">必要量</div>
+        <div class="fl-rc-val" id="tenAtroMg" style="font-size:22px;">—</div>
+        <div class="fl-rc-sub">mg</div>
+      </div>
+      <div class="fl-result-card">
+        <div class="fl-rc-label">投与量</div>
+        <div class="fl-rc-val" id="tenAtroMl" style="font-size:22px;">—</div>
+        <div class="fl-rc-sub">ml</div>
+      </div>
+    </div>
+  </div>
+
+  <button class="bsec" style="width:100%;margin-top:14px;text-align:center;" onclick="tensilonClear()">🔄 クリア</button>
+
+  <!-- プロトコル -->
+  <div style="margin-top:20px;border-top:1px solid var(--bd);padding-top:14px;">
+    <div style="font-size:11px;font-weight:700;color:var(--mu);letter-spacing:.08em;margin-bottom:10px;">📋 テンシロン検査法 手順</div>
+    <ol style="margin:0;padding-left:18px;display:flex;flex-direction:column;gap:7px;">
+      <li style="font-size:12px;color:var(--tx);line-height:1.5;">静脈内カテーテルの留置</li>
+      <li style="font-size:12px;color:var(--tx);line-height:1.5;">ムスカリン様作用の有害作用を最小限にするため、<span style="color:var(--calc);font-weight:700;">アトロピン（0.04 mg/kg）を前投与</span></li>
+      <li style="font-size:12px;color:var(--tx);line-height:1.5;">挿管と人工呼吸の道具を準備する</li>
+      <li style="font-size:12px;color:var(--tx);line-height:1.5;">虚弱がみられるまで運動させる</li>
+      <li style="font-size:12px;color:var(--tx);line-height:1.5;"><span style="color:var(--calc);font-weight:700;">塩化エドロフォニウム 0.1〜0.2 mg/kg</span> を静脈内投与</li>
+    </ol>
+  </div>
+
+  <!-- 特性メモ -->
+  <div style="margin-top:14px;background:var(--bg);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:5px;">
+    <div style="font-size:11px;font-weight:700;color:var(--mu);letter-spacing:.08em;margin-bottom:4px;">💡 テストの特性</div>
+    <div style="font-size:11px;color:var(--tx);display:flex;gap:6px;"><span style="color:var(--ok);">●</span><span>簡単・迅速だが、感受性・特異性は不明</span></div>
+    <div style="font-size:11px;color:var(--tx);display:flex;gap:6px;"><span style="color:var(--wn);">●</span><span>主観的評価・局所性の評価が困難</span></div>
+    <div style="font-size:11px;color:var(--tx);display:flex;gap:6px;"><span style="color:#74b9ff;">●</span><span>猫では必ずアトロピン前投与を行う</span></div>
+  </div>
+</div>
+
+<!-- 点眼瓶投薬シート -->
+<div class="sh" id="shEyedrop">
+  <div class="shh"></div>
+  <div class="sht">👁 点眼瓶投薬 <button class="shx" onclick="closeAll()">&#215;</button></div>
+  <div style="font-size:11px;color:var(--mu);margin-bottom:10px;">錠剤を5ml点眼瓶に溶解。1滴≒0.05ml（100滴≒5ml）で投与滴数を算出します。</div>
+  <div class="osmo-field" style="margin-bottom:12px;">
+    <label class="osmo-lbl">体重 <span class="osmo-unit">g</span></label>
+    <input type="number" id="edBW" class="osmo-inp" inputmode="decimal" placeholder="例: 35" oninput="edCalc()">
+  </div>
+  <div id="edTable"></div>
+  <button class="bsec" style="width:100%;margin-top:10px;text-align:center;" onclick="edClear()">🔄 クリア</button>
+</div>
+
+<!-- MLK CRIシート -->
+<div class="sh" id="shMLK">
+  <div class="shh"></div>
+  <div class="sht">💊 MLK CRI <button class="shx" onclick="closeAll()">&#215;</button></div>
+  <div style="font-size:11px;color:var(--mu);margin-bottom:12px;">モルヒネ・リドカイン・ケタミン持続投与。各薬の添加量を算出します。</div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
+    <div>
+      <label class="osmo-lbl">体重 <span class="osmo-unit">kg</span></label>
+      <input type="number" id="mlkBW" class="osmo-inp" inputmode="decimal" step="0.1" placeholder="例: 10" oninput="mlkCalc()">
+    </div>
+    <div>
+      <label class="osmo-lbl">投与速度 <span class="osmo-unit">ml/hr</span></label>
+      <input type="number" id="mlkRate" class="osmo-inp" inputmode="decimal" step="1" placeholder="例: 50" oninput="mlkCalc()">
+    </div>
+    <div>
+      <label class="osmo-lbl">総液量 <span class="osmo-unit">ml</span></label>
+      <input type="number" id="mlkVol" class="osmo-inp" inputmode="decimal" step="50" placeholder="例: 500" oninput="mlkCalc()">
+    </div>
+  </div>
+
+  <div style="font-size:11px;font-weight:700;color:var(--mu);margin-bottom:8px;letter-spacing:.06em;">目標用量 μg/kg/min</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px;">
+    <div>
+      <label class="osmo-lbl">モルヒネ</label>
+      <input type="number" id="mlkMDose" class="osmo-inp" inputmode="decimal" step="0.5" placeholder="5" value="5" oninput="mlkCalc()">
+      <div style="font-size:10px;color:var(--mu);margin-top:2px;">2–6 μg/kg/min</div>
+    </div>
+    <div>
+      <label class="osmo-lbl">リドカイン</label>
+      <input type="number" id="mlkLDose" class="osmo-inp" inputmode="decimal" step="5" placeholder="25" value="25" oninput="mlkCalc()">
+      <div style="font-size:10px;color:var(--mu);margin-top:2px;">25–50 μg/kg/min</div>
+    </div>
+    <div>
+      <label class="osmo-lbl">ケタミン</label>
+      <input type="number" id="mlkKDose" class="osmo-inp" inputmode="decimal" step="0.5" placeholder="2" value="2" oninput="mlkCalc()">
+      <div style="font-size:10px;color:var(--mu);margin-top:2px;">2–5 μg/kg/min</div>
+    </div>
+  </div>
+
+  <div id="mlkResult" style="display:none;">
+    <div style="background:rgba(255,165,0,.08);border:1px solid rgba(255,165,0,.3);border-radius:10px;padding:12px;margin-bottom:10px;">
+      <div style="font-size:11px;font-weight:700;color:#ffa500;margin-bottom:8px;">📋 調製手順</div>
+      <div id="mlkSteps" style="font-size:12px;color:var(--tx);line-height:1.9;"></div>
+    </div>
+    <div style="background:rgba(116,185,255,.08);border:1px solid rgba(116,185,255,.3);border-radius:10px;padding:10px;">
+      <div style="font-size:11px;font-weight:700;color:#74b9ff;margin-bottom:6px;">📊 投与確認</div>
+      <div id="mlkConfirm" style="font-size:11px;color:var(--tx);line-height:1.8;"></div>
+    </div>
+  </div>
+  <div id="mlkEmpty" style="font-size:12px;color:var(--mu);text-align:center;margin-top:20px;">体重・速度・総液量を入力してください</div>
+  <button class="bsec" style="width:100%;margin-top:14px;text-align:center;" onclick="mlkClear()">🔄 クリア</button>
+  <div style="margin-top:14px;background:var(--bg);border-radius:10px;padding:12px 14px;">
+    <div style="font-size:11px;font-weight:700;color:var(--mu);margin-bottom:6px;">💡 製剤濃度（デフォルト）</div>
+    <div style="font-size:11px;color:var(--tx);display:flex;flex-direction:column;gap:3px;">
+      <div>モルヒネ塩酸塩 <strong>15 mg/ml</strong></div>
+      <div>リドカイン（2%） <strong>20 mg/ml</strong></div>
+      <div>ケタミン <strong>50 mg/ml</strong></div>
+    </div>
+  </div>
+</div>
+
+<!-- エピネフリンCRIシート -->
+<div class="sh" id="shEpi">
+  <div class="shh"></div>
+  <div class="sht">💉 エピネフリンCRI <button class="shx" onclick="closeAll()">&#215;</button></div>
+  <div style="font-size:11px;color:var(--mu);margin-bottom:12px;">ボスミン（1 mg/ml）50 mlシリンジ調製。目標用量を 1 ml/hr で達成する添加量を算出します。</div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;">
+    <div>
+      <label class="osmo-lbl">体重 <span class="osmo-unit">kg</span></label>
+      <input type="number" id="epiBW" class="osmo-inp" inputmode="decimal" step="0.1" placeholder="例: 10" oninput="epiCalc()">
+    </div>
+    <div>
+      <label class="osmo-lbl">目標用量 <span class="osmo-unit">μg/kg/min</span></label>
+      <input type="number" id="epiDose" class="osmo-inp" inputmode="decimal" step="0.01" placeholder="0.05" value="0.05" oninput="epiCalc()">
+      <div style="font-size:10px;color:var(--mu);margin-top:2px;">昇圧: 0.01–0.1</div>
+    </div>
+  </div>
+
+  <div id="epiResult" style="display:none;">
+    <!-- 調製量 -->
+    <div style="background:rgba(255,99,71,.1);border:1px solid rgba(255,99,71,.35);border-radius:12px;padding:14px;margin-bottom:10px;">
+      <div style="font-size:11px;font-weight:700;color:#ff6347;margin-bottom:10px;">💉 調製（50 ml シリンジ）</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;text-align:center;">
+        <div>
+          <div class="fl-rc-label">ボスミン添加量</div>
+          <div class="fl-rc-val" id="epiAddVol" style="font-size:28px;color:#ff6347;">—</div>
+          <div class="fl-rc-sub">ml → 生食で 50 ml に</div>
+        </div>
+        <div>
+          <div class="fl-rc-label">シリンジ濃度</div>
+          <div class="fl-rc-val" id="epiConc" style="font-size:28px;color:#ff6347;">—</div>
+          <div class="fl-rc-sub">μg/ml</div>
+        </div>
+      </div>
+      <div style="font-size:11px;color:var(--mu);text-align:center;margin-top:8px;">▶ <strong>1 ml/hr</strong> で目標用量 <span id="epiDoseLabel" style="color:#ff6347;font-weight:700;">—</span> μg/kg/min</div>
+    </div>
+    <!-- 流量テーブル -->
+    <div style="background:var(--bg);border-radius:10px;padding:12px;">
+      <div style="font-size:11px;font-weight:700;color:var(--mu);margin-bottom:8px;">📊 流量別 投与用量</div>
+      <table style="width:100%;border-collapse:collapse;font-size:12px;">
+        <thead>
+          <tr style="color:var(--mu);font-size:10px;">
+            <th style="text-align:left;padding:3px 0;font-weight:600;">流量 (ml/hr)</th>
+            <th style="text-align:right;padding:3px 0;font-weight:600;">用量 (μg/kg/min)</th>
+          </tr>
+        </thead>
+        <tbody id="epiTable"></tbody>
+      </table>
+    </div>
+  </div>
+  <div id="epiEmpty" style="font-size:12px;color:var(--mu);text-align:center;margin-top:20px;">体重と目標用量を入力してください</div>
+  <button class="bsec" style="width:100%;margin-top:14px;text-align:center;" onclick="epiClear()">🔄 クリア</button>
+  <div style="margin-top:14px;background:rgba(255,165,0,.06);border-radius:10px;padding:12px 14px;">
+    <div style="font-size:11px;font-weight:700;color:#ffa500;margin-bottom:6px;">⚠ 参考用量</div>
+    <div style="font-size:11px;color:var(--tx);line-height:1.7;">
+      血管収縮（昇圧）: 0.01–0.1 μg/kg/min CRI<br>
+      アナフィラキシー ボーラス: 10–20 μg/kg 緩徐 IV<br>
+      心停止: 0.01 mg/kg（= 10 μg/kg）IV or IO
+    </div>
+  </div>
+</div>
+
+<!-- PPNシート（犬・猫共用） -->
+<div class="sh" id="shPPN">
+  <div class="shh"></div>
+  <div class="sht" id="ppnTitle">🍼 PPN <button class="shx" onclick="closeAll()">&#215;</button></div>
+  <div style="font-size:11px;color:var(--mu);margin-bottom:12px;">部分的非経口栄養。配合量・投与速度を算出します（酪農大学 伊丹先生方式）。</div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
+    <div>
+      <label class="osmo-lbl">体重 <span class="osmo-unit">kg</span></label>
+      <input type="number" id="ppnBW" class="osmo-inp" inputmode="decimal" step="0.1" placeholder="例: 5" oninput="ppnCalc()">
+    </div>
+    <div>
+      <label class="osmo-lbl">疾病係数（IF）</label>
+      <input type="number" id="ppnIF" class="osmo-inp" inputmode="decimal" step="0.05" placeholder="1.0" value="1.0" oninput="ppnCalc()">
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;">
+    <div>
+      <label class="osmo-lbl">タンパク要求量</label>
+      <select id="ppnProtSel" class="osmo-inp" onchange="ppnProtSelect()" style="height:42px;padding:8px 10px;font-size:13px;text-align:left;font-family:inherit;font-weight:400;">
+        <option value="">選択</option>
+      </select>
+      <div style="font-size:10px;color:var(--mu);margin-top:2px;" id="ppnProtUnit">g/100kcal</div>
+    </div>
+    <div>
+      <label class="osmo-lbl">タンパク要求量 <span class="osmo-unit">g/100kcal</span></label>
+      <input type="number" id="ppnProt" class="osmo-inp" inputmode="decimal" step="0.5" placeholder="4" oninput="ppnCalc()">
+    </div>
+  </div>
+
+  <div style="margin-bottom:10px;">
+    <label class="osmo-lbl">アミノ酸製剤</label>
+    <select id="ppnAASel" class="osmo-inp" onchange="ppnAASelect()" style="height:42px;width:100%;padding:8px 10px;font-size:13px;text-align:left;font-family:inherit;font-weight:400;">
+      <option value="84.3">モリアミン® 84.3 mg/ml</option>
+      <option value="79.9">アミノレバン® 79.9 mg/ml（肝機能NG）</option>
+      <option value="59">ネオアミュー® 59 mg/ml（腎機能NG）</option>
+    </select>
+  </div>
+  <div style="margin-bottom:12px;">
+    <label class="osmo-lbl">ブドウ糖比率 <span class="osmo-unit">%</span></label>
+    <select id="ppnGluSel" class="osmo-inp" onchange="ppnCalc()" style="height:42px;width:100%;padding:8px 10px;font-size:14px;text-align:left;font-family:inherit;font-weight:400;">
+      <option value="50">50%（標準）</option>
+      <option value="40">40%</option>
+      <option value="60">60%</option>
+    </select>
+  </div>
+
+  <div id="ppnResult" style="display:none;">
+    <div style="background:rgba(116,185,255,.08);border:1px solid rgba(116,185,255,.3);border-radius:10px;padding:12px;margin-bottom:10px;">
+      <div style="font-size:11px;font-weight:700;color:#74b9ff;margin-bottom:8px;">📊 エネルギー</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+        <div style="text-align:center;">
+          <div class="fl-rc-label">RER</div>
+          <div class="fl-rc-val" id="ppnRER" style="font-size:20px;color:#74b9ff;">—</div>
+          <div class="fl-rc-sub">kcal/day</div>
+        </div>
+        <div style="text-align:center;">
+          <div class="fl-rc-label">TER</div>
+          <div class="fl-rc-val" id="ppnTER" style="font-size:20px;color:#74b9ff;">—</div>
+          <div class="fl-rc-sub">kcal/day</div>
+        </div>
+      </div>
+    </div>
+    <div style="background:rgba(0,184,148,.08);border:1px solid rgba(0,184,148,.3);border-radius:10px;padding:12px;margin-bottom:10px;">
+      <div style="font-size:11px;font-weight:700;color:#00b894;margin-bottom:8px;">💊 調製量</div>
+      <div style="display:flex;flex-direction:column;gap:6px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:12px;">ハイカリック®2号液</span>
+          <strong id="ppnHai" style="font-size:14px;color:#00b894;">— ml</strong>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:12px;" id="ppnAALabel">アミノ酸製剤</span>
+          <strong id="ppnAA" style="font-size:14px;color:#00b894;">— ml</strong>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:12px;">20% イントラリポス®</span>
+          <strong id="ppnLip" style="font-size:14px;color:#00b894;">— ml</strong>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:12px;">ダイビタミックス®</span>
+          <strong id="ppnVit" style="font-size:14px;color:#00b894;">— ml</strong>
+        </div>
+        <div style="border-top:1px solid rgba(0,184,148,.3);padding-top:6px;display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:12px;font-weight:700;">総量</span>
+          <strong id="ppnTotal" style="font-size:16px;color:#00b894;">— ml</strong>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:12px;font-weight:700;">投与速度</span>
+          <strong id="ppnRateOut" style="font-size:16px;color:#00b894;">— ml/hr</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="ppnEmpty" style="font-size:12px;color:var(--mu);text-align:center;margin-top:20px;">体重を入力してください</div>
+  <button class="bsec" style="width:100%;margin-top:14px;text-align:center;" onclick="ppnClear(ppnCurrentSp)">🔄 クリア</button>
+
+  <div style="margin-top:14px;background:var(--bg);border-radius:10px;padding:12px 14px;">
+    <div style="font-size:11px;font-weight:700;color:var(--mu);margin-bottom:6px;">💡 疾病係数（IF）の目安</div>
+    <div style="font-size:11px;color:var(--tx);display:grid;grid-template-columns:1fr 1fr;gap:3px;">
+      <div>ケージレスト: 1.0–1.25</div><div>手術後: 1.25–1.35</div>
+      <div>外傷・腫瘍: 1.35–1.50</div><div>敗血症: 1.50–1.70</div>
+      <div>熱傷: 1.70–2.00</div>
+    </div>
+  </div>
+</div>
+
+<!-- 妊娠診断シート -->
+<div class="sh" id="shPreg">
+  <div class="shh"></div>
+  <div class="sht">🤰 妊娠診断 <button class="shx" onclick="closeAll()">&#215;</button></div>
+  <div style="font-size:11px;color:var(--mu);margin-bottom:12px;">交配日を入力すると各診断可能日・分娩予定日を表示します。</div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:4px;">
+    <button id="pregSpDog" class="hm-sp-btn on" onclick="pregSetSp('dog')">🐕 犬</button>
+    <button id="pregSpCat" class="hm-sp-btn" onclick="pregSetSp('cat')">🐈 猫</button>
+    <button id="pregSpRab" class="hm-sp-btn" onclick="pregSetSp('rabbit')">🐇 ウサギ</button>
+  </div>
+
+  <div style="margin:12px 0;">
+    <label class="osmo-lbl">交配日</label>
+    <input type="date" id="pregDate" class="osmo-inp" style="max-width:200px;" oninput="pregCalc()">
+  </div>
+
+  <div id="pregResult" style="display:none;">
+    <div style="background:rgba(253,203,110,.1);border:1px solid rgba(253,203,110,.35);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:10px;">
+      <div id="pregRows"></div>
+    </div>
+  </div>
+  <div id="pregEmpty" style="font-size:12px;color:var(--mu);text-align:center;margin-top:20px;">動物種・交配日を入力してください</div>
+
+  <div style="margin-top:20px;border-top:1px solid var(--bd);padding-top:14px;">
+    <div style="font-size:11px;font-weight:700;color:var(--mu);margin-bottom:8px;">📋 各検査の特徴</div>
+    <div style="font-size:11px;color:var(--tx);line-height:1.8;">
+      <strong>超音波（エコー）</strong><br>
+      ✅ 早期から確認可能・心拍で生死判定可<br>
+      ⚠ 頭数の正確なカウントは困難なことあり<br><br>
+      <strong>X線検査</strong><br>
+      ✅ 胎児数の確認が可能<br>
+      ⚠ 骨化完成後のため診断可能時期が遅い
+    </div>
+  </div>
+</div>
+
+<!-- 年齢換算シート -->
+<div class="sh" id="shAge">
+  <div class="shh"></div>
+  <div class="sht">📅 年齢換算 <button class="shx" onclick="closeAll()">&#215;</button></div>
+  <div style="font-size:11px;color:var(--mu);margin-bottom:10px;">動物の年齢を人間の年齢に換算します。</div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;">
+    <div>
+      <label class="osmo-lbl">動物種</label>
+      <select id="ageSp" class="osmo-inp" onchange="ageUpdate()" style="height:38px;">
+        <option value="dog_sm">犬（小型）〜10kg</option>
+        <option value="dog_md">犬（中型）11–25kg</option>
+        <option value="dog_lg">犬（大型）26kg〜</option>
+        <option value="cat">猫</option>
+      </select>
+    </div>
+    <div>
+      <label class="osmo-lbl">年齢</label>
+      <select id="ageVal" class="osmo-inp" onchange="ageShowResult()" style="height:38px;"></select>
+    </div>
+  </div>
+
+  <div id="ageResult" style="display:none;">
+    <div style="background:rgba(116,185,255,.1);border:1px solid rgba(116,185,255,.3);border-radius:12px;padding:16px;text-align:center;">
+      <div style="font-size:12px;color:var(--mu);margin-bottom:4px;" id="ageSpLabel">犬（小型）</div>
+      <div style="font-size:13px;color:var(--tx);font-weight:700;" id="ageAnimal">—</div>
+      <div style="font-size:11px;color:var(--mu);margin:6px 0;">▼ 人間換算</div>
+      <div style="font-size:36px;font-weight:700;color:#74b9ff;" id="ageHuman">—</div>
+      <div style="font-size:13px;color:var(--mu);">歳相当</div>
+    </div>
+  </div>
+  <div id="ageEmpty" style="font-size:12px;color:var(--mu);text-align:center;margin-top:20px;">動物種と年齢を選択してください</div>
+</div>
+
+<!-- 中毒DBシート -->
+<div class="sh" id="shTox">
+  <div class="shh"></div>
+  <div class="sht">☠️ 中毒DB <button class="shx" onclick="closeAll()">&#215;</button></div>
+  <div style="font-size:11px;color:var(--mu);margin-bottom:10px;">原因物質を選択または検索してください。</div>
+
+  <div style="margin-bottom:12px;">
+    <input type="text" id="toxSearch" class="osmo-inp" placeholder="🔍 物質名を入力…" oninput="toxFilter()" style="width:100%;box-sizing:border-box;">
+  </div>
+  <div id="toxList" style="display:flex;flex-direction:column;gap:6px;margin-bottom:12px;"></div>
+</div>
+
+<!-- CCECAI/CIBDAIシート -->
+<div class="sh" id="shCCECAI">
+  <div class="shh"></div>
+  <div class="sht">🐾 慢性腸症スコア <button class="shx" onclick="closeAll()">&#215;</button></div>
+  <div style="font-size:11px;color:var(--mu);margin-bottom:4px;">CCECAI / CIBDAI — 犬の慢性腸症活動性スコア</div>
+  <div style="font-size:10px;color:var(--mu);margin-bottom:14px;">各項目をタップして選択。CIBDAI = 上6項目、CCECAI = 全9項目。</div>
+
+  <div id="ccecaiItems" style="display:flex;flex-direction:column;gap:10px;"></div>
+
+  <div id="ccecaiResult" style="display:none;margin-top:16px;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+      <div style="background:rgba(116,185,255,.1);border:1px solid rgba(116,185,255,.3);border-radius:12px;padding:14px;text-align:center;">
+        <div style="font-size:11px;font-weight:700;color:#74b9ff;margin-bottom:4px;">CIBDAI</div>
+        <div style="font-size:32px;font-weight:700;color:#74b9ff;" id="cibdaiScore">0</div>
+        <div style="font-size:11px;margin-top:4px;" id="cibdaiBadge"></div>
+      </div>
+      <div style="background:rgba(253,121,168,.1);border:1px solid rgba(253,121,168,.3);border-radius:12px;padding:14px;text-align:center;">
+        <div style="font-size:11px;font-weight:700;color:#fd79a8;margin-bottom:4px;">CCECAI</div>
+        <div style="font-size:32px;font-weight:700;color:#fd79a8;" id="ccecaiScore">0</div>
+        <div style="font-size:11px;margin-top:4px;" id="ccecaiBadge"></div>
+      </div>
+    </div>
+    <!-- 診断フローボタン -->
+    <button onclick="ccecaiShowFlow()" style="width:100%;margin-top:10px;padding:11px;background:rgba(var(--calc-rgb,76,142,255),.12);border:1px solid var(--calc);border-radius:10px;color:var(--calc);font-size:12px;font-weight:700;cursor:pointer;">🔍 診断フローへ →</button>
+  </div>
+
+  <!-- 診断フロー -->
+  <div id="ccecaiFlow" style="display:none;margin-top:14px;">
+    <div style="font-size:12px;font-weight:700;color:var(--tx);margin-bottom:10px;border-bottom:1px solid var(--bd);padding-bottom:8px;">📋 診断フロー</div>
+    <div id="ccecaiFlowBody"></div>
+    <button onclick="ccecaiHideFlow()" style="width:100%;margin-top:10px;background:none;border:1px solid var(--bd);color:var(--mu);font-size:11px;padding:8px;border-radius:8px;cursor:pointer;">← スコアに戻る</button>
+  </div>
+
+  <button class="bsec" style="width:100%;margin-top:14px;text-align:center;" onclick="ccecaiClear()">🔄 リセット</button>
+
+  <div style="margin-top:14px;background:var(--bg);border-radius:10px;padding:12px 14px;">
+    <div style="font-size:11px;font-weight:700;color:var(--mu);margin-bottom:6px;">📋 重症度基準</div>
+    <div style="font-size:11px;color:var(--tx);display:grid;grid-template-columns:1fr 1fr;gap:4px 12px;">
+      <div><strong>CIBDAI</strong></div><div><strong>CCECAI</strong></div>
+      <div>≤3: 臨床的意義なし</div><div>≤3: 臨床的意義なし</div>
+      <div>4–5: 軽度</div><div>4–5: 軽度</div>
+      <div>6–8: 中等度</div><div>6–8: 中等度</div>
+      <div>≥9: 重度</div><div>9–11: 重度</div>
+      <div></div><div>≥12: 非常に重度</div>
+    </div>
+  </div>
+</div>
+
+<!-- K・P補正シート -->
+<div class="sh" id="shKP">
+  <div class="shh"></div>
+  <div class="sht">🧪 K・P補正 <button class="shx" onclick="closeAll()">&#215;</button></div>
+
+  <!-- K補正 -->
+  <div class="kp-section-title">K補正</div>
+  <div class="kp-k-input-row">
+    <div class="kp-inp-wrap">
+      <label class="osmo-lbl">血清K <span class="osmo-unit">mEq/L</span></label>
+      <input type="number" id="kpKVal" class="osmo-inp" inputmode="decimal" step="0.1" placeholder="例: 3.2" oninput="kpRender()">
+    </div>
+    <div id="kpKBadge" class="kp-k-badge"></div>
+  </div>
+
+  <!-- Kテーブル -->
+  <div class="kp-table-wrap">
+    <table class="kp-table" id="kpTable">
+      <thead>
+        <tr>
+          <th>血清K<br><small>mEq/L</small></th>
+          <th>1L<br><small>mEq</small></th>
+          <th>500ml<br><small>mEq</small></th>
+          <th>250ml<br><small>mEq</small></th>
+          <th>200ml<br><small>mEq</small></th>
+          <th>最大速度<br><small>ml/kg/h</small></th>
+        </tr>
+      </thead>
+      <tbody id="kpTbody"></tbody>
+    </table>
+  </div>
+  <div style="font-size:10px;color:var(--mu);margin-top:4px;margin-bottom:14px;">※ KCL濃度: 1mEq/ml（10ml=10mEq）使用時</div>
+
+  <!-- KCL早見表 -->
+  <div class="kp-section-title">KCL早見表 <small style="font-size:10px;color:var(--mu);font-weight:400;">KCL 1mEq/ml 使用時</small></div>
+  <div class="kp-hayami-wrap">
+    <table class="kp-hayami">
+      <thead>
+        <tr>
+          <th>輸液剤</th>
+          <th>規格</th>
+          <th>原液K<br><small>mEq/L</small></th>
+          <th class="kp-hd-target">20<br><small>mEq/L</small></th>
+          <th class="kp-hd-target">40<br><small>mEq/L</small></th>
+          <th class="kp-hd-target">60<br><small>mEq/L</small></th>
+          <th class="kp-hd-target">80<br><small>mEq/L</small></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="kp-hname">生理食塩水</td><td class="kp-hvol">500ml</td><td class="kp-hvol">0</td><td class="kp-hval">10ml</td><td class="kp-hval">20ml</td><td class="kp-hval">30ml</td><td class="kp-hval">40ml</td></tr>
+        <tr><td class="kp-hname">乳酸リンゲル</td><td class="kp-hvol">250ml</td><td class="kp-hvol">4</td><td class="kp-hval">4ml</td><td class="kp-hval">9ml</td><td class="kp-hval">14ml</td><td class="kp-hval">19ml</td></tr>
+        <tr><td class="kp-hname">乳酸リンゲル</td><td class="kp-hvol">500ml</td><td class="kp-hvol">4</td><td class="kp-hval">8ml</td><td class="kp-hval">18ml</td><td class="kp-hval">28ml</td><td class="kp-hval">38ml</td></tr>
+        <tr><td class="kp-hname">酢酸リンゲル</td><td class="kp-hvol">500ml</td><td class="kp-hvol">4</td><td class="kp-hval">8ml</td><td class="kp-hval">18ml</td><td class="kp-hval">28ml</td><td class="kp-hval">38ml</td></tr>
+        <tr><td class="kp-hname">ソルデム1</td><td class="kp-hvol">200ml</td><td class="kp-hvol">0</td><td class="kp-hval">4ml</td><td class="kp-hval">8ml</td><td class="kp-hval">12ml</td><td class="kp-hval">16ml</td></tr>
+        <tr><td class="kp-hname">ソルデム3A</td><td class="kp-hvol">200ml</td><td class="kp-hvol">20</td><td class="kp-hval">0ml</td><td class="kp-hval">4ml</td><td class="kp-hval">8ml</td><td class="kp-hval">12ml</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- P補正 -->
+  <div class="kp-section-title">P補正（低リン血症）</div>
+  <div class="kp-p-box">
+    <div class="kp-p-row"><span class="kp-p-label">薬剤</span><span>リン酸二カリウム液（1mEq/ml）</span></div>
+    <div class="kp-p-row"><span class="kp-p-label">用法</span><span>0.03–0.12 mmol/kg/h 持続点滴</span></div>
+    <div class="kp-p-row"><span class="kp-p-label">調合例</span><span>500ml生食 + リン酸二カリウム液 5ml（→ 5mEq/500ml）</span></div>
+    <div class="kp-p-row"><span class="kp-p-label">速度目安</span><span>10ml/kg/h → 0.05 mmol/kg/h のリン補給</span></div>
+  </div>
+
+  <!-- 低Mg注記 -->
+  <div class="kp-mg-note">
+    ⚠️ <b>治療抵抗性低Kの場合</b> — 低Mg血症を疑う<br>
+    <small style="color:var(--mu);">Mechanism of Hypokalemia in Magnesium Deficiency</small>
+  </div>
+</div>
+<div class="sh" id="shOsmo">
+  <div class="shh"></div>
+  <div class="sht">💧 血漿浸透圧 <button class="shx" onclick="closeAll()">&#215;</button></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;">
+    <div class="osmo-field">
+      <label class="osmo-lbl">Na <span class="osmo-unit">mEq/L</span></label>
+      <input type="number" id="osmoNa" class="osmo-inp" inputmode="decimal" placeholder="—" oninput="osmoCalc()">
+    </div>
+    <div class="osmo-field">
+      <label class="osmo-lbl">K <span class="osmo-unit">mEq/L</span></label>
+      <input type="number" id="osmoK" class="osmo-inp" inputmode="decimal" placeholder="—" oninput="osmoCalc()">
+    </div>
+    <div class="osmo-field">
+      <label class="osmo-lbl">Glu <span class="osmo-unit">mg/dL</span></label>
+      <input type="number" id="osmoGlu" class="osmo-inp" inputmode="decimal" placeholder="—" oninput="osmoCalc()">
+    </div>
+    <div class="osmo-field">
+      <label class="osmo-lbl">BUN <span class="osmo-unit">mg/dL</span></label>
+      <input type="number" id="osmoBun" class="osmo-inp" inputmode="decimal" placeholder="—" oninput="osmoCalc()">
+    </div>
+  </div>
+
+  <!-- 結果エリア -->
+  <div id="osmoResult" style="display:none">
+    <div id="osmoBadge" class="osmo-badge"></div>
+    <div class="osmo-result-box">
+      <div class="osmo-formula-row">
+        <span class="osmo-formula-label">式①&nbsp;<small>×0.05 / ×0.33</small></span>
+        <span id="osmoVal1" class="osmo-val"></span>
+      </div>
+      <div class="osmo-formula-row">
+        <span class="osmo-formula-label">式②&nbsp;<small>÷18 / ÷2.8</small></span>
+        <span id="osmoVal2" class="osmo-val"></span>
+      </div>
+    </div>
+    <div class="osmo-scale">
+      <div class="osmo-scale-bar">
+        <div id="osmoScaleMarker" class="osmo-scale-marker"></div>
+        <div class="osmo-scale-label" style="left:0%">0</div>
+        <div class="osmo-scale-label" style="left:60%">300</div>
+        <div class="osmo-scale-label" style="left:70%">350</div>
+        <div class="osmo-scale-label" style="left:80%">400</div>
+        <div class="osmo-scale-label" style="right:0">500+</div>
+      </div>
+      <div class="osmo-scale-zones">
+        <div style="width:60%;background:rgba(31,204,122,.15)"></div>
+        <div style="width:10%;background:rgba(255,176,32,.15)"></div>
+        <div style="width:10%;background:rgba(255,107,53,.15)"></div>
+        <div style="width:20%;background:rgba(255,77,109,.15)"></div>
+      </div>
+    </div>
+    <div class="osmo-legend">
+      <span class="osmo-leg ok">●&nbsp;正常 300–320</span>
+      <span class="osmo-leg wn">●&nbsp;&gt;350 沈鬱</span>
+      <span class="osmo-leg dn">●&nbsp;&gt;400 昏睡</span>
+    </div>
+    <div style="font-size:10px;color:var(--mu);text-align:right;margin-top:8px;">出典: <a href="https://www.otsuka.co.jp/nutr/contents/reference/fluid/" target="_blank" style="color:var(--ac);text-decoration:none;">大塚製薬「輸液と栄養」</a></div>
+  </div>
+  <div id="osmoEmpty" style="text-align:center;color:var(--mu);padding:30px 0;font-size:13px;">Na・K・Glu・BUN を入力してください</div>
+  <button class="bsec" style="width:100%;margin-top:14px;text-align:center;" onclick="osmoClear()">🔄 クリア</button>
+</div>
+
+<div class="fab-wrap">
+  <button class="fab-sm" onclick="openEasyAdd()" title="薬剤追加">&#xFF0B;</button>
+  <button class="fab-proto" onclick="openProtoList()">📋 セット</button>
+  <button class="fab" id="fabBtn" onclick="openWeight()">体重 <span id="wlbl">5.0 kg</span></button>
+</div>
+
+<div id="bd" onclick="closeAll()"></div>
+<!-- ========== やさしいモード パネル ========== -->
+<div id="easyPanel">
+  <div class="easy-hdr">
+    <div class="easy-hdr-title">VetCalc <b>Nurse</b></div>
+    <button class="easy-close" onclick="toggleEasyMode()">&#215;</button>
+  </div>
+  <div class="easy-body">
+
+    <!-- STEP 1: 動物種 -->
+    <div class="easy-step">
+      <div class="easy-step-label"><span class="easy-step-num">1</span>動物種を選んでください</div>
+      <div class="easy-sp-btns" id="easySpBtns"></div>
+    </div>
+
+    <!-- STEP 2: 体重 -->
+    <div class="easy-step">
+      <div class="easy-step-label"><span class="easy-step-num">2</span>体重を入力してください</div>
+      <div class="easy-w-row">
+        <button class="easy-w-btn" onclick="easyAdjW(-1)">−</button>
+        <input type="number" id="easyWInp" step="any" min="0.01" class="easy-w-inp" inputmode="decimal" oninput="easyCalc()">
+        <span id="easyWUnit" class="easy-w-unit">kg</span>
+        <button class="easy-w-btn" onclick="easyAdjW(+1)">＋</button>
+      </div>
+    </div>
+
+    <!-- STEP 3: 薬剤選択 -->
+    <div class="easy-step">
+      <div class="easy-step-label"><span class="easy-step-num">3</span>薬剤を選んでください</div>
+      <input type="search" id="easyDrugSearch" class="easy-drug-search" placeholder="薬剤名で検索..." oninput="easyRenderDrugs()" autocomplete="off">
+      <div class="easy-drug-list" id="easyDrugList"></div>
+    </div>
+
+    <!-- STEP 4: 結果 -->
+    <div id="easyResultArea"></div>
+
+  </div>
+</div>
+
+<div id="toast"></div>
+<input type="file" id="fileIn" accept=".json" style="display:none">
+
+<!-- 体重シート -->
+<div class="sh" id="shW">
+  <div class="shh"></div>
+  <div class="sht">患者情報 <button class="shx" onclick="closeAll()">&#215;</button></div>
+  <label class="f1">体重</label>
+  <div style="display:flex;align-items:center;gap:8px;">
+    <button onclick="adjWeight(-1)" style="background:var(--bd);border:none;color:var(--tx);font-size:20px;font-weight:700;border-radius:8px;padding:10px 14px;cursor:pointer;flex-shrink:0;line-height:1">−</button>
+    <input type="number" id="wInp" step="any" min="0.01" class="fi" placeholder="例: 5.0" style="flex:1;max-width:120px;text-align:center;font-size:20px;font-family:'JetBrains Mono',monospace;" onfocus="this.select()" inputmode="decimal">
+    <button onclick="adjWeight(+1)" style="background:var(--bd);border:none;color:var(--tx);font-size:20px;font-weight:700;border-radius:8px;padding:10px 14px;cursor:pointer;flex-shrink:0;line-height:1">＋</button>
+    <span id="wInpUnit" style="font-size:15px;color:var(--mu);font-weight:700;min-width:20px;">kg</span>
+  </div>
+  <div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap;" id="quickBtns"></div>
+  <label>動物種</label>
+  <select id="spInp" class="fi" onchange="var _sp=this.value;document.getElementById('wInpUnit').textContent=dispUnit(_sp);document.getElementById('wInp').value=dispW(_sp,spWeights[_sp]||st.w);renderQuickBtns(_sp);"></select>
+  <button class="bprim" onclick="applyWeight()">適用</button>
+</div>
+
+<!-- 詳細シート -->
+<div class="sh" id="shDtl">
+  <div style="display:flex;justify-content:flex-end;margin-bottom:8px;"><button style="background:none;border:none;color:var(--mu);font-size:28px;cursor:pointer;padding:0 4px;line-height:1;" onclick="closeAll()">&#215;</button></div>
+  <div id="dtlBody"></div>
+</div>
+
+<!-- 外部検索シート -->
+<div class="sh" id="shSrch">
+  <div class="shh"></div>
+  <div class="sht">添付文書・製品情報を検索 <button class="shx" onclick="closeAll()">&#215;</button></div>
+  <div id="srchDrugName" style="font-size:15px;font-weight:700;color:var(--tx);margin-bottom:16px;"></div>
+  <div style="display:flex;flex-direction:column;gap:10px;">
+    <button class="bprim" id="srchPmdaBtn" style="margin-top:0;background:linear-gradient(135deg,var(--ac),#6c5ce7);" onclick="doSrchDirect('pmda')">🔍 PMDA で成分名検索</button>
+    <button class="bprim" id="srchNvalBtn" style="margin-top:0;background:linear-gradient(135deg,#27ae60,#0f9a4e);" onclick="doSrchDirect('nval')">🔍 NVAL で成分名検索</button>
+    <button class="bprim" id="srchGoogleBtn" style="margin-top:0;background:#4285f4;" onclick="doSrch('google')">🔵 Google で検索</button>
+  </div>
+</div>
+
+<!-- 編集シート -->
+<div class="sh" id="shEdit">
+  <div class="shh"></div>
+  <div class="sht">薬剤を編集 <button class="shx" onclick="closeAll()">&#215;</button></div>
+  <div class="box">
+    <div class="boxt">基本情報</div>
+    <label class="f1">薬剤名</label>
+    <input class="fi" id="eName">
+    <label>カテゴリ</label>
+    <select class="fi" id="eCat"></select>
+    <label>分類（投与経路）</label>
+    <select class="fi" id="eRoute">
+      <option value="injectable">注射薬</option>
+      <option value="oral">内服薬</option>
+      <option value="topical">外用薬</option>
+    </select>
+    <label>院内濃度テキスト</label>
+    <input class="fi" id="eConcT" placeholder="例: 5mg/ml">
+    <label>院内濃度 数値 mg/ml（mL計算に使用）</label>
+    <input class="fi" id="eConc" type="number" step="any" placeholder="例: 5.0">
+    <label>備考</label>
+    <input class="fi" id="eMemo" placeholder="任意">
+  </div>
+  <div class="box">
+    <div class="boxt">各動物種 用量 (mg/kg)</div>
+    <div class="sphdr"><span></span><span>最小</span><span>最大</span></div>
+    <div id="eSpFields"></div>
+  </div>
+  <button class="bprim" onclick="saveEdit()">保存</button>
+  <div style="height:20px"></div>
+</div>
+
+<!-- 追加シート -->
+<div class="sh" id="shAdd">
+  <div class="shh"></div>
+  <div class="sht">薬剤を追加 <button class="shx" onclick="closeAll()">&#215;</button></div>
+  <div class="box">
+    <div class="boxt">基本情報</div>
+    <label class="f1">薬剤名 *</label>
+    <input class="fi" id="aName" placeholder="例: メロキシカム">
+    <label>カテゴリ</label>
+    <select class="fi" id="aCat"></select>
+    <label>分類（投与経路）</label>
+    <select class="fi" id="aRoute">
+      <option value="injectable">注射薬</option>
+      <option value="oral">内服薬</option>
+      <option value="topical">外用薬</option>
+    </select>
+    <label>院内濃度テキスト</label>
+    <input class="fi" id="aConcT" placeholder="例: 1mg/ml">
+    <label>院内濃度 数値 mg/ml</label>
+    <input class="fi" id="aConc" type="number" step="any" placeholder="例: 1.0">
+    <label>備考</label>
+    <input class="fi" id="aMemo" placeholder="任意">
+  </div>
+  <div class="box">
+    <div class="boxt">各動物種 用量 (mg/kg)</div>
+    <div class="sphdr"><span></span><span>最小</span><span>最大</span></div>
+    <div id="aSpFields"></div>
+  </div>
+  <button class="bprim" onclick="saveAdd()">追加</button>
+  <div style="height:20px"></div>
+</div>
+
+<!-- 表示設定シート -->
+<div class="sh" id="shSize">
+  <div class="shh"></div>
+  <div class="sht">表示設定 <button class="shx" onclick="closeAll()">&#215;</button></div>
+
+  <div class="box">
+    <div class="boxt">カラーテーマ</div>
+    <div class="theme-section">
+      <div class="theme-section-label">明暗</div>
+      <div class="theme-base-row" id="themeBaseRow"></div>
+    </div>
+    <div class="theme-section">
+      <div class="theme-section-label">カラー</div>
+      <div class="theme-accent-row" id="themeAccentRow"></div>
+    </div>
+    <div id="themeNameLbl" style="font-size:11px;color:var(--mu);margin-top:8px;text-align:center;"></div>
+  </div>
+
+  <div class="box">
+    <div class="boxt">カードサイズ</div>
+    <div class="sz-pre-row">
+      <button class="sz-pre" data-szpre="S" onclick="applySizePreset('S')">S<br><span style="font-size:10px;font-weight:400">コンパクト</span></button>
+      <button class="sz-pre" data-szpre="M" onclick="applySizePreset('M')">M<br><span style="font-size:10px;font-weight:400">標準</span></button>
+      <button class="sz-pre" data-szpre="L" onclick="applySizePreset('L')">L<br><span style="font-size:10px;font-weight:400">ゆったり</span></button>
+      <button class="sz-pre" data-szpre="LL" onclick="applySizePreset('LL')">LL<br><span style="font-size:10px;font-weight:400">1列・超大</span></button>
+    </div>
+    <label class="f1">カード幅（小さいほど多列） <span id="cardWLbl"></span></label>
+    <input type="range" id="cardWSlider" min="100" max="400" step="10" class="sz-slider" oninput="onCardW(this.value)">
+    <div style="display:flex;justify-content:space-between;margin-top:6px;">
+      <span style="font-size:10px;color:var(--mu)">← 多列・小</span>
+      <span style="font-size:10px;color:var(--mu)">1列・大 →</span>
+    </div>
+    <label style="margin-top:12px">カード高さ <span id="cardHLbl"></span></label>
+    <input type="range" id="cardHSlider" min="60" max="160" step="5" class="sz-slider" oninput="onCardH(this.value)">
+    <label style="margin-top:10px">カード内余白</label>
+    <input type="range" id="cardPSlider" min="6" max="24" step="2" class="sz-slider" oninput="onCardP(this.value)">
+  </div>
+
+  <div class="box">
+    <div class="boxt">フォントサイズ</div>
+    <label>薬剤名 <span id="nmFontLbl"></span></label>
+    <input type="range" id="nmSlider" min="10" max="18" step="1" class="sz-slider" oninput="onNmFont(this.value)">
+    <label style="margin-top:10px">mL数値 <span id="cvFontLbl"></span></label>
+    <input type="range" id="cvSlider" min="14" max="32" step="1" class="sz-slider" oninput="onCvFont(this.value)">
+    <label style="margin-top:10px">カテゴリ・備考</label>
+    <input type="range" id="subSlider" min="8" max="14" step="1" class="sz-slider" oninput="onSubFont(this.value)">
+  </div>
+
+  <div style="display:flex;gap:8px;margin-top:4px;">
+    <button class="bsec" style="flex:1" onclick="resetSizeSettings()">リセット</button>
+    <button class="bprim" style="flex:2;margin-top:0" onclick="saveSizeSettings();closeAll();toast('設定を保存しました ✓')">保存</button>
+  </div>
+</div>
+
+<!-- プロトコルセット一覧シート -->
+<div class="sh" id="shProtoList">
+  <div class="shh"></div>
+  <div class="sht">📋 プロトコルセット <button class="shx" onclick="closeAll()">&#215;</button></div>
+  <div id="protoListBody"></div>
+  <button class="bprim" style="margin-top:8px" onclick="openProtoEdit(-1)">＋ 新しいセットを作成</button>
+</div>
+
+<!-- プロトコルセット実行シート（一括計算表示） -->
+<div class="sh" id="shProtoRun">
+  <div class="shh"></div>
+  <div class="sht" id="protoRunTitle">セット名 <button class="shx" onclick="closeAll()">&#215;</button></div>
+  <div id="protoRunMeta" style="font-size:12px;color:var(--mu);margin-bottom:12px;"></div>
+  <div id="protoRunBody"></div>
+  <div style="display:flex;gap:8px;margin-top:12px;">
+    <button class="bsec" onclick="copyProtoInstructions()">📋 指示書</button>
+    <button class="bsec" onclick="printProto()">🖨 印刷</button>
+    <button class="bsec" onclick="openProtoEditCurrent()">✏️ 編集</button>
+    <button class="bprim" style="flex:1;margin-top:0" onclick="closeAll()">閉じる</button>
+  </div>
+</div>
+
+<!-- プロトコルセット編集シート -->
+<div class="sh" id="shProtoEdit">
+  <div class="shh"></div>
+  <div class="sht" id="protoEditTitle">セット編集 <button class="shx" onclick="closeAll()">&#215;</button></div>
+  <label class="f1">セット名</label>
+  <input type="text" id="protoNameInp" class="fi" placeholder="例: 麻酔導入セット">
+  <label>メモ（任意）</label>
+  <input type="text" id="protoMemoInp" class="fi" placeholder="例: 猫の標準麻酔プロトコル">
+  <label style="margin-top:12px">薬剤を選択</label>
+  <input type="text" id="protoSearch" class="sbar" placeholder="薬剤名で絞り込み..." oninput="renderProtoDrugPicker(this.value)" style="margin-top:6px">
+  <div id="protoDrugPicker" style="max-height:300px;overflow-y:auto;"></div>
+  <div style="display:flex;gap:8px;margin-top:14px;">
+    <button class="bsec d" id="protoDelBtn" onclick="deleteCurrentProto()" style="display:none">🗑 削除</button>
+    <button class="bprim" style="flex:1;margin-top:0" onclick="saveProto()">保存</button>
+  </div>
+</div>
+
+<!-- 印刷用（隠し） -->
+<div id="proto-print"></div>
+
+<!-- 管理シート -->
+<div class="sh" id="shMgmt">
+  <div class="shh"></div>
+  <div class="sht">データ管理 <button class="shx" onclick="closeAll()">&#215;</button></div>
+  <div id="mgmtBody"></div>
+</div>
+
+
+<script src="data/drugs_main.js"></script>
+<script src="src/app_calc.js"></script>
+<script src="src/app_main.js"></script>
+<script src="src/app_ui.js"></script>
+
+<div id="easyAddPanel">
+  <div class="ea-hdr">
+    <div class="ea-hdr-left">
+      <button class="ea-back" onclick="eaBack()">&#8592;</button>
+      <div>
+        <div class="ea-hdr-title">薬剤を<b>追加</b></div>
+        <div class="ea-hdr-sub" id="eaStepLbl">ステップ 1 / 3</div>
+      </div>
+    </div>
+    <button class="ea-close" onclick="closeEasyAdd()">&#215;</button>
+  </div>
+  <div class="ea-steps">
+    <div class="ea-si active" id="ea-si-1"><div class="ea-circle"><span>1</span></div><div class="ea-slabel">基本情報</div></div>
+    <div class="ea-si" id="ea-si-2"><div class="ea-circle"><span>2</span></div><div class="ea-slabel">動物・用量</div></div>
+    <div class="ea-si" id="ea-si-3"><div class="ea-circle"><span>3</span></div><div class="ea-slabel">確認</div></div>
+  </div>
+  <div class="ea-card ea-page active" id="ea-page-1">
+    <div class="ea-card-inner">
+      <div class="ea-card-title">💊 薬の基本情報</div>
+      <div class="ea-card-desc">よく使う名前で入力してOKです。</div>
+      <div class="ea-field"><label>薬の名前<span class="req">必須</span></label><input class="ea-fi" id="ea-name" type="text" placeholder="例：アモキシシリン" autocomplete="off"></div>
+      <div class="ea-field">
+        <label>投与経路<span class="req">必須</span></label>
+        <div class="ea-route-grid">
+          <div class="ea-route-btn on" data-route="injectable" onclick="eaSelectRoute(this)"><span class="ea-icon">💉</span><span class="ea-name">注射</span></div>
+          <div class="ea-route-btn" data-route="oral" onclick="eaSelectRoute(this)"><span class="ea-icon">💊</span><span class="ea-name">内服</span></div>
+          <div class="ea-route-btn" data-route="topical" onclick="eaSelectRoute(this)"><span class="ea-icon">🩹</span><span class="ea-name">外用</span></div>
+        </div>
+      </div>
+      <div class="ea-field"><label>濃度・規格<span class="req">必須</span></label><div class="ea-conc-row"><input class="ea-fi" id="ea-conc-val" type="number" placeholder="例：50" inputmode="decimal" step="any"><select class="ea-fi" id="ea-conc-unit"><option value="mg/ml">mg/mL</option><option value="mg/錠">mg/錠</option><option value="mg/cap">mg/cap</option><option value="mg/g">mg/g</option><option value="%">%</option></select></div></div>
+      <div class="ea-field"><label>カテゴリ<span class="opt">省略可</span></label><select class="ea-fi" id="ea-cat"><option value="">選択してください</option><option>循環器</option><option>消化器</option><option>呼吸器</option><option>抗生剤</option><option>NSAIDs</option><option>ステロイド</option><option>鎮痛</option><option>鎮静</option><option>麻酔</option><option>神経・てんかん</option><option>眼・耳・皮膚</option><option>抗真菌薬</option><option>肝臓・代謝</option><option>ホルモン</option><option>ビタミン・補液</option><option>局所麻酔</option><option>その他</option></select></div>
+      <div class="ea-field"><label>備考<span class="opt">省略可</span></label><input class="ea-fi" id="ea-memo" type="text" placeholder="注意事項など"></div>
+      <button class="ea-btn-primary" onclick="eaGoStep2()">次へ　→</button>
+    </div>
+  </div>
+  <div class="ea-card ea-page" id="ea-page-2">
+    <div class="ea-card-inner">
+      <div class="ea-card-title">🐾 どの動物に使いますか？</div>
+      <div class="ea-card-desc">動物をタップして選び、用量を入力してください。</div>
+      <div class="ea-field"><div class="ea-sp-grid">
+        <div class="ea-sp-btn on" data-sp="犬" onclick="eaToggleSp(this)"><span class="ea-sp-icon">🐕</span><span class="ea-sp-name">犬</span></div>
+        <div class="ea-sp-btn on" data-sp="猫" onclick="eaToggleSp(this)"><span class="ea-sp-icon">🐈</span><span class="ea-sp-name">猫</span></div>
+        <div class="ea-sp-btn" data-sp="ウサギ" onclick="eaToggleSp(this)"><span class="ea-sp-icon">🐇</span><span class="ea-sp-name">ウサギ</span></div>
+        <div class="ea-sp-btn" data-sp="フェレット" onclick="eaToggleSp(this)"><span class="ea-sp-icon">🦡</span><span class="ea-sp-name">フェレット</span></div>
+        <div class="ea-sp-btn" data-sp="モルモット" onclick="eaToggleSp(this)"><span class="ea-sp-icon">🐹</span><span class="ea-sp-name">モルモット</span></div>
+        <div class="ea-sp-btn" data-sp="ハリネズミ" onclick="eaToggleSp(this)"><span class="ea-sp-icon">🦔</span><span class="ea-sp-name">ハリネズミ</span></div>
+        <div class="ea-sp-btn" data-sp="ハムスター" onclick="eaToggleSp(this)"><span class="ea-sp-icon">🐭</span><span class="ea-sp-name">ハムスター</span></div>
+      </div></div>
+      <div id="ea-dose-fields"></div>
+      <div class="ea-hint">💡 用量は最小〜最大で入力。同じ値でも、片方だけでもOK。</div>
+      <div class="ea-btn-row">
+        <button class="ea-btn-secondary" onclick="eaGoStep1()">← 戻る</button>
+        <button class="ea-btn-primary" onclick="eaGoStep3()">確認する　→</button>
+      </div>
+    </div>
+  </div>
+  <div class="ea-card ea-page" id="ea-page-3">
+    <div class="ea-card-inner">
+      <div class="ea-card-title">✅ 内容を確認</div>
+      <div class="ea-card-desc">これでよければ「追加する」を押してください。</div>
+      <div id="ea-confirm"></div>
+      <div class="ea-btn-row">
+        <button class="ea-btn-secondary" onclick="eaGoStep2()">← 修正する</button>
+        <button class="ea-btn-primary" onclick="eaCommit()">✅ 追加する</button>
+      </div>
+    </div>
+  </div>
+  <div class="ea-card ea-page" id="ea-page-done">
+    <div class="ea-card-inner">
+      <div class="ea-done">
+        <span class="ea-done-icon">🎉</span>
+        <div class="ea-done-title">追加しました！</div>
+        <div class="ea-done-name" id="ea-done-name"></div>
+        <div class="ea-summary" id="ea-done-summary"></div>
+        <button class="ea-btn-primary" style="margin-bottom:10px" onclick="eaAddAnother()">続けて追加する</button>
+        <button class="ea-btn-secondary" onclick="closeEasyAdd()">VetCalcに戻る</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- 投薬指示書コピーシート -->
+<div class="copy-sheet" id="copySheet">
+  <div class="shh"></div>
+  <div class="sht">📋 投薬指示書 <button class="shx" onclick="closeCopySheet()">&#215;</button></div>
+  <div style="font-size:12px;color:var(--mu);margin-bottom:8px">内容を確認してコピーしてください</div>
+  <pre class="copy-pre" id="copyPre"></pre>
+  <button class="bprim" onclick="doCopy()">📋 クリップボードにコピー</button>
+  <div style="height:8px"></div>
+</div>
+
+
+<!-- 並び替えシート -->
+<div class="sh" id="shSort">
+  <div class="shh"></div>
+  <div class="sht">🔀 並び替え <button class="shx" onclick="closeAll()">&#215;</button></div>
+  <div style="font-size:12px;font-weight:700;color:var(--mu);margin:4px 0 8px">① カテゴリーの順番</div>
+  <ul class="sort-list" id="sortCatList"></ul>
+  <button class="bsec" style="width:100%;margin-bottom:16px" onclick="saveCatOrder()">✅ カテゴリー順を保存</button>
+  <div style="border-top:1px solid var(--bd);margin-bottom:12px"></div>
+  <div style="font-size:12px;font-weight:700;color:var(--mu);margin-bottom:8px">② 薬剤の順番（カテゴリー選択）</div>
+  <div class="sort-cat-sel" id="sortCatSel"></div>
+  <ul class="sort-list" id="sortList"></ul>
+  <button class="bprim sort-save" onclick="saveSortOrder()">✅ 薬剤順を保存</button>
+  <div style="height:8px"></div>
+</div>
+
+<!-- ===== DDx PANEL ===== -->
+<!-- ===== BSA PANEL ===== -->
+<div id="bsaPanel">
+  <div class="bsa-hdr">
+    <button class="bsa-back" onclick="closeBSA()">&#8592;</button>
+    <div class="bsa-hdr-title">📐 BSA（体表面積）計算</div>
+    <button style="background:none;border:none;color:var(--mu);font-size:18px;cursor:pointer;padding:4px;" onclick="bsaCopyResult()" title="コピー">📋</button>
+  </div>
+  <div class="bsa-body">
+    <div class="bsa-sp-row" id="bsaSpRow">
+      <button class="bsa-sp-btn on" data-sp="dog" onclick="bsaSetSp('dog')"><span class="bsa-sp-icon">🐶</span>犬</button>
+      <button class="bsa-sp-btn" data-sp="cat" onclick="bsaSetSp('cat')"><span class="bsa-sp-icon">🐱</span>猫</button>
+    </div>
+    <div class="bsa-inp-card">
+      <div style="font-size:11px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;">患者体重</div>
+      <div class="bsa-inp-row">
+        <button class="bsa-adj" onclick="bsaAdjW(-0.1)">−</button>
+        <input type="number" id="bsaWInp" class="bsa-w-inp" value="5.0" step="0.01" min="0.01" inputmode="decimal" oninput="bsaCalc()">
+        <span style="font-size:15px;color:var(--mu);font-weight:700;">kg</span>
+        <button class="bsa-adj" onclick="bsaAdjW(+0.1)">＋</button>
+      </div>
+    </div>
+    <div class="bsa-result" id="bsaResultCard">
+      <div class="bsa-result-lbl">体表面積 (BSA)</div>
+      <div class="bsa-result-val" id="bsaVal">—<em>m²</em></div>
+      <div id="bsaSub" style="font-size:12px;color:var(--mu);margin-top:4px;"></div>
+      <div class="bsa-result-formula" id="bsaFormula"></div>
+    </div>
+    <div class="bsa-info">
+      <b>犬:</b> 10.1 × (BW g)^(2/3) ÷ 10000　／　<b>猫:</b> 10.0 × (BW g)^(2/3) ÷ 10000
+    </div>
+    <div class="bsa-sec-title">💊 リンパ腫 化学療法 用量 <span class="bsa-badge bsa-badge-dog" id="bsaSpBadge">犬</span></div>
+    <div class="bsa-chemo-table">
+      <div class="bsa-chemo-hdr"><span>薬剤</span><span style="text-align:right">投与量</span><span style="text-align:right">基準</span></div>
+      <div id="bsaChemoRows"></div>
+    </div>
+    <div style="height:1px;background:var(--bd);margin:16px 0;"></div>
+    <div class="bsa-lookup-wrap">
+      <button class="bsa-lookup-toggle" id="bsaDogToggle" onclick="bsaToggleLookup('bsaDog')">🐶 犬 換算表 <span class="arr">▼</span></button>
+      <div class="bsa-lookup-body" id="bsaDogBody">
+        <div class="bsa-lt-hdr"><span>体重(kg)</span><span style="text-align:right">BSA(m²)</span><span></span><span>体重(kg)</span><span style="text-align:right">BSA(m²)</span></div>
+        <div id="bsaDogRows"></div>
+      </div>
+    </div>
+    <div class="bsa-lookup-wrap">
+      <button class="bsa-lookup-toggle" id="bsaCatToggle" onclick="bsaToggleLookup('bsaCat')">🐱 猫 換算表 <span class="arr">▼</span></button>
+      <div class="bsa-lookup-body" id="bsaCatBody">
+        <div class="bsa-lt-hdr"><span>体重(kg)</span><span style="text-align:right">BSA(m²)</span><span></span><span>体重(kg)</span><span style="text-align:right">BSA(m²)</span></div>
+        <div id="bsaCatRows"></div>
+      </div>
+    </div>
+    <div style="height:1px;background:var(--bd);margin:16px 0;"></div>
+    <div class="bsa-ref-block">
+      <div class="bsa-ref-title">参考資料</div>
+      <a class="bsa-ref-link" href="https://jsamc.jp/dr_info/education/conversion_dog.html" target="_blank">🔗 犬 体重・体表面積換算表（日本小動物医療センター）</a>
+      <a class="bsa-ref-link" href="https://jsamc.jp/dr_info/education/conversion_cat.html" target="_blank">🔗 猫 体重・体表面積換算表（日本小動物医療センター）</a>
+      <a class="bsa-ref-link" href="https://jsamc.jp/dr_info/education/pdf/rinpa01.pdf" target="_blank">📄 犬リンパ腫プロトコール PDF（日本小動物医療センター）</a>
+      <a class="bsa-ref-link" href="https://jsamc.jp/dr_info/education/pdf/rinpa02.pdf" target="_blank">📄 猫リンパ腫プロトコール PDF（日本小動物医療センター）</a>
+    </div>
+    <div style="height:20px;"></div>
+  </div>
+</div>
+
+<div id="hmPanel">
+  <div class="hm-hdr">
+    <button class="hm-back" onclick="closeHM()">&#8592;</button>
+    <div class="hm-hdr-title">🥗 VetCalc Diet</div>
+  </div>
+  <div class="hm-body">
+
+    <!-- 体重 -->
+    <div class="hm-sec-lbl">体重</div>
+    <div class="hm-bw-row">
+      <span class="hm-bw-label">体重</span>
+      <input class="hm-bw-input" id="hmBW" type="number" min="0.1" step="0.1" value="5.0" oninput="hmCalc()">
+      <span class="hm-bw-unit">kg</span>
+    </div>
+
+    <!-- 必要カロリー -->
+    <div class="hm-sec-lbl">必要カロリー</div>
+    <!-- 犬/猫切り替え -->
+    <div class="hm-sp-row">
+      <button class="hm-sp-btn on" id="hmSpDog" onclick="hmSetSp('dog')">🐕 犬</button>
+      <button class="hm-sp-btn" id="hmSpCat" onclick="hmSetSp('cat')">🐈 猫</button>
+    </div>
+    <!-- ライフステージボタン -->
+    <div class="hm-stage-grid" id="hmStageGrid"></div>
+    <!-- RER + DER -->
+    <div class="hm-calbox">
+      <div class="hm-cal-card">
+        <div class="hm-cal-val" id="hmRER">—</div>
+        <div class="hm-cal-lbl">安静時 RER</div>
+        <div class="hm-cal-coef">70 × BW^0.75</div>
+      </div>
+      <div class="hm-cal-card selected">
+        <div class="hm-cal-val main" id="hmDER">—</div>
+        <div class="hm-cal-lbl" id="hmDERlbl">DER</div>
+        <div class="hm-cal-coef" id="hmDERcoef">RER × —</div>
+      </div>
+    </div>
+
+    <!-- BCS -->
+    <div class="hm-sec-lbl">BCS（ボディコンディションスコア）</div>
+    <!-- スケール切替 -->
+    <div class="hm-bcs-scale-btns">
+      <button class="hm-bcs-scale-btn on" id="hmBcsScale9" onclick="hmSetBcsScale(9)">9段階（WSAVA）</button>
+      <button class="hm-bcs-scale-btn" id="hmBcsScale5" onclick="hmSetBcsScale(5)">5段階</button>
+    </div>
+    <!-- バー -->
+    <div class="hm-bcs-bar-wrap">
+      <div class="hm-bcs-bar" id="hmBcsBar"></div>
+      <div class="hm-bcs-labels" id="hmBcsLabels"></div>
+    </div>
+    <!-- 結果カード -->
+    <div class="hm-bcs-result">
+      <div class="hm-bcs-res-card">
+        <div class="hm-bcs-res-val" id="hmBcsIBW">—</div>
+        <div class="hm-bcs-res-lbl">理想体重 IBW</div>
+      </div>
+      <div class="hm-bcs-res-card">
+        <div class="hm-bcs-res-val" id="hmBcsBfPct">—</div>
+        <div class="hm-bcs-res-lbl">推定体脂肪率</div>
+      </div>
+      <div class="hm-bcs-res-card">
+        <div class="hm-bcs-res-val" id="hmBcsDiff">—</div>
+        <div class="hm-bcs-res-lbl">IBWとの差</div>
+      </div>
+    </div>
+    <div class="hm-ibw-note" id="hmIbwNote"></div>
+
+    <!-- 食材テーブル -->
+    <div class="hm-sec-lbl">食材と給与量</div>
+    <div class="hm-ing-table">
+      <div class="hm-ing-thead">
+        <div class="hm-ing-th" style="text-align:left;">食材</div>
+        <div class="hm-ing-th">g</div>
+        <div class="hm-ing-th">kcal</div>
+        <div class="hm-ing-th"></div>
+      </div>
+      <div class="hm-ing-tbody" id="hmIngTbody"></div>
+      <div class="hm-ing-total">
+        <div class="hm-ing-total-lbl">計</div>
+        <div class="hm-ing-total-g" id="hmTotalG">0 g</div>
+        <div class="hm-ing-total-kcal" id="hmTotalKcal">0</div>
+        <div></div>
+      </div>
+    </div>
+
+    <!-- 食材追加フォーム -->
+    <div class="hm-add-form">
+      <div class="hm-add-row">
+        <select class="hm-add-sel" id="hmIngSel">
+          <option value="">— 食材を選択 —</option>
+        </select>
+        <button class="hm-add-btn" onclick="hmAddIngredient()">追加</button>
+      </div>
+      <button class="hm-custom-toggle" onclick="hmToggleCustomForm()">＋ 食材を自分で入力</button>
+      <div class="hm-custom-form" id="hmCustomForm">
+        <div class="hm-custom-grid">
+          <div class="hm-custom-field" style="grid-column:1/-1;">
+            <span class="hm-custom-lbl">食材名</span>
+            <input class="hm-custom-inp hm-custom-name-inp" id="hmCName" placeholder="例：豆腐" type="text">
+          </div>
+          <div class="hm-custom-field"><span class="hm-custom-lbl">kcal/100g</span><input class="hm-custom-inp" id="hmCKcal" type="number" placeholder="0"></div>
+          <div class="hm-custom-field"><span class="hm-custom-lbl">タンパク質g</span><input class="hm-custom-inp" id="hmCPro" type="number" placeholder="0"></div>
+          <div class="hm-custom-field"><span class="hm-custom-lbl">脂質g</span><input class="hm-custom-inp" id="hmCFat" type="number" placeholder="0"></div>
+          <div class="hm-custom-field"><span class="hm-custom-lbl">炭水化物g</span><input class="hm-custom-inp" id="hmCCarb" type="number" placeholder="0"></div>
+          <div class="hm-custom-field"><span class="hm-custom-lbl">リンmg</span><input class="hm-custom-inp" id="hmCP" type="number" placeholder="0"></div>
+          <div class="hm-custom-field"><span class="hm-custom-lbl">Namg</span><input class="hm-custom-inp" id="hmCNa" type="number" placeholder="0"></div>
+          <div class="hm-custom-field"><span class="hm-custom-lbl">Kmg</span><input class="hm-custom-inp" id="hmCK" type="number" placeholder="0"></div>
+        </div>
+        <button class="hm-custom-add-btn" onclick="hmAddCustomIngredient()">この食材をリストに追加</button>
+      </div>
+    </div>
+
+    <!-- 成分サマリー -->
+    <div class="hm-sec-lbl">成分サマリー（ホームメイド分）</div>
+    <div class="hm-nutr-grid">
+      <div class="hm-nutr-item"><span class="hm-nutr-key">タンパク質</span><span class="hm-nutr-val" id="hmNPro">0 g</span></div>
+      <div class="hm-nutr-item"><span class="hm-nutr-key">脂質</span><span class="hm-nutr-val" id="hmNFat">0 g</span></div>
+      <div class="hm-nutr-item"><span class="hm-nutr-key">炭水化物</span><span class="hm-nutr-val" id="hmNCarb">0 g</span></div>
+      <div class="hm-nutr-item"><span class="hm-nutr-key">リン</span><span class="hm-nutr-val" id="hmNP">0 mg</span></div>
+      <div class="hm-nutr-item"><span class="hm-nutr-key">Na</span><span class="hm-nutr-val" id="hmNNa">0 mg</span></div>
+      <div class="hm-nutr-item"><span class="hm-nutr-key">K</span><span class="hm-nutr-val" id="hmNK">0 mg</span></div>
+    </div>
+
+    <!-- ホームメイド＋フード按分 -->
+    <div class="hm-sec-lbl">ホームメイド ＋ フード 按分</div>
+    <div class="hm-blend-card">
+      <div style="font-size:11px;color:var(--mu);margin-bottom:6px;">ホームメイドの割合（10%刻み）</div>
+      <div class="hm-blend-ratio-row" id="hmBlendRatioRow">
+        <button class="hm-blend-ratio-btn" data-r="100" onclick="hmSetBlend(this)">100%</button>
+        <button class="hm-blend-ratio-btn" data-r="80" onclick="hmSetBlend(this)">80%</button>
+        <button class="hm-blend-ratio-btn on" data-r="60" onclick="hmSetBlend(this)">60%</button>
+        <button class="hm-blend-ratio-btn" data-r="40" onclick="hmSetBlend(this)">40%</button>
+        <button class="hm-blend-ratio-btn" data-r="20" onclick="hmSetBlend(this)">20%</button>
+        <button class="hm-blend-ratio-btn" data-r="0" onclick="hmSetBlend(this)">0%</button>
+      </div>
+      <select class="hm-blend-sel" id="hmBlendFoodSel" onchange="hmRenderBlend()">
+        <optgroup label="─ 🐕 犬 ─ 腎臓病食">
+          <option value="rc_dog_ren_dry">腎臓サポート ドライ（391kcal）</option>
+          <option value="rc_dog_ren_wet">腎臓サポート 缶（146kcal）</option>
+          <option value="rc_dog_ren_liq">腎臓サポート リキッド（140kcal）</option>
+          <option value="rc_dog_ren_crit">クリティカル リキッド（101kcal）</option>
+          <option value="rc_dog_ren_sel">腎臓サポート セレクション ドライ（396kcal）</option>
+          <option value="rc_dog_ren_early">早期腎臓サポート 小粒 ドライ（396kcal）</option>
+          <option value="rc_dog_ren_lp">腎臓サポート＋低分子 ドライ（403kcal）</option>
+        </optgroup>
+        <optgroup label="─ 🐕 犬 ─ 低脂肪・消化器食">
+          <option value="rc_dog_gi_lf_dry">消化器 低脂肪 ドライ（346kcal）</option>
+          <option value="rc_dog_gi_lf_wet">消化器 低脂肪 缶（97kcal）</option>
+          <option value="rc_dog_gi_lf_sm">消化器 低脂肪 小型犬 ドライ（321kcal）</option>
+          <option value="rc_dog_gi_hf_dry">消化器 高繊維 ドライ（346kcal）</option>
+          <option value="rc_dog_gi_hf_wet">消化器 高繊維 缶（97kcal）</option>
+          <option value="rc_dog_gi_dry">消化器サポート ドライ（413kcal）</option>
+          <option value="rc_dog_gi_pup">消化器サポート パピー ドライ（424kcal）</option>
+          <option value="id_lowfat">Hills i/d ローファット缶（89kcal）</option>
+          <option value="id_stew">Hills i/d シチュー缶（79kcal）</option>
+          <option value="gi_can">消サポ缶・旧（98kcal）</option>
+          <option value="gi_liq">消サポ リキッド・旧（105kcal）</option>
+          <option value="gi_high">消サポ ハイエナジー・旧（147kcal）</option>
+        </optgroup>
+        <optgroup label="─ 🐈 猫 ─ 腎臓病食">
+          <option value="rc_cat_ren_dry">腎臓サポート ドライ（413kcal）</option>
+          <option value="rc_cat_ren_sp">腎臓サポート スペシャル ドライ（392kcal）</option>
+          <option value="rc_cat_ren_sel">腎臓サポート セレクション ドライ（411kcal）</option>
+          <option value="rc_cat_ren_early">早期腎臓サポート ドライ（381kcal）</option>
+          <option value="rc_cat_ren_ewet">早期腎臓サポート パウチ（104kcal）</option>
+          <option value="rc_cat_ren_chk">腎臓サポート チキンテイスト パウチ（127kcal）</option>
+          <option value="rc_cat_ren_fsh">腎臓サポート フィッシュテイスト パウチ（102kcal）</option>
+          <option value="rc_cat_ren_beef">腎臓サポート ビーフテイスト パウチ（108kcal）</option>
+          <option value="rc_cat_ren_loaf">腎臓サポート ローフ パウチ（107kcal）</option>
+          <option value="rc_cat_ren_liq">腎臓サポート リキッド（103kcal）</option>
+          <option value="rc_cat_crit_liq">クリティカル リキッド（102kcal）</option>
+          <option value="kd_can">Hills k/d缶（117kcal）</option>
+          <option value="hills_cat_kd_dry">Hills k/d チキン ドライ（399kcal）</option>
+          <option value="hills_cat_kd_tuna_dry">Hills k/d ツナ ドライ（399kcal※推定）</option>
+          <option value="hills_cat_kd_early">Hills k/d 早期アシスト ドライ（420kcal）</option>
+          <option value="hills_cat_kd_stew_chk">Hills k/d シチュー缶 チキン＆野菜（85kcal）</option>
+          <option value="hills_cat_kd_stew_tna">Hills k/d シチュー缶 ツナ＆野菜（85kcal※推定）</option>
+          <option value="pl_cat_kid_chk_dry">キドニーケア チキンテイスト ドライ（429kcal）</option>
+          <option value="pl_cat_kid_fish_dry">キドニーケア フィッシュテイスト ドライ（425kcal）</option>
+          <option value="pl_cat_kid_plus_dry">キドニーケア プラス 可溶性繊維 ドライ（399kcal）</option>
+          <option value="pl_cat_kkeep_dry">キドニーキープ ドライ（360kcal）</option>
+          <option value="pl_cat_kkeep_rich">キドニーキープ リッチテイスト ドライ（360kcal）</option>
+          <option value="renal_can">腎サポ缶・旧（166kcal）</option>
+          <option value="renal_liq">リーナルリキッド・旧（150kcal）</option>
+        </optgroup>
+        <optgroup label="─ 🐈 猫 ─ 低脂肪・消化器食">
+          <option value="rc_cat_gi_dry">消化器サポート ドライ（433kcal）</option>
+          <option value="rc_cat_gi_wet">消化器サポート パウチ（104kcal）</option>
+          <option value="rc_cat_cardiac">心臓サポート ドライ（375kcal）</option>
+        </optgroup>
+      </select>
+      <div class="hm-blend-result" id="hmBlendResult">
+        <div class="hm-blend-result-row"><span class="hm-blend-result-key">目標カロリー（通常DER）</span><span class="hm-blend-result-val" id="hmBR_target">— kcal</span></div>
+        <div class="hm-blend-result-row"><span class="hm-blend-result-key">HM分</span><span class="hm-blend-result-val" id="hmBR_hm">— kcal</span></div>
+        <div class="hm-blend-result-row"><span class="hm-blend-result-key">フード分</span><span class="hm-blend-result-val" id="hmBR_food_kcal">— kcal</span></div>
+        <div class="hm-blend-result-row"><span class="hm-blend-result-key" style="font-weight:700;color:var(--tx);">フード給与量</span><span class="hm-blend-result-val" style="color:var(--ac);font-size:16px;" id="hmBR_food_g">— g</span></div>
+      </div>
+    </div>
+
+    <!-- 外部リンク -->
+    <div class="hm-sec-lbl">参考リンク</div>
+    <div class="hm-links">
+      <a class="hm-link-btn" href="https://fooddb.mext.go.jp/" target="_blank">📊 文科省 食品成分データベース<span>mext.go.jp →</span></a>
+      <a class="hm-link-btn" href="https://www.eiyoukeisan.com/dietary_logs/multi_edit_food" target="_blank">🧮 栄養計算サイト<span>eiyoukeisan.com →</span></a>
+      <a class="hm-link-btn" href="https://contents.hills.co.jp/feeding_guide/" target="_blank">🏥 Hill's フード給与量ガイド<span>hills.co.jp →</span></a>
+      <a class="hm-link-btn" href="https://www.royalcanin.co.jp/vets/po-fg/" target="_blank">👑 Royal Canin 給与量ガイド<span>royalcanin.co.jp →</span></a>
+      <a class="hm-link-btn" href="https://www.petline.co.jp/drs/feeding_amount/" target="_blank">⚕️ Dr.'s（ペットライン）給与量計算<span>petline.co.jp →</span></a>
+    </div>
+
+    <!-- 超低脂肪食メモ -->
+    <div class="hm-sec-lbl">超低脂肪食 備忘録</div>
+    <div class="hm-memo-card">
+      <div class="hm-memo-title">🔶 超低脂肪食（腸リンパ管拡張症・PLE / 膵炎併発時）</div>
+      <div class="hm-memo-body">
+        <b>適応：</b>腸リンパ管拡張症（IL）、蛋白漏出性腸症（PLE）、膵炎併発時<br>
+        <br>
+        <b>脂肪制限の目安：</b><br>
+        　低脂肪食　&lt; 4 g / 100 kcal ME<br>
+        　超低脂肪食 &lt; 2 g / 100 kcal ME<br>
+        <br>
+        <b>ホームメイド基本レシピ：</b><br>
+        　鶏ササミ（皮なし）＋ 炭水化物源 をカロリー比 1:2 で混合<br>
+        　炭水化物源：白米 / じゃがいも / さつまいも（選択可）<br>
+        　※カッテージチーズ（脂肪1%）、ティラピアも代替タンパク源として有効<br>
+        <br>
+        <b>根拠：</b><br>
+        　食事性脂肪↓ → 乳び管流量↓ → リンパ管膨張↓ → タンパク漏出↓<br>
+        　長鎖脂肪酸（LCT）制限が主目的。MCT（中鎖脂肪酸）は代替エネルギーとして検討可<br>
+        <br>
+        <b>注意事項：</b><br>
+        　AAFCO基準を満たさない → 長期給与時はサプリ（Ca・VitD・必須脂肪酸等）を必ず併用<br>
+        　やみくもな低脂肪化は不要。症状に応じて獣医師と調整すること<br>
+        <br>
+        <b>出典・参考：</b><br>
+        　宮川先生（日獣）改変レシピ 20240322<br>
+        　<a href="https://pubmed.ncbi.nlm.nih.gov/28160309/" target="_blank" style="color:var(--ac);">Rudinsky et al. (2017) Dietary management of presumptive PLE in Yorkshire terriers. <i>J Small Anim Pract</i> 58:103-108</a><br>
+        　<a href="https://pubmed.ncbi.nlm.nih.gov/24673630/" target="_blank" style="color:var(--ac);">Okanishi et al. (2014) Clinical Efficacy of Dietary Fat Restriction in Dogs with Intestinal Lymphangiectasia. <i>J Vet Intern Med</i> 28:809-817</a><br>
+        　<a href="https://www.purinainstitute.com/ja/centresquare/therapeutic-nutrition/protein-losing-enteropathy-in-dogs" target="_blank" style="color:var(--ac);">Purina Institute: Protein-Losing Enteropathy in Dogs</a><br>
+        　<a href="https://www.purinainstitute.com/ja/centresquare/therapeutic-nutrition/canine-intestinal-lymphangiectasia" target="_blank" style="color:var(--ac);">Purina Institute: Canine Intestinal Lymphangiectasia</a>
+      </div>
+    </div>
+
+    <div style="height:20px;"></div>
+  </div>
+</div>
+
+<div id="ddxPanel">
+  <div class="ddx-hdr">
+    <button class="ddx-back" onclick="closeDDx()">&#8592;</button>
+    <span class="ddx-hdr-title">🔍 鑑別診断リスト</span>
+  </div>
+  <div class="ddx-search-wrap">
+    <input class="ddx-search" id="ddxSearch" type="text" placeholder="症状・疾患名で検索…" oninput="renderDDx()">
+    <div class="ddx-catbar" id="ddxCatBar"></div>
+  </div>
+  <div class="ddx-count" id="ddxCount"></div>
+  <div class="ddx-body" id="ddxBody"></div>
+</div>
+<!-- ===== CRI PANEL ===== -->
+<div id="criPanel" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:200;background:var(--bg);overflow-y:auto;-webkit-overflow-scrolling:touch;">
+  <div style="background:var(--pn);border-bottom:1px solid var(--bd);padding:12px 16px 10px;position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:10px;">
+    <button onclick="closeCRIPanel()" style="background:none;border:none;color:var(--mu);font-size:22px;cursor:pointer;padding:0 4px;line-height:1;">←</button>
+    <span style="font-size:16px;font-weight:900;letter-spacing:-.5px;">VetCalc <b style=\"color:var(--cri)\">CRI</b><small style="font-size:10px;color:var(--mu);font-weight:400;margin-left:6px;vertical-align:middle;">持続定速投与 計算ツール</small></span>
+  </div>
+<!-- DRUG SELECTOR -->
+<div style="padding:14px 14px 4px;">
+  <div class="sec-label">💊 薬剤を選択</div>
+</div>
+
+<div class="drug-grid">
+
+  <!-- 鎮痛系 -->
+  <button class="drug-btn" onclick="openCalc('フェンタニル')">
+    <div class="db-icon">🟣</div>
+    <div class="db-info">
+      <div class="db-name">フェンタニル</div>
+      <div class="db-conc">4μg/ml（希釈後）</div>
+      <div class="db-range">5–45 μg/kg/h</div>
+    </div>
+  </button>
+
+  <button class="drug-btn" onclick="openCalc('モルヒネ')">
+    <div class="db-icon">🟣</div>
+    <div class="db-info">
+      <div class="db-name">モルヒネ</div>
+      <div class="db-conc">10 mg/ml</div>
+      <div class="db-range">犬0.1 / 猫0.05 mg/kg/h</div>
+    </div>
+  </button>
+
+  <button class="drug-btn" onclick="openCalc('ケタミン')">
+    <div class="db-icon">🟡</div>
+    <div class="db-info">
+      <div class="db-name">ケタミン</div>
+      <div class="db-conc">50 mg/ml</div>
+      <div class="db-range">2–5 μg/kg/min</div>
+    </div>
+  </button>
+
+  <button class="drug-btn" onclick="openCalc('リドカイン')">
+    <div class="db-icon">🟡</div>
+    <div class="db-info">
+      <div class="db-name">リドカイン</div>
+      <div class="db-conc">20 mg/ml（2%）</div>
+      <div class="db-range">50–100 μg/kg/min</div>
+    </div>
+  </button>
+
+  <button class="drug-btn" onclick="openCalc('プロポフォール')">
+    <div class="db-icon">⚪</div>
+    <div class="db-info">
+      <div class="db-name">プロポフォール</div>
+      <div class="db-conc">10 mg/ml</div>
+      <div class="db-range">0.025–0.4 mg/kg/min</div>
+    </div>
+  </button>
+
+  <!-- 循環系 -->
+  <button class="drug-btn" onclick="openCalc('ドパミン')">
+    <div class="db-icon">🔴</div>
+    <div class="db-info">
+      <div class="db-name">ドパミン</div>
+      <div class="db-conc">20 mg/ml（2%）</div>
+      <div class="db-range">2–8 μg/kg/min</div>
+    </div>
+  </button>
+
+  <button class="drug-btn" onclick="openCalc('ドブタミン')">
+    <div class="db-icon">🔴</div>
+    <div class="db-info">
+      <div class="db-name">ドブタミン</div>
+      <div class="db-conc">20 mg/ml</div>
+      <div class="db-range">5–15 μg/kg/min</div>
+    </div>
+  </button>
+
+  <button class="drug-btn" onclick="openCalc('ノルアドレナリン')">
+    <div class="db-icon">🔴</div>
+    <div class="db-info">
+      <div class="db-name">ノルアドレナリン</div>
+      <div class="db-conc">1 mg/ml（1000μg/ml）</div>
+      <div class="db-range">0.05–1.0 μg/kg/min</div>
+    </div>
+  </button>
+
+  <!-- その他 -->
+  <button class="drug-btn" onclick="openCalc('フロセミド')">
+    <div class="db-icon">🟢</div>
+    <div class="db-info">
+      <div class="db-name">フロセミド</div>
+      <div class="db-conc">50 mg/ml（5%）</div>
+      <div class="db-range">1–4 mg/kg/day</div>
+    </div>
+  </button>
+
+  <button class="drug-btn" onclick="openCalc('メトクロプラミド')">
+    <div class="db-icon">🟢</div>
+    <div class="db-info">
+      <div class="db-name">メトクロプラミド</div>
+      <div class="db-conc">5 mg/ml</div>
+      <div class="db-range">1–2 mg/kg/day</div>
+    </div>
+  </button>
+
+  <button class="drug-btn" onclick="openCalc('インスリン')">
+    <div class="db-icon">🟠</div>
+    <div class="db-info">
+      <div class="db-name">インスリン（Regular）</div>
+      <div class="db-conc">100 U/ml</div>
+      <div class="db-range">犬2.2 / 猫1.1 U/kg/day</div>
+    </div>
+  </button>
+
+</div>
+
+<!-- CALCULATOR PANEL (フルスクリーン) -->
+<div id="criCalcPanel">
+  <div class="cp-hdr">
+    <button class="cp-back" onclick="closeCalc()">←</button>
+    <div style="flex:1;text-align:center;">
+      <div class="cp-drug-name" id="cp-drug-name">－</div>
+    </div>
+    <div class="cp-conc-badge" id="cp-conc-badge">－</div>
+  </div>
+
+  <div class="cp-body">
+
+    <!-- 共通入力：体重 -->
+    <div class="input-card" id="commonInputCard">
+      <div class="input-card-title">基本情報</div>
+      <!-- 種別選択 -->
+      <div class="species-row">
+        <button class="species-btn active" id="sp-dog" onclick="selectSpecies('dog',this)">🐶 犬</button>
+        <button class="species-btn" id="sp-cat" onclick="selectSpecies('cat',this)">🐱 猫</button>
+      </div>
+      <div class="fi-row">
+        <div class="fi-label">体重<small>BW</small></div>
+        <div class="fi-right">
+          <button class="fi-step-btn" onclick="step('bw',-0.5)">－</button>
+          <input type="number" class="fi" id="inp-bw" value="5" min="0.1" max="200" step="0.5" oninput="onInputChange()">
+          <span class="fi-unit">kg</span>
+          <button class="fi-step-btn" onclick="step('bw',0.5)">＋</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 薬剤固有：目標投与量 -->
+    <div class="input-card" id="doseInputCard">
+      <div class="input-card-title">目標投与量</div>
+      <div id="doseInputArea"><!-- JSで動的生成 --></div>
+    </div>
+
+    <!-- 計算ボタン -->
+    <button class="calc-btn" onclick="calculate()">
+      🧮 計算する
+    </button>
+
+    <!-- 結果カード：バッグ法・シリンジ法 並列 -->
+    <div id="resultCard">
+
+      <!-- バッグ一本法 -->
+      <div class="method-block" id="bagBlock">
+        <div class="method-header bag">
+          <span class="method-icon">🔵</span>
+          <span class="method-title">バッグ一本法</span>
+          <div class="vol-selector" id="bagVolSelector">
+            <button class="vol-btn active" data-vol="100" onclick="selectVol('bag',100,this)">100ml</button>
+            <button class="vol-btn" data-vol="200" onclick="selectVol('bag',200,this)">200ml</button>
+            <button class="vol-btn" data-vol="500" onclick="selectVol('bag',500,this)">500ml</button>
+          </div>
+        </div>
+        <div class="conc-row" id="concRow">
+          <span class="conc-label">原液濃度</span>
+          <input type="number" class="conc-input" id="inp-conc"
+            step="any" oninput="onConcChange()">
+          <span class="conc-unit" id="conc-unit-label">mg/ml</span>
+          <span class="conc-reset" onclick="resetConc()" title="デフォルトに戻す">↺</span>
+        </div>
+        <div class="method-body" id="bagResult">－</div>
+      </div>
+
+      <!-- シリンジ法 -->
+      <div class="method-block" id="syringeBlock">
+        <div class="method-header syringe">
+          <span class="method-icon">🔴</span>
+          <span class="method-title">シリンジ法</span>
+          <div class="vol-selector" id="syringeVolSelector">
+            <button class="vol-btn active" data-vol="25" onclick="selectVol('syringe',25,this)">25ml</button>
+            <button class="vol-btn" data-vol="50" onclick="selectVol('syringe',50,this)">50ml</button>
+          </div>
+        </div>
+
+        <!-- PHASE 1: 作る -->
+        <div class="syringe-phase" id="syPhase1">
+          <div class="phase-label">① 作る</div>
+          <div class="method-body" id="syringeResult">－</div>
+        </div>
+
+        <!-- PHASE 2: 調整する（計算後に表示） -->
+        <div class="syringe-phase" id="syPhase2" style="display:none;">
+          <div class="phase-label active">② 調整する</div>
+          <div class="sy-adjust">
+
+            <!-- 目標投与量スライダー -->
+            <div class="sy-target-row">
+              <span class="sy-adjust-label">目標投与量</span>
+              <div class="sy-adjust-ctrl">
+                <button class="sy-fr-btn" onclick="adjustSyDose(-1)">－</button>
+                <span class="sy-fr-val" id="syDoseTarget">5</span>
+                <span class="sy-fr-unit" id="syDoseTargetUnit">μg/kg/h</span>
+                <button class="sy-fr-btn" onclick="adjustSyDose(1)">＋</button>
+              </div>
+            </div>
+            <div class="sy-slider-wrap">
+              <input type="range" class="sy-slider" id="syDoseSlider"
+                min="1" max="10" step="0.1" value="5"
+                oninput="onSyDoseSlider()">
+              <div class="sy-slider-labels">
+                <span id="sySliderMin">－</span>
+                <span id="sySliderMax">－</span>
+              </div>
+            </div>
+
+            <!-- ▶ ポンプをこの流量に -->
+            <div class="sy-pump-display">
+              <div class="sy-pump-label">▶ ポンプを</div>
+              <div class="sy-pump-val" id="syPumpRate">－</div>
+              <div class="sy-pump-unit">ml / h &nbsp;にしてください</div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 注意事項 -->
+      <div class="warning-box" id="warningBox" style="display:none;"></div>
+
+    </div>
+
+  </div>
+</div>
+
+<div id="criToast">✓ コピーしました</div>
+
+<!-- ===== SCRIPT ===== -->
+</div>
+<!-- ===== END CRI PANEL ===== -->
+<!-- 錠剤分割シート -->
+<div class="sh" id="shTablet" style="max-height:100vh;height:100vh;border-radius:0;display:flex;flex-direction:column;padding:0;">
+  <div style="padding:18px 18px 0;flex-shrink:0;">
+    <div class="shh"></div>
+    <div class="sht" style="font-size:18px;">💊 錠剤分割・必要錠数 <button class="shx" onclick="closeAll()">&#215;</button></div>
+  </div>
+
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:space-evenly;padding:0 18px 30px;overflow-y:auto;">
+
+    <!-- 1回量 -->
+    <div>
+      <div style="font-size:13px;font-weight:700;color:var(--mu);margin-bottom:8px;letter-spacing:.04em;">1回量</div>
+      <select id="tcDenom" onchange="tcCalc()"
+        style="width:100%;height:64px;font-size:22px;font-weight:700;border-radius:14px;border:2px solid var(--bd);background:var(--bg);color:var(--tx);padding:0 16px;appearance:none;-webkit-appearance:none;text-align:center;">
+        <option value="1">1錠</option>
+        <option value="2" selected>1/2 錠</option>
+        <option value="4">1/4 錠</option>
+        <option value="8">1/8 錠</option>
+      </select>
+    </div>
+
+    <!-- 回数/日 -->
+    <div>
+      <div style="font-size:13px;font-weight:700;color:var(--mu);margin-bottom:8px;letter-spacing:.04em;">回数 / 日</div>
+      <select id="tcTimes" onchange="tcCalc()"
+        style="width:100%;height:64px;font-size:22px;font-weight:700;border-radius:14px;border:2px solid var(--bd);background:var(--bg);color:var(--tx);padding:0 16px;appearance:none;-webkit-appearance:none;text-align:center;">
+        <option value="1">SID（1回/日）</option>
+        <option value="2">BID（2回/日）</option>
+        <option value="3">TID（3回/日）</option>
+        <option value="0.5">EOD（隔日）</option>
+      </select>
+    </div>
+
+    <!-- 日数 -->
+    <div>
+      <div style="font-size:13px;font-weight:700;color:var(--mu);margin-bottom:8px;letter-spacing:.04em;">日数</div>
+      <input type="number" id="tcDays" inputmode="numeric" min="1" step="1" placeholder="例：14"
+        oninput="tcCalc()"
+        style="width:100%;height:64px;font-size:28px;font-weight:700;border-radius:14px;border:2px solid var(--bd);background:var(--bg);color:var(--tx);padding:0 16px;box-sizing:border-box;text-align:center;">
+    </div>
+
+    <!-- 結果 -->
+    <div id="tcResult" style="display:none;background:rgba(76,142,255,.07);border:2px solid rgba(76,142,255,.3);border-radius:18px;padding:24px 16px;text-align:center;">
+      <div style="font-size:13px;font-weight:700;color:var(--mu);margin-bottom:6px;letter-spacing:.04em;">必要錠数</div>
+      <div style="display:flex;align-items:baseline;justify-content:center;gap:6px;">
+        <span id="tcTotal" style="font-family:'JetBrains Mono',monospace;font-size:72px;font-weight:900;color:var(--ac);line-height:1;"></span>
+        <span style="font-size:28px;font-weight:800;color:var(--ac);">錠</span>
+      </div>
+      <div id="tcBreakdown" style="font-size:14px;color:var(--mu);margin-top:10px;letter-spacing:.02em;"></div>
+    </div>
+    <div id="tcEmpty" style="text-align:center;color:var(--mu);font-size:14px;padding:16px 0;">日数を入力してください</div>
+
+
+    <button class="bsec" style="width:100%;height:50px;font-size:15px;" onclick="tcClear()">🔄 クリア</button>
+  </div>
+</div>
+
+</body>
+</html>

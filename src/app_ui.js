@@ -758,7 +758,7 @@ function renderDDxCats(){
   var html = '';
   cats.forEach(function(c){
     var lbl = labels[c] || c.replace('1.臨床微候関連　','').replace('2.CBC関連','CBC').replace('3.血液科学検査関連','血液化学').substring(0,8);
-    html += '<button class="ddx-cattag' + (c===ddxCat?' on':'') + '" onclick="setDDxCat(' + JSON.stringify(c) + ')">' + lbl + '</button>';
+    html += '<button class="ddx-cattag' + (c===ddxCat?' on':'') + '" data-cat="' + c.replace(/&/g,'&amp;').replace(/"/g,'&quot;') + '" onclick="setDDxCat(this.dataset.cat)">' + lbl + '</button>';
   });
   document.getElementById('ddxCatBar').innerHTML = html;
 }

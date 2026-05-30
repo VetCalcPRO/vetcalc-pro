@@ -3218,5 +3218,79 @@ select.ea-fi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w
   </div>
 </div>
 
+<!-- ===== ガンマ計算解説シート ===== -->
+<div class="gsheet-overlay" id="gsheetOverlay" onclick="closeGammaSheet()"></div>
+<div class="gsheet" id="gsheet">
+  <div class="gsheet-hdr">
+    <div class="gsheet-title">📖 γ（ガンマ）計算とは？</div>
+    <button class="gsheet-close" onclick="closeGammaSheet()">✕</button>
+  </div>
+  <span class="gs-pill">簡易ガンマ計算法 — 50ml シリンジポンプ基準</span>
+
+  <div class="gs-sec">
+    <div class="gs-h">🔑 ガンマ（γ）とは</div>
+    <p class="gs-p">γ（ガンマ）は CRI（持続点滴）の投与速度を表す単位で、<b>μg/kg/min</b> と同じ意味です。</p>
+    <p class="gs-p">「1γ投与中」＝「1 μg/kg/min で持続投与中」ということです。</p>
+  </div>
+
+  <div class="gs-sec">
+    <div class="gs-h">🧪 簡易ガンマ計算法（ドパミン・ドブタミン）</div>
+    <div class="gs-card purple">
+      <div class="gs-card-title">調製ルール</div>
+      <div class="gs-eq">
+        体重（kg）<span class="hi"> × 3 mg</span> を生食で全量<span class="ok"> 50 ml</span> に<br>
+        → ポンプ流量 <span class="hi">1 ml/h</span> ＝ <span class="ok">1 γ（1 μg/kg/min）</span>
+      </div>
+    </div>
+    <div class="gs-card green" style="margin-top:8px;">
+      <div class="gs-card-title">✅ なぜ 1 ml/h = 1 γ になるのか（証明）</div>
+      <div class="gs-eq">
+        濃度 ＝ BW×3 mg ÷ 50 ml<br>
+        1 ml/h での速度<br>
+        ＝ (BW×3 mg / 50 ml) × 1 ml/h ÷ BW ÷ 60 min × 1000<br>
+        ＝ <span class="ok">1.0 μg/kg/min = 1 γ</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="gs-sec">
+    <div class="gs-h">🔴 ノルアドレナリン</div>
+    <div class="gs-card blue">
+      <div class="gs-card-title">調製ルール（1/10スケール）</div>
+      <div class="gs-eq">
+        体重（kg）<span class="bl"> × 0.3 mg</span> を生食で全量<span class="ok"> 50 ml</span> に<br>
+        → ポンプ流量 <span class="bl">1 ml/h</span> ＝ <span class="ok">0.1 γ（0.1 μg/kg/min）</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="gs-sec">
+    <div class="gs-h">📋 流量と γ の対応（ドパミン・ドブタミン）</div>
+    <table style="width:100%;border-collapse:collapse;font-family:'JetBrains Mono',monospace;font-size:13px;">
+      <thead>
+        <tr style="border-bottom:1px solid var(--bd);">
+          <th style="text-align:left;padding:5px 8px;color:var(--mu);font-size:11px;">流量</th>
+          <th style="text-align:right;padding:5px 8px;color:var(--mu);font-size:11px;">μg/kg/min（γ）</th>
+          <th style="text-align:right;padding:5px 8px;color:var(--mu);font-size:11px;">用途目安</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--bd);"><td style="padding:5px 8px;">1 ml/h</td><td style="text-align:right;padding:5px 8px;color:var(--ok);font-weight:700;">1 γ</td><td style="text-align:right;padding:5px 8px;color:var(--mu);font-size:11px;"><span class="gs-tag g">腎血流↑</span></td></tr>
+        <tr style="border-bottom:1px solid var(--bd);"><td style="padding:5px 8px;">3 ml/h</td><td style="text-align:right;padding:5px 8px;color:var(--ok);font-weight:700;">3 γ</td><td style="text-align:right;padding:5px 8px;color:var(--mu);font-size:11px;"><span class="gs-tag g">心拍出量↑</span></td></tr>
+        <tr style="border-bottom:1px solid var(--bd);"><td style="padding:5px 8px;">5 ml/h</td><td style="text-align:right;padding:5px 8px;color:var(--ok);font-weight:700;">5 γ</td><td style="text-align:right;padding:5px 8px;color:var(--mu);font-size:11px;"><span class="gs-tag g">標準域</span></td></tr>
+        <tr style="border-bottom:1px solid var(--bd);"><td style="padding:5px 8px;">10 ml/h</td><td style="text-align:right;padding:5px 8px;color:var(--wn);font-weight:700;">10 γ</td><td style="text-align:right;padding:5px 8px;color:var(--mu);font-size:11px;"><span class="gs-tag r">α作用↑</span></td></tr>
+        <tr><td style="padding:5px 8px;">15 ml/h</td><td style="text-align:right;padding:5px 8px;color:var(--dn);font-weight:700;">15 γ</td><td style="text-align:right;padding:5px 8px;color:var(--mu);font-size:11px;"><span class="gs-tag r">高用量域</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="gs-sec">
+    <div class="gs-h">⚠ 注意事項</div>
+    <p class="gs-p">• <b>事前に添加量分を抜いてから</b>薬剤を添加してください（全量 50ml を厳守）。</p>
+    <p class="gs-p">• 「フルマニュアル」タブでは全体量・流量を自由に設定できます。</p>
+    <p class="gs-p">• ノルアドレナリンは末梢血管への漏出で組織壊死リスクあり。CVC 推奨。</p>
+  </div>
+</div>
+
 </body>
 </html>

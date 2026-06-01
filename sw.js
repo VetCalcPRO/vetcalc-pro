@@ -1,5 +1,5 @@
 // VetCalc PRO - Service Worker
-const CACHE_NAME = 'vetcalc-pro-v1';
+const CACHE_NAME = 'vetcalc-pro-v2';
 const ASSETS = [
   './',
   './index.html',
@@ -11,11 +11,11 @@ const ASSETS = [
 ];
 
 // インストール時：全アセットをキャッシュ
+// ※ skipWaiting()を削除 → 更新通知を出してからユーザー操作で切り替える
 self.addEventListener('install', e => {
   e.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => cache.addAll(ASSETS))
-      .then(() => self.skipWaiting())
   );
 });
 
@@ -43,4 +43,11 @@ self.addEventListener('fetch', e => {
       }).catch(() => caches.match('./index.html'));
     })
   );
+});
+
+// メッセージ受信：SKIP_WAITINGでユーザー操作後に切り替え
+self.addEventListener('message', e => {
+  if (e.data && e.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
 });

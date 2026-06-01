@@ -7,15 +7,80 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#12151e">
+<meta name="description" content="獣医師・動物看護師向け薬用量・臨床計算ツール。犬・猫・エキゾチック動物対応。244薬剤・CRI計算・血液ガス・療法食計算・中毒DB収録。無料・広告なし・インストール不要。">
+<meta name="keywords" content="獣医 薬用量 計算 動物病院 VetCalc 犬 猫 エキゾチック CRI ガンマ計算 血液ガス 療法食">
+<meta name="author" content="VetCalc PRO">
+<meta property="og:type" content="website">
+<meta property="og:title" content="VetCalc PRO｜獣医臨床計算ツール">
+<meta property="og:description" content="獣医師・動物看護師向け薬用量・臨床計算ツール。244薬剤・犬猫＋エキゾチック対応。無料・広告なし・インストール不要。">
+<meta property="og:url" content="https://vetcalcpro.github.io/vetcalc-pro/">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="VetCalc PRO｜獣医臨床計算ツール">
+<meta name="twitter:description" content="獣医師・動物看護師向け薬用量・臨床計算ツール。244薬剤・犬猫＋エキゾチック対応。無料・広告なし。">
+<link rel="canonical" href="https://vetcalcpro.github.io/vetcalc-pro/">
 <link rel="manifest" href="manifest.json">
 <title>VetCalc PRO</title>
 <script>
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js');
+    navigator.serviceWorker.register('./sw.js').then(reg => {
+      reg.addEventListener('updatefound', () => {
+        const newSW = reg.installing;
+        newSW.addEventListener('statechange', () => {
+          if (newSW.state === 'installed' && navigator.serviceWorker.controller) {
+            // 新バージョン検出 → バナー表示
+            document.getElementById('updateBanner').style.display = 'flex';
+            document.getElementById('updateBanner')._reg = reg;
+          }
+        });
+      });
+    });
   });
 }
+function applyUpdate() {
+  const banner = document.getElementById('updateBanner');
+  const reg = banner._reg;
+  if (reg && reg.waiting) {
+    reg.waiting.postMessage({ type: 'SKIP_WAITING' });
+  }
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    location.reload();
+  });
+  banner.style.display = 'none';
+}
 </script>
+<style>
+#updateBanner {
+  display: none;
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9000;
+  background: var(--ok, #1fcc7a);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 24px;
+  font-size: 13px;
+  font-weight: 700;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.4);
+  white-space: nowrap;
+}
+#updateBanner button {
+  background: rgba(255,255,255,.25);
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 10px;
+  cursor: pointer;
+  font-family: inherit;
+}
+</style>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=JetBrains+Mono:wght@400;700&display=swap');
 :root{
@@ -3299,6 +3364,12 @@ select.ea-fi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w
 
 </body>
 </html>
+
+<!-- 更新通知バナー -->
+<div id="updateBanner">
+  🔄 新しいバージョンがあります
+  <button onclick="applyUpdate()">今すぐ更新</button>
+</div>
 
 <!-- 免責同意オーバーレイ -->
 <style>

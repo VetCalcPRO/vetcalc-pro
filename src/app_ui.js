@@ -1976,6 +1976,7 @@ function renderInsulin(bw) {
         <span class="m-label">バッグ内濃度（固定）</span>
         <span class="m-val" style="font-size:16px;color:var(--ac);">0.1 <span class="unit">U/ml</span></span>
       </div>
+      <div style="margin-top:6px;font-size:10px;color:var(--mu);">参考: 松木直章 先生（まつき動物病院）セミナー資料</div>
       <div style="margin-top:10px;padding:8px 10px;background:rgba(255,77,109,.1);border-radius:8px;border-left:3px solid var(--dn);font-size:12px;line-height:1.7;">
         ⚠ <b>使用前に必ず</b> 50mlのインスリン溶液をチューブに流して捨てること<br>
         <span style="color:var(--mu);">（チューブへの吸着防止）</span>

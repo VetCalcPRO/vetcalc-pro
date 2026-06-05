@@ -2823,5 +2823,17 @@ function updateDisclaimerBtn(){
 function agreeDisclaimer(){
   localStorage.setItem(DISCLAIMER_KEY, '1');
   document.getElementById('disclaimerOverlay').style.display='none';
+  checkTutorial();
 }
 window.addEventListener('DOMContentLoaded', checkDisclaimer);
+
+// ========== チュートリアル ==========
+function checkTutorial() {
+  if (!localStorage.getItem('vetcalc_tutorial_done')) {
+    document.getElementById('tutorialOverlay').style.display = 'flex';
+  }
+}
+function closeTutorial() {
+  localStorage.setItem('vetcalc_tutorial_done', '1');
+  document.getElementById('tutorialOverlay').style.display = 'none';
+}

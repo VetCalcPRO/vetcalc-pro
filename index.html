@@ -2764,7 +2764,7 @@ select.ea-fi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w
       </div>
     </div>
     <div style="font-size:10px;color:var(--mu);margin-top:4px;margin-bottom:8px;">参考: チボリ動物医療センター（倉敷市）食事量計算シート（ライフステージ係数）</div>
-    
+
     <!-- BCS -->
     <div class="hm-sec-lbl">BCS（ボディコンディションスコア）</div>
     <!-- スケール切替 -->
@@ -3369,7 +3369,19 @@ select.ea-fi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w
 
 </body>
 </html>
-
+<!-- チュートリアル -->
+<div id="tutorialOverlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9000;display:flex;align-items:center;justify-content:center;padding:20px;">
+  <div style="background:var(--cp,#1a2035);border-radius:16px;padding:28px 24px;max-width:420px;width:100%;border:1px solid rgba(255,255,255,.1);">
+    <div style="font-size:20px;font-weight:700;color:var(--tx,#fff);margin-bottom:20px;text-align:center;">ようこそ VetCalc PRO へ 🐾</div>
+    <div style="font-size:14px;color:var(--mu,#8899aa);line-height:2;margin-bottom:24px;">
+      <div style="margin-bottom:12px;color:var(--tx,#fff);">① 動物種を選んで体重を入れると<br><span style="color:var(--mu,#8899aa);font-size:13px;">全薬剤の投与量が一覧表示されます</span></div>
+      <div style="margin-bottom:12px;color:var(--tx,#fff);">② 用量は自分の病院の値に変えられます<br><span style="color:var(--mu,#8899aa);font-size:13px;">変更はあなたのブラウザに保存されます</span></div>
+      <div style="margin-bottom:12px;color:var(--tx,#fff);">③ 薬剤は自分で追加できます<br><span style="color:var(--mu,#8899aa);font-size:13px;">足りない薬は ⚙️ から追加してください</span></div>
+      <div style="color:var(--tx,#fff);">④ 計算タブで各種臨床計算ができます<br><span style="color:var(--mu,#8899aa);font-size:13px;">カードの順番は並び替えられます</span></div>
+    </div>
+    <button onclick="closeTutorial()" style="width:100%;padding:14px;background:var(--ac,#4a9eff);border:none;border-radius:10px;color:#fff;font-size:16px;font-weight:700;cursor:pointer;">はじめる →</button>
+  </div>
+</div>
 <!-- 更新通知バナー -->
 <div id="updateBanner">
   🔄 新しいバージョンがあります

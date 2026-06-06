@@ -2962,30 +2962,7 @@ var DEFAULT_PROTOCOLS = [
       "ぺリアクチン(シプロヘプタジン)",
       "リフレックス　15mg（ミルタザピン）"
     ]
-  },
-  {
-    id: 'default_inu_chinsui',
-    name: "🐕 犬の鎮静",
-    memo: "",
-    drugNames: [
-      "ドミトール1mg/ml（メデトミジン）",
-      "ベトルファール(ブトルファノール)",
-      "ドルミカム10mg/2ml（ミダゾラム）",
-      "アルファキサン10mg/ml（アルファキサロン）"
-    ]
-  },
-  {
-    id: 'default_neko_chinsui',
-    name: "🐈 猫の鎮静",
-    memo: "",
-    drugNames: [
-      "ドミトール1mg/ml（メデトミジン）",
-      "ベトルファール(ブトルファノール)",
-      "ドルミカム10mg/2ml（ミダゾラム）",
-      "アルファキサン10mg/ml（アルファキサロン）"
-    ]
   }
-];
 ];
 
 function loadProtocols(){
@@ -3044,7 +3021,6 @@ function openProtoRun(idx){
   document.getElementById('protoRunTitle').innerHTML = esc(p.name)+' <button class="shx" onclick="closeAll()">&#215;</button>';
   renderProtoRun();
   openSheet('shProtoRun');
-}
 }
 function renderProtoRun(){
   var p = protocols[runProtoIdx];
@@ -3511,4 +3487,3 @@ function eaBack(){
   else if(active.id==='ea-page-2') eaGoStep1();
   else if(active.id==='ea-page-3') eaGoStep2();
 }
-

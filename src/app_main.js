@@ -1616,21 +1616,7 @@ function render(){
   g.className = szCfg.minW>=320 ? 'g1' : 'g2';
   var q = st.q.toLowerCase();
   // 変更後
-  var hintHtml = '<div id="hintCard" style="grid-column:1/-1;background:var(--pn);border:1px solid var(--bd);border-radius:12px;padding:12px 16px;margin-bottom:4px;cursor:pointer;" onclick="toggleHint()">'
-  +'<div style="display:flex;justify-content:space-between;align-items:center;">'
-  +'<span style="font-size:13px;font-weight:700;color:var(--ac);">💡 VetCalc PRO の使い方</span>'
-  +'<span id="hintArrow" style="color:var(--mu);font-size:12px;">'+(hintOpen?'▲':'▼')+'</span>'
-  +'</div>'
-  +'<div id="hintBody" style="display:'+(hintOpen?'block':'none')+';margin-top:12px;font-size:12px;color:var(--tx);line-height:1.9;">'
-  +'<div>① 動物種を選んで体重を入れると<br><span style="color:var(--mu)">全薬剤の投与量が一覧表示されます</span></div>'
-  +'<div style="margin-top:8px;">② 用量は自分の病院の値に変えられます<br><span style="color:var(--mu)">変更はあなたのブラウザに保存されます</span></div>'
-  +'<div style="margin-top:8px;">③ 薬剤は自分で追加できます<br><span style="color:var(--mu)">足りない薬は ⚙️ から追加してください</span></div>'
-  +'<div style="margin-top:8px;">④ 計算タブで各種臨床計算ができます<br><span style="color:var(--mu)">カードの順番は並び替えられます</span></div>'
-  +'<div style="margin-top:12px;padding-top:10px;border-top:1px solid var(--bd);">📱 <strong style="color:var(--tx)">ホーム画面への追加</strong><br>'
-  +'<span style="color:var(--mu)">🍎 iPhone: Safariで開く → 共有 →「ホーム画面に追加」<br>🤖 Android: Chromeでブックマーク保存を推奨</span></div>'
-  +'<div style="margin-top:8px;color:var(--mu);">⚙️ 表示がおかしい時は設定から「キャッシュをクリア」</div>'
-  +'</div></div>';
-  var out = hintHtml;
+  var out = ''
   var shown = 0;
   for(var i=0;i<DRUGS.length;i++){
     var d = DRUGS[i];

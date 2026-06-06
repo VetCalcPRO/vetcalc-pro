@@ -2826,7 +2826,6 @@ function agreeDisclaimer(){
   document.getElementById('disclaimerOverlay').style.display='none';
   checkHint();
 }
-}
 window.addEventListener('DOMContentLoaded', checkDisclaimer);
 
 // ========== ヒント ==========
@@ -2839,4 +2838,12 @@ function checkHint(){
 function closeHint(){
   localStorage.setItem(HINT_KEY,'1');
   document.getElementById('hintOverlay').style.display='none';
+}
+var hintOpen = false;
+function toggleHint(){
+  hintOpen = !hintOpen;
+  var body = document.getElementById('hintBody');
+  var arrow = document.getElementById('hintArrow');
+  if(body){ body.style.display = hintOpen ? 'block' : 'none'; }
+  if(arrow){ arrow.textContent = hintOpen ? '▲' : '▼'; }
 }

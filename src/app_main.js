@@ -1846,6 +1846,10 @@ function applyWeight(){
     if(runProtoIdx>=0 && document.getElementById('shProtoRun').classList.contains('on')) renderProtoRun();
   }
   closeAll();
+  if(pendingProtoIdx >= 0){
+    var i = pendingProtoIdx; pendingProtoIdx = -1;
+    setTimeout(function(){ _openProtoRun(i); }, 80);
+  }
 }
 
 //========== DETAIL SHEET ==========
@@ -2962,7 +2966,30 @@ var DEFAULT_PROTOCOLS = [
       "ぺリアクチン(シプロヘプタジン)",
       "リフレックス　15mg（ミルタザピン）"
     ]
+  },
+  {
+    id: 'default_inu_chinsui',
+    name: "🐕 犬の鎮静",
+    memo: "",
+    drugNames: [
+      "ドミトール1mg/ml（メデトミジン）",
+      "ベトルファール(ブトルファノール)",
+      "ドルミカム10mg/2ml（ミダゾラム）",
+      "アルファキサン10mg/ml（アルファキサロン）"
+    ]
+  },
+  {
+    id: 'default_neko_chinsui',
+    name: "🐈 猫の鎮静",
+    memo: "",
+    drugNames: [
+      "ドミトール1mg/ml（メデトミジン）",
+      "ベトルファール(ブトルファノール)",
+      "ドルミカム10mg/2ml（ミダゾラム）",
+      "アルファキサン10mg/ml（アルファキサロン）"
+    ]
   }
+];
 ];
 
 function loadProtocols(){
@@ -3015,12 +3042,18 @@ function renderProtoList(){
 
 // --- 実行（一括計算） ---
 var runProtoIdx = -1;
+var pendingProtoIdx = -1;
 function openProtoRun(idx){
+  pendingProtoIdx = idx;
+  openWeight();
+}
+function _openProtoRun(idx){
   runProtoIdx = idx;
   var p = protocols[idx];
   document.getElementById('protoRunTitle').innerHTML = esc(p.name)+' <button class="shx" onclick="closeAll()">&#215;</button>';
   renderProtoRun();
   openSheet('shProtoRun');
+}
 }
 function renderProtoRun(){
   var p = protocols[runProtoIdx];

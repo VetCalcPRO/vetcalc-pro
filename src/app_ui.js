@@ -2820,20 +2820,23 @@ function updateDisclaimerBtn(){
   btn.disabled = !(c1 && c2);
   btn.style.opacity = (c1 && c2) ? '1' : '0.4';
 }
+// 変更後
 function agreeDisclaimer(){
   localStorage.setItem(DISCLAIMER_KEY, '1');
   document.getElementById('disclaimerOverlay').style.display='none';
-  checkTutorial();
+  checkHint();
+}
 }
 window.addEventListener('DOMContentLoaded', checkDisclaimer);
 
-// ========== チュートリアル ==========
-function checkTutorial() {
-  if (!localStorage.getItem('vetcalc_tutorial_done')) {
-    document.getElementById('tutorialOverlay').style.display = 'flex';
+// ========== ヒント ==========
+var HINT_KEY = 'vetcalc_hint_opened';
+function checkHint(){
+  if(!localStorage.getItem(HINT_KEY)){
+    document.getElementById('hintOverlay').style.display='flex';
   }
 }
-function closeTutorial() {
-  localStorage.setItem('vetcalc_tutorial_done', '1');
-  document.getElementById('tutorialOverlay').style.display = 'none';
+function closeHint(){
+  localStorage.setItem(HINT_KEY,'1');
+  document.getElementById('hintOverlay').style.display='none';
 }

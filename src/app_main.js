@@ -2168,7 +2168,6 @@ function openMgmt(){
     +'<button class="mbtn" onclick="exportEdits()">📋 編集分のみエクスポート<small>追加・変更した薬剤のみ保存</small></button>'
     +'<div style="border-top:1px solid var(--bd);margin-top:12px;padding-top:12px">'
     +'<button class="mbtn" onclick="openSort()">🔀 表示順を並び替え<small>カテゴリー内でドラッグして並び替え</small></button>'
-    +'<button class="mbtn dn" onclick="resetAll()">⚠️ 全データをリセット<small>元の157剤データに戻す</small></button>'
     +'<button class="mbtn" style="color:#6b7590" onclick="clearLS()">🗑 キャッシュをクリア<small>表示がおかしい時はこちら</small></button>'
     +'</div>'
     +'<div style="border-top:1px solid var(--bd);margin-top:12px;padding-top:12px">'

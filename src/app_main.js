@@ -2484,7 +2484,8 @@ function onSubFont(v){ szCfg.subFont=parseInt(v); applySizeCss(); }
   function measureHdr(){
     var hdr = document.querySelector('.hdr');
     if(hdr){ hdrH = hdr.offsetHeight; }
-    document.documentElement.style.setProperty('--hdr-h', hdrH + 10 + 'px');
+    var safeTop = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--sat') || '0');
+        document.documentElement.style.setProperty('--hdr-h', (hdrH + 10 + safeTop) + 'px');
   }
 
   function setHdrVisible(visible){
@@ -2492,7 +2493,8 @@ function onSubFont(v){ szCfg.subFont=parseInt(v); applySizeCss(); }
     if(!hdr) return;
     if(visible){
       hdr.classList.remove('hidden');
-      document.documentElement.style.setProperty('--hdr-h', hdrH + 10 + 'px');
+      var safeTop = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--sat') || '0');
+          document.documentElement.style.setProperty('--hdr-h', (hdrH + 10 + safeTop) + 'px');
     } else {
       hdr.classList.add('hidden');
       document.documentElement.style.setProperty('--hdr-h', '10px');

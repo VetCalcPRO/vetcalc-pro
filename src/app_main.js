@@ -3038,12 +3038,7 @@ function renderProtoList(){
 
 // --- 実行（一括計算） ---
 var runProtoIdx = -1;
-var pendingProtoIdx = -1;
 function openProtoRun(idx){
-  pendingProtoIdx = idx;
-  openWeight();
-}
-function _openProtoRun(idx){
   runProtoIdx = idx;
   var p = protocols[idx];
   document.getElementById('protoRunTitle').innerHTML = esc(p.name)+' <button class="shx" onclick="closeAll()">&#215;</button>';

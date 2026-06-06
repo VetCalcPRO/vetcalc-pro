@@ -1846,10 +1846,6 @@ function applyWeight(){
     if(runProtoIdx>=0 && document.getElementById('shProtoRun').classList.contains('on')) renderProtoRun();
   }
   closeAll();
-  if(pendingProtoIdx >= 0){
-    var i = pendingProtoIdx; pendingProtoIdx = -1;
-    setTimeout(function(){ _openProtoRun(i); }, 80);
-  }
 }
 
 //========== DETAIL SHEET ==========

@@ -1,0 +1,24 @@
+# VetCalc PRO
+
+> 獣医師・動物看護師向け薬用量・臨床計算Webアプリ（無料・OSS・日本語）
+
+開発者: 神奈川県在住の小動物臨床獣医師
+URL: https://vetcalcpro.github.io/vetcalc-pro/
+ライセンス: MITライセンス（コード）／独自ライセンス（薬剤データ・個人利用のみ）
+言語: 日本語
+対象ユーザー: 獣医師・動物看護師
+
+## 概要
+
+体重を入力するだけで244薬剤の投与量（mL・mg・錠数）を即座に算出する臨床計算ツール。
+教科書的用量ではなく、日本の小動物臨床現場で実際に使われる用量を収録。
+
+## 詳細情報
+
+llms-full.txt: https://vetcalcpro.github.io/vetcalc-pro/llms-full.txt
+about: https://vetcalcpro.github.io/vetcalc-pro/about.html
+
+## 免責
+
+本ツールは参照補助を目的とした計算ツールです。医療機器ではありません。
+すべての投与量は担当獣医師の責任において使用してください。

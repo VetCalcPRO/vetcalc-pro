@@ -3030,10 +3030,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "0.1ml-1mg",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route": "injectable",
     "pdf_url": "",
     "source": "適用外",
     "id": "drug_054"
@@ -3147,10 +3144,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "0.1ml-0.5mg",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route": "injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%83%A1%E3%83%88%E3%82%AF%E3%83%AD%E3%83%97%E3%83%A9%E3%83%9F%E3%83%89&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_055"
@@ -3455,11 +3449,7 @@ var MASTER_DRUG_DB = [
         "note": "0.5-10mg/kg PO,SC,IM bid-tid（食道炎・胃潰瘍・十二指腸潰瘍）"
       }
     },
-    "memo": "記載なし",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route": "injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%83%95%E3%82%A1%E3%83%A2%E3%83%81%E3%82%B8%E3%83%B3&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_060"
@@ -3468,7 +3458,7 @@ var MASTER_DRUG_DB = [
     "name": "ザンタック（ラニチジン）",
     "category": "消化器",
     "conc": 25,
-    "concText": "50mg/2ml,50mg/100mg",
+    "concText": "50mg/2ml",
     "species": {
       "犬": {
         "injectable": {
@@ -3562,11 +3552,7 @@ var MASTER_DRUG_DB = [
         "note": "（記載なし）"
       }
     },
-    "memo": "0.1ml-2.5mg",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route": "injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%83%A9%E3%83%8B%E3%83%81%E3%82%B8%E3%83%B3&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_061"
@@ -3728,10 +3714,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "記載なし",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route": "injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%82%B7%E3%83%A1%E3%83%81%E3%82%B8%E3%83%B3&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_063"
@@ -3835,10 +3818,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "0.1ml-2mg",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route": "injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E8%87%AD%E5%8C%96%E3%83%97%E3%83%AA%E3%83%95%E3%82%A3%E3%83%8B%E3%82%A6%E3%83%A0&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_064"
@@ -13616,6 +13596,106 @@ var MASTER_DRUG_DB = [
   "pdf_url": "",
   "source": "",
   "id": "drug_281"
+},
+{
+  "name": "セレニア16/24mg（マロピタント）経口",
+  "category": "消化器",
+  "conc": 16,
+  "concText": "16mg/錠",
+  "species": {
+    "犬": { "lo": 2, "hi": 2, "note": "2mg/kg PO SID\n乗り物酔い：8mg/kg PO SID 2日まで" },
+    "猫": { "lo": 2, "hi": 2, "note": "2mg/kg PO SID" },
+    "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+  },
+  "memo": "食前1時間投与推奨。",
+  "route": "oral",
+  "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%82%BB%E3%83%AC%E3%83%8B%E3%82%A2&MAIN_COMPONENT=%E3%83%9E%E3%83%AD%E3%83%94%E3%82%BF%E3%83%B3%E3%83%88",
+  "source": "NVAL",
+  "id": "drug_282"
+},
+{
+  "name": "プリンペラン5mg（メトクロプラミド）経口",
+  "category": "消化器",
+  "conc": 5,
+  "concText": "5mg/錠",
+  "species": {
+    "犬": { "lo": 0.2, "hi": 0.5, "note": "0.2-0.5mg/kg q6-8h PO" },
+    "猫": { "lo": 0.2, "hi": 0.5, "note": "0.2-0.5mg/kg q6-8h PO" },
+    "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+  },
+  "memo": "記載なし",
+  "route": "oral",
+  "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%83%A1%E3%83%88%E3%82%AF%E3%83%AD%E3%83%97%E3%83%A9%E3%83%9F%E3%83%89&nameKbn=1&nameMatch=1",
+  "source": "PMDA",
+  "id": "drug_283"
+},
+{
+  "name": "ガスター10mg（ファモチジン）経口",
+  "category": "消化器",
+  "conc": 10,
+  "concText": "10mg/錠",
+  "species": {
+    "犬": { "lo": 0.1, "hi": 0.2, "note": "0.1-0.2mg/kg q12h PO" },
+    "猫": { "lo": 0.1, "hi": 0.2, "note": "0.1-0.2mg/kg q12h PO" },
+    "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+  },
+  "memo": "記載なし",
+  "route": "oral",
+  "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%83%95%E3%82%A1%E3%83%A2%E3%83%81%E3%82%B8%E3%83%B3&nameKbn=1&nameMatch=1",
+  "source": "PMDA",
+  "id": "drug_284"
+},
+{
+  "name": "タガメット200mg（シメチジン）経口",
+  "category": "消化器",
+  "conc": 200,
+  "concText": "200mg/錠",
+  "species": {
+    "犬": { "lo": 10, "hi": 10, "note": "10mg/kg q6-8h PO" },
+    "猫": { "lo": 10, "hi": 10, "note": "10mg/kg q6-8h PO" },
+    "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+  },
+  "memo": "記載なし",
+  "route": "oral",
+  "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%82%B7%E3%83%A1%E3%83%81%E3%82%B8%E3%83%B3&nameKbn=1&nameMatch=1",
+  "source": "PMDA",
+  "id": "drug_286"
+},
+{
+  "name": "ブスコパン10mg（臭化プリフィニウム）経口",
+  "category": "消化器",
+  "conc": 10,
+  "concText": "10mg/錠",
+  "species": {
+    "犬": { "lo": 0.2, "hi": 0.4, "note": "0.2-0.4mg/kg tid-qid PO" },
+    "猫": { "lo": 0.2, "hi": 2.0, "note": "0.2-2.0mg/kg tid-qid PO" },
+    "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+  },
+  "memo": "記載なし",
+  "route": "oral",
+  "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%83%96%E3%82%B9%E3%82%B3%E3%83%91%E3%83%B3&nameKbn=1&nameMatch=1",
+  "source": "PMDA",
+  "id": "drug_287"
 }
 
 ];

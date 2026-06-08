@@ -1126,10 +1126,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "ベンゾジアゼピン系。てんかん重積発作の第一選択（IV）。鎮静・筋弛緩・抗不安にも使用。【猫への注意】経口投与で肝壊死の報告あり→猫への経口投与は避ける。IV投与は問題なし。呼吸抑制に注意。フルマゼニルで拮抗可。",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route": "injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%82%B8%E3%82%A2%E3%82%BC%E3%83%91%E3%83%A0&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_021"
@@ -13568,7 +13565,26 @@ var MASTER_DRUG_DB = [
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%82%A2%E3%83%9F%E3%83%8E%E3%83%95%E3%82%A3%E3%83%AA%E3%83%B3&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_278"
-  }
-
+  },
+  {
+  "name": "セルシン（ジアゼパム）経口",
+  "category": "鎮静",
+  "conc": 2,
+  "concText": "2mg/錠",
+  "species": {
+    "犬": { "lo": 0.2, "hi": 0.5, "note": "0.2-0.5mg/kg PO 鎮静・筋弛緩" },
+    "猫": { "lo": null, "hi": null, "note": "【禁忌】経口投与で肝壊死の報告あり" },
+    "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+  },
+  "memo": "猫への経口投与禁忌。肝壊死の報告あり。",
+  "route": "oral",
+  "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%82%B8%E3%82%A2%E3%82%BC%E3%83%91%E3%83%A0&nameKbn=1&nameMatch=1",
+  "source": "PMDA",
+  "id": "drug_279"
+ }
 ];
 

@@ -4354,10 +4354,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "記載なし",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route":"injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%82%B0%E3%83%AB%E3%82%BF%E3%83%81%E3%82%AA%E3%83%B3&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_074"
@@ -4461,10 +4458,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "記載なし",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route":"injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%82%B0%E3%83%AA%E3%83%81%E3%83%AB%E3%83%AA%E3%83%81%E3%83%B3&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_075"
@@ -13894,6 +13888,46 @@ var MASTER_DRUG_DB = [
   "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E8%91%89%E9%85%B8&nameKbn=1&nameMatch=1",
   "source": "PMDA",
   "id": "drug_299"
+},
+{
+  "name": "グルタチオン経口",
+  "category": "肝臓・代謝",
+  "conc": null,
+  "concText": "記載なし",
+  "species": {
+    "犬": { "lo": null, "hi": null, "note": "50mg/head SID-BID PO" },
+    "猫": { "lo": null, "hi": null, "note": "25mg/head SID PO" },
+    "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+  },
+  "memo": "記載なし",
+  "route": "oral",
+  "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%82%B0%E3%83%AB%E3%82%BF%E3%83%81%E3%82%AA%E3%83%B3&nameKbn=1&nameMatch=1",
+  "source": "PMDA",
+  "id": "drug_300"
+},
+{
+  "name": "グリチルリチン経口",
+  "category": "肝臓・代謝",
+  "conc": null,
+  "concText": "記載なし",
+  "species": {
+    "犬": { "lo": null, "hi": null, "note": "1錠/head BID-TID PO" },
+    "猫": { "lo": null, "hi": null, "note": "犬に準ずる" },
+    "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+  },
+  "memo": "記載なし",
+  "route": "oral",
+  "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%82%B0%E3%83%AA%E3%83%81%E3%83%AB%E3%83%AA%E3%83%81%E3%83%B3&nameKbn=1&nameMatch=1",
+  "source": "PMDA",
+  "id": "drug_301"
 },
 
 

@@ -1532,8 +1532,6 @@ function parseTabletMg(concText){
   var ct = concText.toLowerCase();
   // ml/g/%が含まれる場合は液剤・散剤として除外
   if(ct.indexOf('ml')>=0 || ct.indexOf('mg/g')>=0 || ct.indexOf('%')>=0) return [];
-  // 「錠」が含まれない場合は錠剤でない
-  if(concText.indexOf('錠')<0 && ct.indexOf('cap')<0 && ct.indexOf('カプセル')<0) return [];
   var nums = [];
   // 「200/300/400mg」または「100μg」パターン
   var reSlash = /([0-9]+(?:\.[0-9]+)?(?:\/[0-9]+(?:\.[0-9]+)?)*)\s*(mg|μg|ug)/gi;

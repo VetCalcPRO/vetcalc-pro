@@ -350,10 +350,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "0.1ml-0.05ml",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route": "injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%82%A2%E3%83%88%E3%83%AD%E3%83%94%E3%83%B3&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_006"
@@ -457,10 +454,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "0.1ml-15mg",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route": "injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%82%B8%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%AA%E3%83%B3&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_007"
@@ -556,10 +550,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "ループ利尿薬。急性肺水腫・胸水・腹水・心不全の体液貯留に使用。低カリウム血症に注意（長期使用時は補カリウム検討）。脱水・腎不全例では慎重に。効果はIV＞IM＞SC＞PO。",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route": "injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%83%95%E3%83%AD%E3%82%BB%E3%83%9F%E3%83%89&nameKbn=1&nameMatch=1",
     "source": "PMDA / NVAL",
     "id": "drug_009"
@@ -2340,10 +2331,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "ベーリンガー ベトメディン注射液 0.75mg/ml\n犬のみ注射適応",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route": "injectable",
     "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%83%94%E3%83%A2%E3%83%99%E3%83%B3%E3%83%80%E3%83%B3&MAIN_COMPONENT=%E3%83%94%E3%83%A2%E3%83%99%E3%83%B3%E3%83%80%E3%83%B3",
     "source": "NVAL",
     "id": "drug_042"
@@ -2697,10 +2685,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "記載なし",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route": "injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%82%A2%E3%83%9F%E3%83%8E%E3%83%95%E3%82%A3%E3%83%AA%E3%83%B3&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_048"
@@ -12176,7 +12161,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "",
+    "source": "エキゾチック動物の医学",
     "id": "drug_212"
   },
   {
@@ -12211,7 +12196,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "",
+    "source": "エキゾチック動物の医学",
     "id": "drug_214"
   },
   {
@@ -12251,7 +12236,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "",
+    "source": "エキゾチック動物の医学",
     "id": "drug_216"
   },
   {
@@ -12291,7 +12276,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "",
+    "source": "エキゾチック動物の医学",
     "id": "drug_218"
   },
   {
@@ -12331,7 +12316,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "",
+    "source": "エキゾチック動物の医学",
     "id": "drug_220"
   },
   {
@@ -12366,7 +12351,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "",
+    "source": "エキゾチック動物の医学",
     "id": "drug_222"
   },
   {
@@ -12406,7 +12391,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "",
+    "source": "エキゾチック動物の医学",
     "id": "drug_224"
   },
   {
@@ -12446,7 +12431,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "",
+    "source": "エキゾチック動物の医学",
     "id": "drug_226"
   },
   {
@@ -12486,7 +12471,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "",
+    "source": "エキゾチック動物の医学",
     "id": "drug_228"
   },
   {
@@ -12526,7 +12511,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "",
+    "source": "エキゾチック動物の医学",
     "id": "drug_230"
   },
   {
@@ -12566,7 +12551,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "",
+    "source": "エキゾチック動物の医学",
     "id": "drug_232"
   },
   {
@@ -12606,7 +12591,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "",
+    "source": "エキゾチック動物の医学",
     "id": "drug_234"
   },
   {
@@ -12636,7 +12621,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "",
+    "source": "エキゾチック動物の医学",
     "id": "drug_236"
   },
   {
@@ -12676,7 +12661,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "",
+    "source": "エキゾチック動物の医学",
     "id": "drug_238"
   },
   {
@@ -12696,7 +12681,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "",
+    "source": "エキゾチック動物の医学",
     "id": "drug_240"
   },
   {
@@ -12726,7 +12711,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "",
+    "source": "エキゾチック動物の医学",
     "id": "drug_242"
   },
   {
@@ -12766,7 +12751,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "",
+    "source": "エキゾチック動物の医学",
     "id": "drug_244"
   },
   {
@@ -12806,7 +12791,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "",
+    "source": "エキゾチック動物の医学",
     "id": "drug_246"
   },
   {
@@ -12846,7 +12831,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "",
+    "source": "エキゾチック動物の医学",
     "id": "drug_248"
   },
   {
@@ -12871,7 +12856,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "",
+    "source": "エキゾチック動物の医学",
     "id": "drug_250"
   },
   {
@@ -12911,7 +12896,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "",
+    "source": "エキゾチック動物の医学",
     "id": "drug_252"
   },
   {
@@ -12936,7 +12921,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "",
+    "source": "エキゾチック動物の医学",
     "id": "drug_254"
   },
   {
@@ -12971,7 +12956,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "",
+    "source": "エキゾチック動物の医学",
     "id": "drug_256"
   },
   {
@@ -13006,7 +12991,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "",
+    "source": "エキゾチック動物の医学",
     "id": "drug_258"
   },
   {
@@ -13046,7 +13031,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "",
+    "source": "エキゾチック動物の医学",
     "id": "drug_260"
   },
   {
@@ -13086,7 +13071,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "",
+    "source": "エキゾチック動物の医学",
     "id": "drug_262"
   },
   {
@@ -13126,7 +13111,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "",
+    "source": "エキゾチック動物の医学",
     "id": "drug_264"
   },
   {
@@ -13166,7 +13151,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "",
+    "source": "エキゾチック動物の医学",
     "id": "drug_266"
   },
   {
@@ -13206,7 +13191,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "",
+    "source": "エキゾチック動物の医学",
     "id": "drug_268"
   },
   {
@@ -13246,7 +13231,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "",
+    "source": "エキゾチック動物の医学",
     "id": "drug_270"
   },
   {
@@ -13286,7 +13271,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "",
+    "source": "エキゾチック動物の医学",
     "id": "drug_272"
   },
   {
@@ -13502,6 +13487,88 @@ var MASTER_DRUG_DB = [
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%82%B8%E3%83%95%E3%82%A7%E3%83%B3%E3%83%92%E3%83%89%E3%83%A9%E3%83%9F%E3%83%B3&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_274"
+  },
+  {
+    "name": "ダルベポエチンアルファ（ネスプ）",
+    "category": "止血・造血・ホルモン",
+    "conc": 0.06,
+    "concText": "30μg/0.5ml",
+    "species": {
+      "犬": { "lo": 0.001, "hi": 0.0015, "note": "1〜1.5μg/kg SC 週1回" },
+      "猫": { "lo": 0.001, "hi": 0.0015, "note": "1〜1.5μg/kg SC 週1回" },
+      "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+      "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+      "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+      "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+      "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+    },
+    "memo": "ESA（赤血球造血刺激因子）。腎性貧血に使用。投与前にHt・網状赤血球数確認。高血圧・多血症に注意。",
+    "route": "injectable",
+    "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%83%80%E3%83%AB%E3%83%99%E3%83%9D%E3%82%A8%E3%83%81%E3%83%B3&nameKbn=1&nameMatch=1",
+    "source": "適用外",
+    "alias": ["ネスプ", "darbepoetin", "ESA"],
+    "id": "drug_275"
+  },
+  {
+    "name": "ラシックス20/40mg（フロセミド）経口",
+    "category": "循環器",
+    "conc": 20,
+    "concText": "20mg/錠",
+    "species": {
+      "犬": { "lo": 1, "hi": 2, "note": "1〜2mg/kg BID〜TID PO" },
+      "猫": { "lo": 1, "hi": 1, "note": "1mg/kg SID〜BID PO" },
+      "ウサギ": { "lo": 2, "hi": 5, "note": "2-5mg/kg PO bid" },
+      "フェレット": { "lo": 2, "hi": 2, "note": "2mg/kg PO bid" },
+      "モルモット": { "lo": 2, "hi": 5, "note": "2-5mg/kg PO bid" },
+      "ハリネズミ": { "lo": 2.5, "hi": 5, "note": "2.5-5mg/kg PO bid-tid" },
+      "ハムスター": { "lo": 2, "hi": 10, "note": "2-10mg/kg PO bid" }
+    },
+    "memo": "ループ利尿薬。維持投与。低カリウム血症に注意。",
+    "route": "oral",
+    "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%83%95%E3%83%AD%E3%82%BB%E3%83%9F%E3%83%89&nameKbn=1&nameMatch=1",
+    "source": "PMDA / NVAL",
+    "id": "drug_276"
+  },
+  {
+    "name": "ベトメディン1.25/5mg（ピモベンダン）経口",
+    "category": "循環器",
+    "conc": 1.25,
+    "concText": "1.25mg/錠",
+    "species": {
+      "犬": { "lo": 0.2, "hi": 0.3, "note": "0.2-0.3mg/kg BID" },
+      "猫": { "lo": 0.25, "hi": 0.25, "note": "0.25mg/kg BID" },
+      "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+      "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+      "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+      "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+      "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+    },
+    "memo": "食前1時間投与推奨。",
+    "route": "oral",
+    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%83%94%E3%83%A2%E3%83%99%E3%83%B3%E3%83%80%E3%83%B3&MAIN_COMPONENT=%E3%83%94%E3%83%A2%E3%83%99%E3%83%B3%E3%83%80%E3%83%B3",
+    "source": "NVAL",
+    "id": "drug_277"
+  },
+  {
+    "name": "ネオフィリン100mg（アミノフィリン）経口",
+    "category": "循環器",
+    "conc": 100,
+    "concText": "100mg/錠",
+    "species": {
+      "犬": { "lo": 5, "hi": 10, "note": "5-10mg/kg BID-TID PO" },
+      "猫": { "lo": 5, "hi": 6, "note": "5-6mg/kg BID-TID PO" },
+      "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+      "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+      "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+      "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+      "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+    },
+    "memo": "記載なし",
+    "route": "oral",
+    "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%82%A2%E3%83%9F%E3%83%8E%E3%83%95%E3%82%A3%E3%83%AA%E3%83%B3&nameKbn=1&nameMatch=1",
+    "source": "PMDA",
+    "id": "drug_278"
   }
+
 ];
 

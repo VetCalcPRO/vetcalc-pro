@@ -1432,10 +1432,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "イヌ：20-40μg/ml\n 3週間で測定、\n以後安定するまで適時年2回",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route": "injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%83%95%E3%82%A7%E3%83%8E%E3%83%90%E3%83%AB%E3%83%93%E3%82%BF%E3%83%BC%E3%83%AB&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_026"
@@ -13370,10 +13367,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "20mg/kg q8-12h　5～45μg/mL 人における参照値 犬，猫での半減期は約4時間",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route": "injectable",
     "pdf_url": "",
     "source": "",
     "id": "drug_273"
@@ -13585,6 +13579,47 @@ var MASTER_DRUG_DB = [
   "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%82%B8%E3%82%A2%E3%82%BC%E3%83%91%E3%83%A0&nameKbn=1&nameMatch=1",
   "source": "PMDA",
   "id": "drug_279"
- }
+ },
+ {
+  "name": "フェノバール（フェノバルビタール）経口",
+  "category": "神経・てんかん",
+  "conc": 30,
+  "concText": "30mg/錠",
+  "species": {
+    "犬": { "lo": 2, "hi": 3, "note": "2-3mg/kg bid PO 必要に応じて増量。最大5mg/kg bid" },
+    "猫": { "lo": 2, "hi": 2.5, "note": "2-2.5mg/kg bid PO" },
+    "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+  },
+  "memo": "血中濃度モニタリング推奨。犬：20-40μg/ml。投与開始3週間後に測定。",
+  "route": "oral",
+  "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%83%95%E3%82%A7%E3%83%8E%E3%83%90%E3%83%AB%E3%83%93%E3%82%BF%E3%83%BC%E3%83%AB&nameKbn=1&nameMatch=1",
+  "source": "PMDA",
+  "id": "drug_280"
+},
+{
+  "name": "イーケプラ経口",
+  "category": "神経・てんかん",
+  "conc": 250,
+  "concText": "250mg/錠",
+  "species": {
+    "犬": { "lo": 20, "hi": 20, "note": "20mg/kg q8-12h PO" },
+    "猫": { "lo": 20, "hi": 20, "note": "20mg/kg q8-12h PO" },
+    "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+  },
+  "memo": "血中濃度参照値：5〜45μg/mL（人における参照値）。犬猫での半減期は約4時間。",
+  "route": "oral",
+  "pdf_url": "",
+  "source": "",
+  "id": "drug_281"
+}
+
 ];
 

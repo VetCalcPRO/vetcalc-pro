@@ -6745,10 +6745,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "0.1ml-10mg",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route":"injectable",
     "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%82%A2%E3%83%B3%E3%83%94%E3%82%B7%E3%83%AA%E3%83%B3%E3%83%8A%E3%83%88%E3%83%AA%E3%82%A6%E3%83%A0&MAIN_COMPONENT=%E3%82%A2%E3%83%B3%E3%83%94%E3%82%B7%E3%83%AA%E3%83%B3%E3%83%8A%E3%83%88%E3%83%AA%E3%82%A6%E3%83%A0",
     "source": "NVAL",
     "id": "drug_106"
@@ -7582,10 +7579,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "0.1ml-0.25mg",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route":"injectable",
     "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%82%A8%E3%83%B3%E3%83%AD%E3%83%95%E3%83%AD%E3%82%AD%E3%82%B5%E3%82%B7%E3%83%B3&MAIN_COMPONENT=%E3%82%A8%E3%83%B3%E3%83%AD%E3%83%95%E3%83%AD%E3%82%AD%E3%82%B5%E3%82%B7%E3%83%B3",
     "source": "NVAL",
     "id": "drug_122"
@@ -7747,10 +7741,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "0.1ml-5mg",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route":"injectable",
     "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%82%AA%E3%83%AB%E3%83%93%E3%83%95%E3%83%AD%E3%82%AD%E3%82%B5%E3%82%B7%E3%83%B3&MAIN_COMPONENT=%E3%82%AA%E3%83%AB%E3%83%93%E3%83%95%E3%83%AD%E3%82%AD%E3%82%B5%E3%82%B7%E3%83%B3",
     "source": "NVAL",
     "id": "drug_124"
@@ -13833,6 +13824,45 @@ var MASTER_DRUG_DB = [
   "source": "PMDA",
   "id": "drug_295"
 },
-
+{
+  "name": "バイトリル15/150/250mg（エンロフロキサシン）経口",
+  "category": "抗生剤",
+  "conc": 15,
+  "concText": "15/150/250mg/錠",
+  "species": {
+    "犬": { "lo": 5, "hi": 20, "note": "5-20mg/kg/day PO" },
+    "猫": { "lo": 5, "hi": 5, "note": "5mg/kg/day PO 高用量で網膜障害リスク" },
+    "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+  },
+  "memo": "記載なし",
+  "route": "oral",
+  "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%83%90%E3%82%A4%E3%83%88%E3%83%AA%E3%83%AB&MAIN_COMPONENT=%E3%82%A8%E3%83%B3%E3%83%AD%E3%83%95%E3%83%AD%E3%82%AD%E3%82%B5%E3%82%B7%E3%83%B3",
+  "source": "NVAL",
+  "id": "drug_296"
+},
+{
+  "name": "ビクタス10/40mg（オルビフロキサシン）経口",
+  "category": "抗生剤",
+  "conc": 10,
+  "concText": "10/40mg/錠",
+  "species": {
+    "犬": { "lo": 2.5, "hi": 7.5, "note": "2.5-7.5mg/kg SID PO" },
+    "猫": { "lo": 2.5, "hi": 7.5, "note": "犬に準ずる" },
+    "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+  },
+  "memo": "記載なし",
+  "route": "oral",
+  "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%83%93%E3%82%AF%E3%82%BF%E3%82%B9&MAIN_COMPONENT=%E3%82%AA%E3%83%AB%E3%83%93%E3%83%95%E3%83%AD%E3%82%AD%E3%82%B5%E3%82%B7%E3%83%B3",
+  "source": "NVAL",
+  "id": "drug_297"
+},
 ];
 

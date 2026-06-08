@@ -6437,10 +6437,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "b",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route":"injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%83%87%E3%82%AD%E3%82%B5%E3%83%A1%E3%82%BF%E3%82%BE%E3%83%B3&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_102"
@@ -6554,10 +6551,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "0.1ml-0.1mg",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route":"injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%83%97%E3%83%AC%E3%83%89%E3%83%8B%E3%82%BE%E3%83%AD%E3%83%B3&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_103"
@@ -13748,7 +13742,46 @@ var MASTER_DRUG_DB = [
   "source": "NVAL",
   "id": "drug_290"
 },
-
+{
+  "name": "デキサメタゾン0.5mg（デキサメタゾン）経口",
+  "category": "ステロイド",
+  "conc": 0.5,
+  "concText": "0.5mg/錠",
+  "species": {
+    "犬": { "lo": 0.07, "hi": 0.15, "note": "抗炎症：0.07-0.15mg/kg q12-24h PO" },
+    "猫": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+  },
+  "memo": "記載なし",
+  "route": "oral",
+  "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%83%87%E3%82%AD%E3%82%B5%E3%83%A1%E3%82%BF%E3%82%BE%E3%83%B3&nameKbn=1&nameMatch=1",
+  "source": "PMDA",
+  "id": "drug_291"
+},
+{
+  "name": "プレドニゾロン5mg（プレドニゾロン）経口",
+  "category": "ステロイド",
+  "conc": 5,
+  "concText": "5mg/錠",
+  "species": {
+    "犬": { "lo": 0.5, "hi": 1, "note": "抗炎症：0.5-1mg/kg q12-24h PO\n免疫抑制：1-6mg/kg BID PO" },
+    "猫": { "lo": 1, "hi": 2, "note": "犬の用量の約2倍" },
+    "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+  },
+  "memo": "記載なし",
+  "route": "oral",
+  "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%83%97%E3%83%AC%E3%83%89%E3%83%8B%E3%82%BE%E3%83%AD%E3%83%B3&nameKbn=1&nameMatch=1",
+  "source": "PMDA",
+  "id": "drug_292"
+},
 
 ];
 

@@ -508,10 +508,10 @@ var MASTER_DRUG_DB = [
     "id": "drug_008"
   },
   {
-    "name": "ラシックス20mg/2ml, 20/40mg（フロセミド）",
+    "name": "ラシックス20mg/2ml（フロセミド）",
     "category": "循環器",
     "conc": 10,
-    "concText": "10mg/mL（20mg/2mL）、錠剤20mg/40mg",
+    "concText": "10mg/mL（20mg/2mL)",
     "species": {
       "犬": {
         "lo": 1,
@@ -1132,7 +1132,7 @@ var MASTER_DRUG_DB = [
     "id": "drug_021"
   },
   {
-    "name": "リフレックス　15mg（ミルタザピン）",
+    "name": "リフレックス15mg（ミルタザピン）",
     "category": "消化器",
     "conc": 15,
     "concText": "15mg",
@@ -1699,7 +1699,7 @@ var MASTER_DRUG_DB = [
     "name": "レベチラセタム（イーケプラ）50% 500mg/g",
     "category": "神経・てんかん",
     "conc": 500,
-    "concText": "50%",
+    "concText": "500mg",
     "species": {
       "犬": {
         "lo": 20,
@@ -1744,10 +1744,10 @@ var MASTER_DRUG_DB = [
     "id": "drug_031"
   },
   {
-    "name": "アナフラニール（クロミプラミン塩酸塩）２５mg",
+    "name": "アナフラニール（クロミプラミン塩酸塩）25mg",
     "category": "神経・てんかん",
     "conc": 25,
-    "concText": "２５mg",
+    "concText": "25mg",
     "species": {
       "犬": {
         "lo": 1,
@@ -1896,7 +1896,7 @@ var MASTER_DRUG_DB = [
       "犬": {
         "lo": 3,
         "hi": 6,
-        "note": "小型犬（8キロ以下）３mg\n中型（9-25キロ）6 mg　\n大型（25キロ以上）9mg　 (VMN)"
+        "note": "小型犬（8キロ以下）3mg\n中型（9-25キロ）6 mg\n大型（25キロ以上）9mg (VMN)"
       },
       "猫": {
         "lo": 3,
@@ -1986,8 +1986,8 @@ var MASTER_DRUG_DB = [
   {
     "name": "リズミナール1/5mg、エナカルド（エナラプリルマレイン酸塩",
     "category": "循環器",
-    "conc": 5,
-    "concText": "5mg",
+    "conc":  1,
+    "concText": "1/5mg",
     "species": {
       "犬": {
         "lo": 0.25,
@@ -2034,8 +2034,8 @@ var MASTER_DRUG_DB = [
   {
     "name": "エースワーカー0.5/1mg（テモカプリル塩酸塩）",
     "category": "循環器",
-    "conc": 1,
-    "concText": "1mg",
+    "conc": 0.5,
+    "concText": "0.5/1mg",
     "species": {
       "犬": {
         "lo": 0.1,
@@ -2224,10 +2224,10 @@ var MASTER_DRUG_DB = [
     "id": "drug_041"
   },
   {
-    "name": "ベトメディン1.25/5mg（ピモベンタン）",
+    "name": "ベトメディン（ピモベンタン）",
     "category": "循環器",
     "conc": 0.75,
-    "concText": "0.75mg/ml（注射液）/ 1.25・2.5・5mg（チュアブル）",
+    "concText": "0.75mg/ml（注射液）",
     "species": {
       "犬": {
         "injectable": {
@@ -2426,8 +2426,8 @@ var MASTER_DRUG_DB = [
   {
     "name": "ペルサンチン（ジピリダモール）",
     "category": "循環器",
-    "conc": null,
-    "concText": "記載なし",
+    "conc": 25,
+    "concText": "25mg",
     "species": {
       "犬": {
         "lo": 4,
@@ -2474,8 +2474,8 @@ var MASTER_DRUG_DB = [
   {
     "name": "アムロジピン（アムロジピン ベシル酸塩）",
     "category": "循環器",
-    "conc": null,
-    "concText": "記載なし",
+    "conc": 2.5,
+    "concText": "2.5/5/10mg",
     "species": {
       "犬": {
         "lo": 0.1,
@@ -2520,10 +2520,10 @@ var MASTER_DRUG_DB = [
     "id": "drug_046"
   },
   {
-    "name": "ニトロールR（硝酸イソソルビド）",
+    "name": "ニトロール（硝酸イソソルビド）",
     "category": "循環器",
-    "conc": null,
-    "concText": "記載なし",
+    "conc": 5,
+    "concText": "5mg",
     "species": {
       "犬": {
         "lo": 0.22,
@@ -2577,12 +2577,12 @@ var MASTER_DRUG_DB = [
         "injectable": {
           "lo": 5,
           "hi": 10,
-          "note": "５-10mg/kg  BID-TID PO　IM IV"
+          "note": "5-10mg/kg  BID-TID PO　IM IV"
         },
         "oral": {
           "lo": 5,
           "hi": 10,
-          "note": "５-10mg/kg  BID-TID PO　IM IV"
+          "note": "5-10mg/kg  BID-TID PO　IM IV"
         },
         "note": "（記載なし）"
       },
@@ -2590,12 +2590,12 @@ var MASTER_DRUG_DB = [
         "injectable": {
           "lo": 5,
           "hi": 6,
-          "note": "５-6mg/kg  BID-TID PO IM IV"
+          "note": "5-6mg/kg  BID-TID PO IM IV"
         },
         "oral": {
           "lo": 5,
           "hi": 6,
-          "note": "５-6mg/kg  BID-TID PO IM IV"
+          "note": "5-6mg/kg  BID-TID PO IM IV"
         },
         "note": "（記載なし）"
       },
@@ -3294,10 +3294,10 @@ var MASTER_DRUG_DB = [
     "id": "drug_058"
   },
   {
-    "name": "タケプロン１５mg（ランソプラゾール)",
+    "name": "タケプロン15mg（ランソプラゾール)",
     "category": "消化器",
     "conc": 15,
-    "concText": "１５mg",
+    "concText": "15mg",
     "species": {
       "犬": {
         "lo": 0.5,
@@ -3970,18 +3970,18 @@ var MASTER_DRUG_DB = [
   {
     "name": "アルサルミン1g/10ml 10%（スクラルファート）",
     "category": "消化器",
-    "conc": 0.1,
-    "concText": "1g/10ml",
+    "conc": 100,
+    "concText": "100mg/ml",
     "species": {
       "犬": {
-        "lo": null,
-        "hi": null,
-        "note": "0.5-18g PO q8-12h"
+        "lo": 30,
+        "hi": 50,
+        "note": "30-50mg PO q8-12h"
       },
       "猫": {
         "lo": null,
         "hi": null,
-        "note": "0.25g PO q8-12h"
+        "note": "0.25-0.5g/head PO q8-12h"
       },
       "ウサギ": {
         "lo": 25,
@@ -4065,7 +4065,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "チャルドール（ピコスルファートナトリウム）",
-    "category": "抗生剤",
+    "category": "消化器",
     "conc": null,
     "concText": "記載なし",
     "species": {
@@ -4470,13 +4470,13 @@ var MASTER_DRUG_DB = [
     "concText": "100mg",
     "species": {
       "犬": {
-        "lo": null,
-        "hi": null,
+        "lo": 5,
+        "hi": 15,
         "note": "5-15mg/bid PO"
       },
       "猫": {
-        "lo": null,
-        "hi": null,
+        "lo": 5,
+        "hi": 15,
         "note": "イヌに準ずる"
       },
       "ウサギ": {
@@ -4560,19 +4560,19 @@ var MASTER_DRUG_DB = [
     "id": "drug_077"
   },
   {
-    "name": "BCAA製剤（リーバクト）",
+    "name": "BCAA製剤4.15g/包（リーバクト）",
     "category": "肝臓・代謝",
-    "conc": null,
-    "concText": "記載なし",
+    "conc": 4.15,
+    "concText": "4150mg/包",
     "species": {
       "犬": {
-        "lo": null,
-        "hi": null,
+        "lo": 0.1,
+        "hi": 0.2,
         "note": "0.1-0.2g/kg PO BID"
       },
       "猫": {
-        "lo": null,
-        "hi": null,
+        "lo": 0.1,
+        "hi": 0.3,
         "note": "0.1-0.3g/kg PO BID"
       },
       "ウサギ": {
@@ -5796,10 +5796,10 @@ var MASTER_DRUG_DB = [
     "id": "drug_093"
   },
   {
-    "name": "プレビコックス",
+    "name": "プレビコックス57/227mg",
     "category": "NSAIDs",
-    "conc": null,
-    "concText": "記載なし",
+    "conc": 57,
+    "concText": "57mg",
     "species": {
       "犬": {
         "lo": 5,
@@ -5807,9 +5807,9 @@ var MASTER_DRUG_DB = [
         "note": "5mg/kg 単回PO"
       },
       "猫": {
-        "lo": 1.5,
-        "hi": 1.5,
-        "note": "1.5mg/kg 単回"
+        "lo": null,
+        "hi": null,
+        "note": "（記載なし）"
       },
       "ウサギ": {
         "lo": null,
@@ -5846,8 +5846,8 @@ var MASTER_DRUG_DB = [
   {
     "name": "バキソ（ピロキシカム）",
     "category": "NSAIDs",
-    "conc": null,
-    "concText": "記載なし",
+    "conc": 20,
+    "concText": "20mg",
     "species": {
       "犬": {
         "lo": 0.3,
@@ -5894,13 +5894,13 @@ var MASTER_DRUG_DB = [
   {
     "name": "ぺリアクチン(シプロヘプタジン)",
     "category": "アレルギー・皮膚科",
-    "conc": null,
-    "concText": "記載なし",
+    "conc": 0.4,
+    "concText": "0.4mg/ml",
     "species": {
       "犬": {
-        "lo": 1,
-        "hi": 1,
-        "note": "0,5-1,1mg/kg q8-12h PO"
+        "lo": 0.5,
+        "hi": 1.1,
+        "note": "0.5-1.1mg/kg q8-12h PO"
       },
       "猫": {
         "lo": 2,
@@ -5908,13 +5908,13 @@ var MASTER_DRUG_DB = [
         "note": "2-4mg/kg q12-24h PO"
       },
       "ウサギ": {
-        "lo": null,
-        "hi": null,
-        "note": "（記載なし）"
+        "lo": 0.4,
+        "hi": 0.4,
+        "note": "0.4mg/head"
       },
       "モルモット": {
-        "lo": null,
-        "hi": null,
+        "lo": 0.4,
+        "hi": 0.4,
         "note": "（記載なし）"
       },
       "フェレット": {
@@ -5942,8 +5942,8 @@ var MASTER_DRUG_DB = [
   {
     "name": "タベジール（クレマスチンフマル酸塩）",
     "category": "アレルギー・皮膚科",
-    "conc": null,
-    "concText": "記載なし",
+    "conc": 1,
+    "concText": "1mg",
     "species": {
       "犬": {
         "lo": 0.05,
@@ -7404,8 +7404,8 @@ var MASTER_DRUG_DB = [
   {
     "name": "クラリス、クラリシッド、クラロイシン\n（クラリスロマシシン）",
     "category": "抗生剤",
-    "conc": null,
-    "concText": "記載なし",
+    "conc": 200,
+    "concText": "200mg",
     "species": {
       "犬": {
         "lo": 7.5,
@@ -7566,7 +7566,7 @@ var MASTER_DRUG_DB = [
   {
     "name": "ゼナキル50mg（マルボフロキサシン)",
     "category": "抗生剤",
-    "conc": null,
+    "conc": 50,
     "concText": "50mg",
     "species": {
       "犬": {
@@ -7728,8 +7728,8 @@ var MASTER_DRUG_DB = [
   {
     "name": "シプロキサン（シプロフロキサシン）",
     "category": "抗生剤",
-    "conc": null,
-    "concText": "記載なし",
+    "conc": 100,
+    "concText": "100/200mg",
     "species": {
       "犬": {
         "lo": 20,
@@ -7776,8 +7776,8 @@ var MASTER_DRUG_DB = [
   {
     "name": "ミノマイシン（ミノサイクリン）",
     "category": "抗生剤",
-    "conc": null,
-    "concText": "",
+    "conc": 50,
+    "concText": "50/100mg",
     "species": {
       "犬": {
         "injectable": {
@@ -7892,7 +7892,7 @@ var MASTER_DRUG_DB = [
   {
     "name": "ビブラマシシン50mg（ドキシサイクリン）",
     "category": "抗生剤",
-    "conc": null,
+    "conc": 50,
     "concText": "50mg",
     "species": {
       "犬": {
@@ -7940,8 +7940,8 @@ var MASTER_DRUG_DB = [
   {
     "name": "アンチローブ25（クリンダマイシン）",
     "category": "抗生剤",
-    "conc": null,
-    "concText": "記載なし",
+    "conc": 25,
+    "concText": "25mg",
     "species": {
       "犬": {
         "injectable": {
@@ -8056,8 +8056,8 @@ var MASTER_DRUG_DB = [
   {
     "name": "ホスミシン（ホスホマイシン）",
     "category": "抗生剤",
-    "conc": null,
-    "concText": "記載なし",
+    "conc": 500,
+    "concText": "500mg",
     "species": {
       "犬": {
         "lo": 40,
@@ -8104,7 +8104,7 @@ var MASTER_DRUG_DB = [
   {
     "name": "フラジール250mg（メトロニダゾール）",
     "category": "抗生剤",
-    "conc": null,
+    "conc": 250,
     "concText": "250mg",
     "species": {
       "犬": {
@@ -8200,8 +8200,8 @@ var MASTER_DRUG_DB = [
   {
     "name": "ファロム（ファロペネムナトリウム）",
     "category": "抗生剤",
-    "conc": null,
-    "concText": "記載なし",
+    "conc": 150,
+    "concText": "150/200mg",
     "species": {
       "犬": {
         "lo": 5,
@@ -8345,16 +8345,16 @@ var MASTER_DRUG_DB = [
     "name": "ナイスタチン",
     "category": "抗真菌薬",
     "conc": null,
-    "concText": "記載なし",
+    "concText": "500000IU/錠",
     "species": {
       "犬": {
-        "lo": null,
-        "hi": null,
+        "lo": 22000,
+        "hi": 22000,
         "note": "2.2万単位kg/day\n5-15万単位/head tid PO"
       },
       "猫": {
-        "lo": null,
-        "hi": null,
+        "lo": 100000,
+        "hi": 100000,
         "note": "10万単位/head q6h PO"
       },
       "ウサギ": {
@@ -10175,8 +10175,8 @@ var MASTER_DRUG_DB = [
   {
     "name": "ケトコナゾール",
     "category": "抗真菌薬",
-    "conc": null,
-    "concText": "錠剤200mg",
+    "conc": 200,
+    "concText": "200mg",
     "species": {
       "犬": {
         "lo": 10,
@@ -10223,8 +10223,8 @@ var MASTER_DRUG_DB = [
   {
     "name": "フルコナゾール",
     "category": "抗真菌薬",
-    "conc": null,
-    "concText": "錠剤50mg・注射剤",
+    "conc": 50,
+    "concText": "50mg",
     "species": {
       "犬": {
         "lo": 2.5,
@@ -10319,8 +10319,8 @@ var MASTER_DRUG_DB = [
   {
     "name": "テトラサイクリン",
     "category": "抗生剤",
-    "conc": null,
-    "concText": "錠剤250mg",
+    "conc": 250,
+    "concText": "250mg",
     "species": {
       "犬": {
         "lo": 10,
@@ -10559,8 +10559,8 @@ var MASTER_DRUG_DB = [
   {
     "name": "クラリスロマイシン（クラリス・クラリシッド）",
     "category": "抗生剤",
-    "conc": null,
-    "concText": "錠剤200mg",
+    "conc": 200,
+    "concText": "200mg",
     "species": {
       "犬": {
         "lo": 5,
@@ -11135,8 +11135,8 @@ var MASTER_DRUG_DB = [
   {
     "name": "アルベンダゾール（ゼンテル）",
     "category": "駆虫薬",
-    "conc": null,
-    "concText": "錠剤200mg",
+    "conc": 200,
+    "concText": "200mg",
     "species": {
       "犬": {
         "lo": 25,
@@ -11759,8 +11759,8 @@ var MASTER_DRUG_DB = [
   {
     "name": "シサプリド（プロパルシド）",
     "category": "消化器",
-    "conc": null,
-    "concText": "錠剤5mg",
+    "conc": 5,
+    "concText": "5mg",
     "species": {
       "犬": {
         "lo": 0.5,
@@ -11807,8 +11807,8 @@ var MASTER_DRUG_DB = [
   {
     "name": "ロペラミド（ロペミン）",
     "category": "消化器",
-    "conc": null,
-    "concText": "錠剤1mg・カプセル",
+    "conc": 1,
+    "concText": "1mg",
     "species": {
       "犬": {
         "lo": 0.08,
@@ -11855,13 +11855,13 @@ var MASTER_DRUG_DB = [
   {
     "name": "ジゴキシン",
     "category": "循環器",
-    "conc": 0.05,
-    "concText": "0.05mg/ml（小動物用）・0.25mg錠",
+    "conc": 0.005,
+    "concText": "0.25mg錠",
     "species": {
       "犬": {
-        "lo": 0.005,
-        "hi": 0.01,
-        "note": "0.005-0.01mg/kg PO q12-24h（徐放剤は20%減量）"
+        "lo": 0.0025,
+        "hi": 0.005,
+        "note": "0.002-0.005mg/kg PO q12-24h（徐放剤は20%減量）"
       },
       "猫": {
         "lo": 0.005,
@@ -13427,7 +13427,7 @@ var MASTER_DRUG_DB = [
     "name": "ラシックス20/40mg（フロセミド）経口",
     "category": "循環器",
     "conc": 20,
-    "concText": "20mg/錠",
+    "concText": "20/40mg/錠",
     "species": {
       "犬": { "lo": 1, "hi": 2, "note": "1〜2mg/kg BID〜TID PO" },
       "猫": { "lo": 1, "hi": 1, "note": "1mg/kg SID〜BID PO" },
@@ -13444,10 +13444,10 @@ var MASTER_DRUG_DB = [
     "id": "drug_276"
   },
   {
-    "name": "ベトメディン1.25/5mg（ピモベンダン）経口",
+    "name": "ピモベンダン1.25/2.5/5mg",
     "category": "循環器",
     "conc": 1.25,
-    "concText": "1.25mg/錠",
+    "concText": "1.25/2.5/5mg錠",
     "species": {
       "犬": { "lo": 0.2, "hi": 0.3, "note": "0.2-0.3mg/kg BID" },
       "猫": { "lo": 0.25, "hi": 0.25, "note": "0.25mg/kg BID" },

@@ -4712,10 +4712,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "2ml-10mg",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route":"injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%83%95%E3%83%AB%E3%82%B9%E3%83%AB%E3%83%81%E3%82%A2%E3%83%9F%E3%83%B3&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_079"
@@ -4819,10 +4816,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "1ml-1000µｇ",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route":"injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%82%B7%E3%82%A2%E3%83%8E%E3%82%B3%E3%83%90%E3%83%A9%E3%83%9F%E3%83%B3&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_080"
@@ -4926,10 +4920,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "記載なし",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route":"injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E8%91%89%E9%85%B8&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_081"
@@ -13864,5 +13855,47 @@ var MASTER_DRUG_DB = [
   "source": "NVAL",
   "id": "drug_297"
 },
+{
+  "name": "シアノコバラミン100μg（ビタミンB12）経口",
+  "category": "ビタミン・補液",
+  "conc": 0.1,
+  "concText": "100μg/錠",
+  "species": {
+    "犬": { "lo": 0.1, "hi": 0.2, "note": "100-200μg SID PO" },
+    "猫": { "lo": 0.05, "hi": 0.1, "note": "50-100μg SID PO" },
+    "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+  },
+  "memo": "記載なし",
+  "route": "oral",
+  "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%82%B7%E3%82%A2%E3%83%8E%E3%82%B3%E3%83%90%E3%83%A9%E3%83%9F%E3%83%B3&nameKbn=1&nameMatch=1",
+  "source": "PMDA",
+  "id": "drug_298"
+},
+{
+  "name": "フォリアミン5mg（葉酸）経口",
+  "category": "ビタミン・補液",
+  "conc": 5,
+  "concText": "5mg/錠",
+  "species": {
+    "犬": { "lo": 0.5, "hi": 0.5, "note": "0.5mg/kg SID PO" },
+    "猫": { "lo": 0.5, "hi": 0.5, "note": "0.5mg/kg SID PO" },
+    "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+  },
+  "memo": "記載なし",
+  "route": "oral",
+  "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E8%91%89%E9%85%B8&nameKbn=1&nameMatch=1",
+  "source": "PMDA",
+  "id": "drug_299"
+},
+
+
 ];
 

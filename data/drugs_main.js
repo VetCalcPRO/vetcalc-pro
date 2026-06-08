@@ -1546,10 +1546,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "記載なし",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    route: "injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%83%A2%E3%83%AB%E3%83%92%E3%83%8D&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_027"

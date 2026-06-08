@@ -3349,8 +3349,8 @@ var MASTER_DRUG_DB = [
     "species": {
       "犬": {
         "injectable": {
-          "lo": 0.1,
-          "hi": 0.2,
+          "lo": 0.5,
+          "hi": 1.0,
           "note": "0.1-0.2mg/kg q12h PO IV SC"
         },
         "oral": {
@@ -3362,8 +3362,8 @@ var MASTER_DRUG_DB = [
       },
       "猫": {
         "injectable": {
-          "lo": null,
-          "hi": null,
+          "lo": 0.5,
+          "hi": 1.0,
           "note": "イヌに準ずる"
         },
         "oral": {
@@ -5692,7 +5692,7 @@ var MASTER_DRUG_DB = [
     "id": "drug_092"
   },
   {
-    "name": "オンシオール5/6/10/20mg（ロベナコキシブ）",
+    "name": "オンシオール（ロベナコキシブ）",
     "category": "NSAIDs",
     "conc": 20,
     "concText": "20mg/ml",
@@ -7450,10 +7450,10 @@ var MASTER_DRUG_DB = [
     "id": "drug_121"
   },
   {
-    "name": "バイトリル15/150/250mg（エンロフロキサシン）",
+    "name": "バイトリル（エンロフロキサシン）",
     "category": "抗生剤",
-    "conc": null,
-    "concText": "250mg",
+    "conc": 25,
+    "concText": "25mg/ml",
     "species": {
       "犬": {
         "injectable": {
@@ -7612,10 +7612,10 @@ var MASTER_DRUG_DB = [
     "id": "drug_123"
   },
   {
-    "name": "ビクタス10/40mg（オルビフロキサシン）",
+    "name": "ビクタス（オルビフロキサシン）",
     "category": "抗生剤",
-    "conc": null,
-    "concText": "40mg",
+    "conc": 25,
+    "concText": "25mg/ml",
     "species": {
       "犬": {
         "injectable": {
@@ -13195,104 +13195,20 @@ var MASTER_DRUG_DB = [
     "id": "drug_272"
   },
   {
-    "name": "イーケプラ",
+    "name": "イーケプラ（レベチラセタム）注射",
     "category": "神経・てんかん",
-    "conc": 20,
-    "concText": "20mg/ml",
+    "conc": 100,
+    "concText": "100mg/ml",
     "species": {
-      "犬": {
-        "injectable": {
-          "lo": 20,
-          "hi": 20,
-          "note": "20mg/kg q8-12h IV"
-        },
-        "oral": {
-          "lo": null,
-          "hi": null,
-          "note": null
-        },
-        "note": "（記載なし）"
-      },
-      "猫": {
-        "injectable": {
-          "lo": 20,
-          "hi": 20,
-          "note": "20mg/kg q8-12h IV"
-        },
-        "oral": {
-          "lo": null,
-          "hi": null,
-          "note": null
-        },
-        "note": "（記載なし）"
-      },
-      "ウサギ": {
-        "injectable": {
-          "lo": null,
-          "hi": null,
-          "note": null
-        },
-        "oral": {
-          "lo": null,
-          "hi": null,
-          "note": null
-        },
-        "note": "（記載なし）"
-      },
-      "フェレット": {
-        "injectable": {
-          "lo": null,
-          "hi": null,
-          "note": null
-        },
-        "oral": {
-          "lo": null,
-          "hi": null,
-          "note": null
-        },
-        "note": "（記載なし）"
-      },
-      "モルモット": {
-        "injectable": {
-          "lo": null,
-          "hi": null,
-          "note": null
-        },
-        "oral": {
-          "lo": null,
-          "hi": null,
-          "note": null
-        },
-        "note": "（記載なし）"
-      },
-      "ハリネズミ": {
-        "injectable": {
-          "lo": null,
-          "hi": null,
-          "note": null
-        },
-        "oral": {
-          "lo": null,
-          "hi": null,
-          "note": null
-        },
-        "note": "（記載なし）"
-      },
-      "ハムスター": {
-        "injectable": {
-          "lo": null,
-          "hi": null,
-          "note": null
-        },
-        "oral": {
-          "lo": null,
-          "hi": null,
-          "note": null
-        },
-        "note": "（記載なし）"
-      }
+      "犬": { "lo": 20, "hi": 20, "note": "20mg/kg q8-12h IV" },
+      "猫": { "lo": 20, "hi": 20, "note": "20mg/kg q8-12h IV" },
+      "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+      "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+      "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+      "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+      "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
     },
-    "memo": "20mg/kg q8-12h　5～45μg/mL 人における参照値 犬，猫での半減期は約4時間",
+    "memo": "20mg/kg q8-12h　5〜45μg/mL 人における参照値 犬猫での半減期は約4時間",
     "route": "injectable",
     "pdf_url": "",
     "source": "",
@@ -13301,13 +13217,13 @@ var MASTER_DRUG_DB = [
   {
     "name": "レスミン（ジフェンヒドラミン）",
     "category": "アレルギー・皮膚科",
-    "conc": null,
-    "concText": "記載なし",
+    "conc": 10,
+    "concText": "10mg/ml",
     "species": {
       "犬": {
         "injectable": {
-          "lo": null,
-          "hi": null,
+          "lo": 2,
+          "hi": 4,
           "note": null
         },
         "oral": {
@@ -13315,12 +13231,12 @@ var MASTER_DRUG_DB = [
           "hi": null,
           "note": null
         },
-        "note": "（記載なし）"
+        "note": "2-4mg/kg q8-12h"
       },
       "猫": {
         "injectable": {
-          "lo": null,
-          "hi": null,
+          "lo": 2,
+          "hi": 4,
           "note": null
         },
         "oral": {
@@ -13328,7 +13244,7 @@ var MASTER_DRUG_DB = [
           "hi": null,
           "note": null
         },
-        "note": "（記載なし）"
+        "note": "2-4mg/kg q8-12h"
       },
       "ウサギ": {
         "injectable": {

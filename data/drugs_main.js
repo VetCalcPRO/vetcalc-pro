@@ -5162,10 +5162,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "1ml-50mg",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route":"injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%83%88%E3%83%A9%E3%83%8D%E3%82%AD%E3%82%B5%E3%83%A0%E9%85%B8&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_085"
@@ -5269,10 +5266,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "記載なし",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route":"injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%82%AB%E3%83%AB%E3%83%90%E3%82%BE%E3%82%AF%E3%83%AD%E3%83%A0%E3%82%B9%E3%83%AB%E3%83%9B%E3%83%B3%E9%85%B8%E3%83%8A%E3%83%88%E3%83%AA%E3%82%A6%E3%83%A0&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_086"
@@ -13929,6 +13923,46 @@ var MASTER_DRUG_DB = [
   "source": "PMDA",
   "id": "drug_301"
 },
+{
+  "name": "トランサミン250mg（トラネキサム酸）経口",
+  "category": "止血・造血・ホルモン",
+  "conc": 250,
+  "concText": "250mg/錠",
+  "species": {
+    "犬": { "lo": 10, "hi": 20, "note": "10-20mg/kg TID PO" },
+    "猫": { "lo": 10, "hi": 20, "note": "10-20mg/kg TID PO" },
+    "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+  },
+  "memo": "記載なし",
+  "route": "oral",
+  "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%83%88%E3%83%A9%E3%83%8D%E3%82%AD%E3%82%B5%E3%83%A0%E9%85%B8&nameKbn=1&nameMatch=1",
+  "source": "PMDA",
+  "id": "drug_302"
+},
+{
+  "name": "アドナ10/30mg（カルバゾクロム）経口",
+  "category": "止血・造血・ホルモン",
+  "conc": 10,
+  "concText": "10mg/錠",
+  "species": {
+    "犬": { "lo": 1, "hi": 2, "note": "1-2mg/kg TID PO" },
+    "猫": { "lo": 0.5, "hi": 2, "note": "0.5-2mg/kg TID PO" },
+    "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+  },
+  "memo": "記載なし",
+  "route": "oral",
+  "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%82%AB%E3%83%AB%E3%83%90%E3%82%BE%E3%82%AF%E3%83%AD%E3%83%A0&nameKbn=1&nameMatch=1",
+  "source": "PMDA",
+  "id": "drug_303"
+}
 
 
 ];

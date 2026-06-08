@@ -1532,13 +1532,18 @@ function parseTabletMg(concText){
   var ct = concText.toLowerCase();
   // ml/g/%が含まれる場合は液剤・散剤として除外
   if(ct.indexOf('ml')>=0 || ct.indexOf('mg/g')>=0 || ct.indexOf('%')>=0) return [];
+  // 「錠」が含まれない場合は錠剤でない
+  if(concText.indexOf('錠')<0 && ct.indexOf('cap')<0 && ct.indexOf('カプセル')<0) return [];
   var nums = [];
-  // 「200/300/400mg」パターン: 数字/数字/数字mg
-  var reSlash = /([0-9]+(?:\.[0-9]+)?(?:\/[0-9]+(?:\.[0-9]+)?)*)\s*mg/gi;
+  // 「200/300/400mg」または「100μg」パターン
+  var reSlash = /([0-9]+(?:\.[0-9]+)?(?:\/[0-9]+(?:\.[0-9]+)?)*)\s*(mg|μg|ug)/gi;
   var m;
   while((m=reSlash.exec(concText))!==null){
+    var unit = m[2].toLowerCase();
     m[1].split('/').forEach(function(s){
-      var v=parseFloat(s); if(v>0 && nums.indexOf(v)<0) nums.push(v);
+      var v=parseFloat(s);
+      if(unit==='μg'||unit==='ug') v=v/1000; // mgに変換
+      if(v>0 && nums.indexOf(v)<0) nums.push(v);
     });
   }
   return nums.sort(function(a,b){return a-b;});

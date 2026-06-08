@@ -6107,10 +6107,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "記載なし",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route":"injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%83%92%E3%83%89%E3%83%AD%E3%82%AD%E3%82%B7%E3%82%B8%E3%83%B3&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_098"
@@ -6224,10 +6221,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "記載なし",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route":"injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%82%B8%E3%83%95%E3%82%A7%E3%83%B3%E3%83%92%E3%83%89%E3%83%A9%E3%83%9F%E3%83%B3&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_099"
@@ -13433,10 +13427,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "記載なし",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route":"injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%82%B8%E3%83%95%E3%82%A7%E3%83%B3%E3%83%92%E3%83%89%E3%83%A9%E3%83%9F%E3%83%B3&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_274"
@@ -13781,6 +13772,66 @@ var MASTER_DRUG_DB = [
   "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%83%97%E3%83%AC%E3%83%89%E3%83%8B%E3%82%BE%E3%83%AD%E3%83%B3&nameKbn=1&nameMatch=1",
   "source": "PMDA",
   "id": "drug_292"
+},
+{
+  "name": "アタラックス10mg（ヒドロキシジン）経口",
+  "category": "アレルギー・皮膚科",
+  "conc": 10,
+  "concText": "10mg/錠",
+  "species": {
+    "犬": { "lo": 2, "hi": 2, "note": "2mg/kg q8-12h PO" },
+    "猫": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+  },
+  "memo": "記載なし",
+  "route": "oral",
+  "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%83%92%E3%83%89%E3%83%AD%E3%82%AD%E3%82%B7%E3%82%B8%E3%83%B3&nameKbn=1&nameMatch=1",
+  "source": "PMDA",
+  "id": "drug_293"
+},
+{
+  "name": "ポララミン2mg（クロルフェニラミン）経口",
+  "category": "アレルギー・皮膚科",
+  "conc": 2,
+  "concText": "2mg/錠",
+  "species": {
+    "犬": { "lo": 2.2, "hi": 2.2, "note": "2.2mg/kg q8-12h PO" },
+    "猫": { "lo": 2, "hi": 4, "note": "2-4mg/kg q6-8h PO" },
+    "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+  },
+  "memo": "記載なし",
+  "route": "oral",
+  "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%82%AF%E3%83%AD%E3%83%AB%E3%83%95%E3%82%A7%E3%83%8B%E3%83%A9%E3%83%9F%E3%83%B3&nameKbn=1&nameMatch=1",
+  "source": "PMDA",
+  "id": "drug_294"
+},
+{
+  "name": "レスタミン10mg（ジフェンヒドラミン）経口",
+  "category": "アレルギー・皮膚科",
+  "conc": 10,
+  "concText": "10mg/錠",
+  "species": {
+    "犬": { "lo": 2, "hi": 4, "note": "2-4mg/kg q8h PO" },
+    "猫": { "lo": 2, "hi": 4, "note": "2-4mg/kg q8h PO" },
+    "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+  },
+  "memo": "記載なし",
+  "route": "oral",
+  "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%82%B8%E3%83%95%E3%82%A7%E3%83%B3%E3%83%92%E3%83%89%E3%83%A9%E3%83%9F%E3%83%B3&nameKbn=1&nameMatch=1",
+  "source": "PMDA",
+  "id": "drug_295"
 },
 
 ];

@@ -12081,7 +12081,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "エキゾチック動物の医学",
+    "source": "",
     "id": "drug_212"
   },
   {
@@ -12116,7 +12116,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "エキゾチック動物の医学",
+    "source": "",
     "id": "drug_214"
   },
   {
@@ -12156,7 +12156,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "エキゾチック動物の医学",
+    "source": "",
     "id": "drug_216"
   },
   {
@@ -12196,7 +12196,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "エキゾチック動物の医学",
+    "source": "",
     "id": "drug_218"
   },
   {
@@ -12236,7 +12236,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "エキゾチック動物の医学",
+    "source": "",
     "id": "drug_220"
   },
   {
@@ -12271,7 +12271,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "エキゾチック動物の医学",
+    "source": "",
     "id": "drug_222"
   },
   {
@@ -12311,7 +12311,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "エキゾチック動物の医学",
+    "source": "",
     "id": "drug_224"
   },
   {
@@ -12351,7 +12351,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "エキゾチック動物の医学",
+    "source": "",
     "id": "drug_226"
   },
   {
@@ -12391,7 +12391,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "エキゾチック動物の医学",
+    "source": "",
     "id": "drug_228"
   },
   {
@@ -12431,7 +12431,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "エキゾチック動物の医学",
+    "source": "",
     "id": "drug_230"
   },
   {
@@ -12471,7 +12471,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "エキゾチック動物の医学",
+    "source": "",
     "id": "drug_232"
   },
   {
@@ -12511,7 +12511,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "エキゾチック動物の医学",
+    "source": "",
     "id": "drug_234"
   },
   {
@@ -12541,7 +12541,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "エキゾチック動物の医学",
+    "source": "",
     "id": "drug_236"
   },
   {
@@ -12581,7 +12581,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "エキゾチック動物の医学",
+    "source": "",
     "id": "drug_238"
   },
   {
@@ -12601,7 +12601,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "エキゾチック動物の医学",
+    "source": "",
     "id": "drug_240"
   },
   {
@@ -12631,7 +12631,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "エキゾチック動物の医学",
+    "source": "",
     "id": "drug_242"
   },
   {
@@ -12671,7 +12671,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "エキゾチック動物の医学",
+    "source": "",
     "id": "drug_244"
   },
   {
@@ -12711,7 +12711,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "エキゾチック動物の医学",
+    "source": "",
     "id": "drug_246"
   },
   {
@@ -12751,7 +12751,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "エキゾチック動物の医学",
+    "source": "",
     "id": "drug_248"
   },
   {
@@ -12776,7 +12776,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "エキゾチック動物の医学",
+    "source": "",
     "id": "drug_250"
   },
   {
@@ -12816,7 +12816,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "エキゾチック動物の医学",
+    "source": "",
     "id": "drug_252"
   },
   {
@@ -12841,7 +12841,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "エキゾチック動物の医学",
+    "source": "",
     "id": "drug_254"
   },
   {
@@ -12876,7 +12876,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "エキゾチック動物の医学",
+    "source": "",
     "id": "drug_256"
   },
   {
@@ -12911,7 +12911,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "エキゾチック動物の医学",
+    "source": "",
     "id": "drug_258"
   },
   {
@@ -12951,7 +12951,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "エキゾチック動物の医学",
+    "source": "",
     "id": "drug_260"
   },
   {
@@ -12991,7 +12991,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "エキゾチック動物の医学",
+    "source": "",
     "id": "drug_262"
   },
   {
@@ -13031,7 +13031,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "エキゾチック動物の医学",
+    "source": "",
     "id": "drug_264"
   },
   {
@@ -13071,7 +13071,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "エキゾチック動物の医学",
+    "source": "",
     "id": "drug_266"
   },
   {
@@ -13111,7 +13111,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "エキゾチック動物の医学",
+    "source": "",
     "id": "drug_268"
   },
   {
@@ -13151,7 +13151,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "エキゾチック動物の医学",
+    "source": "",
     "id": "drug_270"
   },
   {
@@ -13191,7 +13191,7 @@ var MASTER_DRUG_DB = [
       "exotic"
     ],
     "pdf_url": "",
-    "source": "エキゾチック動物の医学",
+    "source": "",
     "id": "drug_272"
   },
   {

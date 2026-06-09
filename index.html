@@ -51,14 +51,17 @@ if ('serviceWorker' in navigator) {
         const newSW = reg.installing;
         newSW.addEventListener('statechange', () => {
           if (newSW.state === 'installed' && navigator.serviceWorker.controller) {
-            // 新バージョン検出 → バナー表示
             document.getElementById('updateBanner').style.display = 'flex';
             document.getElementById('updateBanner')._reg = reg;
           }
         });
       });
+    });                                          // ← .then終わり
+    // controllerchangeは起動時に一度だけ登録
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      location.reload();
     });
-  });
+  });                                            // ← load終わり
 }
 function applyUpdate() {
   const banner = document.getElementById('updateBanner');
@@ -66,9 +69,6 @@ function applyUpdate() {
   if (reg && reg.waiting) {
     reg.waiting.postMessage({ type: 'SKIP_WAITING' });
   }
-  navigator.serviceWorker.addEventListener('controllerchange', () => {
-    location.reload();
-  });
   banner.style.display = 'none';
 }
 </script>

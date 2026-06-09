@@ -350,10 +350,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "0.1ml-0.05ml",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route": "injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%82%A2%E3%83%88%E3%83%AD%E3%83%94%E3%83%B3&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_006"
@@ -457,10 +454,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "0.1ml-15mg",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route": "injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%82%B8%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%AA%E3%83%B3&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_007"
@@ -514,10 +508,10 @@ var MASTER_DRUG_DB = [
     "id": "drug_008"
   },
   {
-    "name": "ラシックス20mg/2ml, 20/40mg（フロセミド）",
+    "name": "ラシックス20mg/2ml（フロセミド）",
     "category": "循環器",
     "conc": 10,
-    "concText": "10mg/mL（20mg/2mL）、錠剤20mg/40mg",
+    "concText": "10mg/mL（20mg/2mL)",
     "species": {
       "犬": {
         "lo": 1,
@@ -556,10 +550,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "ループ利尿薬。急性肺水腫・胸水・腹水・心不全の体液貯留に使用。低カリウム血症に注意（長期使用時は補カリウム検討）。脱水・腎不全例では慎重に。効果はIV＞IM＞SC＞PO。",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route": "injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%83%95%E3%83%AD%E3%82%BB%E3%83%9F%E3%83%89&nameKbn=1&nameMatch=1",
     "source": "PMDA / NVAL",
     "id": "drug_009"
@@ -1135,16 +1126,13 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "ベンゾジアゼピン系。てんかん重積発作の第一選択（IV）。鎮静・筋弛緩・抗不安にも使用。【猫への注意】経口投与で肝壊死の報告あり→猫への経口投与は避ける。IV投与は問題なし。呼吸抑制に注意。フルマゼニルで拮抗可。",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route": "injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%82%B8%E3%82%A2%E3%82%BC%E3%83%91%E3%83%A0&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_021"
   },
   {
-    "name": "リフレックス　15mg（ミルタザピン）",
+    "name": "リフレックス15mg（ミルタザピン）",
     "category": "消化器",
     "conc": 15,
     "concText": "15mg",
@@ -1444,10 +1432,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "イヌ：20-40μg/ml\n 3週間で測定、\n以後安定するまで適時年2回",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route": "injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%83%95%E3%82%A7%E3%83%8E%E3%83%90%E3%83%AB%E3%83%93%E3%82%BF%E3%83%BC%E3%83%AB&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_026"
@@ -1561,10 +1546,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "記載なし",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    route: "injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%83%A2%E3%83%AB%E3%83%92%E3%83%8D&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_027"
@@ -1717,7 +1699,7 @@ var MASTER_DRUG_DB = [
     "name": "レベチラセタム（イーケプラ）50% 500mg/g",
     "category": "神経・てんかん",
     "conc": 500,
-    "concText": "50%",
+    "concText": "500mg",
     "species": {
       "犬": {
         "lo": 20,
@@ -1762,10 +1744,10 @@ var MASTER_DRUG_DB = [
     "id": "drug_031"
   },
   {
-    "name": "アナフラニール（クロミプラミン塩酸塩）２５mg",
+    "name": "アナフラニール（クロミプラミン塩酸塩）25mg",
     "category": "神経・てんかん",
     "conc": 25,
-    "concText": "２５mg",
+    "concText": "25mg",
     "species": {
       "犬": {
         "lo": 1,
@@ -1914,7 +1896,7 @@ var MASTER_DRUG_DB = [
       "犬": {
         "lo": 3,
         "hi": 6,
-        "note": "小型犬（8キロ以下）３mg\n中型（9-25キロ）6 mg　\n大型（25キロ以上）9mg　 (VMN)"
+        "note": "小型犬（8キロ以下）3mg\n中型（9-25キロ）6 mg\n大型（25キロ以上）9mg (VMN)"
       },
       "猫": {
         "lo": 3,
@@ -2004,8 +1986,8 @@ var MASTER_DRUG_DB = [
   {
     "name": "リズミナール1/5mg、エナカルド（エナラプリルマレイン酸塩",
     "category": "循環器",
-    "conc": 5,
-    "concText": "5mg",
+    "conc":  1,
+    "concText": "1/5mg",
     "species": {
       "犬": {
         "lo": 0.25,
@@ -2052,8 +2034,8 @@ var MASTER_DRUG_DB = [
   {
     "name": "エースワーカー0.5/1mg（テモカプリル塩酸塩）",
     "category": "循環器",
-    "conc": 1,
-    "concText": "1mg",
+    "conc": 0.5,
+    "concText": "0.5/1mg",
     "species": {
       "犬": {
         "lo": 0.1,
@@ -2242,10 +2224,10 @@ var MASTER_DRUG_DB = [
     "id": "drug_041"
   },
   {
-    "name": "ベトメディン1.25/5mg（ピモベンタン）",
+    "name": "ベトメディン（ピモベンタン）",
     "category": "循環器",
     "conc": 0.75,
-    "concText": "0.75mg/ml（注射液）/ 1.25・2.5・5mg（チュアブル）",
+    "concText": "0.75mg/ml（注射液）",
     "species": {
       "犬": {
         "injectable": {
@@ -2340,10 +2322,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "ベーリンガー ベトメディン注射液 0.75mg/ml\n犬のみ注射適応",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route": "injectable",
     "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%83%94%E3%83%A2%E3%83%99%E3%83%B3%E3%83%80%E3%83%B3&MAIN_COMPONENT=%E3%83%94%E3%83%A2%E3%83%99%E3%83%B3%E3%83%80%E3%83%B3",
     "source": "NVAL",
     "id": "drug_042"
@@ -2447,8 +2426,8 @@ var MASTER_DRUG_DB = [
   {
     "name": "ペルサンチン（ジピリダモール）",
     "category": "循環器",
-    "conc": null,
-    "concText": "記載なし",
+    "conc": 25,
+    "concText": "25mg",
     "species": {
       "犬": {
         "lo": 4,
@@ -2495,8 +2474,8 @@ var MASTER_DRUG_DB = [
   {
     "name": "アムロジピン（アムロジピン ベシル酸塩）",
     "category": "循環器",
-    "conc": null,
-    "concText": "記載なし",
+    "conc": 2.5,
+    "concText": "2.5/5/10mg",
     "species": {
       "犬": {
         "lo": 0.1,
@@ -2541,10 +2520,10 @@ var MASTER_DRUG_DB = [
     "id": "drug_046"
   },
   {
-    "name": "ニトロールR（硝酸イソソルビド）",
+    "name": "ニトロール（硝酸イソソルビド）",
     "category": "循環器",
-    "conc": null,
-    "concText": "記載なし",
+    "conc": 5,
+    "concText": "5mg",
     "species": {
       "犬": {
         "lo": 0.22,
@@ -2598,12 +2577,12 @@ var MASTER_DRUG_DB = [
         "injectable": {
           "lo": 5,
           "hi": 10,
-          "note": "５-10mg/kg  BID-TID PO　IM IV"
+          "note": "5-10mg/kg  BID-TID PO　IM IV"
         },
         "oral": {
           "lo": 5,
           "hi": 10,
-          "note": "５-10mg/kg  BID-TID PO　IM IV"
+          "note": "5-10mg/kg  BID-TID PO　IM IV"
         },
         "note": "（記載なし）"
       },
@@ -2611,12 +2590,12 @@ var MASTER_DRUG_DB = [
         "injectable": {
           "lo": 5,
           "hi": 6,
-          "note": "５-6mg/kg  BID-TID PO IM IV"
+          "note": "5-6mg/kg  BID-TID PO IM IV"
         },
         "oral": {
           "lo": 5,
           "hi": 6,
-          "note": "５-6mg/kg  BID-TID PO IM IV"
+          "note": "5-6mg/kg  BID-TID PO IM IV"
         },
         "note": "（記載なし）"
       },
@@ -2697,10 +2676,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "記載なし",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route": "injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%82%A2%E3%83%9F%E3%83%8E%E3%83%95%E3%82%A3%E3%83%AA%E3%83%B3&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_048"
@@ -3054,10 +3030,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "0.1ml-1mg",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route": "injectable",
     "pdf_url": "",
     "source": "適用外",
     "id": "drug_054"
@@ -3171,10 +3144,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "0.1ml-0.5mg",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route": "injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%83%A1%E3%83%88%E3%82%AF%E3%83%AD%E3%83%97%E3%83%A9%E3%83%9F%E3%83%89&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_055"
@@ -3324,10 +3294,10 @@ var MASTER_DRUG_DB = [
     "id": "drug_058"
   },
   {
-    "name": "タケプロン１５mg（ランソプラゾール)",
+    "name": "タケプロン15mg（ランソプラゾール)",
     "category": "消化器",
     "conc": 15,
-    "concText": "１５mg",
+    "concText": "15mg",
     "species": {
       "犬": {
         "lo": 0.5,
@@ -3379,8 +3349,8 @@ var MASTER_DRUG_DB = [
     "species": {
       "犬": {
         "injectable": {
-          "lo": 0.1,
-          "hi": 0.2,
+          "lo": 0.5,
+          "hi": 1.0,
           "note": "0.1-0.2mg/kg q12h PO IV SC"
         },
         "oral": {
@@ -3392,8 +3362,8 @@ var MASTER_DRUG_DB = [
       },
       "猫": {
         "injectable": {
-          "lo": null,
-          "hi": null,
+          "lo": 0.5,
+          "hi": 1.0,
           "note": "イヌに準ずる"
         },
         "oral": {
@@ -3479,11 +3449,7 @@ var MASTER_DRUG_DB = [
         "note": "0.5-10mg/kg PO,SC,IM bid-tid（食道炎・胃潰瘍・十二指腸潰瘍）"
       }
     },
-    "memo": "記載なし",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route": "injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%83%95%E3%82%A1%E3%83%A2%E3%83%81%E3%82%B8%E3%83%B3&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_060"
@@ -3492,7 +3458,7 @@ var MASTER_DRUG_DB = [
     "name": "ザンタック（ラニチジン）",
     "category": "消化器",
     "conc": 25,
-    "concText": "50mg/2ml,50mg/100mg",
+    "concText": "50mg/2ml",
     "species": {
       "犬": {
         "injectable": {
@@ -3586,11 +3552,7 @@ var MASTER_DRUG_DB = [
         "note": "（記載なし）"
       }
     },
-    "memo": "0.1ml-2.5mg",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route": "injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%83%A9%E3%83%8B%E3%83%81%E3%82%B8%E3%83%B3&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_061"
@@ -3752,10 +3714,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "記載なし",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route": "injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%82%B7%E3%83%A1%E3%83%81%E3%82%B8%E3%83%B3&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_063"
@@ -3859,10 +3818,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "0.1ml-2mg",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route": "injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E8%87%AD%E5%8C%96%E3%83%97%E3%83%AA%E3%83%95%E3%82%A3%E3%83%8B%E3%82%A6%E3%83%A0&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_064"
@@ -4014,18 +3970,18 @@ var MASTER_DRUG_DB = [
   {
     "name": "アルサルミン1g/10ml 10%（スクラルファート）",
     "category": "消化器",
-    "conc": 0.1,
-    "concText": "1g/10ml",
+    "conc": 100,
+    "concText": "100mg/ml",
     "species": {
       "犬": {
-        "lo": null,
-        "hi": null,
-        "note": "0.5-18g PO q8-12h"
+        "lo": 30,
+        "hi": 50,
+        "note": "30-50mg PO q8-12h"
       },
       "猫": {
         "lo": null,
         "hi": null,
-        "note": "0.25g PO q8-12h"
+        "note": "0.25-0.5g/head PO q8-12h"
       },
       "ウサギ": {
         "lo": 25,
@@ -4109,7 +4065,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "チャルドール（ピコスルファートナトリウム）",
-    "category": "抗生剤",
+    "category": "消化器",
     "conc": null,
     "concText": "記載なし",
     "species": {
@@ -4398,10 +4354,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "記載なし",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route":"injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%82%B0%E3%83%AB%E3%82%BF%E3%83%81%E3%82%AA%E3%83%B3&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_074"
@@ -4505,10 +4458,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "記載なし",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route":"injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%82%B0%E3%83%AA%E3%83%81%E3%83%AB%E3%83%AA%E3%83%81%E3%83%B3&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_075"
@@ -4520,13 +4470,13 @@ var MASTER_DRUG_DB = [
     "concText": "100mg",
     "species": {
       "犬": {
-        "lo": null,
-        "hi": null,
+        "lo": 5,
+        "hi": 15,
         "note": "5-15mg/bid PO"
       },
       "猫": {
-        "lo": null,
-        "hi": null,
+        "lo": 5,
+        "hi": 15,
         "note": "イヌに準ずる"
       },
       "ウサギ": {
@@ -4610,19 +4560,19 @@ var MASTER_DRUG_DB = [
     "id": "drug_077"
   },
   {
-    "name": "BCAA製剤（リーバクト）",
+    "name": "BCAA製剤4.15g/包（リーバクト）",
     "category": "肝臓・代謝",
-    "conc": null,
-    "concText": "記載なし",
+    "conc": 4.15,
+    "concText": "4150mg/包",
     "species": {
       "犬": {
-        "lo": null,
-        "hi": null,
+        "lo": 0.1,
+        "hi": 0.2,
         "note": "0.1-0.2g/kg PO BID"
       },
       "猫": {
-        "lo": null,
-        "hi": null,
+        "lo": 0.1,
+        "hi": 0.3,
         "note": "0.1-0.3g/kg PO BID"
       },
       "ウサギ": {
@@ -4756,10 +4706,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "2ml-10mg",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route":"injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%83%95%E3%83%AB%E3%82%B9%E3%83%AB%E3%83%81%E3%82%A2%E3%83%9F%E3%83%B3&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_079"
@@ -4863,10 +4810,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "1ml-1000µｇ",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route":"injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%82%B7%E3%82%A2%E3%83%8E%E3%82%B3%E3%83%90%E3%83%A9%E3%83%9F%E3%83%B3&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_080"
@@ -4970,10 +4914,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "記載なし",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route":"injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E8%91%89%E9%85%B8&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_081"
@@ -5221,10 +5162,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "1ml-50mg",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route":"injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%83%88%E3%83%A9%E3%83%8D%E3%82%AD%E3%82%B5%E3%83%A0%E9%85%B8&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_085"
@@ -5328,10 +5266,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "記載なし",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route":"injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%82%AB%E3%83%AB%E3%83%90%E3%82%BE%E3%82%AF%E3%83%AD%E3%83%A0%E3%82%B9%E3%83%AB%E3%83%9B%E3%83%B3%E9%85%B8%E3%83%8A%E3%83%88%E3%83%AA%E3%82%A6%E3%83%A0&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_086"
@@ -5637,10 +5572,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "記載なし",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route": "injectable",
     "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%82%AB%E3%83%AB%E3%83%97%E3%83%AD%E3%83%95%E3%82%A7%E3%83%B3&MAIN_COMPONENT=%E3%82%AB%E3%83%AB%E3%83%97%E3%83%AD%E3%83%95%E3%82%A7%E3%83%B3",
     "source": "NVAL",
     "id": "drug_091"
@@ -5754,16 +5686,13 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "0.1ml-0.5mg",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route": "injectable",
     "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%83%A1%E3%83%AD%E3%82%AD%E3%82%B7%E3%82%AB%E3%83%A0&MAIN_COMPONENT=%E3%83%A1%E3%83%AD%E3%82%AD%E3%82%B7%E3%82%AB%E3%83%A0",
     "source": "NVAL",
     "id": "drug_092"
   },
   {
-    "name": "オンシオール5/6/10/20mg（ロベナコキシブ）",
+    "name": "オンシオール（ロベナコキシブ）",
     "category": "NSAIDs",
     "conc": 20,
     "concText": "20mg/ml",
@@ -5861,19 +5790,16 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "0.1ml-2mg",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route": "injectable",
     "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%83%AD%E3%83%99%E3%83%8A%E3%82%B3%E3%82%AD%E3%82%B7%E3%83%96&MAIN_COMPONENT=%E3%83%AD%E3%83%99%E3%83%8A%E3%82%B3%E3%82%AD%E3%82%B7%E3%83%96",
     "source": "NVAL",
     "id": "drug_093"
   },
   {
-    "name": "プレビコックス",
+    "name": "プレビコックス57/227mg",
     "category": "NSAIDs",
-    "conc": null,
-    "concText": "記載なし",
+    "conc": 57,
+    "concText": "57mg",
     "species": {
       "犬": {
         "lo": 5,
@@ -5881,9 +5807,9 @@ var MASTER_DRUG_DB = [
         "note": "5mg/kg 単回PO"
       },
       "猫": {
-        "lo": 1.5,
-        "hi": 1.5,
-        "note": "1.5mg/kg 単回"
+        "lo": null,
+        "hi": null,
+        "note": "（記載なし）"
       },
       "ウサギ": {
         "lo": null,
@@ -5920,8 +5846,8 @@ var MASTER_DRUG_DB = [
   {
     "name": "バキソ（ピロキシカム）",
     "category": "NSAIDs",
-    "conc": null,
-    "concText": "記載なし",
+    "conc": 20,
+    "concText": "20mg",
     "species": {
       "犬": {
         "lo": 0.3,
@@ -5968,13 +5894,13 @@ var MASTER_DRUG_DB = [
   {
     "name": "ぺリアクチン(シプロヘプタジン)",
     "category": "アレルギー・皮膚科",
-    "conc": null,
-    "concText": "記載なし",
+    "conc": 0.4,
+    "concText": "0.4mg/ml",
     "species": {
       "犬": {
-        "lo": 1,
-        "hi": 1,
-        "note": "0,5-1,1mg/kg q8-12h PO"
+        "lo": 0.5,
+        "hi": 1.1,
+        "note": "0.5-1.1mg/kg q8-12h PO"
       },
       "猫": {
         "lo": 2,
@@ -5982,13 +5908,13 @@ var MASTER_DRUG_DB = [
         "note": "2-4mg/kg q12-24h PO"
       },
       "ウサギ": {
-        "lo": null,
-        "hi": null,
-        "note": "（記載なし）"
+        "lo": 0.4,
+        "hi": 0.4,
+        "note": "0.4mg/head"
       },
       "モルモット": {
-        "lo": null,
-        "hi": null,
+        "lo": 0.4,
+        "hi": 0.4,
         "note": "（記載なし）"
       },
       "フェレット": {
@@ -6016,8 +5942,8 @@ var MASTER_DRUG_DB = [
   {
     "name": "タベジール（クレマスチンフマル酸塩）",
     "category": "アレルギー・皮膚科",
-    "conc": null,
-    "concText": "記載なし",
+    "conc": 1,
+    "concText": "1mg",
     "species": {
       "犬": {
         "lo": 0.05,
@@ -6160,10 +6086,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "記載なし",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route":"injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%83%92%E3%83%89%E3%83%AD%E3%82%AD%E3%82%B7%E3%82%B8%E3%83%B3&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_098"
@@ -6277,10 +6200,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "記載なし",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route":"injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%82%B8%E3%83%95%E3%82%A7%E3%83%B3%E3%83%92%E3%83%89%E3%83%A9%E3%83%9F%E3%83%B3&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_099"
@@ -6490,10 +6410,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "b",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route":"injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%83%87%E3%82%AD%E3%82%B5%E3%83%A1%E3%82%BF%E3%82%BE%E3%83%B3&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_102"
@@ -6607,10 +6524,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "0.1ml-0.1mg",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route":"injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%83%97%E3%83%AC%E3%83%89%E3%83%8B%E3%82%BE%E3%83%AD%E3%83%B3&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_103"
@@ -6810,10 +6724,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "0.1ml-10mg",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route":"injectable",
     "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%82%A2%E3%83%B3%E3%83%94%E3%82%B7%E3%83%AA%E3%83%B3%E3%83%8A%E3%83%88%E3%83%AA%E3%82%A6%E3%83%A0&MAIN_COMPONENT=%E3%82%A2%E3%83%B3%E3%83%94%E3%82%B7%E3%83%AA%E3%83%B3%E3%83%8A%E3%83%88%E3%83%AA%E3%82%A6%E3%83%A0",
     "source": "NVAL",
     "id": "drug_106"
@@ -7493,8 +7404,8 @@ var MASTER_DRUG_DB = [
   {
     "name": "クラリス、クラリシッド、クラロイシン\n（クラリスロマシシン）",
     "category": "抗生剤",
-    "conc": null,
-    "concText": "記載なし",
+    "conc": 200,
+    "concText": "200mg",
     "species": {
       "犬": {
         "lo": 7.5,
@@ -7539,10 +7450,10 @@ var MASTER_DRUG_DB = [
     "id": "drug_121"
   },
   {
-    "name": "バイトリル15/150/250mg（エンロフロキサシン）",
+    "name": "バイトリル（エンロフロキサシン）",
     "category": "抗生剤",
-    "conc": null,
-    "concText": "250mg",
+    "conc": 25,
+    "concText": "25mg/ml",
     "species": {
       "犬": {
         "injectable": {
@@ -7647,10 +7558,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "0.1ml-0.25mg",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route":"injectable",
     "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%82%A8%E3%83%B3%E3%83%AD%E3%83%95%E3%83%AD%E3%82%AD%E3%82%B5%E3%82%B7%E3%83%B3&MAIN_COMPONENT=%E3%82%A8%E3%83%B3%E3%83%AD%E3%83%95%E3%83%AD%E3%82%AD%E3%82%B5%E3%82%B7%E3%83%B3",
     "source": "NVAL",
     "id": "drug_122"
@@ -7658,7 +7566,7 @@ var MASTER_DRUG_DB = [
   {
     "name": "ゼナキル50mg（マルボフロキサシン)",
     "category": "抗生剤",
-    "conc": null,
+    "conc": 50,
     "concText": "50mg",
     "species": {
       "犬": {
@@ -7704,10 +7612,10 @@ var MASTER_DRUG_DB = [
     "id": "drug_123"
   },
   {
-    "name": "ビクタス10/40mg（オルビフロキサシン）",
+    "name": "ビクタス（オルビフロキサシン）",
     "category": "抗生剤",
-    "conc": null,
-    "concText": "40mg",
+    "conc": 25,
+    "concText": "25mg/ml",
     "species": {
       "犬": {
         "injectable": {
@@ -7812,10 +7720,7 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "0.1ml-5mg",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route":"injectable",
     "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%82%AA%E3%83%AB%E3%83%93%E3%83%95%E3%83%AD%E3%82%AD%E3%82%B5%E3%82%B7%E3%83%B3&MAIN_COMPONENT=%E3%82%AA%E3%83%AB%E3%83%93%E3%83%95%E3%83%AD%E3%82%AD%E3%82%B5%E3%82%B7%E3%83%B3",
     "source": "NVAL",
     "id": "drug_124"
@@ -7823,8 +7728,8 @@ var MASTER_DRUG_DB = [
   {
     "name": "シプロキサン（シプロフロキサシン）",
     "category": "抗生剤",
-    "conc": null,
-    "concText": "記載なし",
+    "conc": 100,
+    "concText": "100/200mg",
     "species": {
       "犬": {
         "lo": 20,
@@ -7871,8 +7776,8 @@ var MASTER_DRUG_DB = [
   {
     "name": "ミノマイシン（ミノサイクリン）",
     "category": "抗生剤",
-    "conc": null,
-    "concText": "",
+    "conc": 50,
+    "concText": "50/100mg",
     "species": {
       "犬": {
         "injectable": {
@@ -7987,7 +7892,7 @@ var MASTER_DRUG_DB = [
   {
     "name": "ビブラマシシン50mg（ドキシサイクリン）",
     "category": "抗生剤",
-    "conc": null,
+    "conc": 50,
     "concText": "50mg",
     "species": {
       "犬": {
@@ -8035,8 +7940,8 @@ var MASTER_DRUG_DB = [
   {
     "name": "アンチローブ25（クリンダマイシン）",
     "category": "抗生剤",
-    "conc": null,
-    "concText": "記載なし",
+    "conc": 25,
+    "concText": "25mg",
     "species": {
       "犬": {
         "injectable": {
@@ -8151,8 +8056,8 @@ var MASTER_DRUG_DB = [
   {
     "name": "ホスミシン（ホスホマイシン）",
     "category": "抗生剤",
-    "conc": null,
-    "concText": "記載なし",
+    "conc": 500,
+    "concText": "500mg",
     "species": {
       "犬": {
         "lo": 40,
@@ -8199,7 +8104,7 @@ var MASTER_DRUG_DB = [
   {
     "name": "フラジール250mg（メトロニダゾール）",
     "category": "抗生剤",
-    "conc": null,
+    "conc": 250,
     "concText": "250mg",
     "species": {
       "犬": {
@@ -8295,8 +8200,8 @@ var MASTER_DRUG_DB = [
   {
     "name": "ファロム（ファロペネムナトリウム）",
     "category": "抗生剤",
-    "conc": null,
-    "concText": "記載なし",
+    "conc": 150,
+    "concText": "150/200mg",
     "species": {
       "犬": {
         "lo": 5,
@@ -8440,16 +8345,16 @@ var MASTER_DRUG_DB = [
     "name": "ナイスタチン",
     "category": "抗真菌薬",
     "conc": null,
-    "concText": "記載なし",
+    "concText": "500000IU/錠",
     "species": {
       "犬": {
-        "lo": null,
-        "hi": null,
+        "lo": 22000,
+        "hi": 22000,
         "note": "2.2万単位kg/day\n5-15万単位/head tid PO"
       },
       "猫": {
-        "lo": null,
-        "hi": null,
+        "lo": 100000,
+        "hi": 100000,
         "note": "10万単位/head q6h PO"
       },
       "ウサギ": {
@@ -10270,8 +10175,8 @@ var MASTER_DRUG_DB = [
   {
     "name": "ケトコナゾール",
     "category": "抗真菌薬",
-    "conc": null,
-    "concText": "錠剤200mg",
+    "conc": 200,
+    "concText": "200mg",
     "species": {
       "犬": {
         "lo": 10,
@@ -10318,8 +10223,8 @@ var MASTER_DRUG_DB = [
   {
     "name": "フルコナゾール",
     "category": "抗真菌薬",
-    "conc": null,
-    "concText": "錠剤50mg・注射剤",
+    "conc": 50,
+    "concText": "50mg",
     "species": {
       "犬": {
         "lo": 2.5,
@@ -10414,8 +10319,8 @@ var MASTER_DRUG_DB = [
   {
     "name": "テトラサイクリン",
     "category": "抗生剤",
-    "conc": null,
-    "concText": "錠剤250mg",
+    "conc": 250,
+    "concText": "250mg",
     "species": {
       "犬": {
         "lo": 10,
@@ -10654,8 +10559,8 @@ var MASTER_DRUG_DB = [
   {
     "name": "クラリスロマイシン（クラリス・クラリシッド）",
     "category": "抗生剤",
-    "conc": null,
-    "concText": "錠剤200mg",
+    "conc": 200,
+    "concText": "200mg",
     "species": {
       "犬": {
         "lo": 5,
@@ -11230,8 +11135,8 @@ var MASTER_DRUG_DB = [
   {
     "name": "アルベンダゾール（ゼンテル）",
     "category": "駆虫薬",
-    "conc": null,
-    "concText": "錠剤200mg",
+    "conc": 200,
+    "concText": "200mg",
     "species": {
       "犬": {
         "lo": 25,
@@ -11854,8 +11759,8 @@ var MASTER_DRUG_DB = [
   {
     "name": "シサプリド（プロパルシド）",
     "category": "消化器",
-    "conc": null,
-    "concText": "錠剤5mg",
+    "conc": 5,
+    "concText": "5mg",
     "species": {
       "犬": {
         "lo": 0.5,
@@ -11902,8 +11807,8 @@ var MASTER_DRUG_DB = [
   {
     "name": "ロペラミド（ロペミン）",
     "category": "消化器",
-    "conc": null,
-    "concText": "錠剤1mg・カプセル",
+    "conc": 1,
+    "concText": "1mg",
     "species": {
       "犬": {
         "lo": 0.08,
@@ -11950,13 +11855,13 @@ var MASTER_DRUG_DB = [
   {
     "name": "ジゴキシン",
     "category": "循環器",
-    "conc": 0.05,
-    "concText": "0.05mg/ml（小動物用）・0.25mg錠",
+    "conc": 0.005,
+    "concText": "0.25mg錠",
     "species": {
       "犬": {
-        "lo": 0.005,
-        "hi": 0.01,
-        "note": "0.005-0.01mg/kg PO q12-24h（徐放剤は20%減量）"
+        "lo": 0.0025,
+        "hi": 0.005,
+        "note": "0.002-0.005mg/kg PO q12-24h（徐放剤は20%減量）"
       },
       "猫": {
         "lo": 0.005,
@@ -13290,108 +13195,21 @@ var MASTER_DRUG_DB = [
     "id": "drug_272"
   },
   {
-    "name": "イーケプラ",
+    "name": "イーケプラ（レベチラセタム）注射",
     "category": "神経・てんかん",
-    "conc": 20,
-    "concText": "20mg/ml",
+    "conc": 100,
+    "concText": "100mg/ml",
     "species": {
-      "犬": {
-        "injectable": {
-          "lo": 20,
-          "hi": 20,
-          "note": "20mg/kg q8-12h IV"
-        },
-        "oral": {
-          "lo": null,
-          "hi": null,
-          "note": null
-        },
-        "note": "（記載なし）"
-      },
-      "猫": {
-        "injectable": {
-          "lo": 20,
-          "hi": 20,
-          "note": "20mg/kg q8-12h IV"
-        },
-        "oral": {
-          "lo": null,
-          "hi": null,
-          "note": null
-        },
-        "note": "（記載なし）"
-      },
-      "ウサギ": {
-        "injectable": {
-          "lo": null,
-          "hi": null,
-          "note": null
-        },
-        "oral": {
-          "lo": null,
-          "hi": null,
-          "note": null
-        },
-        "note": "（記載なし）"
-      },
-      "フェレット": {
-        "injectable": {
-          "lo": null,
-          "hi": null,
-          "note": null
-        },
-        "oral": {
-          "lo": null,
-          "hi": null,
-          "note": null
-        },
-        "note": "（記載なし）"
-      },
-      "モルモット": {
-        "injectable": {
-          "lo": null,
-          "hi": null,
-          "note": null
-        },
-        "oral": {
-          "lo": null,
-          "hi": null,
-          "note": null
-        },
-        "note": "（記載なし）"
-      },
-      "ハリネズミ": {
-        "injectable": {
-          "lo": null,
-          "hi": null,
-          "note": null
-        },
-        "oral": {
-          "lo": null,
-          "hi": null,
-          "note": null
-        },
-        "note": "（記載なし）"
-      },
-      "ハムスター": {
-        "injectable": {
-          "lo": null,
-          "hi": null,
-          "note": null
-        },
-        "oral": {
-          "lo": null,
-          "hi": null,
-          "note": null
-        },
-        "note": "（記載なし）"
-      }
+      "犬": { "lo": 20, "hi": 20, "note": "20mg/kg q8-12h IV" },
+      "猫": { "lo": 20, "hi": 20, "note": "20mg/kg q8-12h IV" },
+      "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+      "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+      "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+      "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+      "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
     },
-    "memo": "20mg/kg q8-12h　5～45μg/mL 人における参照値 犬，猫での半減期は約4時間",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "memo": "20mg/kg q8-12h　5〜45μg/mL 人における参照値 犬猫での半減期は約4時間",
+    "route": "injectable",
     "pdf_url": "",
     "source": "",
     "id": "drug_273"
@@ -13399,13 +13217,13 @@ var MASTER_DRUG_DB = [
   {
     "name": "レスミン（ジフェンヒドラミン）",
     "category": "アレルギー・皮膚科",
-    "conc": null,
-    "concText": "記載なし",
+    "conc": 10,
+    "concText": "10mg/ml",
     "species": {
       "犬": {
         "injectable": {
-          "lo": null,
-          "hi": null,
+          "lo": 2,
+          "hi": 4,
           "note": null
         },
         "oral": {
@@ -13413,12 +13231,12 @@ var MASTER_DRUG_DB = [
           "hi": null,
           "note": null
         },
-        "note": "（記載なし）"
+        "note": "2-4mg/kg q8-12h"
       },
       "猫": {
         "injectable": {
-          "lo": null,
-          "hi": null,
+          "lo": 2,
+          "hi": 4,
           "note": null
         },
         "oral": {
@@ -13426,7 +13244,7 @@ var MASTER_DRUG_DB = [
           "hi": null,
           "note": null
         },
-        "note": "（記載なし）"
+        "note": "2-4mg/kg q8-12h"
       },
       "ウサギ": {
         "injectable": {
@@ -13495,13 +13313,573 @@ var MASTER_DRUG_DB = [
       }
     },
     "memo": "記載なし",
-    "route": [
-      "injectable",
-      "oral"
-    ],
+    "route":"injectable",
     "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%82%B8%E3%83%95%E3%82%A7%E3%83%B3%E3%83%92%E3%83%89%E3%83%A9%E3%83%9F%E3%83%B3&nameKbn=1&nameMatch=1",
     "source": "PMDA",
     "id": "drug_274"
-  }
+  },
+  {
+    "name": "ダルベポエチンアルファ（ネスプ）",
+    "category": "止血・造血・ホルモン",
+    "conc": 0.06,
+    "concText": "30μg/0.5ml",
+    "species": {
+      "犬": { "lo": 0.001, "hi": 0.0015, "note": "1〜1.5μg/kg SC 週1回" },
+      "猫": { "lo": 0.001, "hi": 0.0015, "note": "1〜1.5μg/kg SC 週1回" },
+      "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+      "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+      "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+      "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+      "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+    },
+    "memo": "ESA（赤血球造血刺激因子）。腎性貧血に使用。投与前にHt・網状赤血球数確認。高血圧・多血症に注意。",
+    "route": "injectable",
+    "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%83%80%E3%83%AB%E3%83%99%E3%83%9D%E3%82%A8%E3%83%81%E3%83%B3&nameKbn=1&nameMatch=1",
+    "source": "適用外",
+    "alias": ["ネスプ", "darbepoetin", "ESA"],
+    "id": "drug_275"
+  },
+  {
+    "name": "ラシックス20/40mg（フロセミド）経口",
+    "category": "循環器",
+    "conc": 20,
+    "concText": "20/40mg/錠",
+    "species": {
+      "犬": { "lo": 1, "hi": 2, "note": "1〜2mg/kg BID〜TID PO" },
+      "猫": { "lo": 1, "hi": 1, "note": "1mg/kg SID〜BID PO" },
+      "ウサギ": { "lo": 2, "hi": 5, "note": "2-5mg/kg PO bid" },
+      "フェレット": { "lo": 2, "hi": 2, "note": "2mg/kg PO bid" },
+      "モルモット": { "lo": 2, "hi": 5, "note": "2-5mg/kg PO bid" },
+      "ハリネズミ": { "lo": 2.5, "hi": 5, "note": "2.5-5mg/kg PO bid-tid" },
+      "ハムスター": { "lo": 2, "hi": 10, "note": "2-10mg/kg PO bid" }
+    },
+    "memo": "ループ利尿薬。維持投与。低カリウム血症に注意。",
+    "route": "oral",
+    "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%83%95%E3%83%AD%E3%82%BB%E3%83%9F%E3%83%89&nameKbn=1&nameMatch=1",
+    "source": "PMDA / NVAL",
+    "id": "drug_276"
+  },
+  {
+    "name": "ピモベンダン1.25/2.5/5mg",
+    "category": "循環器",
+    "conc": 1.25,
+    "concText": "1.25/2.5/5mg錠",
+    "species": {
+      "犬": { "lo": 0.2, "hi": 0.3, "note": "0.2-0.3mg/kg BID" },
+      "猫": { "lo": 0.25, "hi": 0.25, "note": "0.25mg/kg BID" },
+      "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+      "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+      "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+      "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+      "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+    },
+    "memo": "食前1時間投与推奨。",
+    "route": "oral",
+    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%83%94%E3%83%A2%E3%83%99%E3%83%B3%E3%83%80%E3%83%B3&MAIN_COMPONENT=%E3%83%94%E3%83%A2%E3%83%99%E3%83%B3%E3%83%80%E3%83%B3",
+    "source": "NVAL",
+    "id": "drug_277"
+  },
+  {
+    "name": "ネオフィリン100mg（アミノフィリン）経口",
+    "category": "循環器",
+    "conc": 100,
+    "concText": "100mg/錠",
+    "species": {
+      "犬": { "lo": 5, "hi": 10, "note": "5-10mg/kg BID-TID PO" },
+      "猫": { "lo": 5, "hi": 6, "note": "5-6mg/kg BID-TID PO" },
+      "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+      "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+      "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+      "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+      "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+    },
+    "memo": "記載なし",
+    "route": "oral",
+    "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%82%A2%E3%83%9F%E3%83%8E%E3%83%95%E3%82%A3%E3%83%AA%E3%83%B3&nameKbn=1&nameMatch=1",
+    "source": "PMDA",
+    "id": "drug_278"
+  },
+  {
+  "name": "セルシン（ジアゼパム）経口",
+  "category": "鎮静",
+  "conc": 2,
+  "concText": "2mg/錠",
+  "species": {
+    "犬": { "lo": 0.2, "hi": 0.5, "note": "0.2-0.5mg/kg PO 鎮静・筋弛緩" },
+    "猫": { "lo": null, "hi": null, "note": "【禁忌】経口投与で肝壊死の報告あり" },
+    "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+  },
+  "memo": "猫への経口投与禁忌。肝壊死の報告あり。",
+  "route": "oral",
+  "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%82%B8%E3%82%A2%E3%82%BC%E3%83%91%E3%83%A0&nameKbn=1&nameMatch=1",
+  "source": "PMDA",
+  "id": "drug_279"
+ },
+ {
+  "name": "フェノバール（フェノバルビタール）経口",
+  "category": "神経・てんかん",
+  "conc": 30,
+  "concText": "30mg/錠",
+  "species": {
+    "犬": { "lo": 2, "hi": 3, "note": "2-3mg/kg bid PO 必要に応じて増量。最大5mg/kg bid" },
+    "猫": { "lo": 2, "hi": 2.5, "note": "2-2.5mg/kg bid PO" },
+    "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+  },
+  "memo": "血中濃度モニタリング推奨。犬：20-40μg/ml。投与開始3週間後に測定。",
+  "route": "oral",
+  "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%83%95%E3%82%A7%E3%83%8E%E3%83%90%E3%83%AB%E3%83%93%E3%82%BF%E3%83%BC%E3%83%AB&nameKbn=1&nameMatch=1",
+  "source": "PMDA",
+  "id": "drug_280"
+},
+{
+  "name": "イーケプラ経口",
+  "category": "神経・てんかん",
+  "conc": 250,
+  "concText": "250mg/錠",
+  "species": {
+    "犬": { "lo": 20, "hi": 20, "note": "20mg/kg q8-12h PO" },
+    "猫": { "lo": 20, "hi": 20, "note": "20mg/kg q8-12h PO" },
+    "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+  },
+  "memo": "血中濃度参照値：5〜45μg/mL（人における参照値）。犬猫での半減期は約4時間。",
+  "route": "oral",
+  "pdf_url": "",
+  "source": "",
+  "id": "drug_281"
+},
+{
+  "name": "セレニア16/24mg（マロピタント）経口",
+  "category": "消化器",
+  "conc": 16,
+  "concText": "16mg/錠",
+  "species": {
+    "犬": { "lo": 2, "hi": 2, "note": "2mg/kg PO SID\n乗り物酔い：8mg/kg PO SID 2日まで" },
+    "猫": { "lo": 2, "hi": 2, "note": "2mg/kg PO SID" },
+    "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+  },
+  "memo": "食前1時間投与推奨。",
+  "route": "oral",
+  "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%82%BB%E3%83%AC%E3%83%8B%E3%82%A2&MAIN_COMPONENT=%E3%83%9E%E3%83%AD%E3%83%94%E3%82%BF%E3%83%B3%E3%83%88",
+  "source": "NVAL",
+  "id": "drug_282"
+},
+{
+  "name": "プリンペラン5mg（メトクロプラミド）経口",
+  "category": "消化器",
+  "conc": 5,
+  "concText": "5mg/錠",
+  "species": {
+    "犬": { "lo": 0.2, "hi": 0.5, "note": "0.2-0.5mg/kg q6-8h PO" },
+    "猫": { "lo": 0.2, "hi": 0.5, "note": "0.2-0.5mg/kg q6-8h PO" },
+    "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+  },
+  "memo": "記載なし",
+  "route": "oral",
+  "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%83%A1%E3%83%88%E3%82%AF%E3%83%AD%E3%83%97%E3%83%A9%E3%83%9F%E3%83%89&nameKbn=1&nameMatch=1",
+  "source": "PMDA",
+  "id": "drug_283"
+},
+{
+  "name": "ガスター10mg（ファモチジン）経口",
+  "category": "消化器",
+  "conc": 10,
+  "concText": "10mg/錠",
+  "species": {
+    "犬": { "lo": 0.1, "hi": 0.2, "note": "0.1-0.2mg/kg q12h PO" },
+    "猫": { "lo": 0.1, "hi": 0.2, "note": "0.1-0.2mg/kg q12h PO" },
+    "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+  },
+  "memo": "記載なし",
+  "route": "oral",
+  "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%83%95%E3%82%A1%E3%83%A2%E3%83%81%E3%82%B8%E3%83%B3&nameKbn=1&nameMatch=1",
+  "source": "PMDA",
+  "id": "drug_284"
+},
+{
+  "name": "タガメット200mg（シメチジン）経口",
+  "category": "消化器",
+  "conc": 200,
+  "concText": "200mg/錠",
+  "species": {
+    "犬": { "lo": 10, "hi": 10, "note": "10mg/kg q6-8h PO" },
+    "猫": { "lo": 10, "hi": 10, "note": "10mg/kg q6-8h PO" },
+    "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+  },
+  "memo": "記載なし",
+  "route": "oral",
+  "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%82%B7%E3%83%A1%E3%83%81%E3%82%B8%E3%83%B3&nameKbn=1&nameMatch=1",
+  "source": "PMDA",
+  "id": "drug_286"
+},
+{
+  "name": "ブスコパン10mg（臭化プリフィニウム）経口",
+  "category": "消化器",
+  "conc": 10,
+  "concText": "10mg/錠",
+  "species": {
+    "犬": { "lo": 0.2, "hi": 0.4, "note": "0.2-0.4mg/kg tid-qid PO" },
+    "猫": { "lo": 0.2, "hi": 2.0, "note": "0.2-2.0mg/kg tid-qid PO" },
+    "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+  },
+  "memo": "記載なし",
+  "route": "oral",
+  "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%83%96%E3%82%B9%E3%82%B3%E3%83%91%E3%83%B3&nameKbn=1&nameMatch=1",
+  "source": "PMDA",
+  "id": "drug_287"
+},
+{
+  "name": "リマダイル25/75/100mg（カルプロフェン）経口",
+  "category": "NSAIDs",
+  "conc": 25,
+  "concText": "25/75/100mg/錠",
+  "species": {
+    "犬": { "lo": 2.2, "hi": 2.2, "note": "2.2mg/kg q12h または4.4mg/kg q24h PO" },
+    "猫": { "lo": 0.5, "hi": 0.5, "note": "0.5mg/kg q24h PO" },
+    "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+  },
+  "memo": "記載なし",
+  "route": "oral",
+  "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%83%AA%E3%83%9E%E3%83%80%E3%82%A4%E3%83%AB&MAIN_COMPONENT=%E3%82%AB%E3%83%AB%E3%83%97%E3%83%AD%E3%83%95%E3%82%A7%E3%83%B3",
+  "source": "NVAL",
+  "id": "drug_288"
+},
+{
+  "name": "メタカム1/2.5mg（メロキシカム）経口",
+  "category": "NSAIDs",
+  "conc": 1,
+  "concText": "1/2.5mg/錠",
+  "species": {
+    "犬": { "lo": 0.1, "hi": 0.2, "note": "初回0.2mg/kg、維持0.1mg/kg SID PO" },
+    "猫": { "lo": 0.05, "hi": 0.1, "note": "0.05-0.1mg/kg eod-SID PO" },
+    "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+  },
+  "memo": "記載なし",
+  "route": "oral",
+  "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%83%A1%E3%82%BF%E3%82%AB%E3%83%A0&MAIN_COMPONENT=%E3%83%A1%E3%83%AD%E3%82%AD%E3%82%B7%E3%82%AB%E3%83%A0",
+  "source": "NVAL",
+  "id": "drug_289"
+},
+{
+  "name": "オンシオール5/10/20/40mg（ロベナコキシブ）経口",
+  "category": "NSAIDs",
+  "conc": 5,
+  "concText": "5/10/20/40mg/錠",
+  "species": {
+    "犬": { "lo": 1, "hi": 1, "note": "1mg/kg PO 食前1時間" },
+    "猫": { "lo": 1, "hi": 1, "note": "1mg/kg SID PO 最大6日間" },
+    "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+  },
+  "memo": "記載なし",
+  "route": "oral",
+  "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%82%AA%E3%83%B3%E3%82%B7%E3%82%AA%E3%83%BC%E3%83%AB&MAIN_COMPONENT=%E3%83%AD%E3%83%99%E3%83%8A%E3%82%B3%E3%82%AD%E3%82%B7%E3%83%96",
+  "source": "NVAL",
+  "id": "drug_290"
+},
+{
+  "name": "デキサメタゾン0.5mg（デキサメタゾン）経口",
+  "category": "ステロイド",
+  "conc": 0.5,
+  "concText": "0.5mg/錠",
+  "species": {
+    "犬": { "lo": 0.07, "hi": 0.15, "note": "抗炎症：0.07-0.15mg/kg q12-24h PO" },
+    "猫": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+  },
+  "memo": "記載なし",
+  "route": "oral",
+  "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%83%87%E3%82%AD%E3%82%B5%E3%83%A1%E3%82%BF%E3%82%BE%E3%83%B3&nameKbn=1&nameMatch=1",
+  "source": "PMDA",
+  "id": "drug_291"
+},
+{
+  "name": "プレドニゾロン5mg（プレドニゾロン）経口",
+  "category": "ステロイド",
+  "conc": 5,
+  "concText": "5mg/錠",
+  "species": {
+    "犬": { "lo": 0.5, "hi": 1, "note": "抗炎症：0.5-1mg/kg q12-24h PO\n免疫抑制：1-6mg/kg BID PO" },
+    "猫": { "lo": 1, "hi": 2, "note": "犬の用量の約2倍" },
+    "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+  },
+  "memo": "記載なし",
+  "route": "oral",
+  "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%83%97%E3%83%AC%E3%83%89%E3%83%8B%E3%82%BE%E3%83%AD%E3%83%B3&nameKbn=1&nameMatch=1",
+  "source": "PMDA",
+  "id": "drug_292"
+},
+{
+  "name": "アタラックス10mg（ヒドロキシジン）経口",
+  "category": "アレルギー・皮膚科",
+  "conc": 10,
+  "concText": "10mg/錠",
+  "species": {
+    "犬": { "lo": 2, "hi": 2, "note": "2mg/kg q8-12h PO" },
+    "猫": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+  },
+  "memo": "記載なし",
+  "route": "oral",
+  "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%83%92%E3%83%89%E3%83%AD%E3%82%AD%E3%82%B7%E3%82%B8%E3%83%B3&nameKbn=1&nameMatch=1",
+  "source": "PMDA",
+  "id": "drug_293"
+},
+{
+  "name": "ポララミン2mg（クロルフェニラミン）経口",
+  "category": "アレルギー・皮膚科",
+  "conc": 2,
+  "concText": "2mg/錠",
+  "species": {
+    "犬": { "lo": 2.2, "hi": 2.2, "note": "2.2mg/kg q8-12h PO" },
+    "猫": { "lo": 2, "hi": 4, "note": "2-4mg/kg q6-8h PO" },
+    "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+  },
+  "memo": "記載なし",
+  "route": "oral",
+  "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%82%AF%E3%83%AD%E3%83%AB%E3%83%95%E3%82%A7%E3%83%8B%E3%83%A9%E3%83%9F%E3%83%B3&nameKbn=1&nameMatch=1",
+  "source": "PMDA",
+  "id": "drug_294"
+},
+{
+  "name": "レスタミン10mg（ジフェンヒドラミン）経口",
+  "category": "アレルギー・皮膚科",
+  "conc": 10,
+  "concText": "10mg/錠",
+  "species": {
+    "犬": { "lo": 2, "hi": 4, "note": "2-4mg/kg q8h PO" },
+    "猫": { "lo": 2, "hi": 4, "note": "2-4mg/kg q8h PO" },
+    "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+  },
+  "memo": "記載なし",
+  "route": "oral",
+  "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%82%B8%E3%83%95%E3%82%A7%E3%83%B3%E3%83%92%E3%83%89%E3%83%A9%E3%83%9F%E3%83%B3&nameKbn=1&nameMatch=1",
+  "source": "PMDA",
+  "id": "drug_295"
+},
+{
+  "name": "バイトリル15/150/250mg（エンロフロキサシン）経口",
+  "category": "抗生剤",
+  "conc": 15,
+  "concText": "15/150/250mg/錠",
+  "species": {
+    "犬": { "lo": 5, "hi": 20, "note": "5-20mg/kg/day PO" },
+    "猫": { "lo": 5, "hi": 5, "note": "5mg/kg/day PO 高用量で網膜障害リスク" },
+    "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+  },
+  "memo": "記載なし",
+  "route": "oral",
+  "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%83%90%E3%82%A4%E3%83%88%E3%83%AA%E3%83%AB&MAIN_COMPONENT=%E3%82%A8%E3%83%B3%E3%83%AD%E3%83%95%E3%83%AD%E3%82%AD%E3%82%B5%E3%82%B7%E3%83%B3",
+  "source": "NVAL",
+  "id": "drug_296"
+},
+{
+  "name": "ビクタス10/40mg（オルビフロキサシン）経口",
+  "category": "抗生剤",
+  "conc": 10,
+  "concText": "10/40mg/錠",
+  "species": {
+    "犬": { "lo": 2.5, "hi": 7.5, "note": "2.5-7.5mg/kg SID PO" },
+    "猫": { "lo": 2.5, "hi": 7.5, "note": "犬に準ずる" },
+    "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+  },
+  "memo": "記載なし",
+  "route": "oral",
+  "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%83%93%E3%82%AF%E3%82%BF%E3%82%B9&MAIN_COMPONENT=%E3%82%AA%E3%83%AB%E3%83%93%E3%83%95%E3%83%AD%E3%82%AD%E3%82%B5%E3%82%B7%E3%83%B3",
+  "source": "NVAL",
+  "id": "drug_297"
+},
+{
+  "name": "シアノコバラミン100μg（ビタミンB12）経口",
+  "category": "ビタミン・補液",
+  "conc": 0.1,
+  "concText": "100μg/錠",
+  "species": {
+    "犬": { "lo": 0.1, "hi": 0.2, "note": "100-200μg SID PO" },
+    "猫": { "lo": 0.05, "hi": 0.1, "note": "50-100μg SID PO" },
+    "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+  },
+  "memo": "記載なし",
+  "route": "oral",
+  "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%82%B7%E3%82%A2%E3%83%8E%E3%82%B3%E3%83%90%E3%83%A9%E3%83%9F%E3%83%B3&nameKbn=1&nameMatch=1",
+  "source": "PMDA",
+  "id": "drug_298"
+},
+{
+  "name": "フォリアミン5mg（葉酸）経口",
+  "category": "ビタミン・補液",
+  "conc": 5,
+  "concText": "5mg/錠",
+  "species": {
+    "犬": { "lo": 0.5, "hi": 0.5, "note": "0.5mg/kg SID PO" },
+    "猫": { "lo": 0.5, "hi": 0.5, "note": "0.5mg/kg SID PO" },
+    "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+  },
+  "memo": "記載なし",
+  "route": "oral",
+  "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E8%91%89%E9%85%B8&nameKbn=1&nameMatch=1",
+  "source": "PMDA",
+  "id": "drug_299"
+},
+{
+  "name": "グルタチオン経口",
+  "category": "肝臓・代謝",
+  "conc": null,
+  "concText": "記載なし",
+  "species": {
+    "犬": { "lo": null, "hi": null, "note": "50mg/head SID-BID PO" },
+    "猫": { "lo": null, "hi": null, "note": "25mg/head SID PO" },
+    "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+  },
+  "memo": "記載なし",
+  "route": "oral",
+  "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%82%B0%E3%83%AB%E3%82%BF%E3%83%81%E3%82%AA%E3%83%B3&nameKbn=1&nameMatch=1",
+  "source": "PMDA",
+  "id": "drug_300"
+},
+{
+  "name": "グリチルリチン経口",
+  "category": "肝臓・代謝",
+  "conc": null,
+  "concText": "記載なし",
+  "species": {
+    "犬": { "lo": null, "hi": null, "note": "1錠/head BID-TID PO" },
+    "猫": { "lo": null, "hi": null, "note": "犬に準ずる" },
+    "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+  },
+  "memo": "記載なし",
+  "route": "oral",
+  "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%82%B0%E3%83%AA%E3%83%81%E3%83%AB%E3%83%AA%E3%83%81%E3%83%B3&nameKbn=1&nameMatch=1",
+  "source": "PMDA",
+  "id": "drug_301"
+},
+{
+  "name": "トランサミン250mg（トラネキサム酸）経口",
+  "category": "止血・造血・ホルモン",
+  "conc": 250,
+  "concText": "250mg/錠",
+  "species": {
+    "犬": { "lo": 10, "hi": 20, "note": "10-20mg/kg TID PO" },
+    "猫": { "lo": 10, "hi": 20, "note": "10-20mg/kg TID PO" },
+    "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+  },
+  "memo": "記載なし",
+  "route": "oral",
+  "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%83%88%E3%83%A9%E3%83%8D%E3%82%AD%E3%82%B5%E3%83%A0%E9%85%B8&nameKbn=1&nameMatch=1",
+  "source": "PMDA",
+  "id": "drug_302"
+},
+{
+  "name": "アドナ10/30mg（カルバゾクロム）経口",
+  "category": "止血・造血・ホルモン",
+  "conc": 10,
+  "concText": "10mg/錠",
+  "species": {
+    "犬": { "lo": 1, "hi": 2, "note": "1-2mg/kg TID PO" },
+    "猫": { "lo": 0.5, "hi": 2, "note": "0.5-2mg/kg TID PO" },
+    "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハリネズミ": { "lo": null, "hi": null, "note": "（記載なし）" },
+    "ハムスター": { "lo": null, "hi": null, "note": "（記載なし）" }
+  },
+  "memo": "記載なし",
+  "route": "oral",
+  "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%82%AB%E3%83%AB%E3%83%90%E3%82%BE%E3%82%AF%E3%83%AD%E3%83%A0&nameKbn=1&nameMatch=1",
+  "source": "PMDA",
+  "id": "drug_303"
+}
+
+
 ];
 

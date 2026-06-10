@@ -141,3 +141,13 @@
 
 *このツールは「皆で使えたら便利」という動機から、無償・無広告で公開しています。*
 
+## License & Attribution
+
+- **Code**: MIT License  
+- **UI design, data structures, and clinical content**: © 2026 NOBU. All rights reserved.
+
+このツールは、多くの先人たちの知見とオープンソース文化という「巨人の肩の上」に立つことで成り立っています。そのためコードは広く公開していますが、画面レイアウト、独自のデータ配列、および臨床コンテンツの著作権は放棄していません。
+
+思想やロジックにインスパイアされた開発は歓迎します。その際はぜひ出典の明記をお願いします。UIデザインや構成のそのままの流用・商業利用は固くお断りします。
+
+Inspired by or derived from this project? A simple credit is appreciated.

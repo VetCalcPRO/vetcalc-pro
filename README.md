@@ -83,8 +83,11 @@
 ## 不具合・データ誤りの報告
 
 👉 **[フィードバックフォーム](https://forms.gle/F77zxqSErFUafBAB8)**（Googleアカウント不要）
-
 データの誤り・バグ・機能要望はこちらからお知らせください。
+
+感想は [Issues](https://github.com/VetCalcPRO/vetcalc-pro/issues) からどうぞ。
+どんな些細なことでも歓迎します。
+
 
 ---
 ## 参考文献・謝辞
@@ -151,3 +154,4 @@
 思想やロジックにインスパイアされた開発は歓迎します。その際はぜひ出典の明記をお願いします。UIデザインや構成のそのままの流用・商業利用は固くお断りします。
 
 Inspired by or derived from this project? A simple credit is appreciated.
+

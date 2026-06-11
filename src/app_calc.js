@@ -29,7 +29,7 @@ function tcClear(){
 }
 function tcCalc(){
   var denom = parseInt(document.getElementById('tcDenom').value)||1;
-  var times = parseInt(document.getElementById('tcTimes').value)||1;
+  var times = parseFloat(document.getElementById('tcTimes').value)||1;
   var days  = parseInt(document.getElementById('tcDays').value)||0;
   var res = document.getElementById('tcResult');
   var emp = document.getElementById('tcEmpty');

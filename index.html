@@ -2384,13 +2384,12 @@ select.ea-fi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w
 <div class="sh" id="shW">
   <div class="shh"></div>
   <div class="sht">患者情報 <button class="shx" onclick="closeAll()">&#215;</button></div>
-  <label class="f1">体重</label>
-  <div style="display:flex;align-items:center;gap:8px;">
-    <button onclick="adjWeight(-1)" style="background:var(--bd);border:none;color:var(--tx);font-size:20px;font-weight:700;border-radius:8px;padding:10px 14px;cursor:pointer;flex-shrink:0;line-height:1">−</button>
-    <input type="number" id="wInp" step="any" min="0.01" class="fi" placeholder="例: 5.0" style="flex:1;max-width:120px;text-align:center;font-size:20px;font-family:'JetBrains Mono',monospace;" onfocus="this.select()" inputmode="decimal">
-    <button onclick="adjWeight(+1)" style="background:var(--bd);border:none;color:var(--tx);font-size:20px;font-weight:700;border-radius:8px;padding:10px 14px;cursor:pointer;flex-shrink:0;line-height:1">＋</button>
-    <span id="wInpUnit" style="font-size:15px;color:var(--mu);font-weight:700;min-width:20px;">kg</span>
-  </div>
+  <<label class="f1">体重 <span id="wInpUnit" style="font-weight:400;color:var(--mu);">（kg）</span></label>
++ <div style="display:flex;align-items:center;gap:8px;">
++   <button onclick="adjWeight(-1)" style="background:var(--bd);border:none;color:var(--tx);font-size:20px;font-weight:700;border-radius:8px;padding:10px 14px;cursor:pointer;flex-shrink:0;line-height:1">−</button>
++   <input type="number" id="wInp" step="any" min="0.01" class="fi" placeholder="例: 5.0" style="flex:1;max-width:120px;text-align:center;font-size:20px;font-family:'JetBrains Mono',monospace;" onfocus="this.select()" inputmode="decimal">
++   <button onclick="adjWeight(+1)" style="background:var(--bd);border:none;color:var(--tx);font-size:20px;font-weight:700;border-radius:8px;padding:10px 14px;cursor:pointer;flex-shrink:0;line-height:1">＋</button>
++ </div>
   <div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap;" id="quickBtns"></div>
   <label>動物種</label>
   <select id="spInp" class="fi" onchange="var _sp=this.value;document.getElementById('wInpUnit').textContent=dispUnit(_sp);document.getElementById('wInp').value=dispW(_sp,spWeights[_sp]||st.w);renderQuickBtns(_sp);"></select>

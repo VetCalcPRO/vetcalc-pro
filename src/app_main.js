@@ -1829,7 +1829,7 @@ function openWeight(){
   var sp = st.sp;
   var unit = dispUnit(sp);
   document.getElementById('wInp').value = dispW(sp, st.w);
-  document.getElementById('wInpUnit').textContent = unit;
+  document.getElementById('wInpUnit').textContent = '（' + unit + '）';
   document.getElementById('spInp').value = sp;
   renderQuickBtns(sp);
   openSheet('shW');

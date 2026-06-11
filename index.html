@@ -538,8 +538,8 @@ select.ea-fi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w
 .easy-w-row{display:flex;align-items:center;gap:10px;margin-top:6px;}
 .easy-w-inp{flex:1;padding:12px;background:var(--bg);border:1px solid var(--bd);color:var(--tx);font-size:22px;font-family:'JetBrains Mono',monospace;font-weight:700;border-radius:10px;text-align:center;outline:none;}
 .easy-w-inp:focus{border-color:var(--ok);}
-.easy-w-btn{background:var(--bd);border:none;color:var(--tx);font-size:22px;font-weight:700;border-radius:10px;padding:10px 16px;cursor:pointer;flex-shrink:0;line-height:1;}
-.easy-w-unit{font-size:15px;color:var(--mu);font-weight:700;min-width:24px;}
+.easy-w-btn{background:var(--bd);border:none;color:var(--tx);font-size:22px;font-weight:700;border-radius:10px;width:44px;height:44px;cursor:pointer;flex-shrink:0;line-height:1;}
+.easy-w-unit{display:none;}
 .easy-drug-search{width:100%;padding:11px 14px;background:var(--bg);border:1px solid var(--bd);color:var(--tx);font-size:16px;border-radius:10px;font-family:inherit;outline:none;margin-bottom:10px;}
 .easy-drug-search:focus{border-color:var(--ok);}
 .easy-drug-list{max-height:220px;overflow-y:auto;display:flex;flex-direction:column;gap:6px;}
@@ -2355,11 +2355,10 @@ select.ea-fi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w
 
     <!-- STEP 2: 体重 -->
     <div class="easy-step">
-      <div class="easy-step-label"><span class="easy-step-num">2</span>体重を入力してください</div>
+      <div class="easy-step-label"><span class="easy-step-num">2</span>体重を入力してください <span id="easyWUnit" style="font-weight:400;color:var(--mu);font-size:11px;">（kg）</span></div>
       <div class="easy-w-row">
         <button class="easy-w-btn" onclick="easyAdjW(-1)">−</button>
         <input type="number" id="easyWInp" step="any" min="0.01" class="easy-w-inp" inputmode="decimal" oninput="easyCalc()">
-        <span id="easyWUnit" class="easy-w-unit">kg</span>
         <button class="easy-w-btn" onclick="easyAdjW(+1)">＋</button>
       </div>
     </div>

@@ -395,6 +395,15 @@ padding:calc(20px + env(safe-area-inset-top)) 20px 40px;
 .stat small{font-size:11px;color:var(--mu);}
 .mbtn{width:100%;padding:13px 14px;background:var(--bg);border:1px solid var(--bd);color:var(--tx);border-radius:10px;font-weight:600;font-size:14px;font-family:inherit;cursor:pointer;margin-bottom:10px;text-align:left;display:flex;flex-direction:column;gap:2px;}
 .mbtn small{font-size:11px;color:var(--mu);font-weight:400;}
+.bk-row{display:flex;align-items:flex-start;gap:10px;background:var(--bg);border:1px solid var(--bd);border-radius:10px;padding:12px 14px;margin-bottom:8px;}
+.bk-row input[type=checkbox]{width:20px;height:20px;flex:none;margin-top:1px;accent-color:var(--ac);}
+.bk-row .bk-main{flex:1;}
+.bk-row .bk-title{font-size:14px;font-weight:600;}
+.bk-row .bk-sub{font-size:11px;color:var(--mu);margin-top:2px;line-height:1.5;}
+.bk-actions{display:flex;gap:10px;margin-top:14px;}
+.bk-actions button{flex:1;padding:13px;border-radius:10px;font-weight:700;font-size:14px;font-family:inherit;cursor:pointer;border:1px solid var(--bd);}
+.bk-actions .bk-go{background:var(--ac);color:#fff;border:none;}
+.bk-actions .bk-cancel{background:var(--bg);color:var(--tx);}
 .mbtn.dn{color:var(--dn);}
 
 /* SIZE SETTINGS */
@@ -2108,20 +2117,37 @@ select.ea-fi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w
   <div class="sht">📅 年齢換算 <button class="shx" onclick="closeAll()">&#215;</button></div>
   <div style="font-size:11px;color:var(--mu);margin-bottom:10px;">動物の年齢を人間の年齢に換算します。</div>
 
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;">
-    <div>
-      <label class="osmo-lbl">動物種</label>
-      <select id="ageSp" class="osmo-inp" onchange="ageUpdate()" style="height:38px;">
-        <option value="dog_sm">犬（小型）〜10kg</option>
-        <option value="dog_md">犬（中型）11–25kg</option>
-        <option value="dog_lg">犬（大型）26kg〜</option>
-        <option value="cat">猫</option>
-      </select>
+  <div style="margin-bottom:10px;">
+    <label class="osmo-lbl">動物種</label>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:6px;">
+      <button class="ea-sp-btn age-sp-btn on" data-sp="cat" onclick="ageSpSelect(this,'cat')" style="color:var(--tx);">猫</button>
+      <button class="ea-sp-btn age-sp-btn" data-sp="dog_sm" onclick="ageSpSelect(this,'dog_sm')" style="color:var(--tx);">犬(小型)</button>
+      <button class="ea-sp-btn age-sp-btn" data-sp="dog_md" onclick="ageSpSelect(this,'dog_md')" style="color:var(--tx);">犬(中型)</button>
+      <button class="ea-sp-btn age-sp-btn" data-sp="dog_lg" onclick="ageSpSelect(this,'dog_lg')" style="color:var(--tx);">犬(大型)</button>
     </div>
-    <div>
-      <label class="osmo-lbl">年齢</label>
-      <select id="ageVal" class="osmo-inp" onchange="ageShowResult()" style="height:38px;"></select>
-    </div>
+    <input type="hidden" id="ageSp" value="cat">
+  </div>
+
+  <!-- 入力モード切替 -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:12px;">
+    <button id="ageModeAge" onclick="ageSetMode('age')"
+      style="padding:8px;border-radius:8px;border:1px solid var(--ac);background:var(--ac);color:#fff;font-size:12px;font-weight:700;font-family:inherit;cursor:pointer;">年齢で入力</button>
+    <button id="ageModeDate" onclick="ageSetMode('date')"
+      style="padding:8px;border-radius:8px;border:1px solid var(--bd);background:transparent;color:var(--mu);font-size:12px;font-weight:700;font-family:inherit;cursor:pointer;">生年月日で入力</button>
+  </div>
+
+  <!-- 年齢入力 -->
+  <div id="ageInputAge" style="margin-bottom:12px;">
+    <label class="osmo-lbl">年齢</label>
+    <select id="ageVal" class="osmo-inp" onchange="ageShowResult()" style="height:44px;font-size:14px !important;text-align:left !important;padding:8px 10px !important;line-height:normal;"></select>
+  </div>
+
+  <!-- 生年月日入力 -->
+  <div id="ageInputDate" style="display:none;margin-bottom:12px;">
+    <label class="osmo-lbl">生年月日</label>
+    <input type="date" id="ageBirthDate" class="osmo-inp"
+      style="height:38px;font-size:13px;text-align:left;padding:8px 10px;"
+      onchange="ageCalcFromDate()">
   </div>
 
   <div id="ageResult" style="display:none;">
@@ -2134,6 +2160,21 @@ select.ea-fi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w
     </div>
   </div>
   <div id="ageEmpty" style="font-size:12px;color:var(--mu);text-align:center;margin-top:20px;">動物種と年齢を選択してください</div>
+
+  <!-- 早見表 -->
+  <div style="margin-top:16px;border-top:1px solid var(--bd);padding-top:14px;">
+    <div style="font-size:11px;font-weight:700;color:var(--mu);margin-bottom:8px;" id="ageTblTitle">早見表（猫）</div>
+    <table id="ageTbl" style="width:100%;border-collapse:collapse;font-size:12px;">
+      <thead>
+        <tr>
+          <th style="text-align:center;padding:6px 4px;border-bottom:1px solid var(--bd);color:var(--mu);font-weight:600;">動物年齢</th>
+          <th style="text-align:center;padding:6px 4px;border-bottom:1px solid var(--bd);color:var(--mu);font-weight:600;">人間年齢</th>
+        </tr>
+      </thead>
+      <tbody id="ageTblBody"></tbody>
+    </table>
+    <div style="font-size:10px;color:var(--mu);margin-top:8px;line-height:1.5;">参照:一般的な年齢換算の目安に基づく概算（1歳≈15歳、2歳≈24歳、以降は小型+4 / 中型+5 / 大型+6 / 猫+4 歳/年）目安です。</div>
+  </div>
 </div>
 
 <!-- 中毒DBシート -->
@@ -2543,7 +2584,7 @@ select.ea-fi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w
 <div class="sh" id="shProtoRun">
   <div class="shh"></div>
   <div class="sht" id="protoRunTitle">セット名 <button class="shx" onclick="closeAll()">&#215;</button></div>
-  <div id="protoRunMeta" style="font-size:12px;color:var(--mu);margin-bottom:12px;"></div>
+  <div id="protoRunMeta" style="font-size:12px;color:var(--mu);margin-bottom:12px;display:flex;align-items:center;flex-wrap:wrap;gap:4px;"></div>
   <div id="protoRunBody"></div>
   <div style="display:flex;gap:8px;margin-top:12px;">
     <button class="bsec" onclick="copyProtoInstructions()">📋 指示書</button>
@@ -2559,6 +2600,8 @@ select.ea-fi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w
   <div class="sht" id="protoEditTitle">セット編集 <button class="shx" onclick="closeAll()">&#215;</button></div>
   <label class="f1">セット名</label>
   <input type="text" id="protoNameInp" class="fi" placeholder="例: 麻酔導入セット">
+  <label style="margin-top:12px">対象動物</label>
+  <div id="protoSpeciesPicker" style="display:flex;gap:6px;flex-wrap:wrap;margin-top:6px"></div>
   <label>メモ（任意）</label>
   <input type="text" id="protoMemoInp" class="fi" placeholder="例: 猫の標準麻酔プロトコル">
   <label style="margin-top:12px">薬剤を選択</label>
@@ -2578,6 +2621,12 @@ select.ea-fi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w
   <div class="shh"></div>
   <div class="sht">データ管理 <button class="shx" onclick="closeAll()">&#215;</button></div>
   <div id="mgmtBody"></div>
+</div>
+
+<div class="sh" id="shBackupSel">
+  <div class="shh"></div>
+  <div class="sht"><span id="bkSelTitle">バックアップ内容</span> <button class="shx" onclick="closeAll()">&#215;</button></div>
+  <div id="bkSelBody"></div>
 </div>
 
 

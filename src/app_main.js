@@ -1747,6 +1747,7 @@ function renderTabs(){
 function openSheet(id){
   document.getElementById('bd').classList.add('on');
   var el = document.getElementById(id);
+  document.body.appendChild(el); // 常に最前面（最後尾）に移動
   el.classList.add('on');
   el.scrollTop = 0;
   window.scrollBy(0, 1);

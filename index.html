@@ -395,6 +395,15 @@ padding:calc(20px + env(safe-area-inset-top)) 20px 40px;
 .stat small{font-size:11px;color:var(--mu);}
 .mbtn{width:100%;padding:13px 14px;background:var(--bg);border:1px solid var(--bd);color:var(--tx);border-radius:10px;font-weight:600;font-size:14px;font-family:inherit;cursor:pointer;margin-bottom:10px;text-align:left;display:flex;flex-direction:column;gap:2px;}
 .mbtn small{font-size:11px;color:var(--mu);font-weight:400;}
+.bk-row{display:flex;align-items:flex-start;gap:10px;background:var(--bg);border:1px solid var(--bd);border-radius:10px;padding:12px 14px;margin-bottom:8px;}
+.bk-row input[type=checkbox]{width:20px;height:20px;flex:none;margin-top:1px;accent-color:var(--ac);}
+.bk-row .bk-main{flex:1;}
+.bk-row .bk-title{font-size:14px;font-weight:600;}
+.bk-row .bk-sub{font-size:11px;color:var(--mu);margin-top:2px;line-height:1.5;}
+.bk-actions{display:flex;gap:10px;margin-top:14px;}
+.bk-actions button{flex:1;padding:13px;border-radius:10px;font-weight:700;font-size:14px;font-family:inherit;cursor:pointer;border:1px solid var(--bd);}
+.bk-actions .bk-go{background:var(--ac);color:#fff;border:none;}
+.bk-actions .bk-cancel{background:var(--bg);color:var(--tx);}
 .mbtn.dn{color:var(--dn);}
 
 /* SIZE SETTINGS */
@@ -2543,7 +2552,7 @@ select.ea-fi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w
 <div class="sh" id="shProtoRun">
   <div class="shh"></div>
   <div class="sht" id="protoRunTitle">セット名 <button class="shx" onclick="closeAll()">&#215;</button></div>
-  <div id="protoRunMeta" style="font-size:12px;color:var(--mu);margin-bottom:12px;"></div>
+  <div id="protoRunMeta" style="font-size:12px;color:var(--mu);margin-bottom:12px;display:flex;align-items:center;flex-wrap:wrap;gap:4px;"></div>
   <div id="protoRunBody"></div>
   <div style="display:flex;gap:8px;margin-top:12px;">
     <button class="bsec" onclick="copyProtoInstructions()">📋 指示書</button>
@@ -2559,6 +2568,8 @@ select.ea-fi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w
   <div class="sht" id="protoEditTitle">セット編集 <button class="shx" onclick="closeAll()">&#215;</button></div>
   <label class="f1">セット名</label>
   <input type="text" id="protoNameInp" class="fi" placeholder="例: 麻酔導入セット">
+  <label style="margin-top:12px">対象動物</label>
+  <div id="protoSpeciesPicker" style="display:flex;gap:6px;flex-wrap:wrap;margin-top:6px"></div>
   <label>メモ（任意）</label>
   <input type="text" id="protoMemoInp" class="fi" placeholder="例: 猫の標準麻酔プロトコル">
   <label style="margin-top:12px">薬剤を選択</label>
@@ -2578,6 +2589,12 @@ select.ea-fi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w
   <div class="shh"></div>
   <div class="sht">データ管理 <button class="shx" onclick="closeAll()">&#215;</button></div>
   <div id="mgmtBody"></div>
+</div>
+
+<div class="sh" id="shBackupSel">
+  <div class="shh"></div>
+  <div class="sht"><span id="bkSelTitle">バックアップ内容</span> <button class="shx" onclick="closeAll()">&#215;</button></div>
+  <div id="bkSelBody"></div>
 </div>
 
 

@@ -16,22 +16,6 @@ var LS_ROUTE_KEY = 'vetcalc_routes_v2';
 var routeOverrides = {}; // { "薬剤名": "oral" | "injectable" | "topical" }
 
 
-var MASTER = (typeof MASTER_DRUG_DB !== 'undefined' ? MASTER_DRUG_DB : []);
-var SPECIES = ['犬','猫','ウサギ','フェレット','モルモット','ハリネズミ','ハムスター'];
-var CATS = ['循環器','鎮静','鎮痛','麻酔','局所麻酔','緊急・救急','抗生剤','NSAIDs','ステロイド','アレルギー・皮膚科','神経・てんかん','消化器','呼吸器','眼・耳・皮膚','ビタミン・補液','肝臓・代謝','ホルモン','止血・造血・ホルモン','抗真菌薬','駆虫薬','その他'];
-var CCOLOR = {'循環器':'#ff453a','鎮静':'#ff9f0a','鎮痛':'#f5c518','麻酔':'#bf5af2','抗生剤':'#4cd4ff','NSAIDs':'#ff6b35','ステロイド':'#e879f9','アレルギー・皮膚科':'#3b82f6','神経・てんかん':'#06b6d4','消化器':'#34c759','呼吸器':'#84cc16','眼・耳・皮膚':'#94a3b8','ビタミン・補液':'#fb923c','肝臓・代謝':'#10b981','ホルモン':'#f472b6','局所麻酔':'#a78bfa','抗真菌薬':'#fbbf24','止血・造血・ホルモン':'#ec4899','緊急・救急':'#ef4444','駆虫薬':'#22c55e','その他':'#6b7590'};
-var LS_KEY = 'vetcalc_v4';
-
-var DRUGS = [];
-var st = {w:5.0, sp:'犬', q:'', cat:'すべて', cols:2, mode:'injectable'};
-var editIdx = -1;
-
-// 動物種ごとの体重記憶（内部はkg）
-var LS_W_KEY = 'vetcalc_weights';
-// route変更は薬剤名キーの専用オブジェクトで管理（DRUGSリセットに左右されない）
-var LS_ROUTE_KEY = 'vetcalc_routes_v2';
-var routeOverrides = {}; // { "薬剤名": "oral" | "injectable" | "topical" }
-
 function loadRoutes(){
   try {
     // v2: IDベース
@@ -774,6 +758,19 @@ function ageUpdate(){
   });
   document.getElementById('ageResult').style.display='none';
   document.getElementById('ageEmpty').style.display='';
+  // 早見表更新
+  var titleEl = document.getElementById('ageTblTitle');
+  var tbody = document.getElementById('ageTblBody');
+  if(titleEl) titleEl.textContent = '早見表（'+AGE_SP_LABELS[sp]+'）';
+  if(tbody){
+    tbody.innerHTML = (AGE_TABLE[sp]||[]).map(function(row,i){
+      var bg = i%2===0 ? 'background:rgba(255,255,255,.03);' : '';
+      return '<tr style="'+bg+'">'
+        +'<td style="text-align:center;padding:5px 4px;border-bottom:1px solid rgba(255,255,255,.05);">'+row.animal+'</td>'
+        +'<td style="text-align:center;padding:5px 4px;border-bottom:1px solid rgba(255,255,255,.05);color:#74b9ff;font-weight:600;">'+row.human+'歳</td>'
+        +'</tr>';
+    }).join('');
+  }
 }
 function ageShowResult(){
   var sp = document.getElementById('ageSp').value;
@@ -785,6 +782,58 @@ function ageShowResult(){
   document.getElementById('ageHuman').textContent   = opt.value;
   document.getElementById('ageResult').style.display='';
   document.getElementById('ageEmpty').style.display='none';
+}
+function ageSpSelect(el, sp){
+  document.querySelectorAll('.age-sp-btn').forEach(function(b){ b.classList.remove('on'); });
+  el.classList.add('on');
+  document.getElementById('ageSp').value = sp;
+  ageUpdate();
+}
+function ageSetMode(mode){
+  var isAge = mode==='age';
+  document.getElementById('ageInputAge').style.display = isAge ? '' : 'none';
+  document.getElementById('ageInputDate').style.display = isAge ? 'none' : '';
+  document.getElementById('ageModeAge').style.background = isAge ? 'var(--ac)' : 'transparent';
+  document.getElementById('ageModeAge').style.color = isAge ? '#fff' : 'var(--mu)';
+  document.getElementById('ageModeAge').style.borderColor = isAge ? 'var(--ac)' : 'var(--bd)';
+  document.getElementById('ageModeDate').style.background = isAge ? 'transparent' : 'var(--ac)';
+  document.getElementById('ageModeDate').style.color = isAge ? 'var(--mu)' : '#fff';
+  document.getElementById('ageModeDate').style.borderColor = isAge ? 'var(--bd)' : 'var(--ac)';
+  document.getElementById('ageResult').style.display='none';
+  document.getElementById('ageEmpty').style.display='';
+}
+function ageCalcFromDate(){
+  var sp = document.getElementById('ageSp').value;
+  var val = document.getElementById('ageBirthDate').value;
+  if(!val){ document.getElementById('ageResult').style.display='none'; document.getElementById('ageEmpty').style.display=''; return; }
+  var birth = new Date(val);
+  var now = new Date();
+  var years = (now - birth) / (1000*60*60*24*365.25);
+  var table = AGE_TABLE[sp]||[];
+  var best = table[0];
+  var bestDiff = Infinity;
+  table.forEach(function(row){
+    var y = ageAnimalToYears(row.animal);
+    var diff = Math.abs(y - years);
+    if(diff < bestDiff){ bestDiff=diff; best=row; }
+  });
+  document.getElementById('ageSpLabel').textContent = AGE_SP_LABELS[sp];
+  var ageStr = years < 1
+    ? Math.round(years*12)+'ヶ月'
+    : (Math.floor(years*10)/10)+'歳';
+  document.getElementById('ageAnimal').textContent = ageStr;
+  document.getElementById('ageHuman').textContent = best.human;
+  document.getElementById('ageResult').style.display='';
+  document.getElementById('ageEmpty').style.display='none';
+}
+function ageAnimalToYears(label){
+  var m = label.match(/(\d+)ヶ月/);
+  if(m) return parseInt(m[1])/12;
+  var y = label.match(/^(\d+)歳/);
+  var mo = label.match(/(\d+)ヶ月$/);
+  var yy = y ? parseInt(y[1]) : 0;
+  var mm = mo ? parseInt(mo[1])/12 : 0;
+  return yy + mm;
 }
 
 //========== 中毒DB ==========
@@ -1845,10 +1894,13 @@ function applyWeight(){
     document.getElementById('wlbl').textContent = dispW(sp, st.w) + ' ' + dispUnit(sp);
     document.getElementById('spSel').value = sp;
     renderTabs(); render();
-    // プロトコルセット実行中なら再計算
-    if(runProtoIdx>=0 && document.getElementById('shProtoRun').classList.contains('on')) renderProtoRun();
   }
   closeAll();
+  // プロトコルセット実行中なら再計算して再表示
+  if(runProtoIdx>=0 && protocols[runProtoIdx]){
+    renderProtoRun();
+    openSheet('shProtoRun');
+  }
 }
 
 //========== DETAIL SHEET ==========
@@ -2167,7 +2219,7 @@ function openMgmt(){
     +'<div class="stat"><span style="color:#1fcc7a">'+added+'</span><small>追加済み</small></div>'
     +'<div class="stat"><span style="color:#ffb020">'+edited+'</span><small>編集済み</small></div>'
     +'</div>'
-    +'<button class="mbtn" onclick="exportData()">⬇️ JSONバックアップ<small>現在のデータをファイルで保存</small></button>'
+    +'<button class="mbtn" onclick="openBackupSelect()">⬇️ JSONバックアップ<small>現在のデータをファイルで保存</small></button>'
     +'<button class="mbtn" onclick="document.getElementById(\'fileIn\').click()">⬆️ JSONインポート<small>バックアップから復元・統合</small></button>'
     +'<button class="mbtn" onclick="exportEdits()">📋 編集分のみエクスポート<small>追加・変更した薬剤のみ保存</small></button>'
     +'<div style="border-top:1px solid var(--bd);margin-top:12px;padding-top:12px">'
@@ -2179,15 +2231,77 @@ function openMgmt(){
     +'</div>';
   openSheet('shMgmt');
 }
+function openBackupSelect(){
+  applyRouteOverrides();
+  saveData();
+  var added=0, edited=0;
+  for(var i=0;i<DRUGS.length;i++){
+    if(wasEdited(DRUGS[i])){
+      var inMaster=false;
+      for(var j=0;j<MASTER.length;j++){ if(MASTER[j].name===DRUGS[i].name){ inMaster=true; break; } }
+      if(inMaster) edited++; else added++;
+    }
+  }
+  var protoNames = protocols.map(function(p){ return p.name; });
+  var html = '<div class="bk-row">'
+    +'<input type="checkbox" id="bkAdded" checked>'
+    +'<div class="bk-main"><div class="bk-title">追加した薬（'+added+'件）</div>'
+    +'<div class="bk-sub">自分で新しく追加した薬剤</div></div></div>'
+    +'<div class="bk-row">'
+    +'<input type="checkbox" id="bkEdited" checked>'
+    +'<div class="bk-main"><div class="bk-title">変更した薬（'+edited+'件）</div>'
+    +'<div class="bk-sub">標準の薬から内容を変更したもの</div></div></div>'
+    +'<div class="bk-row">'
+    +'<input type="checkbox" id="bkProto" checked>'
+    +'<div class="bk-main"><div class="bk-title">プロトコルセット（'+protocols.length+'件）</div>'
+    +'<div class="bk-sub">'+(protoNames.length?esc(protoNames.join('、')):'なし')+'</div></div></div>'
+    +'<div class="bk-row">'
+    +'<input type="checkbox" id="bkOrder" checked>'
+    +'<div class="bk-main"><div class="bk-title">カードの並び順</div>'
+    +'<div class="bk-sub">薬剤一覧の表示順</div></div></div>'
+    +'<div class="bk-row">'
+    +'<input type="checkbox" id="bkSettings" checked>'
+    +'<div class="bk-main"><div class="bk-title">体重・表示設定</div>'
+    +'<div class="bk-sub">体重・サイズ・経路などの設定</div></div></div>'
+    +'<div class="bk-actions">'
+    +'<button class="bk-cancel" onclick="closeAll()">キャンセル</button>'
+    +'<button class="bk-go" onclick="exportData()">バックアップを作成</button>'
+    +'</div>';
+  document.getElementById('bkSelTitle').textContent='バックアップに含めるもの';
+  document.getElementById('bkSelBody').innerHTML=html;
+  openSheet('shBackupSel');
+}
 function exportData(){
+  var incAdded   = document.getElementById('bkAdded').checked;
+  var incEdited  = document.getElementById('bkEdited').checked;
+  var incProto   = document.getElementById('bkProto').checked;
+  var incOrder   = document.getElementById('bkOrder').checked;
+  var incSettings= document.getElementById('bkSettings').checked;
+
   // routeOverridesをDRUGS本体に反映してから出力（トグル変更漏れを防ぐ）
   applyRouteOverrides();
   saveData();
-  var out = { _meta: { version: 'vetcalc_pro', exported: new Date().toISOString() }, drugs: DRUGS, routeOverrides: routeOverrides, calc_order: getCalcOrder(), protocols: protocols };
+
+  var outDrugs = DRUGS;
+  if(!incAdded || !incEdited){
+    outDrugs = DRUGS.filter(function(d){
+      if(!wasEdited(d)) return true; // 未編集はベースとして常に含める
+      var inMaster=false;
+      for(var j=0;j<MASTER.length;j++){ if(MASTER[j].name===d.name){ inMaster=true; break; } }
+      if(inMaster) return incEdited;  // 変更済み
+      return incAdded;                // 新規追加
+    });
+  }
+
+  var out = { _meta: { version: 'vetcalc_pro', exported: new Date().toISOString() }, drugs: outDrugs };
+  if(incOrder) out.calc_order = getCalcOrder();
+  if(incProto) out.protocols = protocols;
+  if(incSettings){ out.routeOverrides = routeOverrides; out.weights = spWeights; out.sizeSettings = szCfg; }
+
   var a=document.createElement('a'); var d=new Date();
   a.href=URL.createObjectURL(new Blob([JSON.stringify(out,null,2)],{type:'application/json'}));
   a.download='VetCalcPRO_backup_'+d.getFullYear()+('0'+(d.getMonth()+1)).slice(-2)+('0'+d.getDate()).slice(-2)+'.json';
-  a.click(); toast('バックアップ完了 ✓');
+  a.click(); closeAll(); toast('バックアップ完了 ✓');
 }
 function exportEdits(){
   applyRouteOverrides(); // route変更を確実に反映
@@ -2253,16 +2367,78 @@ document.getElementById('fileIn').onchange=function(ev){
           
         }
         if(importedRoutes) Object.assign(routeOverrides, importedRoutes);
-        if(raw.calc_order) saveCalcOrder(raw.calc_order);
-        if(Array.isArray(raw.protocols)) { protocols = raw.protocols; saveProtocols(); }
         loadRoutes();
-        applyRouteOverrides(); saveData(); renderTabs(); render(); closeAll(); toast(imp.length+'剤を読み込みました ✓');
+        applyRouteOverrides(); saveData(); renderTabs(); render();
         ev.target.value='';
+        // 薬剤データ以外の項目を選択して反映
+        openImportExtras(raw, imp.length);
       };
     }catch(err){alert('読み込みエラー: '+err.message); ev.target.value='';}
   };
   reader.readAsText(file);
 };
+
+function openImportExtras(raw, drugCount){
+  var hasOrder = Array.isArray(raw.calc_order) && raw.calc_order.length;
+  var hasProto = Array.isArray(raw.protocols) && raw.protocols.length;
+  var hasSettings = !!(raw.weights || raw.sizeSettings || raw.routeOverrides);
+  if(!hasOrder && !hasProto && !hasSettings){
+    toast(drugCount+'剤を読み込みました ✓');
+    return;
+  }
+  var protoNames = hasProto ? raw.protocols.map(function(p){ return p.name; }) : [];
+  var html = '<div class="bk-row"><div class="bk-main"><div class="bk-title">薬剤データ（'+drugCount+'剤）</div>'
+    +'<div class="bk-sub">読み込み済みです</div></div></div>';
+  if(hasProto){
+    html += '<div class="bk-row">'
+      +'<input type="checkbox" id="bkImpProto" checked>'
+      +'<div class="bk-main"><div class="bk-title">プロトコルセット（'+raw.protocols.length+'件）</div>'
+      +'<div class="bk-sub">'+esc(protoNames.join('、'))+'</div></div></div>';
+  }
+  if(hasOrder){
+    html += '<div class="bk-row">'
+      +'<input type="checkbox" id="bkImpOrder" checked>'
+      +'<div class="bk-main"><div class="bk-title">カードの並び順</div>'
+      +'<div class="bk-sub">薬剤一覧の表示順を上書きします</div></div></div>';
+  }
+  if(hasSettings){
+    html += '<div class="bk-row">'
+      +'<input type="checkbox" id="bkImpSettings" checked>'
+      +'<div class="bk-main"><div class="bk-title">体重・表示設定</div>'
+      +'<div class="bk-sub">体重・サイズ・経路などの設定を上書きします</div></div></div>';
+  }
+  html += '<div class="bk-actions">'
+    +'<button class="bk-cancel" onclick="closeAll();toast(\''+drugCount+'剤を読み込みました ✓\')">適用しない</button>'
+    +'<button class="bk-go" onclick="applyImportExtras()">適用する</button>'
+    +'</div>';
+  window._importExtraData = raw;
+  document.getElementById('bkSelTitle').textContent='読み込んだファイルの内容';
+  document.getElementById('bkSelBody').innerHTML=html;
+  openSheet('shBackupSel');
+}
+function applyImportExtras(){
+  var raw = window._importExtraData; if(!raw) return;
+  var msgs=[];
+  var elProto = document.getElementById('bkImpProto');
+  if(elProto && elProto.checked && Array.isArray(raw.protocols)){
+    protocols = raw.protocols; saveProtocols();
+    msgs.push('プロトコル'+protocols.length+'件');
+  }
+  var elOrder = document.getElementById('bkImpOrder');
+  if(elOrder && elOrder.checked && Array.isArray(raw.calc_order)){
+    saveCalcOrder(raw.calc_order);
+    msgs.push('並び順');
+  }
+  var elSettings = document.getElementById('bkImpSettings');
+  if(elSettings && elSettings.checked){
+    if(raw.weights){ Object.assign(spWeights, raw.weights); saveWeights(); }
+    if(raw.sizeSettings){ szCfg=Object.assign(szCfg, raw.sizeSettings); saveSizeSettings(); applySizeCss(); }
+    if(raw.routeOverrides){ Object.assign(routeOverrides, raw.routeOverrides); saveRoutes(); applyRouteOverrides(); saveData(); }
+    msgs.push('設定');
+  }
+  renderTabs(); render(); closeAll();
+  toast((msgs.length?msgs.join('・')+'を反映 ✓':'反映なし'));
+}
 
 
 // DRUGSの並び順を反映したカテゴリーリストを返す
@@ -2938,6 +3114,7 @@ var DEFAULT_PROTOCOLS = [
   {
     id: 'default_usagi_masui_bmk',
     name: "🐰 ウサギ 麻酔（BMK）",
+    species: "ウサギ",
     memo: "Bt 0.04cc/kg・ミダゾラム 0.1cc/kg・ケタミン 0.2cc/kg IM",
     drugNames: [
       "ベトルファール(ブトルファノール)",
@@ -2948,6 +3125,7 @@ var DEFAULT_PROTOCOLS = [
   {
     id: 'default_usagi_shokutai',
     name: "🐰 ウサギ 食滞治療",
+    species: "ウサギ",
     memo: "消化管うっ滞・文献10,16より",
     drugNames: [
       "プリンぺラン10mg/2ml 5mg（メトクロプラミド）",
@@ -2965,6 +3143,30 @@ var DEFAULT_PROTOCOLS = [
       "ぺリアクチン(シプロヘプタジン)",
       "リフレックス　15mg（ミルタザピン）"
     ]
+  },
+  {
+    id: 'default_inu_chinsui',
+    name: "🐕 犬の鎮静",
+    species: "犬",
+    memo: "",
+    drugNames: [
+      "ドミトール1mg/ml（メデトミジン）",
+      "ベトルファール(ブトルファノール)",
+      "ドルミカム10mg/2ml（ミダゾラム）",
+      "アルファキサン10mg/ml（アルファキサロン）"
+    ]
+  },
+  {
+    id: 'default_neko_chinsui',
+    name: "🐈 猫の鎮静",
+    species: "猫",
+    memo: "",
+    drugNames: [
+      "ドミトール1mg/ml（メデトミジン）",
+      "ベトルファール(ブトルファノール)",
+      "ドルミカム10mg/2ml（ミダゾラム）",
+      "アルファキサン10mg/ml（アルファキサロン）"
+    ]
   }
 ];
 
@@ -2975,11 +3177,14 @@ function loadProtocols(){
       var p=JSON.parse(raw);
       if(Array.isArray(p)){
         protocols=p;
-        // デフォルトプロトコルが未登録なら追加
+        var changed=false;
+        // デフォルトプロトコルが未登録なら追加 / 既存にspeciesが無ければ補完
         DEFAULT_PROTOCOLS.forEach(function(dp){
-          var exists = protocols.some(function(ep){ return ep.id===dp.id || ep.name===dp.name; });
-          if(!exists){ protocols.unshift(dp); saveProtocols(); }
+          var ep = protocols.find(function(x){ return x.id===dp.id || x.name===dp.name; });
+          if(!ep){ protocols.unshift(dp); changed=true; }
+          else if(!ep.species && dp.species){ ep.species = dp.species; changed=true; }
         });
+        if(changed) saveProtocols();
         return;
       }
     }
@@ -3021,15 +3226,20 @@ var runProtoIdx = -1;
 function openProtoRun(idx){
   runProtoIdx = idx;
   var p = protocols[idx];
-  document.getElementById('protoRunTitle').innerHTML = esc(p.name)+' <button class="shx" onclick="closeAll()">&#215;</button>';
+  if(p.species && SPECIES.indexOf(p.species)>=0){
+    st.sp = p.species;
+    st.w = spWeights[p.species] || st.w;
+  }
+  document.getElementById('protoRunTitle').innerHTML = esc(p.name)+' <button class="shx" onclick="runProtoIdx=-1;closeAll()">&#215;</button>';
   renderProtoRun();
   openSheet('shProtoRun');
 }
 function renderProtoRun(){
   var p = protocols[runProtoIdx];
   var sp = st.sp; var w = st.w;
-  document.getElementById('protoRunMeta').textContent =
-    sp + ' · ' + dispW(sp,w) + ' ' + dispUnit(sp) + ' · ' + (p.drugNames?p.drugNames.length:0) + '剤';
+  document.getElementById('protoRunMeta').innerHTML =
+    '<span>'+sp+' · '+dispW(sp,w)+' '+dispUnit(sp)+' · '+(p.drugNames?p.drugNames.length:0)+'剤</span>'
+    +'<button class="bsec" style="padding:4px 10px;font-size:12px;margin-left:8px" onclick="document.getElementById(\'shProtoRun\').classList.remove(\'on\');openWeight()">体重を変更</button>';
   var drugs = p.drugNames || [];
   var out = '';
   for(var i=0;i<drugs.length;i++){
@@ -3100,6 +3310,7 @@ function printProto(){
 }
 
 // --- 編集 ---
+var protoSpeciesSel = '';
 function openProtoEdit(idx){
   editProtoIdx = idx;
   pickerSelected = {};
@@ -3109,10 +3320,26 @@ function openProtoEdit(idx){
   document.getElementById('protoMemoInp').value = p ? (p.memo||'') : '';
   document.getElementById('protoDelBtn').style.display = p ? 'block' : 'none';
   document.getElementById('protoSearch').value = '';
+  protoSpeciesSel = p ? (p.species||'') : st.sp;
+  renderProtoSpeciesPicker();
   if(p && p.drugNames){ for(var i=0;i<p.drugNames.length;i++) pickerSelected[p.drugNames[i]]=true; }
   renderProtoDrugPicker('');
   closeAll();
   setTimeout(function(){ openSheet('shProtoEdit'); }, 80);
+}
+
+function renderProtoSpeciesPicker(){
+  var out = '';
+  for(var i=0;i<SPECIES.length;i++){
+    var sp = SPECIES[i];
+    var on = sp===protoSpeciesSel;
+    out += '<button type="button" class="bsec'+(on?' on':'')+'" style="padding:6px 12px;font-size:13px'+(on?';background:var(--ac);color:#fff;border-color:var(--ac)':'')+'" onclick="setProtoSpecies(\''+sp+'\')">'+esc(sp)+'</button>';
+  }
+  document.getElementById('protoSpeciesPicker').innerHTML = out;
+}
+function setProtoSpecies(sp){
+  protoSpeciesSel = sp;
+  renderProtoSpeciesPicker();
 }
 
 function renderProtoDrugPicker(q){
@@ -3146,7 +3373,7 @@ function saveProto(){
   if(!name){ alert('セット名を入力してください'); return; }
   var memo = document.getElementById('protoMemoInp').value.trim();
   var drugNames = Object.keys(pickerSelected);
-  var proto = { id: editProtoIdx>=0 ? protocols[editProtoIdx].id : genId(), name:name, memo:memo, drugNames:drugNames };
+  var proto = { id: editProtoIdx>=0 ? protocols[editProtoIdx].id : genId(), name:name, species:protoSpeciesSel, memo:memo, drugNames:drugNames };
   if(editProtoIdx>=0){ protocols[editProtoIdx]=proto; }
   else { protocols.push(proto); }
   saveProtocols();

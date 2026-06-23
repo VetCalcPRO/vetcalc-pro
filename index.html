@@ -176,6 +176,9 @@ body{background:var(--bg);color:var(--tx);font-family:'Noto Sans JP',sans-serif;
 .calc-card-desc{font-size:10px;color:var(--mu);margin-top:2px;}
 .calc-card.wip .calc-card-name::after{content:' 🔧';opacity:.4;}
 .calc-card.wip{opacity:.5;pointer-events:none;}
+.calc-card.drag-dragging{opacity:.35;transform:scale(.97);}
+.calc-card.drag-over-top{box-shadow:0 -3px 0 0 var(--ac);}
+.calc-card.drag-over-bot{box-shadow:0 3px 0 0 var(--ac);}
 
 /* 血漿浸透圧ツール */
 .osmo-lbl{font-size:11px;color:var(--mu);font-weight:700;letter-spacing:.05em;display:block;margin-bottom:4px;}

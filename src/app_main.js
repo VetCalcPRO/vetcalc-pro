@@ -294,7 +294,6 @@ var CALC_TOOLS = [
 ];
 var calcTab = '⚡ 緊急';
 function renderCalcTabs(){ /* 廃止 */ }
-var calcEditMode = false;
 function getCalcOrder(){
   try{
     var s=localStorage.getItem('vetcalc_calc_order');
@@ -315,52 +314,143 @@ function getOrderedTools(){
   var order=getCalcOrder();
   return order.map(function(id){return CALC_TOOLS.find(function(t){return t.id===id;});}).filter(Boolean);
 }
-function calcMoveUp(id){
-  var order=getCalcOrder(),i=order.indexOf(id);
-  if(i<=0) return;
-  var tmp=order[i-1];order[i-1]=order[i];order[i]=tmp;
-  saveCalcOrder(order);renderCalc();
-}
-function calcMoveDown(id){
-  var order=getCalcOrder(),i=order.indexOf(id);
-  if(i<0||i>=order.length-1) return;
-  var tmp=order[i+1];order[i+1]=order[i];order[i]=tmp;
-  saveCalcOrder(order);renderCalc();
-}
-function toggleCalcEdit(){ calcEditMode=!calcEditMode; renderCalc(); }
 function renderCalc(){
   var tools=getOrderedTools();
-  var editBtn='<button onclick="toggleCalcEdit()" style="background:none;border:1px solid var(--bd);color:var(--mu);font-size:11px;padding:4px 10px;border-radius:20px;cursor:pointer;margin-bottom:8px;">'
-    +(calcEditMode?'✅ 完了':'↕ 並替')+'</button>';
-  var inner;
-  if(calcEditMode){
-    var rows=tools.map(function(t,i){
-      var first=(i===0),last=(i===tools.length-1);
-      return '<div style="display:flex;align-items:center;gap:8px;background:var(--pn);border-left:3px solid var(--calc);border-radius:10px;padding:10px 12px;">'
-        +'<span style="font-size:18px;">'+t.icon+'</span>'
-        +'<span style="flex:1;font-size:12px;font-weight:700;color:var(--tx);">'+esc(t.name)+'</span>'
-        +'<div style="display:flex;flex-direction:column;gap:3px;">'
-        +'<button onclick="calcMoveUp(\''+t.id+'\')"'+(first?' disabled':'')
-          +' style="background:var(--bg);border:1px solid var(--bd);color:var(--tx);width:28px;height:24px;border-radius:5px;cursor:pointer;font-size:13px;line-height:1;'+(first?'opacity:.25;':'')+'">↑</button>'
-        +'<button onclick="calcMoveDown(\''+t.id+'\')"'+(last?' disabled':'')
-          +' style="background:var(--bg);border:1px solid var(--bd);color:var(--tx);width:28px;height:24px;border-radius:5px;cursor:pointer;font-size:13px;line-height:1;'+(last?'opacity:.25;':'')+'">↓</button>'
-        +'</div></div>';
-    }).join('');
-    inner='<div style="display:flex;flex-direction:column;gap:6px;">'+rows+'</div>';
-  } else {
-    var cards=tools.map(function(t){
-
-      return '<div class="calc-card'+(t.ready?'':' wip')+'" onclick="openCalcTool(\''+t.id+'\')">'
-        +'<div class="calc-card-icon">'+t.icon+'</div>'
-        +'<div class="calc-card-name">'+esc(t.name)+'</div>'
-        +'<div class="calc-card-desc">'+esc(t.desc)+'</div>'
-        +'</div>';
-    }).join('');
-    inner='<div class="calc-cards">'+cards+'</div>';
-  }
-  document.getElementById('calcPanel').innerHTML='<div style="display:flex;justify-content:flex-end;">'+editBtn+'</div>'+inner;
+  var cards=tools.map(function(t){
+    return '<div class="calc-card'+(t.ready?'':' wip')+'" data-calc-id="'+t.id+'" draggable="true" onclick="openCalcTool(\''+t.id+'\')">'
+      +'<div class="calc-card-icon">'+t.icon+'</div>'
+      +'<div class="calc-card-name">'+esc(t.name)+'</div>'
+      +'<div class="calc-card-desc">'+esc(t.desc)+'</div>'
+      +'</div>';
+  }).join('');
+  document.getElementById('calcPanel').innerHTML='<div class="calc-cards" id="calcCards">'+cards+'</div>';
+  initCalcDrag();
 }
 function calcTabSwitch(t){ renderCalc(); }
+
+//========== CALC CARD DRAG & DROP ==========
+var calcDragInitialized = false;
+function initCalcDrag(){
+  calcDragInitialized = false; // renderCalc毎にリセット
+  var grid = document.getElementById('calcCards');
+  if(!grid) return;
+
+  // ===== マウス D&D =====
+  var calcDragSrc = null;
+
+  grid.addEventListener('dragstart', function(e){
+    var card = e.target.closest('.calc-card');
+    if(!card) return;
+    calcDragSrc = card;
+    setTimeout(function(){ card.classList.add('drag-dragging'); }, 0);
+    e.dataTransfer.effectAllowed = 'move';
+  });
+
+  grid.addEventListener('dragend', function(e){
+    var card = e.target.closest('.calc-card');
+    if(card) card.classList.remove('drag-dragging');
+    grid.querySelectorAll('.calc-card').forEach(function(c){
+      c.classList.remove('drag-over-top','drag-over-bot');
+    });
+    calcDragSrc = null;
+  });
+
+  grid.addEventListener('dragover', function(e){
+    e.preventDefault();
+    var card = e.target.closest('.calc-card');
+    if(!card || card === calcDragSrc) return;
+    grid.querySelectorAll('.calc-card').forEach(function(c){
+      c.classList.remove('drag-over-top','drag-over-bot');
+    });
+    var rect = card.getBoundingClientRect();
+    if(e.clientY < rect.top + rect.height/2) card.classList.add('drag-over-top');
+    else card.classList.add('drag-over-bot');
+    e.dataTransfer.dropEffect = 'move';
+  });
+
+  grid.addEventListener('dragleave', function(e){
+    var card = e.target.closest('.calc-card');
+    if(card) card.classList.remove('drag-over-top','drag-over-bot');
+  });
+
+  grid.addEventListener('drop', function(e){
+    e.preventDefault();
+    var target = e.target.closest('.calc-card');
+    if(!target || !calcDragSrc || target === calcDragSrc) return;
+    var order = getCalcOrder();
+    var fromId = calcDragSrc.getAttribute('data-calc-id');
+    var toId   = target.getAttribute('data-calc-id');
+    var fromI  = order.indexOf(fromId);
+    var toI    = order.indexOf(toId);
+    var rect   = target.getBoundingClientRect();
+    var before = e.clientY < rect.top + rect.height/2;
+    order.splice(fromI, 1);
+    toI = order.indexOf(toId);
+    if(!before) toI++;
+    order.splice(toI, 0, fromId);
+    saveCalcOrder(order);
+    renderCalc();
+  });
+
+  // ===== タッチ D&D（長押し300ms・DOM直接移動） =====
+  var touchSrc = null;
+
+  grid.addEventListener('touchstart', function(e){
+    var card = e.target.closest('.calc-card');
+    if(!card || card.classList.contains('wip')) return;
+    touchSrc = null;
+    var touch = e.touches[0];
+    var timer = setTimeout(function(){
+      touchSrc = card;
+      card.classList.add('drag-dragging');
+    }, 300);
+    card._calcTouchTimer = timer;
+  }, {passive:true});
+
+  grid.addEventListener('touchmove', function(e){
+    var card = e.target.closest('.calc-card');
+    if(card && card._calcTouchTimer){ clearTimeout(card._calcTouchTimer); }
+    if(!touchSrc) return;
+    e.preventDefault();
+    var touch = e.touches[0];
+    var el = document.elementFromPoint(touch.clientX, touch.clientY);
+    var target = el ? el.closest('.calc-card') : null;
+    grid.querySelectorAll('.calc-card').forEach(function(c){ c.classList.remove('drag-over-top','drag-over-bot'); });
+    if(target && target !== touchSrc){
+      var rect = target.getBoundingClientRect();
+      if(touch.clientY < rect.top + rect.height/2) target.classList.add('drag-over-top');
+      else target.classList.add('drag-over-bot');
+    }
+  }, {passive:false});
+
+  grid.addEventListener('touchend', function(e){
+    var card = e.target.closest('.calc-card');
+    if(card && card._calcTouchTimer){ clearTimeout(card._calcTouchTimer); }
+    if(!touchSrc) return;
+    touchSrc.classList.remove('drag-dragging');
+    grid.querySelectorAll('.calc-card').forEach(function(c){ c.classList.remove('drag-over-top','drag-over-bot'); });
+    var touch = e.changedTouches[0];
+    var el = document.elementFromPoint(touch.clientX, touch.clientY);
+    var target = el ? el.closest('.calc-card') : null;
+    if(target && target !== touchSrc){
+      var order = getCalcOrder();
+      var fromId = touchSrc.getAttribute('data-calc-id');
+      var toId   = target.getAttribute('data-calc-id');
+      var fromI  = order.indexOf(fromId);
+      var rect   = target.getBoundingClientRect();
+      var before = touch.clientY < rect.top + rect.height/2;
+      order.splice(fromI, 1);
+      var toI = order.indexOf(toId);
+      if(!before) toI++;
+      order.splice(toI, 0, fromId);
+      touchSrc = null;
+      saveCalcOrder(order);
+      renderCalc();
+      return;
+    }
+    touchSrc = null;
+  }, {passive:true});
+}
 function openCalcTool(id){
   if(id==='osmolality'){ osmoClear(); openSheet('shOsmo'); return; }
   if(id==='kp_correct'){ kpRender(); openSheet('shKP'); return; }
@@ -2812,7 +2902,7 @@ function initDragSortList(list){
   });
 
   // タッチ対応
-  var touchSrc = null, touchClone = null;
+  var touchSrc = null;
   list.addEventListener('touchstart', function(e){
     var item = e.target.closest('.sort-item');
     if(!item) return;
@@ -2835,14 +2925,22 @@ function initDragSortList(list){
     var el = document.elementFromPoint(touch.clientX, touch.clientY);
     var target = el ? el.closest('.sort-item') : null;
     if(target && target !== touchSrc){
-      var allItems = Array.from(list.querySelectorAll('.sort-item'));
-      var fi = allItems.indexOf(touchSrc), ti = allItems.indexOf(target);
-      if(fi < ti) list.insertBefore(touchSrc, target.nextSibling);
-      else        list.insertBefore(touchSrc, target);
+      var order=getCalcOrder();
+      var fromId=touchSrc.getAttribute('data-calc-id');
+      var toId=target.getAttribute('data-calc-id');
+      var fromI=order.indexOf(fromId);
+      var rect=target.getBoundingClientRect();
+      var before=touch.clientY<rect.top+rect.height/2;
+      order.splice(fromI,1);
+      var toI=order.indexOf(toId);
+      if(!before) toI++;
+      order.splice(toI,0,fromId);
+      touchSrc=null;
+      saveCalcOrder(order); renderCalc();
+      return;
     }
-    list.querySelectorAll('.sort-item').forEach(function(x){ x.classList.remove('drag-over','dragging'); });
-    touchSrc = null;
-  }, {passive:true});
+    touchSrc=null;
+  },{passive:true});
 }
 
 function saveCatOrder(){
@@ -2974,23 +3072,18 @@ function initCardDrag(){
     renderTabs();
   });
 
-  // ===== タッチ対応 =====
-  var touchDragCard = null, touchDragIdx = null, touchClone = null;
+  // ===== タッチ対応（DOM直接移動） =====
+  var touchDragCard = null, touchDragIdx = null;
 
   grid.addEventListener('touchstart', function(e){
     var card = e.target.closest('.card.draggable');
     if(!card) return;
-    // 長押し判定（300ms）
     var touch = e.touches[0];
     touchDragCard = null;
     var timer = setTimeout(function(){
       touchDragCard = card;
       touchDragIdx = parseInt(card.getAttribute('data-i'));
       card.classList.add('drag-dragging');
-      // クローンを作って指に追従させる
-      touchClone = card.cloneNode(true);
-      touchClone.style.cssText = 'position:fixed;z-index:9999;opacity:.8;pointer-events:none;width:'+card.offsetWidth+'px;left:'+(touch.clientX - card.offsetWidth/2)+'px;top:'+(touch.clientY - card.offsetHeight/2)+'px;';
-      document.body.appendChild(touchClone);
     }, 300);
     card._touchTimer = timer;
   }, {passive:true});
@@ -3001,11 +3094,6 @@ function initCardDrag(){
     if(!touchDragCard) return;
     e.preventDefault();
     var touch = e.touches[0];
-    if(touchClone){
-      touchClone.style.left = (touch.clientX - touchClone.offsetWidth/2) + 'px';
-      touchClone.style.top  = (touch.clientY - touchClone.offsetHeight/2) + 'px';
-    }
-    // ドロップ先ハイライト
     var el = document.elementFromPoint(touch.clientX, touch.clientY);
     var target = el ? el.closest('.card') : null;
     grid.querySelectorAll('.card').forEach(function(c){ c.classList.remove('drag-over-top','drag-over-bot'); });
@@ -3019,11 +3107,9 @@ function initCardDrag(){
   grid.addEventListener('touchend', function(e){
     var card = e.target.closest('.card');
     if(card && card._touchTimer){ clearTimeout(card._touchTimer); }
-    if(!touchDragCard){ return; }
-    if(touchClone){ document.body.removeChild(touchClone); touchClone = null; }
+    if(!touchDragCard) return;
     touchDragCard.classList.remove('drag-dragging');
     grid.querySelectorAll('.card').forEach(function(c){ c.classList.remove('drag-over-top','drag-over-bot'); });
-
     var touch = e.changedTouches[0];
     var el = document.elementFromPoint(touch.clientX, touch.clientY);
     var target = el ? el.closest('.card') : null;
@@ -3038,7 +3124,9 @@ function initCardDrag(){
       if(fromIdx < newTo) newTo--;
       if(!insertBefore) newTo++;
       DRUGS.splice(newTo, 0, drug);
+      touchDragCard = null; touchDragIdx = null;
       saveData(); render(); renderTabs();
+      return;
     }
     touchDragCard = null; touchDragIdx = null;
   }, {passive:true});

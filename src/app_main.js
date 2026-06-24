@@ -2315,6 +2315,7 @@ function openMgmt(){
     +'<button class="mbtn" onclick="exportEdits()">📋 編集分のみエクスポート<small>追加・変更した薬剤のみ保存</small></button>'
     +'<div style="border-top:1px solid var(--bd);margin-top:12px;padding-top:12px">'
     +'<button class="mbtn" onclick="openSort()">🔀 表示順を並び替え<small>カテゴリー内でドラッグして並び替え</small></button>'
+    +'<button class="mbtn" onclick="checkForUpdate()">🔄 アップデートを確認<small>最新バージョンを今すぐチェック</small></button>'
     +'<button class="mbtn" style="color:#6b7590" onclick="clearLS()">🗑 キャッシュをクリア<small>表示がおかしい時はこちら</small></button>'
     +'</div>'
     +'<div style="border-top:1px solid var(--bd);margin-top:12px;padding-top:12px">'
@@ -2418,6 +2419,23 @@ function clearLS(){
   loadRoutes();           // routeOverridesを再読み込み
   applyRouteOverrides();  // route編集を再適用
   saveData(); renderTabs(); render(); closeAll(); toast('キャッシュをクリアしました');
+}
+function checkForUpdate(){
+  if(!('serviceWorker' in navigator)){ toast('このブラウザはSW非対応です'); return; }
+  navigator.serviceWorker.getRegistration().then(function(reg){
+    if(!reg){ toast('Service Worker未登録'); return; }
+    toast('🔄 確認中...');
+    reg.update().then(function(){
+      // updatefoundが発火しなかった＝最新
+      // updatefoundが発火した場合はバナーが表示される（既存フロー）
+      setTimeout(function(){
+        var banner=document.getElementById('updateBanner');
+        if(!banner || banner.style.display==='none' || banner.style.display===''){
+          toast('✅ 最新バージョンです');
+        }
+      }, 3000);
+    }).catch(function(){ toast('⚠️ 確認できませんでした（オフライン？）'); });
+  });
 }
 document.getElementById('fileIn').onchange=function(ev){
   var file=ev.target.files[0]; if(!file) return;

@@ -318,8 +318,10 @@ function renderCalc(){
   var tools=getOrderedTools();
   var cards=tools.map(function(t){
     return '<div class="calc-card'+(t.ready?'':' wip')+'" data-calc-id="'+t.id+'" draggable="true" onclick="openCalcTool(\''+t.id+'\')">'
-      +'<div class="calc-card-icon">'+t.icon+'</div>'
-      +'<div class="calc-card-name">'+esc(t.name)+'</div>'
+      +'<div class="calc-card-header">'
+      +'<span class="calc-card-icon">'+t.icon+'</span>'
+      +'<span class="calc-card-name">'+esc(t.name)+'</span>'
+      +'</div>'
       +'<div class="calc-card-desc">'+esc(t.desc)+'</div>'
       +'</div>';
   }).join('');

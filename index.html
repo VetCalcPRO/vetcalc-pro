@@ -54,9 +54,15 @@ if ('serviceWorker' in navigator) {
       reg.addEventListener('updatefound', () => {
         const newSW = reg.installing;
         newSW.addEventListener('statechange', () => {
-          if (newSW.state === 'installed' && navigator.serviceWorker.controller) {
-            document.getElementById('updateBanner').style.display = 'flex';
-            document.getElementById('updateBanner')._reg = reg;
+          if (newSW.state === 'installed') {
+            if (navigator.serviceWorker.controller) {
+              // 既存ユーザー・更新あり → バナー表示
+              document.getElementById('updateBanner').style.display = 'flex';
+              document.getElementById('updateBanner')._reg = reg;
+            } else {
+              // 初回インストール／キャッシュ削除後 → 自動リロード
+              location.reload();
+            }
           }
         });
       });
@@ -1468,14 +1474,6 @@ select.ea-fi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w
 .rx-calc-inp{width:54px;text-align:center;}
 .rx-calc-lbl{font-size:12px;color:var(--mu);}
 .rx-calc-result{font-family:'JetBrains Mono',monospace;font-size:18px;font-weight:800;color:var(--ac);margin-left:2px;}
-
-@media (max-width: 600px) {
-  .dr { flex-direction: column; gap: 4px; }
-  .drv { text-align: left; margin-left: 0; }
-  .dmv { font-size: 14px; }
-  #shDtl .dmv { font-size: 17px; }
-  #shDtl .nt { font-size: 13px; }
-}
 </style>
 </head>
 <body>

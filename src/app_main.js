@@ -2426,14 +2426,12 @@ function checkForUpdate(){
     if(!reg){ toast('Service Worker未登録'); return; }
     toast('🔄 確認中...');
     reg.update().then(function(){
-      // updatefoundが発火しなかった＝最新
-      // updatefoundが発火した場合はバナーが表示される（既存フロー）
-      setTimeout(function(){
-        var banner=document.getElementById('updateBanner');
-        if(!banner || banner.style.display==='none' || banner.style.display===''){
-          toast('✅ 最新バージョンです');
-        }
-      }, 3000);
+      // resolve時点でupdatefoundが発火していなければ最新
+      // 発火していればバナーが既に表示されている
+      var banner=document.getElementById('updateBanner');
+      if(!banner || banner.style.display==='none' || banner.style.display===''){
+        toast('✅ 最新バージョンです');
+      }
     }).catch(function(){ toast('⚠️ 確認できませんでした（オフライン？）'); });
   });
 }

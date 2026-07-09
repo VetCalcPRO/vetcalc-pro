@@ -9,6 +9,7 @@
 ## 使い方
 
 👉 **[https://vetcalcpro.github.io/vetcalc-pro/](https://vetcalcpro.github.io/vetcalc-pro/)**
+👉 **[このアプリについて（開発背景・データソース）](about.html)** | **[よくある質問（FAQ）](faq.html)**
 
 ブラウザで開くだけで使えます。インストール不要。
 

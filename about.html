@@ -2,49 +2,77 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="VetCalc PRO（ベットカルク プロ）は獣医師が開発した小動物臨床向け薬用量計算Webアプリ。犬・猫・エキゾチック動物対応。244薬剤。無料・広告なし・OSS。">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#12151e">
+<meta name="description" content="VetCalc PRO（ベットカルク プロ）は現役獣医師が開発した小動物臨床向け薬用量計算Webアプリ。犬・猫・エキゾチック動物対応。272薬剤。無料・広告なし・OSS・PWA対応。">
 <link rel="canonical" href="https://vetcalcpro.github.io/vetcalc-pro/about.html">
 <title>VetCalc PROについて｜獣医師向け薬用量計算アプリ</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; max-width: 720px; margin: 0 auto; padding: 24px 20px 60px; background: #12151e; color: #e8e8e8; line-height: 1.8; }
+  nav { padding: 12px 0; margin-bottom: 24px; border-bottom: 1px solid #333; }
+  nav a { color: #7fb8ff; text-decoration: none; margin-right: 16px; }
+  h1 { font-size: 1.5rem; margin-bottom: 1em; }
+  h2 { font-size: 1.1rem; margin-top: 2em; color: #ffd77a; border-bottom: 1px solid #222; padding-bottom: 4px; }
+  ul { padding-left: 20px; }
+  a { color: #7fb8ff; }
+  .btn-area { margin-top: 2.5em; padding: 16px; background: #1a1f2c; border-radius: 8px; text-align: center; }
+  .btn { display: inline-block; padding: 10px 24px; background: #7fb8ff; color: #12151e; text-decoration: none; font-weight: bold; border-radius: 6px; margin: 8px; }
+  .btn-sub { display: inline-block; padding: 10px 24px; background: transparent; color: #7fb8ff; text-decoration: none; border: 1px solid #7fb8ff; border-radius: 6px; margin: 8px; }
+</style>
 </head>
 <body>
+
+<nav>
+  <a href="index.html">← 計算ツールに戻る</a>
+  <a href="faq.html">FAQ</a>
+</nav>
+
 <h1>VetCalc PRO（ベットカルク プロ）とは</h1>
-<p>VetCalc PROは、獣医師・動物看護師が臨床現場で即座に薬剤投与量を確認できる無料のWebアプリです。神奈川県の小動物臨床獣医師が個人で開発し、OSSとして公開しています。</p>
 
-<h2>開発の背景</h2>
-<p>「この犬に今すぐ何mL打てばいいか」——手術中や救急対応中に電卓を叩く時間はありません。体重を入力するだけで244薬剤の投与量が0.5秒で表示されることを目指して開発されました。</p>
+<p>「0.5秒で答えが出るツールが欲しい。」</p>
+<p>「体重何kgだと、この薬は何mL引けばいい？」という計算は、臨床現場で頻繁に発生します。手術中や救急対応中、片手しか使えない緊迫した状況でも、短時間で迷わず正確な答えが確認できること。VetCalc PROは、そんな現場の切実なニーズから生まれた、獣医師・動物看護師向けの無料臨床計算Webアプリ（PWA）です。</p>
 
-<h2>薬用量データについて</h2>
-<p>収録している用量は、各薬剤添付文書・国内外の獣医学文献・日本の小動物臨床現場での実臨床経験を統合したものです。教科書的な保守値ではなく、日本の動物病院で実際に使われている臨床用量を重視しています。計算式は「体重(kg) × 用量(mg/kg) ÷ 濃度(mg/mL) = 投与量(mL)」です。</p>
+<h2>開発の背景と理念</h2>
+<p>「この子に今すぐ何mL打てばいいか」——本ツールは、神奈川県で小動物臨床に従事する現役の獣医師（NOBU）が個人で設計・検証を行い、生成AIを開発パートナーとして活用して構築されました。臨床現場で必要な速度と実用的な判断をダイレクトに反映しています。</p>
+
+<h2>なぜ無料で公開するのか</h2>
+<p>獣医療における薬用量や治療プロトコルは、数多くの先人たちによる臨床経験と研究の積み重ね（集合知）です。特定の誰かが利益を独占するのではなく、現場で働くすべての獣医師や動物看護師が共有・活用できるインフラとなることを目指し、完全無料・広告なしのオープンソースソフトウェア（OSS）として公開しています。</p>
+
+<h2>薬用量データと計算ロジックについて</h2>
+<p>収録している用量は、各薬剤の添付文書、国内外の獣医学文献、そして日本の小動物臨床現場での実臨床経験を統合したものです。教科書的な保守値だけでなく、日本の動物病院で実際に使われている臨床用量を重視しています。基本ロジックは「体重(kg) × 用量(mg/kg) ÷ 濃度(mg/mL) = 投与量(mL)」をベースにしています。</p>
 
 <h2>対応動物種</h2>
-<p>犬・猫・ウサギ・フェレット・モルモット・ハリネズミ・ハムスター・チンチラ・デグー・鳥類・爬虫類</p>
+<p>エキゾチックアニマルを含む、以下の臨床データに対応しています。<br>
+犬・猫・ウサギ・フェレット・モルモット・ハリネズミ・ハムスター</p>
 
-<h2>主な機能</h2>
+<h2>主な実装機能一覧（272薬剤に対応）</h2>
 <ul>
-<li>注射薬・内服薬・外用薬の投与量計算（244薬剤）</li>
-<li>CRI（持続点滴）・ガンマ計算</li>
-<li>血液ガス・電解質補正計算</li>
-<li>療法食カロリー計算（RER・DER）</li>
-<li>中毒データベース（25物質）</li>
-<li>鑑別診断DB（115項目）</li>
-<li>輸血量・アルブミン・BSA・浸透圧計算</li>
-<li>プロトコルセット管理</li>
+  <li><strong>注射薬・内服薬・外用薬の投与量計算：</strong> 臨床で多用される272薬剤のデータベースを内蔵。</li>
+  <li><strong>CRI（持続点滴）・ガンマ計算：</strong> 微量薬物の持続点滴速度やガンマ計算を自動化。</li>
+  <li><strong>脱水・輸液量計算：</strong> 脱水補正量、維持輸液量、進行性損失（Ongoing loss）を個体別に算出。</li>
+  <li><strong>エネルギー要求量（RER・DER）計算：</strong> 体重から安静時・日活動時の必要カロリー・療法食量を算出。</li>
+  <li><strong>臨床データベース：</strong> 中毒データベース（25物質）、鑑別診断DB（115項目）を搭載。</li>
+  <li><strong>特殊計算：</strong> 輸血量、アルブミン補正、体表面積（BSA）、血漿浸透圧計算、プロトコルセット管理。</li>
 </ul>
 
-<h2>特徴</h2>
+<h2>特徴・動作環境</h2>
 <ul>
-<li>完全無料・広告なし</li>
-<li>インストール不要（ブラウザで動作）</li>
-<li>オフライン対応（PWA）</li>
-<li>OSSとしてGitHubで公開（MITライセンス）</li>
+  <li><strong>完全無料・広告なし：</strong> 臨床中の誤タップを誘発する広告は一切排除しています。</li>
+  <li><strong>インストール不要（PWA対応）：</strong> ブラウザで即座に動作。iPhone（Safariの「ホーム画面に追加」）やAndroid（Chromeの「アプリをインストール」）から、スマホアプリとして端末にインストールしてネイティブアプリ同様にオフライン環境でも利用可能です。</li>
+  <li><strong>OSS（MITライセンス）：</strong> コードの透明性を担保し、GitHubにてすべてのソースコードを公開しています。</li>
 </ul>
 
 <h2>免責事項</h2>
-<p>本ツールは参照補助を目的とした計算ツールであり、医療機器ではありません。すべての投与量は添付文書・フォーミュラリーと照合の上、担当獣医師の責任において使用してください。</p>
+<p>本ツールは参照補助を目的とした計算ツールであり、医療機器（SaMD）ではありません。すべての投与量は添付文書やフォーミュラリーと必ず照合の上、担当獣医師の責任において使用してください。</p>
 
-<h2>アプリを開く</h2>
-<p><a href="https://vetcalcpro.github.io/vetcalc-pro/">VetCalc PRO を使う</a></p>
-<p><a href="https://vetcalcpro.github.io/vetcalc-pro/llms-full.txt">詳細情報（llms-full.txt）</a></p>
+<div class="btn-area">
+  <a href="index.html" class="btn">VetCalc PRO を使う</a>
+  <a href="https://qiita.com/VetCalcPRO/items/0b075f997002d0c844a0" target="_blank" class="btn-sub">Qiita開発記録を見る</a>
+</div>
+
+<footer style="margin-top: 50px; text-align: center; font-size: 0.8rem; color: #555;">
+  <p>© 2026 VetCalc PRO. <a href="https://github.com/VetCalcPRO/vetcalc-pro/blob/main/llms-full.txt" style="color: #555; text-decoration: none;">[AI Specification]</a></p>
+</footer>
+
 </body>
 </html>

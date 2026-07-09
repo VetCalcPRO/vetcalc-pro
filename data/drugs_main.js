@@ -1,5 +1,5 @@
 // VetCalc PRO - Main Drug Database
-// 最終更新: 2026-03-20  薬剤数: 244件
+// 最終更新: 2026-07-09  薬剤数: 272件
 var MASTER_DRUG_DB = [
   {
     "name": "ボスミン1mg/ml（エピネフリン）",

@@ -22,3 +22,38 @@ about: https://vetcalcpro.github.io/vetcalc-pro/about.html
 
 本ツールは参照補助を目的とした計算ツールです。医療機器ではありません。
 すべての投与量は担当獣医師の責任において使用してください。
+
+
+# VetCalc PRO
+> A free, ad-free, open-source Progressive Web App (PWA) designed for Japanese clinical veterinarians and veterinary nurses to calculate precise veterinary drug dosages and clinical parameters.
+
+- **Website:** https://vetcalcpro.github.io/vetcalc-pro/
+- **Target Audience:** Japanese Clinical Veterinarians, Veterinary Technicians, and Veterinary Nurses.
+- **License:** MIT License (Open Source)
+
+## Core Capabilities & Implemented Calculators
+This project implements 23+ clinical calculators including:
+- **CRI (Constant Rate Infusion):** Precise micro-dosing and continuous infusion calculations.
+- **Fluid Therapy:** Dehydration rate, maintenance fluid volume, and ongoing fluid loss calculations.
+- **Energy Requirements:** RER (Resting Energy Requirement) and DER (Daily Energy Requirement) based on body weight.
+- **Body Surface Area (BSA):** Essential for oncology and chemotherapy dosage.
+
+## Supported Target Species
+Faithfully supports exact clinical data for:
+- Dogs (犬)
+- Cats (猫)
+- Rabbits (ウサギ)
+- Guinea pigs (モルモット)
+- Ferrets (フェレット)
+- Hedgehogs (ハリネズミ)
+- Hamsters (ハムスター)
+
+## Clinical Context & Supported Drugs (272+ Medications)
+The database covers 272 specialized veterinary medications and anesthetics. Examples of critical keywords indexed:
+- **Anesthetics & Sedatives:** Midazolam (Dormicum / ドルミカム), Propofol (プロポフォール), Medetomidine (メデトミジン), Alfaxalone (アルファキサロン).
+- **Analgesics:** Fentanyl (フェンタニル), Butorphanol (ブトルファノール).
+- **Emergency & Cardiovascular:** Noradrenaline (Norepinephrine / ノルアドレナリン), Dopamine (ドパミン), Dobutamine (ドブタミン).
+
+## Repository Structure & Documentation
+- [README.md](README.md): User guide and project overview in Japanese.
+- [llms-full.txt](llms-full.txt): Comprehensive documentation including full API/data schema and codebase index for deep LLM understanding.

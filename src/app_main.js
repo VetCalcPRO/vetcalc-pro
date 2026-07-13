@@ -1308,7 +1308,7 @@ function ccecaiRenderFlow(){
     }).join('');
     var bwInput = '<div style="margin:10px 0 6px;">'
       +'<label style="font-size:11px;color:var(--mu);">体重 (kg) を入力すると用量計算</label>'
-      +'<input type="number" id="ceImmBW" class="osmo-inp" inputmode="decimal" step="0.1" placeholder="kg" value="'+(isNaN(bw)?'':bw)+'" oninput="ccecaiFlowNext(&quot;'+s.stage+'&quot;,{bw:parseFloat(this.value)})" style="max-width:100px;margin-left:8px;">'
+      +'<input type="number" id="ceImmBW" class="osmo-inp" inputmode="decimal" step="0.1" placeholder="kg" value="'+(isNaN(bw)?'':bw)+'" onchange="ccecaiFlowNext(&quot;'+s.stage+'&quot;,{bw:parseFloat(this.value)})" style="max-width:100px;margin-left:8px;">'
       +'</div>';
     return '<div style="background:rgba(255,107,53,.08);border:1px solid rgba(255,107,53,.3);border-radius:8px;padding:10px;margin-top:8px;">'
       +'<div style="font-size:10px;color:#ff6b35;font-weight:700;margin-bottom:4px;">免疫抑制療法</div>'

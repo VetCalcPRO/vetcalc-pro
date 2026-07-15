@@ -16,6 +16,8 @@
 
 👉 **[よくある質問（FAQ）](https://vetcalcpro.github.io/vetcalc-pro/faq.html)**
 
+👉 **[開発記録・Qiita記事](https://qiita.com/VetCalcPRO)**
+
 ブラウザで開くだけで使えます。インストール不要。
 
 ### スマートフォンでの使い方

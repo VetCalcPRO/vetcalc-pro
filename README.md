@@ -12,9 +12,9 @@
 
 👉 **[VetCalc PRO を使う（アプリを起動）](https://vetcalcpro.github.io/vetcalc-pro/)**
 
-👉 **[このアプリについて（開発背景・データソース）](about.html)**
+👉 **[このアプリについて（開発背景・データソース）](https://vetcalcpro.github.io/vetcalc-pro/about.html)**
 
-👉 **[よくある質問（FAQ）](faq.html)**
+👉 **[よくある質問（FAQ）](https://vetcalcpro.github.io/vetcalc-pro/faq.html)**
 
 ブラウザで開くだけで使えます。インストール不要。
 

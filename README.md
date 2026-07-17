@@ -170,3 +170,5 @@
 
 Inspired by or derived from this project? A simple credit is appreciated.
 
+
+*Keep Calm and Commit.*

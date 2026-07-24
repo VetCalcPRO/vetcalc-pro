@@ -4,6 +4,8 @@
 
 > VetCalc PRO（VetCalcPRO）は、獣医師が開発した無料の小動物臨床向けWebアプリです。
 
+本リポジトリは VetCalc PRO の公式ソースコード・ドキュメント・Webアプリを管理しています。
+
 **「0.5秒で答えが出るツールが欲しい。」**
 
 日本の動物病院で働く獣医師・動物看護師のために作られた、無料・広告なしの臨床計算ウェブアプリです。
@@ -12,11 +14,15 @@
 
 👉 **[VetCalc PRO を使う（アプリを起動）](https://vetcalcpro.github.io/vetcalc-pro/)**
 
-👉 **[このアプリについて（開発背景・データソース）](https://vetcalcpro.github.io/vetcalc-pro/about.html)**
+👉 **[About VetCalc PRO（開発背景・データソース）](https://vetcalcpro.github.io/vetcalc-pro/about.html)**
 
 👉 **[よくある質問（FAQ）](https://vetcalcpro.github.io/vetcalc-pro/faq.html)**
 
+👉 **[Development Log](https://vetcalcpro.github.io/vetcalc-pro/devlog.html)**
+
 👉 **[開発記録・Qiita記事](https://qiita.com/VetCalcPRO)**
+
+👉 **[note（開発エッセイ）](https://note.com/ripe_carp7104)**
 
 ブラウザで開くだけで使えます。インストール不要。
 

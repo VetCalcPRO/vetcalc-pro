@@ -1760,7 +1760,7 @@ function drugMatchesQuery(d, q){
   if(!d || !d.name) return false;
   var lq = String(q).toLowerCase();
   if(d.name.toLowerCase().indexOf(lq)>=0) return true;
-  if(d.category && d.category.indexOf(lq)>=0) return true;
+  if(d.category && String(d.category).toLowerCase().indexOf(lq)>=0) return true;
   if(Array.isArray(d.alias) && d.alias.some(function(a){ return String(a).toLowerCase().indexOf(lq)>=0; })) return true;
   return false;
 }

@@ -1755,6 +1755,22 @@ function buildDoseHtml(d, sp, w, mode, style) {
 }
 
 //========== RENDER ==========
+function drugMatchesQuery(d, q){
+  if(!q) return true;
+  if(!d || !d.name) return false;
+  var lq = String(q).toLowerCase();
+  if(d.name.toLowerCase().indexOf(lq)>=0) return true;
+  if(d.category && String(d.category).toLowerCase().indexOf(lq)>=0) return true;
+  if(Array.isArray(d.alias) && d.alias.some(function(a){ return String(a).toLowerCase().indexOf(lq)>=0; })) return true;
+  return false;
+}
+// 現在の絞り込み（投与経路・動物種・カテゴリ）を無視し、DB全体に該当薬剤が存在するか判定
+function drugExistsAnywhere(q){
+  if(!q) return false;
+  for(var k=0;k<DRUGS.length;k++){ if(drugMatchesQuery(DRUGS[k], q)) return true; }
+  return false;
+}
+
 function render(){
   var g = document.getElementById('grid');
   g.className = szCfg.minW>=320 ? 'g1' : 'g2';
@@ -1770,12 +1786,7 @@ function render(){
     // Filter by category
     if(st.cat!=='すべて' && d.category!==st.cat) continue;
     // Filter by search (name + category + alias)
-    if(q){
-      var nameMatch = d.name.toLowerCase().indexOf(q)>=0;
-      var catMatch  = d.category.indexOf(q)>=0;
-      var aliasMatch = Array.isArray(d.alias) && d.alias.some(function(a){ return a.toLowerCase().indexOf(q)>=0; });
-      if(!nameMatch && !catMatch && !aliasMatch) continue;
-    }
+    if(q && !drugMatchesQuery(d, q)) continue;
     
     var dz = buildDoseHtml(d, st.sp, st.w, st.mode, 'card');
     if(!dz.mlv && !dz.mgv && !dz.note) continue;
@@ -1808,7 +1819,17 @@ function render(){
     shown++;
   }
   if(!out){
-    g.innerHTML = '<p style="color:#6b7590;padding:30px 20px;text-align:center;grid-column:1/-1">この動物種のデータがありません</p>';
+    var qq = (st.q||'').trim();
+    if(qq){
+      g.innerHTML = '<div style="padding:30px 20px;text-align:center;grid-column:1/-1">'
+        + '<p style="color:#6b7590;font-size:14px;margin:0 0 16px;">「'+esc(qq)+'」は見つかりませんでした</p>'
+        + (drugExistsAnywhere(qq)
+            ? '<p style="color:#6b7590;font-size:12px;margin:0;line-height:1.6;">登録はありますが、いまの条件では表示されません<br>投与経路・動物種を切り替えてご確認ください</p>'
+            : '<button class="bprim" style="margin:0;width:auto;padding:11px 20px;" onclick="openEasyAdd()">＋ この薬剤を追加</button>')
+        + '</div>';
+    } else {
+      g.innerHTML = '<p style="color:#6b7590;padding:30px 20px;text-align:center;grid-column:1/-1">この動物種のデータがありません</p>';
+    }
   } else {
     g.innerHTML = out;
   }
@@ -3595,12 +3616,7 @@ function easyRenderDrugs(){
     var sp_data = d.species[easySt.sp]||{};
     // この動物種にデータがあるものだけ表示
     if(sp_data.lo==null && !sp_data.note) continue;
-    if(q){
-      var nm = d.name.toLowerCase().indexOf(q)>=0;
-      var cm = d.category.indexOf(q)>=0;
-      var am = Array.isArray(d.alias) && d.alias.some(function(a){ return a.toLowerCase().indexOf(q)>=0; });
-      if(!nm && !cm && !am) continue;
-    }
+    if(q && !drugMatchesQuery(d, q)) continue;
     var on = i===easySt.drugIdx ? ' on' : '';
     html += '<div class="easy-drug-item'+on+'" onclick="easySelectDrug('+i+')">'
           + '<div class="easy-drug-name">'+esc(d.name.replace(/\n/g,' '))+'</div>'

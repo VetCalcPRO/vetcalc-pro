@@ -887,7 +887,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "0.1ml-1mg",
     "route": "injectable",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%82%A2%E3%83%AB%E3%83%95%E3%82%A1%E3%82%AD%E3%82%B5%E3%83%AD%E3%83%B3&MAIN_COMPONENT=%E3%82%A2%E3%83%AB%E3%83%95%E3%82%A1%E3%82%AD%E3%82%B5%E3%83%AD%E3%83%B3",
+    "pdf_url": "https://www.vm.nval.go.jp/public/detail/15648",
     "source": "NVAL",
     "id": "drug_016"
   },
@@ -935,7 +935,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "0.1ml-0.1mg",
     "route": "injectable",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%83%A1%E3%83%87%E3%83%88%E3%83%9F%E3%82%B8%E3%83%B3%E5%A1%A9%E9%85%B8%E5%A1%A9&MAIN_COMPONENT=%E3%83%A1%E3%83%87%E3%83%88%E3%83%9F%E3%82%B8%E3%83%B3%E5%A1%A9%E9%85%B8%E5%A1%A9",
+    "pdf_url": "https://www.vm.nval.go.jp/public/detail/2949",
     "source": "NVAL",
     "id": "drug_017"
   },
@@ -983,7 +983,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "記載なし",
     "route": "injectable",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%82%A2%E3%83%81%E3%83%91%E3%83%A1%E3%82%BE%E3%83%BC%E3%83%AB%E5%A1%A9%E9%85%B8%E5%A1%A9&MAIN_COMPONENT=%E3%82%A2%E3%83%81%E3%83%91%E3%83%A1%E3%82%BE%E3%83%BC%E3%83%AB%E5%A1%A9%E9%85%B8%E5%A1%A9",
+    "pdf_url": "https://www.vm.nval.go.jp/public/detail/2622",
     "source": "NVAL",
     "id": "drug_018"
   },
@@ -1031,7 +1031,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "0.1ml-0.5mg",
     "route": "injectable",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E9%85%92%E7%9F%B3%E9%85%B8%E3%83%96%E3%83%88%E3%83%AB%E3%83%95%E3%82%A1%E3%83%8E%E3%83%BC%E3%83%AB&MAIN_COMPONENT=%E9%85%92%E7%9F%B3%E9%85%B8%E3%83%96%E3%83%88%E3%83%AB%E3%83%95%E3%82%A1%E3%83%8E%E3%83%BC%E3%83%AB",
+    "pdf_url": "https://www.vm.nval.go.jp/?ing_ingredient_name=%E9%85%92%E7%9F%B3%E9%85%B8%E3%83%96%E3%83%88%E3%83%AB%E3%83%95%E3%82%A1%E3%83%8E%E3%83%BC%E3%83%AB&submit=submit",
     "source": "NVAL",
     "id": "drug_019"
   },
@@ -2123,7 +2123,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "記載なし",
     "route": "oral",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%83%99%E3%83%8A%E3%82%BC%E3%83%97%E3%83%AA%E3%83%AB%E5%A1%A9%E9%85%B8%E5%A1%A9&MAIN_COMPONENT=%E3%83%99%E3%83%8A%E3%82%BC%E3%83%97%E3%83%AA%E3%83%AB%E5%A1%A9%E9%85%B8%E5%A1%A9",
+    "pdf_url": "https://www.vm.nval.go.jp/?ing_ingredient_name=%E3%83%99%E3%83%8A%E3%82%BC%E3%83%97%E3%83%AA%E3%83%AB%E5%A1%A9%E9%85%B8%E5%A1%A9&submit=submit",
     "source": "NVAL",
     "id": "drug_039"
   },
@@ -2171,7 +2171,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "記載なし",
     "route": "oral",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%83%A9%E3%83%9F%E3%83%97%E3%83%AA%E3%83%AB&MAIN_COMPONENT=%E3%83%A9%E3%83%9F%E3%83%97%E3%83%AA%E3%83%AB",
+    "pdf_url": "https://www.vm.nval.go.jp/?ing_ingredient_name=%E3%83%A9%E3%83%9F%E3%83%97%E3%83%AA%E3%83%AB&submit=submit",
     "source": "NVAL",
     "id": "drug_040"
   },
@@ -2323,7 +2323,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "ベーリンガー ベトメディン注射液 0.75mg/ml\n犬のみ注射適応",
     "route": "injectable",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%83%94%E3%83%A2%E3%83%99%E3%83%B3%E3%83%80%E3%83%B3&MAIN_COMPONENT=%E3%83%94%E3%83%A2%E3%83%99%E3%83%B3%E3%83%80%E3%83%B3",
+    "pdf_url": "https://www.vm.nval.go.jp/?ing_ingredient_name=%E3%83%94%E3%83%A2%E3%83%99%E3%83%B3%E3%83%80%E3%83%B3&submit=submit",
     "source": "NVAL",
     "id": "drug_042"
   },
@@ -5573,7 +5573,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "記載なし",
     "route": "injectable",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%82%AB%E3%83%AB%E3%83%97%E3%83%AD%E3%83%95%E3%82%A7%E3%83%B3&MAIN_COMPONENT=%E3%82%AB%E3%83%AB%E3%83%97%E3%83%AD%E3%83%95%E3%82%A7%E3%83%B3",
+    "pdf_url": "https://www.vm.nval.go.jp/public/detail/5427",
     "source": "NVAL",
     "id": "drug_091"
   },
@@ -5687,7 +5687,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "0.1ml-0.5mg",
     "route": "injectable",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%83%A1%E3%83%AD%E3%82%AD%E3%82%B7%E3%82%AB%E3%83%A0&MAIN_COMPONENT=%E3%83%A1%E3%83%AD%E3%82%AD%E3%82%B7%E3%82%AB%E3%83%A0",
+    "pdf_url": "https://www.vm.nval.go.jp/?ing_ingredient_name=%E3%83%A1%E3%83%AD%E3%82%AD%E3%82%B7%E3%82%AB%E3%83%A0&submit=submit",
     "source": "NVAL",
     "id": "drug_092"
   },
@@ -5791,7 +5791,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "0.1ml-2mg",
     "route": "injectable",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%83%AD%E3%83%99%E3%83%8A%E3%82%B3%E3%82%AD%E3%82%B7%E3%83%96&MAIN_COMPONENT=%E3%83%AD%E3%83%99%E3%83%8A%E3%82%B3%E3%82%AD%E3%82%B7%E3%83%96",
+    "pdf_url": "https://www.vm.nval.go.jp/public/detail/12542",
     "source": "NVAL",
     "id": "drug_093"
   },
@@ -5839,7 +5839,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "記載なし",
     "route": "oral",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%83%95%E3%82%A3%E3%83%AD%E3%82%B3%E3%82%AD%E3%82%B7%E3%83%96&MAIN_COMPONENT=%E3%83%95%E3%82%A3%E3%83%AD%E3%82%B3%E3%82%AD%E3%82%B7%E3%83%96",
+    "pdf_url": "https://www.vm.nval.go.jp/?ing_ingredient_name=%E3%83%95%E3%82%A3%E3%83%AD%E3%82%B3%E3%82%AD%E3%82%B7%E3%83%96&submit=submit",
     "source": "NVAL",
     "id": "drug_094"
   },
@@ -6621,7 +6621,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "記載なし",
     "route": "topical",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%83%92%E3%83%89%E3%83%AD%E3%82%B3%E3%83%AB%E3%83%81%E3%82%BE%E3%83%B3%E3%82%A2%E3%82%BB%E3%83%9D%E3%83%B3%E9%85%B8%E3%82%A8%E3%82%B9%E3%83%86%E3%83%AB&MAIN_COMPONENT=%E3%83%92%E3%83%89%E3%83%AD%E3%82%B3%E3%83%AB%E3%83%81%E3%82%BE%E3%83%B3%E3%82%A2%E3%82%BB%E3%83%9D%E3%83%B3%E9%85%B8%E3%82%A8%E3%82%B9%E3%83%86%E3%83%AB",
+    "pdf_url": "https://www.vm.nval.go.jp/public/detail/12406",
     "source": "NVAL",
     "id": "drug_105"
   },
@@ -6725,7 +6725,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "0.1ml-10mg",
     "route":"injectable",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%82%A2%E3%83%B3%E3%83%94%E3%82%B7%E3%83%AA%E3%83%B3%E3%83%8A%E3%83%88%E3%83%AA%E3%82%A6%E3%83%A0&MAIN_COMPONENT=%E3%82%A2%E3%83%B3%E3%83%94%E3%82%B7%E3%83%AA%E3%83%B3%E3%83%8A%E3%83%88%E3%83%AA%E3%82%A6%E3%83%A0",
+    "pdf_url": "https://www.vm.nval.go.jp/?ing_ingredient_name=%E3%82%A2%E3%83%B3%E3%83%94%E3%82%B7%E3%83%AA%E3%83%B3%E3%83%8A%E3%83%88%E3%83%AA%E3%82%A6%E3%83%A0&submit=submit",
     "source": "NVAL",
     "id": "drug_106"
   },
@@ -6773,7 +6773,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "0.1ml-8mg",
     "route": "injectable",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%82%BB%E3%83%95%E3%82%A9%E3%83%99%E3%82%B7%E3%83%B3%E3%83%8A%E3%83%88%E3%83%AA%E3%82%A6%E3%83%A0&MAIN_COMPONENT=%E3%82%BB%E3%83%95%E3%82%A9%E3%83%99%E3%82%B7%E3%83%B3%E3%83%8A%E3%83%88%E3%83%AA%E3%82%A6%E3%83%A0",
+    "pdf_url": "https://www.vm.nval.go.jp/public/detail/9144",
     "source": "NVAL",
     "id": "drug_107"
   },
@@ -6869,7 +6869,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "記載なし",
     "route": "oral",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%82%A2%E3%83%A2%E3%82%AD%E3%82%B7%E3%82%B7%E3%83%AA%E3%83%B3&MAIN_COMPONENT=%E3%82%A2%E3%83%A2%E3%82%AD%E3%82%B7%E3%82%B7%E3%83%AA%E3%83%B3",
+    "pdf_url": "https://www.vm.nval.go.jp/?ing_ingredient_name=%E3%82%A2%E3%83%A2%E3%82%AD%E3%82%B7%E3%82%B7%E3%83%AA%E3%83%B3&submit=submit",
     "source": "NVAL",
     "id": "drug_109"
   },
@@ -7205,7 +7205,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "記載なし",
     "route": "oral",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%82%BB%E3%83%95%E3%82%A1%E3%83%AC%E3%82%AD%E3%82%B7%E3%83%B3&MAIN_COMPONENT=%E3%82%BB%E3%83%95%E3%82%A1%E3%83%AC%E3%82%AD%E3%82%B7%E3%83%B3",
+    "pdf_url": "https://www.vm.nval.go.jp/?ing_ingredient_name=%E3%82%BB%E3%83%95%E3%82%A1%E3%83%AC%E3%82%AD%E3%82%B7%E3%83%B3&submit=submit",
     "source": "NVAL",
     "id": "drug_116"
   },
@@ -7253,7 +7253,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "記載なし",
     "route": "oral",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%82%BB%E3%83%95%E3%83%9D%E3%83%89%E3%82%AD%E3%82%B7%E3%83%A0%E3%83%97%E3%83%AD%E3%82%AD%E3%82%BB%E3%83%81%E3%83%AB&MAIN_COMPONENT=%E3%82%BB%E3%83%95%E3%83%9D%E3%83%89%E3%82%AD%E3%82%B7%E3%83%A0%E3%83%97%E3%83%AD%E3%82%AD%E3%82%BB%E3%83%81%E3%83%AB",
+    "pdf_url": "https://www.vm.nval.go.jp/public/detail/13566",
     "source": "NVAL",
     "id": "drug_117"
   },
@@ -7301,7 +7301,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "記載なし",
     "route": "oral",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%82%BF%E3%82%A4%E3%83%AD%E3%82%B7%E3%83%B3&MAIN_COMPONENT=%E3%82%BF%E3%82%A4%E3%83%AD%E3%82%B7%E3%83%B3",
+    "pdf_url": "https://www.vm.nval.go.jp/?ing_ingredient_name=%E3%82%BF%E3%82%A4%E3%83%AD%E3%82%B7%E3%83%B3&submit=submit",
     "source": "NVAL",
     "id": "drug_118"
   },
@@ -7559,7 +7559,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "0.1ml-0.25mg",
     "route":"injectable",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%82%A8%E3%83%B3%E3%83%AD%E3%83%95%E3%83%AD%E3%82%AD%E3%82%B5%E3%82%B7%E3%83%B3&MAIN_COMPONENT=%E3%82%A8%E3%83%B3%E3%83%AD%E3%83%95%E3%83%AD%E3%82%AD%E3%82%B5%E3%82%B7%E3%83%B3",
+    "pdf_url": "https://www.vm.nval.go.jp/?ing_ingredient_name=%E3%82%A8%E3%83%B3%E3%83%AD%E3%83%95%E3%83%AD%E3%82%AD%E3%82%B5%E3%82%B7%E3%83%B3&submit=submit",
     "source": "NVAL",
     "id": "drug_122"
   },
@@ -7607,7 +7607,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "記載なし",
     "route": "oral",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%83%9E%E3%83%AB%E3%83%9C%E3%83%95%E3%83%AD%E3%82%AD%E3%82%B5%E3%82%B7%E3%83%B3&MAIN_COMPONENT=%E3%83%9E%E3%83%AB%E3%83%9C%E3%83%95%E3%83%AD%E3%82%AD%E3%82%B5%E3%82%B7%E3%83%B3",
+    "pdf_url": "https://www.vm.nval.go.jp/?ing_ingredient_name=%E3%83%9E%E3%83%AB%E3%83%9C%E3%83%95%E3%83%AD%E3%82%AD%E3%82%B5%E3%82%B7%E3%83%B3&submit=submit",
     "source": "NVAL",
     "id": "drug_123"
   },
@@ -7721,7 +7721,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "0.1ml-5mg",
     "route":"injectable",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%82%AA%E3%83%AB%E3%83%93%E3%83%95%E3%83%AD%E3%82%AD%E3%82%B5%E3%82%B7%E3%83%B3&MAIN_COMPONENT=%E3%82%AA%E3%83%AB%E3%83%93%E3%83%95%E3%83%AD%E3%82%AD%E3%82%B5%E3%82%B7%E3%83%B3",
+    "pdf_url": "https://www.vm.nval.go.jp/public/detail/2839",
     "source": "NVAL",
     "id": "drug_124"
   },
@@ -8049,7 +8049,7 @@ var MASTER_DRUG_DB = [
     "route": [
       "oral"
     ],
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%82%AF%E3%83%AA%E3%83%B3%E3%83%80%E3%83%9E%E3%82%A4%E3%82%B7%E3%83%B3%E5%A1%A9%E9%85%B8%E5%A1%A9&MAIN_COMPONENT=%E3%82%AF%E3%83%AA%E3%83%B3%E3%83%80%E3%83%9E%E3%82%A4%E3%82%B7%E3%83%B3%E5%A1%A9%E9%85%B8%E5%A1%A9",
+    "pdf_url": "https://www.vm.nval.go.jp/public/detail/4091",
     "source": "NVAL",
     "id": "drug_128"
   },
@@ -8625,7 +8625,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "記載なし",
     "route": "topical",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%83%AD%E3%83%A1%E3%83%95%E3%83%AD%E3%82%AD%E3%82%B5%E3%82%B7%E3%83%B3&MAIN_COMPONENT=%E3%83%AD%E3%83%A1%E3%83%95%E3%83%AD%E3%82%AD%E3%82%B5%E3%82%B7%E3%83%B3",
+    "pdf_url": "https://www.vm.nval.go.jp/public/detail/5638",
     "source": "NVAL",
     "id": "drug_140"
   },
@@ -8673,7 +8673,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "記載なし",
     "route": "topical",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%83%86%E3%82%A3%E3%82%A2%E3%83%AD%E3%83%BC%E3%82%BA",
+    "pdf_url": "https://www.vm.nval.go.jp/public/detail/4754",
     "source": "NVAL",
     "id": "drug_141"
   },
@@ -8817,7 +8817,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "記載なし",
     "route": "topical",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%83%91%E3%83%91%E3%82%A4%E3%83%B3%E3%83%BB%E3%83%9D%E3%83%AA%E3%83%9F%E3%82%AD%E3%82%B7%E3%83%B3B&MAIN_COMPONENT=%E3%83%91%E3%83%91%E3%82%A4%E3%83%B3%E3%83%BB%E3%83%9D%E3%83%AA%E3%83%9F%E3%82%AD%E3%82%B7%E3%83%B3B",
+    "pdf_url": "https://www.vm.nval.go.jp/public/detail/4317",
     "source": "NVAL",
     "id": "drug_144"
   },
@@ -9009,7 +9009,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "記載なし",
     "route": "topical",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E8%80%B3%E9%81%93%E6%B4%97%E6%B5%84%E5%89%A4&MAIN_COMPONENT=%E8%80%B3%E9%81%93%E6%B4%97%E6%B5%84%E5%89%A4",
+    "pdf_url": "https://www.vm.nval.go.jp/public/detail/4316",
     "source": "NVAL",
     "id": "drug_148"
   },
@@ -9105,7 +9105,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "記載なし",
     "route": "topical",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%82%AA%E3%83%AB%E3%83%93%E3%83%95%E3%83%AD%E3%82%AD%E3%82%B5%E3%82%B7%E3%83%B3%E3%83%BB%E3%83%88%E3%83%AA%E3%82%A2%E3%83%A0%E3%82%B7%E3%83%8E%E3%83%AD%E3%83%B3&MAIN_COMPONENT=%E3%82%AA%E3%83%AB%E3%83%93%E3%83%95%E3%83%AD%E3%82%AD%E3%82%B5%E3%82%B7%E3%83%B3%E3%83%BB%E3%83%88%E3%83%AA%E3%82%A2%E3%83%A0%E3%82%B7%E3%83%8E%E3%83%AD%E3%83%B3",
+    "pdf_url": "https://www.vm.nval.go.jp/?ing_ingredient_name=%E3%82%AA%E3%83%AB%E3%83%93%E3%83%95%E3%83%AD%E3%82%AD%E3%82%B5%E3%82%B7%E3%83%B3%E3%83%BB%E3%83%88%E3%83%AA%E3%82%A2%E3%83%A0%E3%82%B7%E3%83%8E%E3%83%AD%E3%83%B3&submit=submit",
     "source": "NVAL",
     "id": "drug_150"
   },
@@ -9249,7 +9249,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "記載なし",
     "route": "topical",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E8%80%B3%E6%B4%97%E6%B5%84%E5%89%A4&MAIN_COMPONENT=%E8%80%B3%E6%B4%97%E6%B5%84%E5%89%A4",
+    "pdf_url": "https://www.vm.nval.go.jp/public/detail/14266",
     "source": "NVAL",
     "id": "drug_153"
   },
@@ -9441,7 +9441,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "LFA-1阻害薬。サイトカイン刺激による白血球の血管壁接着・組織浸潤を抑制。ステロイド・NSAIDとは異なる作用機序のため感染併発例でも使用可能。犬のみ正式承認（2018年）。",
     "route": "injectable",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%83%95%E3%82%B6%E3%83%97%E3%83%A9%E3%82%B8%E3%83%96%E3%83%8A%E3%83%88%E3%83%AA%E3%82%A6%E3%83%A0&MAIN_COMPONENT=%E3%83%95%E3%82%B6%E3%83%97%E3%83%A9%E3%82%B8%E3%83%96%E3%83%8A%E3%83%88%E3%83%AA%E3%82%A6%E3%83%A0",
+    "pdf_url": "https://www.vm.nval.go.jp/?ing_ingredient_name=%E3%83%95%E3%82%B6%E3%83%97%E3%83%A9%E3%82%B8%E3%83%96%E3%83%8A%E3%83%88%E3%83%AA%E3%82%A6%E3%83%A0&submit=submit",
     "source": "NVAL",
     "id": "drug_157"
   },
@@ -9635,7 +9635,7 @@ var MASTER_DRUG_DB = [
         "note": "（記載なし）"
       }
     },
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%82%AA%E3%82%AF%E3%83%A9%E3%82%B7%E3%83%81%E3%83%8B%E3%83%96%E3%83%9E%E3%83%AC%E3%82%A4%E3%83%B3%E9%85%B8%E5%A1%A9&MAIN_COMPONENT=%E3%82%AA%E3%82%AF%E3%83%A9%E3%82%B7%E3%83%81%E3%83%8B%E3%83%96%E3%83%9E%E3%83%AC%E3%82%A4%E3%83%B3%E9%85%B8%E5%A1%A9",
+    "pdf_url": "https://www.vm.nval.go.jp/?ing_ingredient_name=%E3%82%AA%E3%82%AF%E3%83%A9%E3%82%B7%E3%83%81%E3%83%8B%E3%83%96%E3%83%9E%E3%83%AC%E3%82%A4%E3%83%B3%E9%85%B8%E5%A1%A9&submit=submit",
     "source": "NVAL",
     "id": "drug_161"
   },
@@ -9684,7 +9684,7 @@ var MASTER_DRUG_DB = [
         "note": "（記載なし）"
       }
     },
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%83%AD%E3%82%AD%E3%83%99%E3%83%88%E3%83%9E%E3%83%96&MAIN_COMPONENT=%E3%83%AD%E3%82%AD%E3%83%99%E3%83%88%E3%83%9E%E3%83%96",
+    "pdf_url": "https://www.vm.nval.go.jp/?ing_ingredient_name=%E3%83%AD%E3%82%AD%E3%83%99%E3%83%88%E3%83%9E%E3%83%96&submit=submit",
     "source": "NVAL",
     "id": "drug_162"
   },
@@ -9733,7 +9733,7 @@ var MASTER_DRUG_DB = [
         "note": "（記載なし）"
       }
     },
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%83%AD%E3%83%94%E3%83%8B%E3%83%AD%E3%83%BC%E3%83%AB%E5%A1%A9%E9%85%B8%E5%A1%A9&MAIN_COMPONENT=%E3%83%AD%E3%83%94%E3%83%8B%E3%83%AD%E3%83%BC%E3%83%AB%E5%A1%A9%E9%85%B8%E5%A1%A9",
+    "pdf_url": "https://www.vm.nval.go.jp/public/detail/19594",
     "source": "NVAL",
     "id": "drug_163"
   },
@@ -9928,7 +9928,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "JAK阻害剤（非選択的）。食事と無関係に投与可。ワクチン接種前後は注意。",
     "route": "oral",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%82%A4%E3%83%AB%E3%83%8E%E3%82%B7%E3%83%81%E3%83%8B%E3%83%96&MAIN_COMPONENT=%E3%82%A4%E3%83%AB%E3%83%8E%E3%82%B7%E3%83%81%E3%83%8B%E3%83%96",
+    "pdf_url": "https://www.vm.nval.go.jp/?ing_ingredient_name=%E3%82%A4%E3%83%AB%E3%83%8E%E3%82%B7%E3%83%81%E3%83%8B%E3%83%96&submit=submit",
     "source": "NVAL",
     "id": "drug_167"
   },
@@ -9976,7 +9976,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "世界初の猫用経口SGLT2阻害薬。インスリン治療歴のある猫は慎重に。DKAリスクに注意。ハチミツ風味。",
     "route": "oral",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%83%99%E3%83%A9%E3%82%B0%E3%83%AA%E3%83%95%E3%83%AD%E3%82%B8%E3%83%B3&MAIN_COMPONENT=%E3%83%99%E3%83%A9%E3%82%B0%E3%83%AA%E3%83%95%E3%83%AD%E3%82%B8%E3%83%B3",
+    "pdf_url": "https://www.vm.nval.go.jp/?ing_ingredient_name=%E3%83%99%E3%83%A9%E3%82%B0%E3%83%AA%E3%83%95%E3%83%AD%E3%82%B8%E3%83%B3&submit=submit",
     "source": "NVAL",
     "id": "drug_168"
   },
@@ -10024,7 +10024,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "グレリン受容体作動薬。食欲刺激＋成長ホルモン分泌促進による筋肉量増加効果。バニラ風味。",
     "route": "oral",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%82%AB%E3%83%97%E3%83%AD%E3%83%A2%E3%83%AC%E3%83%AA%E3%83%B3&MAIN_COMPONENT=%E3%82%AB%E3%83%97%E3%83%AD%E3%83%A2%E3%83%AC%E3%83%AA%E3%83%B3",
+    "pdf_url": "https://www.vm.nval.go.jp/public/detail/19447",
     "source": "NVAL",
     "id": "drug_169"
   },
@@ -10072,7 +10072,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "抗NGFモノクローナル抗体（犬用）。4週間に1回皮下注射。妊娠・授乳中は禁忌。",
     "route": "injectable",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%83%99%E3%82%B8%E3%83%B3%E3%83%99%E3%83%88%E3%83%9E%E3%83%96&MAIN_COMPONENT=%E3%83%99%E3%82%B8%E3%83%B3%E3%83%99%E3%83%88%E3%83%9E%E3%83%96",
+    "pdf_url": "https://www.vm.nval.go.jp/?ing_ingredient_name=%E3%83%99%E3%82%B8%E3%83%B3%E3%83%99%E3%83%88%E3%83%9E%E3%83%96&submit=submit",
     "source": "NVAL",
     "id": "drug_170"
   },
@@ -10120,7 +10120,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "抗NGFモノクローナル抗体（猫用）。4週間に1回皮下注射。妊娠・授乳中は禁忌。",
     "route": "injectable",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%83%95%E3%83%AB%E3%83%8D%E3%83%99%E3%83%88%E3%83%9E%E3%83%96&MAIN_COMPONENT=%E3%83%95%E3%83%AB%E3%83%8D%E3%83%99%E3%83%88%E3%83%9E%E3%83%96",
+    "pdf_url": "https://www.vm.nval.go.jp/public/detail/19074",
     "source": "NVAL",
     "id": "drug_171"
   },
@@ -10648,7 +10648,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "α2受容体拮抗薬。メデトミジン・キシラジンの拮抗に使用。メデトミジンの5倍量をIMで投与。",
     "route": "injectable",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%82%A2%E3%83%81%E3%83%91%E3%83%A1%E3%82%BE%E3%83%BC%E3%83%AB%E5%A1%A9%E9%85%B8%E5%A1%A9&MAIN_COMPONENT=%E3%82%A2%E3%83%81%E3%83%91%E3%83%A1%E3%82%BE%E3%83%BC%E3%83%AB%E5%A1%A9%E9%85%B8%E5%A1%A9",
+    "pdf_url": "https://www.vm.nval.go.jp/public/detail/2622",
     "source": "NVAL",
     "id": "drug_182"
   },
@@ -10744,7 +10744,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "ベンズイミダゾール系。線虫・条虫・原虫に有効。エンセファリトゾーン（ウサギ）に特に重要。",
     "route": "oral",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%83%95%E3%82%A7%E3%83%B3%E3%83%99%E3%83%B3%E3%83%80%E3%82%BE%E3%83%BC%E3%83%AB&MAIN_COMPONENT=%E3%83%95%E3%82%A7%E3%83%B3%E3%83%99%E3%83%B3%E3%83%80%E3%82%BE%E3%83%BC%E3%83%AB",
+    "pdf_url": "https://www.vm.nval.go.jp/?ing_ingredient_name=%E3%83%95%E3%82%A7%E3%83%B3%E3%83%99%E3%83%B3%E3%83%80%E3%82%BE%E3%83%BC%E3%83%AB&submit=submit",
     "source": "NVAL",
     "id": "drug_184"
   },
@@ -10792,7 +10792,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "条虫・吸虫駆除薬。細胞膜のカルシウム透過性を亢進させ殺虫。",
     "route": "oral",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%83%97%E3%83%A9%E3%82%B8%E3%82%AB%E3%83%B3%E3%83%86%E3%83%AB&MAIN_COMPONENT=%E3%83%97%E3%83%A9%E3%82%B8%E3%82%AB%E3%83%B3%E3%83%86%E3%83%AB",
+    "pdf_url": "https://www.vm.nval.go.jp/public/detail/3821",
     "source": "NVAL",
     "id": "drug_185"
   },
@@ -10840,7 +10840,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "マクロライド系スポットオン。犬猫の外寄生虫・フィラリア予防。エキゾにも幅広く使用。",
     "route": "topical",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%82%BB%E3%83%A9%E3%83%A1%E3%82%AF%E3%83%81%E3%83%B3&MAIN_COMPONENT=%E3%82%BB%E3%83%A9%E3%83%A1%E3%82%AF%E3%83%81%E3%83%B3",
+    "pdf_url": "https://www.vm.nval.go.jp/?ing_ingredient_name=%E3%82%BB%E3%83%A9%E3%83%A1%E3%82%AF%E3%83%81%E3%83%B3&submit=submit",
     "source": "NVAL",
     "id": "drug_186"
   },
@@ -10888,7 +10888,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "マクロライド系。フィラリア予防・駆虫。コリー系犬でMDR1変異に注意（イベルメクチンより安全）。",
     "route": "oral",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%83%9F%E3%83%AB%E3%83%99%E3%83%9E%E3%82%A4%E3%82%B7%E3%83%B3%E3%82%AA%E3%82%AD%E3%82%B7%E3%83%A0&MAIN_COMPONENT=%E3%83%9F%E3%83%AB%E3%83%99%E3%83%9E%E3%82%A4%E3%82%B7%E3%83%B3%E3%82%AA%E3%82%AD%E3%82%B7%E3%83%A0",
+    "pdf_url": "https://www.vm.nval.go.jp/?ing_ingredient_name=%E3%83%9F%E3%83%AB%E3%83%99%E3%83%9E%E3%82%A4%E3%82%B7%E3%83%B3%E3%82%AA%E3%82%AD%E3%82%B7%E3%83%A0&submit=submit",
     "source": "NVAL",
     "id": "drug_187"
   },
@@ -10936,7 +10936,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "昆虫成長調節剤（IGR）。ノミの卵・幼虫発育を阻害。成虫には無効なため他薬との併用が望ましい。",
     "route": "oral",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%83%AB%E3%83%95%E3%82%A7%E3%83%8C%E3%83%AD%E3%83%B3&MAIN_COMPONENT=%E3%83%AB%E3%83%95%E3%82%A7%E3%83%8C%E3%83%AD%E3%83%B3",
+    "pdf_url": "https://www.vm.nval.go.jp/?ing_ingredient_name=%E3%83%AB%E3%83%95%E3%82%A7%E3%83%8C%E3%83%AD%E3%83%B3&submit=submit",
     "source": "NVAL",
     "id": "drug_188"
   },
@@ -10984,7 +10984,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "フェニルピラゾール系。GABAおよびグルタミン酸受容体を阻害。草食小動物への安全性注意。",
     "route": "topical",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%83%95%E3%82%A3%E3%83%97%E3%83%AD%E3%83%8B%E3%83%AB&MAIN_COMPONENT=%E3%83%95%E3%82%A3%E3%83%97%E3%83%AD%E3%83%8B%E3%83%AB",
+    "pdf_url": "https://www.vm.nval.go.jp/public/detail/4159",
     "source": "NVAL",
     "id": "drug_189"
   },
@@ -11032,7 +11032,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "ニコチン系殺虫剤。ノミ成虫に即効。ウサギ・フェレットには猫用製剤を使用。",
     "route": "topical",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%82%A4%E3%83%9F%E3%83%80%E3%82%AF%E3%83%AD%E3%83%97%E3%83%AA%E3%83%89&MAIN_COMPONENT=%E3%82%A4%E3%83%9F%E3%83%80%E3%82%AF%E3%83%AD%E3%83%97%E3%83%AA%E3%83%89",
+    "pdf_url": "https://www.vm.nval.go.jp/?ing_ingredient_name=%E3%82%A4%E3%83%9F%E3%83%80%E3%82%AF%E3%83%AD%E3%83%97%E3%83%AA%E3%83%89&submit=submit",
     "source": "NVAL",
     "id": "drug_190"
   },
@@ -11224,7 +11224,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "イミダゾチアゾール系化合物。線虫の神経筋接合部に作用。代謝は肝臓。",
     "route": "oral",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%83%AC%E3%83%90%E3%83%9F%E3%82%BE%E3%83%BC%E3%83%AB%E5%A1%A9%E9%85%B8%E5%A1%A9&MAIN_COMPONENT=%E3%83%AC%E3%83%90%E3%83%9F%E3%82%BE%E3%83%BC%E3%83%AB%E5%A1%A9%E9%85%B8%E5%A1%A9",
+    "pdf_url": "https://www.vm.nval.go.jp/?ing_ingredient_name=%E3%83%AC%E3%83%90%E3%83%9F%E3%82%BE%E3%83%BC%E3%83%AB%E5%A1%A9%E9%85%B8%E5%A1%A9&submit=submit",
     "source": "NVAL",
     "id": "drug_194"
   },
@@ -11368,7 +11368,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "フェノチアジン系。低血圧に注意。心不全・呼吸器疾患・てんかん患者では禁忌または減量。",
     "route": "injectable",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%82%A2%E3%82%BB%E3%83%97%E3%83%AD%E3%83%9E%E3%82%B8%E3%83%B3%E3%83%9E%E3%83%AC%E3%82%A4%E3%83%B3%E9%85%B8%E5%A1%A9&MAIN_COMPONENT=%E3%82%A2%E3%82%BB%E3%83%97%E3%83%AD%E3%83%9E%E3%82%B8%E3%83%B3%E3%83%9E%E3%83%AC%E3%82%A4%E3%83%B3%E9%85%B8%E5%A1%A9",
+    "pdf_url": "https://www.vm.nval.go.jp/?ing_ingredient_name=%E3%82%A2%E3%82%BB%E3%83%97%E3%83%AD%E3%83%9E%E3%82%B8%E3%83%B3%E3%83%9E%E3%83%AC%E3%82%A4%E3%83%B3%E9%85%B8%E5%A1%A9&submit=submit",
     "source": "NVAL",
     "id": "drug_197"
   },
@@ -11416,7 +11416,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "α2アドレナリン受容体作動薬。鎮静・鎮痛・筋弛緩。心疾患・呼吸器疾患では注意。アンチセダン（アチパメゾール）で拮抗可。",
     "route": "injectable",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%82%AD%E3%82%B7%E3%83%A9%E3%82%B8%E3%83%B3%E5%A1%A9%E9%85%B8%E5%A1%A9&MAIN_COMPONENT=%E3%82%AD%E3%82%B7%E3%83%A9%E3%82%B8%E3%83%B3%E5%A1%A9%E9%85%B8%E5%A1%A9",
+    "pdf_url": "https://www.vm.nval.go.jp/public/detail/204",
     "source": "NVAL",
     "id": "drug_198"
   },
@@ -11560,7 +11560,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "解離性麻酔薬（ケタミン類似）＋ベンゾジアゼピン。筋弛緩が良好。腎毒性に注意（特にウサギ・猫）。",
     "route": "injectable",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%83%81%E3%83%AC%E3%82%BF%E3%83%9F%E3%83%B3%E3%83%BB%E3%82%BE%E3%83%A9%E3%82%BC%E3%83%91%E3%83%A0&MAIN_COMPONENT=%E3%83%81%E3%83%AC%E3%82%BF%E3%83%9F%E3%83%B3%E3%83%BB%E3%82%BE%E3%83%A9%E3%82%BC%E3%83%91%E3%83%A0",
+    "pdf_url": "https://www.vm.nval.go.jp/?ing_ingredient_name=%E3%83%81%E3%83%AC%E3%82%BF%E3%83%9F%E3%83%B3&submit=submit",
     "source": "NVAL",
     "id": "drug_201"
   },
@@ -11608,7 +11608,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "NSAIDs・COX非選択的。術後・疝痛疼痛緩和。腎機能低下時は禁忌。猫への反復投与は禁忌。",
     "route": "injectable",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%83%95%E3%83%AB%E3%83%8B%E3%82%AD%E3%82%B7%E3%83%B3%E3%83%A1%E3%82%B0%E3%83%AB%E3%83%9F%E3%83%B3&MAIN_COMPONENT=%E3%83%95%E3%83%AB%E3%83%8B%E3%82%AD%E3%82%B7%E3%83%B3%E3%83%A1%E3%82%B0%E3%83%AB%E3%83%9F%E3%83%B3",
+    "pdf_url": "https://www.vm.nval.go.jp/public/detail/3190",
     "source": "NVAL",
     "id": "drug_202"
   },
@@ -11704,7 +11704,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "NSAIDs。プロスタグランジン合成阻害。猫への反復投与は腎毒性に注意。",
     "route": "injectable",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%82%B1%E3%83%88%E3%83%97%E3%83%AD%E3%83%95%E3%82%A7%E3%83%B3&MAIN_COMPONENT=%E3%82%B1%E3%83%88%E3%83%97%E3%83%AD%E3%83%95%E3%82%A7%E3%83%B3",
+    "pdf_url": "https://www.vm.nval.go.jp/?ing_ingredient_name=%E3%82%B1%E3%83%88%E3%83%97%E3%83%AD%E3%83%95%E3%82%A7%E3%83%B3&submit=submit",
     "source": "NVAL",
     "id": "drug_204"
   },
@@ -13375,7 +13375,7 @@ var MASTER_DRUG_DB = [
     },
     "memo": "食前1時間投与推奨。",
     "route": "oral",
-    "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%83%94%E3%83%A2%E3%83%99%E3%83%B3%E3%83%80%E3%83%B3&MAIN_COMPONENT=%E3%83%94%E3%83%A2%E3%83%99%E3%83%B3%E3%83%80%E3%83%B3",
+    "pdf_url": "https://www.vm.nval.go.jp/?ing_ingredient_name=%E3%83%94%E3%83%A2%E3%83%99%E3%83%B3%E3%83%80%E3%83%B3&submit=submit",
     "source": "NVAL",
     "id": "drug_277"
   },
@@ -13475,7 +13475,7 @@ var MASTER_DRUG_DB = [
   },
   "memo": "食前1時間投与推奨。",
   "route": "oral",
-  "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%82%BB%E3%83%AC%E3%83%8B%E3%82%A2&MAIN_COMPONENT=%E3%83%9E%E3%83%AD%E3%83%94%E3%82%BF%E3%83%B3%E3%83%88",
+  "pdf_url": "https://www.vm.nval.go.jp/?ing_ingredient_name=%E3%83%9E%E3%83%AD%E3%83%94%E3%82%BF%E3%83%B3%E3%83%88&submit=submit",
   "source": "NVAL",
   "id": "drug_282"
 },
@@ -13575,7 +13575,7 @@ var MASTER_DRUG_DB = [
   },
   "memo": "記載なし",
   "route": "oral",
-  "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%83%AA%E3%83%9E%E3%83%80%E3%82%A4%E3%83%AB&MAIN_COMPONENT=%E3%82%AB%E3%83%AB%E3%83%97%E3%83%AD%E3%83%95%E3%82%A7%E3%83%B3",
+  "pdf_url": "https://www.vm.nval.go.jp/?ing_ingredient_name=%E3%82%AB%E3%83%AB%E3%83%97%E3%83%AD%E3%83%95%E3%82%A7%E3%83%B3&submit=submit",
   "source": "NVAL",
   "id": "drug_288"
 },
@@ -13595,7 +13595,7 @@ var MASTER_DRUG_DB = [
   },
   "memo": "記載なし",
   "route": "oral",
-  "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%83%A1%E3%82%BF%E3%82%AB%E3%83%A0&MAIN_COMPONENT=%E3%83%A1%E3%83%AD%E3%82%AD%E3%82%B7%E3%82%AB%E3%83%A0",
+  "pdf_url": "https://www.vm.nval.go.jp/?ing_ingredient_name=%E3%83%A1%E3%83%AD%E3%82%AD%E3%82%B7%E3%82%AB%E3%83%A0&submit=submit",
   "source": "NVAL",
   "id": "drug_289"
 },
@@ -13615,7 +13615,7 @@ var MASTER_DRUG_DB = [
   },
   "memo": "記載なし",
   "route": "oral",
-  "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%82%AA%E3%83%B3%E3%82%B7%E3%82%AA%E3%83%BC%E3%83%AB&MAIN_COMPONENT=%E3%83%AD%E3%83%99%E3%83%8A%E3%82%B3%E3%82%AD%E3%82%B7%E3%83%96",
+  "pdf_url": "https://www.vm.nval.go.jp/?ing_ingredient_name=%E3%83%AD%E3%83%99%E3%83%8A%E3%82%B3%E3%82%AD%E3%82%B7%E3%83%96&submit=submit",
   "source": "NVAL",
   "id": "drug_290"
 },
@@ -13735,7 +13735,7 @@ var MASTER_DRUG_DB = [
   },
   "memo": "記載なし",
   "route": "oral",
-  "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%83%90%E3%82%A4%E3%83%88%E3%83%AA%E3%83%AB&MAIN_COMPONENT=%E3%82%A8%E3%83%B3%E3%83%AD%E3%83%95%E3%83%AD%E3%82%AD%E3%82%B5%E3%82%B7%E3%83%B3",
+  "pdf_url": "https://www.vm.nval.go.jp/?ing_ingredient_name=%E3%82%A8%E3%83%B3%E3%83%AD%E3%83%95%E3%83%AD%E3%82%AD%E3%82%B5%E3%82%B7%E3%83%B3&submit=submit",
   "source": "NVAL",
   "id": "drug_296"
 },
@@ -13755,7 +13755,7 @@ var MASTER_DRUG_DB = [
   },
   "memo": "記載なし",
   "route": "oral",
-  "pdf_url": "https://www.vm.nval.go.jp/?PRODUCT_NAME=%E3%83%93%E3%82%AF%E3%82%BF%E3%82%B9&MAIN_COMPONENT=%E3%82%AA%E3%83%AB%E3%83%93%E3%83%95%E3%83%AD%E3%82%AD%E3%82%B5%E3%82%B7%E3%83%B3",
+  "pdf_url": "https://www.vm.nval.go.jp/?ing_ingredient_name=%E3%82%AA%E3%83%AB%E3%83%93%E3%83%95%E3%83%AD%E3%82%AD%E3%82%B5%E3%82%B7%E3%83%B3&submit=submit",
   "source": "NVAL",
   "id": "drug_297"
 },

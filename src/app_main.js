@@ -1923,11 +1923,31 @@ function openSearchSheet(name, source, pdfUrl){
   openSheet('shSrch');
 }
 
+// NVAL検索URLの生成。現行仕様は ing_ingredient_name + submit=submit。
+function nvalSearchUrl(q){
+  return 'https://www.vm.nval.go.jp/?ing_ingredient_name='+encodeURIComponent(q)+'&submit=submit';
+}
+
+// 旧仕様(PRODUCT_NAME / MAIN_COMPONENT)のURLを現行仕様へ書き換える。
+// 製品詳細ページ(/public/detail/)はそのまま通す。インポートされた古いデータの救済用。
+function normalizeNvalUrl(url){
+  if(!url || url.indexOf('nval') < 0) return url;
+  if(url.indexOf('/public/detail/') >= 0) return url;
+  if(url.indexOf('ing_ingredient_name=') >= 0){
+    return url.indexOf('submit=') >= 0 ? url : url + '&submit=submit';
+  }
+  var m = url.match(/[?&]MAIN_COMPONENT=([^&]*)/) || url.match(/[?&]PRODUCT_NAME=([^&]*)/);
+  if(!m) return url;
+  var q = '';
+  try { q = decodeURIComponent(m[1].replace(/\+/g,' ')); } catch(e){ q = m[1]; }
+  return q ? nvalSearchUrl(q) : url;
+}
+
 function doSrchDirect(dest){
   var btn = dest==='pmda' ? document.getElementById('srchPmdaBtn') : document.getElementById('srchNvalBtn');
   var url = btn ? btn.getAttribute('data-url') : null;
   if(url && url !== 'null' && url !== ''){
-    window.open(url,'_blank','noopener');
+    window.open(normalizeNvalUrl(url),'_blank','noopener');
   } else {
     // data-urlがなければ成分名で直接検索
     var name = document.getElementById('srchGoogleBtn').getAttribute('data-name')||'';
@@ -1935,7 +1955,7 @@ function doSrchDirect(dest){
     if(dest==='pmda'){
       url = 'https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName='+encodeURIComponent(name)+'&nameKbn=1&nameMatch=1';
     } else {
-      url = 'https://www.vm.nval.go.jp/?PRODUCT_NAME='+encodeURIComponent(name);
+      url = nvalSearchUrl(name);
     }
     window.open(url,'_blank','noopener');
   }

@@ -1754,6 +1754,14 @@ function buildDoseHtml(d, sp, w, mode, style) {
   return { mlv: mlv, mgv: mgv, tabletv: tabletv, tabRows: (typeof tabRows!=='undefined'?tabRows:null), note: s.note || null, mclass: mclass };
 }
 
+// 規格×錠数グリッドのHTML生成（カード・詳細モーダル共通）
+function buildTabGridRows(tabRows){
+  return tabRows.map(function(r){
+    return '<span class="tr-mg">'+esc(String(r.mg))+'mg錠</span>'
+         + '<span class="tr-ct">'+esc(r.label)+'</span>';
+  }).join('');
+}
+
 //========== RENDER ==========
 function drugMatchesQuery(d, q){
   if(!q) return true;
@@ -1797,11 +1805,7 @@ function render(){
     var val;
     if(dz.tabletv){
       if(dz.tabRows && dz.tabRows.length){
-        var rowsHtml = dz.tabRows.map(function(r){
-          return '<span class="tr-mg">'+esc(String(r.mg))+'mg錠</span>'
-               + '<span class="tr-ct">'+esc(r.label)+'</span>';
-        }).join('');
-        val = '<div class="cv ora tabgrid">'+rowsHtml+'</div>'
+        val = '<div class="cv ora tabgrid">'+buildTabGridRows(dz.tabRows)+'</div>'
             + (dz.mgv ? '<span class="csub">'+esc(dz.mgv)+'</span>' : '');
       } else {
         val = '<b class="cv ora tab">' + esc(dz.tabletv) + '</b>'
@@ -2120,15 +2124,22 @@ function openDetail(idx){
       var s=getSpData(d, sp, activeRoute);
       var act=sp===st.sp;
       var dzd = buildDoseHtml(d, sp, st.w, activeRoute, 'detail');
-      var mlv = dzd.tabletv || dzd.mlv || (dzd.note ? '参照' : '—');
-      var mgv = dzd.tabletv ? (dzd.mgv||'') : (dzd.mgv || '');
       if(!dzd.tabletv && !dzd.mlv && !dzd.note) continue;
+      var valHtml;
+      if(dzd.tabRows && dzd.tabRows.length){
+        valHtml = '<div class="dmv-tabgrid" style="color:var(--'+mclass+')">'+buildTabGridRows(dzd.tabRows)+'</div>'
+          +(dzd.mgv?'<span class="dmg">'+esc(dzd.mgv)+'</span>':'');
+      } else {
+        var mlv = dzd.tabletv || dzd.mlv || (dzd.note ? '参照' : '—');
+        var mgv = dzd.mgv || '';
+        valHtml = '<span class="dmv" style="color:var(--'+mclass+')">'+esc(mlv)+'</span>'
+          +(mgv?'<span class="dmg">'+esc(mgv)+'</span>':'');
+      }
       rows+='<div class="dr'+(act?' act':'')+'"><div>'
         +'<div class="drn'+(act?' bold':'')+'">'+esc(sp)+'</div>'
         +(s.note?'<div class="nt">'+esc(s.note)+'</div>':'')
         +'</div><div class="drv">'
-        +'<span class="dmv" style="color:var(--'+mclass+')">'+esc(mlv)+'</span>'
-        +(mgv?'<span class="dmg">'+esc(mgv)+'</span>':'')
+        +valHtml
         +'</div></div>';
     }
   }

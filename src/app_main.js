@@ -1737,21 +1737,21 @@ function buildDoseHtml(d, sp, w, mode, style) {
 
     if(isTablet){
       // 錠剤: 全規格について分割を計算
-      var tabParts = tabletMgs.map(function(tmg){
+      var tabRows = tabletMgs.map(function(tmg){
         var splitLo = calcTabletSplit(mgLo, tmg);
         var splitHi = mgLo !== mgHi ? calcTabletSplit(mgHi, tmg) : null;
         var label = splitHi && splitHi.label !== splitLo.label
           ? splitLo.label + '〜' + splitHi.label
           : splitLo.label;
-        return tmg + 'mg錠: ' + label;
+        return { mg: tmg, label: label };
       });
-      tabletv = tabParts.join(' / ');
+      tabletv = tabRows.map(function(r){ return r.mg + 'mg錠: ' + r.label; }).join(' / ');
     } else if (d.conc != null && d.conc > 0) {
       var lo = (w * s.lo / d.conc), hi = (w * hiV / d.conc);
       mlv = lo === hi ? lo.toFixed(2) + ' mL' : lo.toFixed(2) + '〜' + hi.toFixed(2) + ' mL';
     }
   }
-  return { mlv: mlv, mgv: mgv, tabletv: tabletv, note: s.note || null, mclass: mclass };
+  return { mlv: mlv, mgv: mgv, tabletv: tabletv, tabRows: (typeof tabRows!=='undefined'?tabRows:null), note: s.note || null, mclass: mclass };
 }
 
 //========== RENDER ==========
@@ -1796,8 +1796,17 @@ function render(){
     var mclass = dz.mclass;
     var val;
     if(dz.tabletv){
-      val = '<b class="cv ora tab">' + esc(dz.tabletv) + '</b>'
-          + (dz.mgv ? '<span class="csub">'+esc(dz.mgv)+'</span>' : '');
+      if(dz.tabRows && dz.tabRows.length){
+        var rowsHtml = dz.tabRows.map(function(r){
+          return '<span class="tr-mg">'+esc(String(r.mg))+'mg錠</span>'
+               + '<span class="tr-ct">'+esc(r.label)+'</span>';
+        }).join('');
+        val = '<div class="cv ora tabgrid">'+rowsHtml+'</div>'
+            + (dz.mgv ? '<span class="csub">'+esc(dz.mgv)+'</span>' : '');
+      } else {
+        val = '<b class="cv ora tab">' + esc(dz.tabletv) + '</b>'
+            + (dz.mgv ? '<span class="csub">'+esc(dz.mgv)+'</span>' : '');
+      }
     } else if(dz.mlv){
       var sh = dz.mlv.replace(' mL','').replace('〜','~');
       val = '<b class="cv '+mclass+'">' + esc(sh) + '<em>mL</em></b>' + (dz.mgv ? '<span class="csub">'+esc(dz.mgv)+'</span>' : '');

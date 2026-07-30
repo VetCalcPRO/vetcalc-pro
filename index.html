@@ -1206,6 +1206,26 @@ select.ea-fi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w
   transition:.15s; user-select:none;
 }
 .conc-reset:hover{ color:var(--wn); background:rgba(255,176,32,.1); }
+.conc-chips{
+  display:flex; flex-wrap:wrap; align-items:center; gap:6px;
+  padding:10px 14px; background:rgba(255,176,32,.06);
+  border-bottom:1px solid var(--bd);
+}
+.conc-chip-label{
+  font-size:11px; color:var(--wn); font-weight:700;
+  white-space:nowrap; margin-right:2px;
+}
+.conc-chip{
+  padding:5px 12px; border:1px solid var(--bd); border-radius:999px;
+  background:transparent; color:var(--mu);
+  font-size:12px; font-weight:700; font-family:inherit;
+  cursor:pointer; transition:.15s;
+}
+.conc-chip:hover{ border-color:var(--wn); color:var(--tx); }
+.conc-chip.active{
+  border-color:var(--wn); background:rgba(255,176,32,.15);
+  color:var(--wn);
+}
 
 /* ===== SPECIES SELECTOR ===== */
 .species-row{
@@ -1581,7 +1601,7 @@ select.ea-fi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w
   <a href="https://github.com/VetCalcPRO/vetcalc-pro" target="_blank">GitHub</a>
   ・
   <a href="https://github.com/VetCalcPRO/vetcalc-pro/blob/main/LICENSE" target="_blank">License</a>
-  <br><span class="ver-tag">v41</span>
+  <br><span class="ver-tag">v43</span>
 </div>
 </div>
 <div id="calcPanel"></div>
@@ -1962,9 +1982,9 @@ select.ea-fi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w
   <div style="margin-top:14px;background:var(--bg);border-radius:10px;padding:12px 14px;">
     <div style="font-size:11px;font-weight:700;color:var(--mu);margin-bottom:6px;">💡 製剤濃度（デフォルト）</div>
     <div style="font-size:11px;color:var(--tx);display:flex;flex-direction:column;gap:3px;">
-      <div>モルヒネ塩酸塩 <strong>15 mg/ml</strong></div>
+      <div>モルヒネ塩酸塩 <strong>10 mg/ml</strong></div>
       <div>リドカイン（2%） <strong>20 mg/ml</strong></div>
-      <div>ケタミン <strong>50 mg/ml</strong></div>
+      <div>ケタミン <strong>100 mg/ml（10%）</strong></div>
     </div>
   </div>
 </div>
@@ -3307,6 +3327,7 @@ select.ea-fi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w
             <button class="vol-btn" data-vol="500" onclick="selectVol('bag',500,this)">500ml</button>
           </div>
         </div>
+        <div class="conc-chips" id="concChips" style="display:none;"></div>
         <div class="conc-row" id="concRow">
           <span class="conc-label">原液濃度</span>
           <input type="number" class="conc-input" id="inp-conc"

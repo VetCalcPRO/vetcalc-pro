@@ -863,6 +863,7 @@ const CRI_DRUGS = {
   'モルヒネ': {
     conc: '10 mg/ml',
     concVal: 10,
+    // 院内在庫は10mg/mL一択（とりあえず）
     unit: 'mg/kg/h',
     unitType: 'mg_kg_h',
     defaultDose: 0.1,
@@ -876,8 +877,9 @@ const CRI_DRUGS = {
   },
 
   'ケタミン': {
-    conc: '50 mg/ml',
-    concVal: 50,
+    conc: '100 mg/ml（10%）',
+    concVal: 100,
+    // 院内在庫：注射用ケタミン10%フジタ 100mg/mL 一択
     unit: 'μg/kg/min',
     unitType: 'ug_kg_min',
     defaultDose: 2,
@@ -927,6 +929,7 @@ const CRI_DRUGS = {
   'ドパミン': {
     conc: '20 mg/ml（2%）',
     concVal: 20,
+    // 獣医療で流通するのは実質20mg/mLアンプルのみ（3/10mg/mLは人医の希釈シリンジ製剤で対象外）
     unit: 'μg/kg/min',
     unitType: 'ug_kg_min',
     defaultDose: 5,
@@ -940,6 +943,7 @@ const CRI_DRUGS = {
       multiplier: 3,    // BW × 3mg / 50ml → 1ml/h = 1γ
       volMl: 50,        // 50ml固定
       concMgMl: 20,     // 20mg/ml製剤
+      defaultConcMgMl: 20,  // パネル再オープン時のリセット基準
       unitPerMlH: 1.0,  // 1ml/h = 1.0 μg/kg/min
     },
     tableFr: [1,2,3,5,7,10,15], // 早見表の流量リスト(ml/h)
@@ -949,6 +953,7 @@ const CRI_DRUGS = {
   'ドブタミン': {
     conc: '20 mg/ml',
     concVal: 20,
+    // 獣医療で流通するのは実質20mg/mLアンプルのみ（1/3/6mg/mLは人医の希釈シリンジ製剤で対象外）
     unit: 'μg/kg/min',
     unitType: 'ug_kg_min',
     defaultDose: 5,
@@ -962,6 +967,7 @@ const CRI_DRUGS = {
       multiplier: 3,    // BW × 3mg / 50ml → 1ml/h = 1γ
       volMl: 50,
       concMgMl: 20,
+      defaultConcMgMl: 20,  // パネル再オープン時のリセット基準
       unitPerMlH: 1.0,
     },
     tableFr: [1,2,3,5,7,10,15],
@@ -996,8 +1002,9 @@ const CRI_DRUGS = {
   },
 
   'フロセミド': {
-    conc: '50 mg/ml（5%）',
-    concVal: 50,
+    conc: '10 mg/ml',
+    concVal: 10,
+    // 院内在庫は10mg/mL一択
     unit: 'mg/kg/day',
     unitType: 'mg_kg_day',
     defaultDose: 3,
@@ -1063,6 +1070,11 @@ function openCalc(drugName) {
   currentDrug = drugName;
   const d = CRI_DRUGS[drugName];
 
+  // gammaUI薬剤：パネル再オープン時に選択濃度を既定へ戻す
+  if (d.gamma && d.gamma.defaultConcMgMl != null) {
+    d.gamma.concMgMl = d.gamma.defaultConcMgMl;
+  }
+
   // ヘッダー更新
   document.getElementById('cp-drug-name').innerHTML =
     `<span>${d.icon}</span> ${drugName}`;
@@ -1085,18 +1097,30 @@ function openCalc(drugName) {
   const concRow = document.getElementById('concRow');
   const concInput = document.getElementById('inp-conc');
   const concUnitLbl = document.getElementById('conc-unit-label');
+  const unitMap = {
+    'ug_kg_min': 'mg/ml', 'ug_kg_h': 'mg/ml',
+    'mg_kg_h':  'mg/ml', 'mg_kg_min': 'mg/ml',
+    'mg_kg_day':'mg/ml', 'u_kg_day':  'U/ml',
+  };
   if (drugName === 'FLK' || d.fixedRecipe) {
     concRow.style.display = 'none';
+    renderConcChips(null);
   } else {
     concRow.style.display = '';
-    const unitMap = {
-      'ug_kg_min': 'mg/ml', 'ug_kg_h': 'mg/ml',
-      'mg_kg_h':  'mg/ml', 'mg_kg_min': 'mg/ml',
-      'mg_kg_day':'mg/ml', 'u_kg_day':  'U/ml',
-    };
     concUnitLbl.textContent = unitMap[d.unitType] || 'mg/ml';
-    concInput.value = d.concVal;
-    concInput.classList.remove('modified');
+    // 複数濃度規格を持つ薬剤は「選択するまで確定しない」。単一濃度はそのまま初期表示。
+    const multi = Array.isArray(d.concentrations) && d.concentrations.length > 1;
+    if (multi) {
+      concInput.value = '';
+      concInput.placeholder = '規格を選択';
+      concInput.classList.remove('modified');
+      renderConcChips(d);
+    } else {
+      concInput.value = d.concVal;
+      concInput.placeholder = '';
+      concInput.classList.remove('modified');
+      renderConcChips(null);
+    }
   }
 
   // バッグ・シリンジブロック表示リセット
@@ -1483,14 +1507,63 @@ function resetConc() {
   }
 }
 
-// 現在の有効濃度を返す（ユーザー変更値 or デフォルト）
-function getActiveConcVal() {
+// ===== 濃度規格の選択チップ（複数規格を持つ薬剤のみ）=====
+// 継ぎ目対策：候補は CRI_DRUGS[].concentrations の単一ソースからのみ生成する。
+function renderConcChips(d) {
+  const wrap = document.getElementById('concChips');
+  if (!wrap) return;
+  if (!d || !Array.isArray(d.concentrations) || d.concentrations.length < 2) {
+    wrap.style.display = 'none';
+    wrap.innerHTML = '';
+    return;
+  }
+  const unit = ({
+    'ug_kg_min':'mg/ml','ug_kg_h':'mg/ml','mg_kg_h':'mg/ml',
+    'mg_kg_min':'mg/ml','mg_kg_day':'mg/ml','u_kg_day':'U/ml',
+  })[d.unitType] || 'mg/ml';
+  wrap.style.display = '';
+  wrap.innerHTML =
+    '<span class="conc-chip-label">製剤規格を選択</span>' +
+    d.concentrations.map(c =>
+      `<button type="button" class="conc-chip" data-c="${c}" onclick="selectConc(${c},this)">${c} ${unit}</button>`
+    ).join('');
+}
+
+// ガンマUI薬剤（ドパミン/ドブタミン）の製剤規格切替。gamma.concMgMl を更新して再描画。
+function selectGammaConc(drugName, val) {
+  const d = CRI_DRUGS[drugName];
+  if (!d || !d.gamma) return;
+  d.gamma.concMgMl = val;
+  const bw = parseFloat(document.getElementById('inp-bw').value);
+  if (!isNaN(bw) && bw > 0) renderGamma(drugName, bw);
+}
+
+// チップ選択：入力欄へ反映し、計算ロックを解除
+function selectConc(val, btn) {
   const inp = document.getElementById('inp-conc');
+  if (inp) { inp.value = val; inp.classList.remove('modified'); }
+  document.querySelectorAll('#concChips .conc-chip').forEach(b =>
+    b.classList.toggle('active', b === btn));
+  if (document.getElementById('resultCard').classList.contains('show')) {
+    calculate();
+  }
+}
+
+// 現在の有効濃度を返す。複数規格薬剤で未選択なら null（＝計算不可）。
+function getActiveConcVal() {
+  const d = CRI_DRUGS[currentDrug];
+  const inp = document.getElementById('inp-conc');
+  const multi = Array.isArray(d.concentrations) && d.concentrations.length > 1;
   if (!inp || document.getElementById('concRow').style.display === 'none') {
-    return CRI_DRUGS[currentDrug].concVal;
+    // 濃度欄非表示（固定レシピ/FLK）は従来どおりデフォルト値
+    return d.concVal;
   }
   const v = parseFloat(inp.value);
-  return isNaN(v) || v <= 0 ? CRI_DRUGS[currentDrug].concVal : v;
+  if (isNaN(v) || v <= 0) {
+    // 複数規格は既定値に落とさない：未選択のまま計算させない
+    return multi ? null : d.concVal;
+  }
+  return v;
 }
 
 // ===== 選択中の容量（状態管理） =====
@@ -1518,6 +1591,15 @@ function calculate() {
   const d = CRI_DRUGS[currentDrug];
   const bw = parseFloat(document.getElementById('inp-bw').value);
   if (isNaN(bw) || bw <= 0) { alert('体重を入力してください'); return; }
+
+  // 複数規格薬剤の未選択ガード。
+  // ただし gammaUI（ドパミン/ドブタミン）は既定20mg/mlを持ち、パネル内チップで選び直す方式のため対象外。
+  const multiConc = Array.isArray(d.concentrations) && d.concentrations.length > 1
+                    && !(currentDrug === 'FLK' || d.fixedRecipe || d.gammaUI);
+  if (multiConc) {
+    const cv = getActiveConcVal();
+    if (cv == null) { alert('製剤規格（原液濃度）を選択してください'); return; }
+  }
 
   if (currentDrug === 'FLK') {
     renderFLK(bw);
@@ -1808,12 +1890,27 @@ function renderGamma(drugName, bw) {
   // 維持輸液量プリセット
   const maintFr = getMaintenanceFr(bw).toFixed(1);
 
+  // 複数規格薬剤：ガンマパネル内に製剤選択チップ（concMgMl 連動）
+  const gConcChips = (Array.isArray(d.concentrations) && d.concentrations.length > 1)
+    ? `<div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:12px;padding:8px 10px;background:var(--bg);border:1px solid var(--bd);border-radius:8px;">
+         <span style="font-size:11px;color:var(--mu);font-weight:700;">製剤規格</span>
+         ${d.concentrations.map(c =>
+           `<button type="button" onclick="selectGammaConc('${drugName}',${c})"
+              style="padding:5px 12px;border:1px solid ${c===g.concMgMl?'var(--cri)':'var(--bd)'};border-radius:999px;
+                     background:${c===g.concMgMl?'rgba(168,85,247,.15)':'transparent'};
+                     color:${c===g.concMgMl?'var(--cri)':'var(--mu)'};font-size:12px;font-weight:700;
+                     font-family:inherit;cursor:pointer;">${c} mg/ml</button>`
+         ).join('')}
+       </div>`
+    : '';
+
   const bagEl = document.getElementById('bagResult');
   bagEl.className = 'method-body has-result';
   bagEl.innerHTML = `
     <button class="gamma-help-btn" onclick="openGammaSheet()">
       📖 γ（ガンマ）計算って何？ — タップして解説を読む
     </button>
+    ${gConcChips}
     <div style="display:flex;gap:0;margin-bottom:12px;border:1px solid var(--bd);border-radius:8px;overflow:hidden;">
       <button id="gtab-gamma" onclick="switchGammaTab('${drugName}','gamma')"
         style="flex:1;padding:9px 6px;border:none;font-size:12px;font-weight:700;font-family:inherit;cursor:pointer;transition:.15s;
@@ -1846,7 +1943,12 @@ function renderGamma(drugName, bw) {
           </div>
           <div style="font-size:11px;color:var(--ok);margin-top:2px;font-weight:700;">1 ml/h = ${g.unitPerMlH} γ</div>
         </div>
-
+        ${(Array.isArray(d.concentrations) && d.concentrations.length > 1)
+          ? `<div style="font-size:11px;color:var(--mu);margin-top:2px;text-align:center;">製剤 ${g.concMgMl} mg/ml で ${addMl.toFixed(2)} ml 添加</div>
+             ${g.concMgMl !== 20
+               ? `<div style="color:var(--wn);font-size:11px;margin-top:8px;padding:8px 10px;background:rgba(255,176,32,.12);border-radius:8px;line-height:1.6;">⚠ 簡易ガンマ法（BW×3mg・1ml/h=1γ）は <b>20 mg/ml 製剤</b>を前提とした暗記則です。<br>選択中の ${g.concMgMl} mg/ml では添加量のみ上記に補正済みですが、「1ml/h=1γ」の対応は変わります。<b>フルマニュアルタブ</b>での確認を推奨します。</div>`
+               : ''}`
+          : ''}
       </div>
       <div class="m-row" style="margin-bottom:14px;">
         <span class="m-label">目標 ${dose} μg/kg/min → ✅ ポンプ流量</span>
@@ -2360,9 +2462,12 @@ function renderFLK(bw) {
   const ketDose = parseFloat(document.getElementById('flk-ket').value);
 
   function flkCalc(tv, fr) {
-    const fenAdd = (fenDose * bw * tv) / (fr * 50); // 0.05mg/ml=50μg/ml, dose μg/kg/h
-    const lidAdd = (lidDose * bw * 60 * tv) / (fr * 20000);
-    const ketAdd = (ketDose * bw * 60 * tv) / (fr * 50000);
+    const fenConc = 50;      // フェンタニル 0.05mg/ml=50μg/ml
+    const lidConc = (CRI_DRUGS['リドカイン'] ? CRI_DRUGS['リドカイン'].concVal : 20) * 1000; // mg/ml→μg/ml
+    const ketConc = (CRI_DRUGS['ケタミン']   ? CRI_DRUGS['ケタミン'].concVal   : 100) * 1000;
+    const fenAdd = (fenDose * bw * tv) / (fr * fenConc); // dose μg/kg/h
+    const lidAdd = (lidDose * bw * 60 * tv) / (fr * lidConc);
+    const ketAdd = (ketDose * bw * 60 * tv) / (fr * ketConc);
     return { fenAdd, lidAdd, ketAdd, total: fenAdd + lidAdd + ketAdd };
   }
 

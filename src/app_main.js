@@ -287,6 +287,7 @@ var CALC_TOOLS = [
   { id:'cri_furosemide',  tab:'💧 CRI', icon:'🟢', name:'フロセミド',        desc:'1–4 mg/kg/day',        ready:true },
   { id:'cri_metoclo',     tab:'💧 CRI', icon:'🟢', name:'メトクロプラミド',  desc:'1–2 mg/kg/day',        ready:true },
   { id:'cri_insulin',     tab:'💧 CRI', icon:'🟠', name:'インスリン',        desc:'DKA管理',              ready:true },
+  { id:'cri_flk',         tab:'💧 CRI', icon:'🔵', name:'FLK',               desc:'フェンタニル+リドカイン+ケタミン', ready:true },
   // ツール
   { id:'bsa',    tab:'🔧 ツール', icon:'📐', name:'BSA計算',      desc:'体表面積 → 薬用量換算',  ready:true },
   { id:'ddx',    tab:'🔧 ツール', icon:'🔍', name:'鑑別診断',     desc:'症状・検査値から検索',    ready:true },
@@ -477,7 +478,7 @@ function openCalcTool(id){
     cri_fentanyl:'フェンタニル', cri_morphine:'モルヒネ', cri_ketamine:'ケタミン',
     cri_lidocaine:'リドカイン', cri_propofol:'プロポフォール', cri_dopamine:'ドパミン',
     cri_dobutamine:'ドブタミン', cri_noradr:'ノルアドレナリン', cri_furosemide:'フロセミド',
-    cri_metoclo:'メトクロプラミド', cri_insulin:'インスリン'
+    cri_metoclo:'メトクロプラミド', cri_insulin:'インスリン', cri_flk:'FLK'
   };
   if(CRI_MAP[id]){ openCRIFromCalc(CRI_MAP[id]); return; }
   toast('🔧 準備中: '+id);
@@ -618,17 +619,19 @@ function mlkCalc(){
   document.getElementById('mlkResult').style.display = ok ? '' : 'none';
   document.getElementById('mlkEmpty').style.display  = ok ? 'none' : '';
   if(!ok) return;
-  // Drug vol (ml) = dose(μg/kg/min) × weight × vol(ml) × 60 / (rate(ml/hr) × conc(mg/ml) × 1000)
-  var mConc = 15, lConc = 20, kConc = 50;
+  // 製剤濃度はCRIモジュール（CRI_DRUGS）と統一：モルヒネ10mg/ml、リドカイン20mg/ml(2%)、ケタミン100mg/ml(10%)
+  var mConc = (typeof CRI_DRUGS !== 'undefined' && CRI_DRUGS['モルヒネ']) ? CRI_DRUGS['モルヒネ'].concVal : 10;
+  var lConc = (typeof CRI_DRUGS !== 'undefined' && CRI_DRUGS['リドカイン']) ? CRI_DRUGS['リドカイン'].concVal : 20;
+  var kConc = (typeof CRI_DRUGS !== 'undefined' && CRI_DRUGS['ケタミン']) ? CRI_DRUGS['ケタミン'].concVal : 100;
   var mVol = isNaN(md) ? 0 : md * bw * vol * 60 / (rate * mConc * 1000);
   var lVol = isNaN(ld) ? 0 : ld * bw * vol * 60 / (rate * lConc * 1000);
   var kVol = isNaN(kd) ? 0 : kd * bw * vol * 60 / (rate * kConc * 1000);
   var discard = mVol + lVol + kVol;
   var steps = '';
   steps += '① 輸液バッグ（'+vol+' ml）から <strong>'+discard.toFixed(2)+' ml</strong> を廃棄<br>';
-  if(!isNaN(md)) steps += '② モルヒネ（15 mg/ml）を <strong>'+mVol.toFixed(2)+' ml</strong> 添加<br>';
+  if(!isNaN(md)) steps += '② モルヒネ（'+mConc+' mg/ml）を <strong>'+mVol.toFixed(2)+' ml</strong> 添加<br>';
   if(!isNaN(ld)) steps += '③ リドカイン（2%）を <strong>'+lVol.toFixed(2)+' ml</strong> 添加<br>';
-  if(!isNaN(kd)) steps += '④ ケタミン（50 mg/ml）を <strong>'+kVol.toFixed(2)+' ml</strong> 添加<br>';
+  if(!isNaN(kd)) steps += '④ ケタミン（'+kConc+' mg/ml）を <strong>'+kVol.toFixed(2)+' ml</strong> 添加<br>';
   document.getElementById('mlkSteps').innerHTML = steps;
   var confirm = '';
   confirm += rate+' ml/hr で投与すると:<br>';

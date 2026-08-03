@@ -816,7 +816,7 @@ const CRI_DRUGS = {
     doseMin: 1,
     doseMax: 10,
     doseStep: 0.5,
-    icon: '🟣',
+    icon: '🔵',
     category: '鎮痛',
     // 固定レシピフラグ：添加量計算不要、作り方は固定文言
     fixedRecipe: true,
@@ -870,7 +870,7 @@ const CRI_DRUGS = {
     doseMin: 0.02,
     doseMax: 0.3,
     doseStep: 0.01,
-    icon: '🟣',
+    icon: '🔵',
     category: '鎮痛',
     bagType: false,
     warningMsg: '猫は0.05mg/kg/h、犬は0.1mg/kg/h が推奨上限の目安。ヒスタミン遊離に注意（静注はゆっくり）。希釈する場合は必ずシリンジにラベル記載。',
@@ -901,7 +901,7 @@ const CRI_DRUGS = {
     doseMin: 25,
     doseMax: 100,
     doseStep: 5,
-    icon: '🟡',
+    icon: '⚪',
     category: '鎮痛・抗不整脈',
     bagType: true,
     warningMsg: '猫には使用不可（リドカイン毒性リスク）。犬のみ使用。',
@@ -915,7 +915,7 @@ const CRI_DRUGS = {
     doseMin: 0.025,
     doseMax: 0.4,
     doseStep: 0.025,
-    icon: '⚪',
+    icon: '🟡',
     category: '麻酔維持',
     fixedRecipe: true,
     syringeOnly: true,
@@ -936,7 +936,7 @@ const CRI_DRUGS = {
     doseMin: 2,
     doseMax: 15,
     doseStep: 1,
-    icon: '🔴',
+    icon: '🟣',
     category: '循環補助',
     gammaUI: true,
     gamma: {
@@ -960,7 +960,7 @@ const CRI_DRUGS = {
     doseMin: 2,
     doseMax: 15,
     doseStep: 1,
-    icon: '🔴',
+    icon: '🟣',
     category: '循環補助（陽性変力）',
     gammaUI: true,
     gamma: {
@@ -983,7 +983,7 @@ const CRI_DRUGS = {
     doseMin: 0.05,
     doseMax: 1.0,
     doseStep: 0.05,
-    icon: '🔴',
+    icon: '🟣',
     category: '循環補助（昇圧）',
     gammaUI: true,
     gamma: {
@@ -1050,7 +1050,7 @@ const CRI_DRUGS = {
     conc: 'F+L+K 複合バッグ',
     unit: '複合',
     unitType: 'flk',
-    icon: '🔵',
+    icon: '💊',
     category: '鎮痛（複合）',
     bagType: true,
     // FLK個別デフォルト値
@@ -1073,6 +1073,20 @@ function openCalc(drugName) {
   // gammaUI薬剤：パネル再オープン時に選択濃度を既定へ戻す
   if (d.gamma && d.gamma.defaultConcMgMl != null) {
     d.gamma.concMgMl = d.gamma.defaultConcMgMl;
+  }
+
+  // FLK：リドカイン含有のため猫は通常使用不可 → 猫タブを隠し犬固定にする
+  const catBtn = document.getElementById('sp-cat');
+  const dogBtn = document.getElementById('sp-dog');
+  if (catBtn) {
+    if (drugName === 'FLK') {
+      catBtn.style.display = 'none';
+      currentSpecies = 'dog';
+      if (dogBtn) dogBtn.classList.add('active');
+      catBtn.classList.remove('active');
+    } else {
+      catBtn.style.display = '';
+    }
   }
 
   // ヘッダー更新
@@ -2877,6 +2891,269 @@ function calcFrFromDose(unitType, concInSyringe, dose, bw) {
     case 'u_kg_day':  return (dose * bw)       / (concInSyringe * 24);
     default: return null;
   }
+}
+
+/* ========================================================================
+   CRI印刷ラベル機能  ver.2  (2026-07-31)
+   設計: ラベルは「名札」。早見表は載せない（早見表は画面Navigatorへ・別実装）。
+   記載: 薬剤名・濃度(大字)・組成/調製法・患者情報のみ。
+   薬効別カラーコード（日本麻酔科学会の提言を参考。色のみで判断しないこと）。
+   数値表記はISMP原則（末尾ゼロなし、1未満は0前置）。
+   ======================================================================== */
+
+// 薬効カテゴリ → カラーコード（参考実装。色だけで薬剤を判断しないこと）
+const LABEL_COLOR_MAP = {
+  '鎮痛':            { bg: '#eef2ff', bd: '#4c6ef5', name: 'オピオイド系' },
+  '鎮痛・麻酔':       { bg: '#f5f5f5', bd: '#888',    name: '' },
+  '鎮痛・抗不整脈':    { bg: '#f5f5f5', bd: '#888',    name: '' },
+  '鎮痛（複合）':      { bg: '#f5f5f5', bd: '#888',    name: '複合プロトコル' },
+  '麻酔維持':         { bg: '#fffbeb', bd: '#d4a72c', name: '導入薬系' },
+  '循環補助':         { bg: '#f3e8ff', bd: '#9c5fd6', name: '昇圧薬' },
+  '循環補助（陽性変力）': { bg: '#f3e8ff', bd: '#9c5fd6', name: '昇圧薬' },
+  '循環補助（昇圧）':   { bg: '#f3e8ff', bd: '#9c5fd6', name: '昇圧薬' },
+  '利尿':            { bg: '#f5f5f5', bd: '#888',    name: 'その他' },
+  '制吐・消化管運動':   { bg: '#f5f5f5', bd: '#888',    name: 'その他' },
+  'DKA管理':         { bg: '#f5f5f5', bd: '#888',    name: 'その他' },
+};
+function labelGetColor(category) {
+  return LABEL_COLOR_MAP[category] || { bg: '#f5f5f5', bd: '#888', name: '' };
+}
+
+// ISMP数値表記：末尾ゼロなし、1未満は0前置
+function labelFmtNum(v) {
+  if (v == null || isNaN(v)) return '—';
+  let s = (Math.round(v * 100) / 100).toString();
+  if (!s.includes('.') && Math.abs(v) < 1 && v !== 0) s = '0' + s;
+  return s;
+}
+
+// 別窓にラベル（名札）を描画して印刷する。早見表は含まない。
+// 用紙(A4/B5)と折り方(4/2)から、実際の物理サイズ(mm)を返す
+function labelPaperSize(paper) {
+  return paper === 'B5' ? { w: 182, h: 257 } : { w: 210, h: 297 };
+}
+// 1面分のサイズ（用紙の縦横比を保ったまま、面積を1/foldに縮小）
+// 4つ折り: 2x2グリッド（辺は1/2） / 2つ折り: 縦2分割（辺は高さのみ1/2）
+function labelFaceSize(paper, fold) {
+  const p = labelPaperSize(paper);
+  if (fold === 4) return { w: p.w / 2, h: p.h / 2 };
+  return { w: p.w, h: p.h / 2 };
+}
+
+function labelPrintCard(opts) {
+  // opts = { name, bw, conc, concUnit, recipeText, rec, colorCategory, paper, fold, faces }
+  const color = labelGetColor(opts.colorCategory);
+  const d = CRI_DRUGS[opts.name] || {};
+  const paperSz = labelPaperSize(opts.paper);
+  const faceSz = labelFaceSize(opts.paper, opts.fold);
+  const isSmall = faceSz.h < 90;
+
+  const recLine =
+    '患者: ' + (opts.rec.pt || '________') + '　ID: ' + (opts.rec.id || '________') + '<br>' +
+    '希釈液: ' + (opts.rec.dil || '________') + '　調製: ' + (opts.rec.time || '__:__') + '<br>' +
+    '調製者: ________　確認者: ________';
+
+  const oneFace =
+    '<div class="lbl">' +
+      '<div class="lbl-hd">' +
+        '<span>' + (d.icon || '●') + ' ' + opts.name + '</span>' +
+        '<span class="sp">' + opts.bw + 'kg</span>' +
+      '</div>' +
+      '<div class="lbl-conc">薬液濃度<b>' + labelFmtNum(opts.conc) + ' ' + opts.concUnit + '</b></div>' +
+      '<div class="lbl-recipe">' + opts.recipeText + '</div>' +
+      '<div class="lbl-color-note">色分類: ' + color.name + '（色のみで薬剤を判断しないこと）</div>' +
+      '<div class="lbl-rec">' + recLine + '</div>' +
+    '</div>';
+
+  // faces = [1,2,3,4]のうちチェック済み番号。用紙全体をfold等分し、
+  // チェックされた面だけ内容を入れ、他は空白（区切り線は常に描く＝切る/折るどちら運用でも対応）
+  const allFaces = [];
+  for (let i = 1; i <= opts.fold; i++) {
+    const checked = opts.faces.indexOf(i) !== -1;
+    allFaces.push(
+      '<div class="lbl-face">' + (checked ? oneFace : '') + '</div>'
+    );
+  }
+  const facesHTML = allFaces.join('');
+
+  const css =
+    '@page { size: ' + paperSz.w + 'mm ' + paperSz.h + 'mm; margin: 0; }' +
+    '* { box-sizing:border-box; -webkit-print-color-adjust:exact; print-color-adjust:exact; }' +
+    'body { margin:0; font-family:"Hiragino Sans","Yu Gothic",sans-serif; color:#000; }' +
+    '.lbl-sheet { display:grid; width:' + paperSz.w + 'mm; height:' + paperSz.h + 'mm; ' +
+      'grid-template-columns:' + (opts.fold === 4 ? '1fr 1fr' : '1fr') + '; ' +
+      'grid-template-rows:' + (opts.fold === 4 ? '1fr 1fr' : '1fr 1fr') + '; overflow:hidden; }' +
+    '.lbl-face { box-sizing:border-box; padding:4mm; overflow:hidden; ' +
+      'border:1px dashed #999; position:relative; margin:-0.5px; }' +
+    '.lbl { border:2px solid ' + color.bd + '; background:' + color.bg + '; border-radius:4px; ' +
+      'padding:' + (isSmall ? '8px' : '14px') + '; height:100%; box-sizing:border-box; overflow:hidden; }' +
+    '.lbl-hd { display:flex; justify-content:space-between; align-items:baseline; ' +
+      'font-weight:700; font-size:' + (isSmall ? '14px' : '17px') + '; ' +
+      'border-bottom:2px solid ' + color.bd + '; padding-bottom:6px; margin-bottom:8px; }' +
+    '.lbl-hd .sp { font-weight:400; font-size:' + (isSmall ? '11px' : '13px') + '; color:#333; }' +
+    '.lbl-conc { font-size:' + (isSmall ? '12px' : '14px') + '; margin-bottom:6px; color:#333; }' +
+    '.lbl-conc b { display:block; font-size:' + (isSmall ? '22px' : '32px') + '; ' +
+      'color:#000; line-height:1.15; background:#fff; padding:2px 8px; border-radius:4px; display:inline-block; margin-top:2px; }' +
+    '.lbl-recipe { font-size:' + (isSmall ? '10px' : '12px') + '; color:#222; line-height:1.5; ' +
+      'margin:8px 0; padding:6px 8px; background:rgba(255,255,255,.6); border-radius:4px; }' +
+    '.lbl-color-note { font-size:8px; color:#666; margin-bottom:8px; }' +
+    '.lbl-rec { font-size:' + (isSmall ? '9px' : '11px') + '; line-height:1.7; ' +
+      'border-top:1px solid ' + color.bd + '; padding-top:6px; color:#111; }';
+
+  const w = window.open('', '_blank', 'width=480,height=640');
+  if (!w) { alert('ポップアップがブロックされました。許可してください。'); return; }
+  w.document.write(
+    '<!doctype html><html><head><meta charset="utf-8"><title>' + opts.name + ' CRIラベル</title>' +
+    '<style>' + css + '</style></head><body>' +
+    '<div class="lbl-sheet">' + facesHTML + '</div>' +
+    '<scr' + 'ipt>window.onload=function(){setTimeout(function(){window.print();},200);}</scr' + 'ipt>' +
+    '</body></html>'
+  );
+  w.document.close();
+}
+
+function labelBuildRecipeText(name, bw, prepMethod) {
+  const d = CRI_DRUGS[name];
+  if (!d) return { conc: null, concUnit: '', recipeText: '' };
+
+  if (d.gammaUI && d.gamma) {
+    const addMg = (bw * d.gamma.multiplier);
+    const conc = (addMg / d.gamma.volMl) * 1000;
+    return {
+      conc: conc, concUnit: 'µg/mL',
+      recipeText: '調製: 体重×' + d.gamma.multiplier + 'mg を生食で全量' + d.gamma.volMl +
+        'mLに（アプリ自動計算）<br>この調製でのみ 1mL/h = ' + d.gamma.unitPerMlH + 'γ'
+    };
+  }
+
+  if (d.fixedRecipe) {
+    const recipe = (prepMethod === 'syringe' && d.syringeRecipe) ? d.syringeRecipe
+                  : (d.bagRecipe || d.syringeRecipe);
+    if (!recipe) return { conc: null, concUnit: '', recipeText: '' };
+    // 濃度の単位は元データの表記(µg/mLかmg/mL)をそのまま使う。1000倍変換はしない。
+    const conc = recipe.conc_ug_ml != null ? recipe.conc_ug_ml : recipe.conc_mg_ml;
+    const concUnit = recipe.conc_ug_ml != null ? 'µg/mL' : 'mg/mL';
+    const label = (prepMethod === 'syringe') ? 'シリンジ法' : 'バッグ法';
+    return {
+      conc: conc, concUnit: concUnit,
+      recipeText: '調製法: ' + label + '（' + recipe.amp + ' / ' + recipe.vol + 'mL）'
+    };
+  }
+
+  const conc = getActiveConcVal();
+  const unit = /ug_/.test(d.unitType) ? 'µg/mL' : (/u_/.test(d.unitType) ? 'U/mL' : 'mg/mL');
+  return {
+    conc: conc, concUnit: unit,
+    recipeText: '組成: ' + (d.conc || (conc + ' ' + unit))
+  };
+}
+
+function labelBuildFLKRecipeText(bw, prepMethod) {
+  const fenDoseEl = document.getElementById('flk-fen');
+  const lidDoseEl = document.getElementById('flk-lid');
+  const ketDoseEl = document.getElementById('flk-ket');
+  const fenDose = fenDoseEl ? parseFloat(fenDoseEl.value) : NaN;
+  const lidDose = lidDoseEl ? parseFloat(lidDoseEl.value) : NaN;
+  const ketDose = ketDoseEl ? parseFloat(ketDoseEl.value) : NaN;
+
+  const isBag = (prepMethod !== 'syringe');
+  const tv = isBag ? selectedBagVol : selectedSyringeVol;
+  const fr = isBag ? Math.max(2, Math.round(bw * 2))
+                    : Math.max(0.5, parseFloat((selectedSyringeVol / 24).toFixed(1)));
+
+  const fenConc = 50;
+  const lidConc = (CRI_DRUGS['リドカイン'] ? CRI_DRUGS['リドカイン'].concVal : 20) * 1000;
+  const ketConc = (CRI_DRUGS['ケタミン']   ? CRI_DRUGS['ケタミン'].concVal   : 100) * 1000;
+  const fenAdd = (fenDose * bw * tv) / (fr * fenConc);
+  const lidAdd = (lidDose * bw * 60 * tv) / (fr * lidConc);
+  const ketAdd = (ketDose * bw * 60 * tv) / (fr * ketConc);
+
+  return {
+    conc: null, concUnit: '',
+    recipeText:
+      (isBag ? 'バッグ法' : 'シリンジ法') + ' ' + tv + 'mL @ ' + fr + 'mL/h<br>' +
+      'フェンタニル ' + labelFmtNum(fenAdd) + 'mL　' +
+      'リドカイン ' + labelFmtNum(lidAdd) + 'mL　' +
+      'ケタミン ' + labelFmtNum(ketAdd) + 'mL<br>' +
+      '合計 事前に抜く量 ' + labelFmtNum(fenAdd + lidAdd + ketAdd) + 'mL'
+  };
+}
+
+// 用紙・折り方の選択に応じて、面選択チェックボックスのグリッドを再生成する
+function labelUpdatePreview() {
+  const fold = parseInt(document.querySelector('input[name="lbl-fold"]:checked').value, 10);
+  const grid = document.getElementById('lblFaceGrid');
+  if (!grid) return;
+  grid.className = 'lm-face-grid ' + (fold === 4 ? 'cols-2' : 'cols-1');
+  let html = '';
+  for (let i = 1; i <= fold; i++) {
+    html += '<label class="lm-face-cell checked" data-face="' + i + '">' +
+      '<input type="checkbox" checked onchange="labelToggleFace(this)"></label>';
+  }
+  grid.innerHTML = html;
+}
+function labelToggleFace(cb) {
+  cb.closest('.lm-face-cell').classList.toggle('checked', cb.checked);
+}
+
+function openPrintLabelModal() {
+  if (!document.getElementById('resultCard').classList.contains('show')) {
+    alert('先に計算を実行してください'); return;
+  }
+  const d = CRI_DRUGS[currentDrug];
+  // syringeOnly（プロポフォール等）はシリンジ法固定のため選択不要
+  const needsPrepChoice = (currentDrug === 'FLK') || (d && d.fixedRecipe && !d.syringeOnly);
+  document.getElementById('lbl-prep-row').style.display = needsPrepChoice ? '' : 'none';
+
+  const now = new Date();
+  now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+  document.getElementById('lbl-time').value = now.toISOString().slice(0, 16);
+  document.getElementById('labelModal').style.display = 'flex';
+  labelUpdatePreview();
+}
+function closePrintLabelModal() {
+  document.getElementById('labelModal').style.display = 'none';
+}
+function labelDoPrint() {
+  const name = currentDrug;
+  const d = CRI_DRUGS[name];
+  const bw = parseFloat(document.getElementById('inp-bw').value);
+  if (isNaN(bw) || bw <= 0) { alert('体重を確認してください'); return; }
+
+  const prepMethod = d && d.syringeOnly ? 'syringe'
+    : (document.getElementById('lbl-prep') ? document.getElementById('lbl-prep').value : 'bag');
+
+  const rec = {
+    pt: document.getElementById('lbl-pt').value.trim(),
+    id: document.getElementById('lbl-id').value.trim(),
+    dil: document.getElementById('lbl-dil').value,
+    time: (document.getElementById('lbl-time').value || '').replace('T', ' ').slice(0, 16)
+  };
+  const paper = document.querySelector('input[name="lbl-paper"]:checked').value;
+  const fold = parseInt(document.querySelector('input[name="lbl-fold"]:checked').value, 10);
+  const faces = [];
+  document.querySelectorAll('#lblFaceGrid .lm-face-cell').forEach(function (cell) {
+    if (cell.classList.contains('checked')) faces.push(parseInt(cell.getAttribute('data-face'), 10));
+  });
+  if (faces.length === 0) { alert('印刷する面を1つ以上選択してください'); return; }
+
+  let built;
+  if (name === 'FLK') {
+    built = labelBuildFLKRecipeText(bw, prepMethod);
+  } else {
+    built = labelBuildRecipeText(name, bw, prepMethod);
+  }
+  if (built.recipeText === '' && name !== 'FLK') {
+    alert('濃度情報を取得できませんでした。調製法の選択をご確認ください。'); return;
+  }
+
+  closePrintLabelModal();
+  labelPrintCard({
+    name: name, bw: bw,
+    conc: built.conc, concUnit: built.concUnit, recipeText: built.recipeText,
+    rec: rec, colorCategory: d ? d.category : '',
+    paper: paper, fold: fold, faces: faces
+  });
 }
 
 function updateSliderGradient(slider) {

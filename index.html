@@ -1448,6 +1448,40 @@ select.ea-fi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w
 }
 #criToast.on{opacity:1; transform:translateX(-50%) translateY(0);}
 
+/* CRI印刷ラベル モーダル(v2) */
+.label-modal{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;}
+.label-modal-bg{position:absolute;inset:0;background:rgba(0,0,0,.5);}
+.label-modal-body{position:relative;background:var(--bg,#1a1a2e);border:1px solid var(--bd,#333);border-radius:14px;padding:22px;width:min(90vw,360px);max-height:85vh;overflow:auto;}
+.lm-title{font-size:16px;font-weight:700;margin-bottom:16px;color:var(--tx,#fff);}
+.lm-field{display:flex;align-items:center;gap:10px;margin-bottom:12px;font-size:13px;color:var(--tx,#fff);}
+.lm-field span{width:72px;flex:none;color:var(--mu,#aaa);}
+.lm-field input,.lm-field select{flex:1;padding:8px 10px;border-radius:8px;border:1px solid var(--bd,#444);background:var(--bg2,#12121c);color:var(--tx,#fff);font-size:13px;}
+.lm-preview-wrap{display:flex;flex-direction:column;align-items:center;gap:8px;margin:14px 0;}
+.lm-preview-label{font-size:11px;color:var(--mu,#aaa);}
+.lm-radio-row{display:flex;gap:16px;flex:1;}
+.lm-radio-row label{display:flex;align-items:center;gap:5px;font-size:13px;color:var(--tx,#fff);cursor:pointer;}
+.lm-face-grid{display:grid;gap:4px;background:#fff;padding:6px;border-radius:4px;border:1px solid var(--bd,#444);}
+.lm-face-grid.cols-2{grid-template-columns:1fr 1fr;width:140px;}
+.lm-face-grid.cols-1{grid-template-columns:1fr;width:90px;}
+.lm-face-cell{display:flex;align-items:center;justify-content:center;background:#f0f0f0;border:1px dashed #999;border-radius:2px;aspect-ratio:1.4;cursor:pointer;transition:background .1s;}
+.lm-face-cell.checked{background:var(--cri,#7c5cff);}
+.lm-face-cell input{margin:0;}
+.lm-map{display:flex;flex-direction:column;align-items:center;gap:6px;}
+.lm-map-name{font-size:10px;color:var(--mu,#888);font-weight:700;}
+.lm-map-paper{position:relative;background:#fff;border:1.5px solid var(--bd,#444);border-radius:2px;box-shadow:0 2px 8px rgba(0,0,0,.3);}
+.lm-map-line{position:absolute;background:rgba(0,0,0,.15);}
+.lm-map-line.h{left:0;right:0;height:1px;top:50%;}
+.lm-map-line.v{top:0;bottom:50%;width:1px;left:50%;}
+.lm-map-zone{position:absolute;transition:background .15s,opacity .15s;opacity:0;background:var(--cri,#7c5cff);}
+.lm-map-zone.on{opacity:.35;}
+.lm-map-zone[data-zone="1"]{left:0;top:0;right:0;bottom:50%;}
+.lm-map-zone[data-zone="4"]{left:0;top:0;right:50%;bottom:50%;}
+.lm-actions{display:flex;gap:10px;margin-top:18px;}
+.lm-actions button{flex:1;padding:11px;border-radius:9px;border:none;font-size:14px;font-weight:700;cursor:pointer;}
+.lm-cancel{background:var(--bd,#333);color:var(--tx,#fff);}
+.lm-print{background:var(--cri,#7c5cff);color:#fff;}
+.lm-note{font-size:10px;color:var(--mu,#888);text-align:center;margin-top:10px;}
+
 /* ===== 空状態 ===== */
 .empty-state{
   text-align:center; padding:48px 24px; color:var(--mu);
@@ -1601,7 +1635,7 @@ select.ea-fi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w
   <a href="https://github.com/VetCalcPRO/vetcalc-pro" target="_blank">GitHub</a>
   ・
   <a href="https://github.com/VetCalcPRO/vetcalc-pro/blob/main/LICENSE" target="_blank">License</a>
-  <br><span class="ver-tag">v43</span>
+  <br><span class="ver-tag">v44</span>
 </div>
 </div>
 <div id="calcPanel"></div>
@@ -3395,10 +3429,68 @@ select.ea-fi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w
       <!-- 注意事項 -->
       <div class="warning-box" id="warningBox" style="display:none;"></div>
 
+      <!-- CRI印刷ラベル -->
+      <div class="cri-print-row" style="margin-top:14px; text-align:center;">
+        <button class="cri-print-btn" onclick="openPrintLabelModal()"
+          style="background:var(--cri,#7c5cff); color:#fff; border:none; border-radius:10px;
+                 padding:12px 22px; font-size:14px; font-weight:700; cursor:pointer;">
+          🖨 このラベルを印刷
+        </button>
+      </div>
+
     </div>
 
   </div>
 </div>
+
+  <!-- ===== CRI印刷ラベル モーダル（名札版） ===== -->
+  <div id="labelModal" class="label-modal" style="display:none;">
+    <div class="label-modal-bg" onclick="closePrintLabelModal()"></div>
+    <div class="label-modal-body">
+      <div class="lm-title">🖨 ラベル印刷</div>
+      <div class="lm-field" id="lbl-prep-row" style="display:none;">
+        <span>調製法</span>
+        <select id="lbl-prep">
+          <option value="bag">バッグ一本法</option>
+          <option value="syringe">シリンジ法</option>
+        </select>
+      </div>
+      <label class="lm-field"><span>患者名</span>
+        <input type="text" id="lbl-pt" placeholder="（任意）"></label>
+      <label class="lm-field"><span>カルテID</span>
+        <input type="text" id="lbl-id" placeholder="（任意）"></label>
+      <label class="lm-field"><span>希釈液</span>
+        <select id="lbl-dil">
+          <option value="">—</option>
+          <option>生食</option><option>5%ブドウ糖</option><option>乳酸リンゲル</option>
+        </select></label>
+      <label class="lm-field"><span>調製時刻</span>
+        <input type="datetime-local" id="lbl-time"></label>
+      <div class="lm-field">
+        <span>用紙</span>
+        <div class="lm-radio-row">
+          <label><input type="radio" name="lbl-paper" value="A4" checked onchange="labelUpdatePreview()"> A4</label>
+          <label><input type="radio" name="lbl-paper" value="B5" onchange="labelUpdatePreview()"> B5</label>
+        </div>
+      </div>
+      <div class="lm-field">
+        <span>折り方</span>
+        <div class="lm-radio-row">
+          <label><input type="radio" name="lbl-fold" value="4" checked onchange="labelUpdatePreview()"> 4つ折り</label>
+          <label><input type="radio" name="lbl-fold" value="2" onchange="labelUpdatePreview()"> 2つ折り</label>
+        </div>
+      </div>
+      <div class="lm-preview-wrap">
+        <span class="lm-preview-label">印刷する面を選択</span>
+        <div class="lm-face-grid" id="lblFaceGrid"></div>
+      </div>
+      <div class="lm-actions">
+        <button class="lm-cancel" onclick="closePrintLabelModal()">キャンセル</button>
+        <button class="lm-print" onclick="labelDoPrint()">プレビュー→印刷</button>
+      </div>
+      <div class="lm-note">普通紙に印刷し、切り離してお使いください</div>
+    </div>
+  </div>
 
 <div id="criToast">✓ コピーしました</div>
 

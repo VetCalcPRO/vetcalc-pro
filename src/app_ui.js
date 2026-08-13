@@ -1799,6 +1799,10 @@ function renderParallel(name, bw, dose, concVal) {
 
 // ===== 簡易ガンマ計算法 共通UI（ドパミン・ドブタミン・ノルアドレナリン）=====
 let gammaCurTab = {};  // drugName → 'gamma' | 'manual'
+// フルマニュアルタブの「今の正しい計算結果」置き場。
+// 印刷（labelBuildRecipeText）はここを読むだけにし、再計算しない。
+// バリデーション失敗時は該当キーを削除し、古い値が印刷に残らないようにする。
+let gammaManualResult = {};  // drugName → {addMl, vol, fr, bw, dose, concMgMl}
 
 function switchGammaTab(drugName, tab) {
   gammaCurTab[drugName] = tab;
@@ -1825,6 +1829,7 @@ function calcGammaManual() {
 
   if ([bw,vol,fr,dose].some(isNaN) || bw<=0 || vol<=0 || fr<=0 || dose<=0) {
     resEl.innerHTML = '<span style="color:var(--mu);">数値を入力してください</span>';
+    if (currentDrug) delete gammaManualResult[currentDrug];  // 無効な入力中は印刷に古い値を残さない
     return;
   }
 
@@ -1833,6 +1838,11 @@ function calcGammaManual() {
 
   // 添加量(ml) = dose(μg/kg/min) × BW × 60 × vol / (fr × concMgMl(mg/ml) × 1000)
   const addMl = (dose * bw * 60 * vol) / (fr * concMgMl * 1000);
+
+  // 印刷側が参照する「今の正解」をここで確定させる
+  if (currentDrug) {
+    gammaManualResult[currentDrug] = { addMl, vol, fr, bw, dose, concMgMl };
+  }
 
   const ok = addMl > 0 && addMl <= vol * 0.5;
   const color = ok ? 'var(--ok)' : 'var(--wn)';
@@ -3000,16 +3010,57 @@ function labelPrintCard(opts) {
     '.lbl-rec { font-size:' + (isSmall ? '9px' : '11px') + '; line-height:1.7; ' +
       'border-top:1px solid ' + color.bd + '; padding-top:6px; color:#111; }';
 
-  const w = window.open('', '_blank', 'width=480,height=640');
-  if (!w) { alert('ポップアップがブロックされました。許可してください。'); return; }
-  w.document.write(
+  // 別窓(window.open)はPWA(スタンドアロン表示)ではアプリを乗っ取り、
+  // 印刷後に戻れなくなる不具合があるため、非表示iframeで印刷する方式に変更。
+  const oldIframe = document.getElementById('labelPrintFrame');
+  if (oldIframe) oldIframe.remove();
+
+  const iframe = document.createElement('iframe');
+  iframe.id = 'labelPrintFrame';
+  // iOS Safariはサイズ0のiframeを正しくレンダリング・印刷対象化できないことがあるため、
+  // 画面外だが実寸を持つiframeにする（幅0は禁止）。
+  iframe.style.position = 'fixed';
+  iframe.style.left = '-9999px';
+  iframe.style.top = '0';
+  iframe.style.width = paperSz.w + 'mm';
+  iframe.style.height = paperSz.h + 'mm';
+  iframe.style.border = '0';
+  document.body.appendChild(iframe);
+
+  const doc = iframe.contentWindow.document;
+  doc.open();
+  doc.write(
     '<!doctype html><html><head><meta charset="utf-8"><title>' + opts.name + ' CRIラベル</title>' +
     '<style>' + css + '</style></head><body>' +
     '<div class="lbl-sheet">' + facesHTML + '</div>' +
-    '<scr' + 'ipt>window.onload=function(){setTimeout(function(){window.print();},200);}</scr' + 'ipt>' +
     '</body></html>'
   );
-  w.document.close();
+  doc.close();
+
+  function doPrint() {
+    iframe.contentWindow.focus();
+    iframe.contentWindow.print();
+  }
+  // doc.write()直後はreadyStateが誤ってcompleteを返すことがある（特にiOS Safari）ため、
+  // readyState判定に頼らずload完了イベントを優先し、フォールバックとして遅延時間を長めに取る。
+  let printed = false;
+  iframe.onload = function () {
+    if (printed) return;
+    printed = true;
+    setTimeout(doPrint, 150);
+  };
+  setTimeout(function () {
+    if (printed) return;
+    printed = true;
+    doPrint();
+  }, 400);
+
+  // 印刷ダイアログが閉じた後、iframeを片付ける（一定時間後に削除。
+  // afterprintがPWA/iOSで発火しない場合があるためタイマーで保険をかける）
+  setTimeout(function () {
+    const f = document.getElementById('labelPrintFrame');
+    if (f) f.remove();
+  }, 60000);
 }
 
 function labelBuildRecipeText(name, bw, prepMethod) {
@@ -3017,6 +3068,25 @@ function labelBuildRecipeText(name, bw, prepMethod) {
   if (!d) return { conc: null, concUnit: '', recipeText: '' };
 
   if (d.gammaUI && d.gamma) {
+    const tab = gammaCurTab[name] || 'gamma';
+
+    // フルマニュアル：印刷は再計算せず、画面が確定させた「今の正解」を読むだけ
+    if (tab === 'manual') {
+      const m = gammaManualResult[name];
+      if (!m) {
+        // 未計算・入力不備（バリデーション失敗中）は印刷不可として扱う
+        return { conc: null, concUnit: '', recipeText: '' };
+      }
+      const concUgMl = (m.addMl * m.concMgMl * 1000) / m.vol; // 実際に作った薬液のµg/mL
+      return {
+        conc: concUgMl, concUnit: 'µg/mL',
+        recipeText: '調製（フルマニュアル）: 全量' + m.vol + 'mLに ' + m.addMl.toFixed(2) +
+          'mL添加（製剤' + m.concMgMl + 'mg/mL）<br>ポンプ流量 ' + m.fr + 'mL/h ＝ ' +
+          m.dose + ' µg/kg/min（体重' + m.bw + 'kg時）'
+      };
+    }
+
+    // ガンマ法（従来通りの固定式）
     const addMg = (bw * d.gamma.multiplier);
     const conc = (addMg / d.gamma.volMl) * 1000;
     return {
@@ -3144,7 +3214,12 @@ function labelDoPrint() {
     built = labelBuildRecipeText(name, bw, prepMethod);
   }
   if (built.recipeText === '' && name !== 'FLK') {
-    alert('濃度情報を取得できませんでした。調製法の選択をご確認ください。'); return;
+    const d2 = CRI_DRUGS[name];
+    const isManualUncalculated = d2 && d2.gammaUI && gammaCurTab[name] === 'manual';
+    alert(isManualUncalculated
+      ? 'フルマニュアルの数値が未入力、または不正です。全体量・流量・体重・用量を確認してください。'
+      : '濃度情報を取得できませんでした。調製法の選択をご確認ください。');
+    return;
   }
 
   closePrintLabelModal();

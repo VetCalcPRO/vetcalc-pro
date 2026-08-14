@@ -2831,7 +2831,7 @@ function onSubFont(v){ szCfg.subFont=parseInt(v); applySizeCss(); }
 
 // ========== AUTO-HIDE HEADER ==========
 (function(){
-  var lastY = 0, ticking = false, hdrH = 0;
+  var lastY = 0, hdrH = 0, hdrOffset = 0;
 
   function measureHdr(){
     var hdr = document.querySelector('.hdr');
@@ -2840,30 +2840,30 @@ function onSubFont(v){ szCfg.subFont=parseInt(v); applySizeCss(); }
         document.documentElement.style.setProperty('--hdr-h', (hdrH + 10 + safeTop) + 'px');
   }
 
-  function setHdrVisible(visible){
+  function applyHdrOffset(){
     var hdr = document.querySelector('.hdr');
     if(!hdr) return;
-    if(visible){
-      hdr.classList.remove('hidden');
-      var safeTop = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--sat') || '0');
-          document.documentElement.style.setProperty('--hdr-h', (hdrH + 10 + safeTop) + 'px');
-    } else {
-      hdr.classList.add('hidden');
-      document.documentElement.style.setProperty('--hdr-h', '10px');
-    }
+    hdr.style.transform = 'translateY(' + hdrOffset + 'px)';
   }
 
-  function onScroll(){
+  function tick(){
     var w = document.querySelector('.wrap');
-    if(!w) return;
-    var cur = w.scrollTop;
-    if(cur > lastY + 4 && cur > 80){
-      setHdrVisible(false);
-    } else if(cur < lastY - 4 || cur < 40){
-      setHdrVisible(true);
+    if(w){
+      var maxScroll = w.scrollHeight - w.clientHeight;
+      var cur = Math.max(0, Math.min(w.scrollTop, maxScroll));
+      var delta = cur - lastY;
+
+      if(delta !== 0){
+        if(cur < 40){
+          hdrOffset = 0;
+        } else {
+          hdrOffset = Math.max(-hdrH, Math.min(0, hdrOffset - delta));
+        }
+        applyHdrOffset();
+        lastY = cur;
+      }
     }
-    lastY = cur;
-    ticking = false;
+    requestAnimationFrame(tick);
   }
 
   document.addEventListener('DOMContentLoaded', function(){
@@ -2871,13 +2871,15 @@ function onSubFont(v){ szCfg.subFont=parseInt(v); applySizeCss(); }
     setTimeout(function(){
       measureHdr();
       window.addEventListener('resize', measureHdr);
+      // .hdr自体の実サイズ変化（タブ再描画・モード切替・文言変化・回転）に自動追従
+      var hdr = document.querySelector('.hdr');
+      if(hdr && window.ResizeObserver){
+        new ResizeObserver(function(){ measureHdr(); }).observe(hdr);
+      }
     }, 100);
-    var w = document.querySelector('.wrap');
-    if(w){
-      w.addEventListener('scroll', function(){
-        if(!ticking){ requestAnimationFrame(onScroll); ticking = true; }
-      });
-    }
+    // scrollイベントに頼らず毎フレームscrollTopを直接ポーリング
+    // （iOS Safari/Chromeは慣性スクロール中scrollイベントが間引かれるため）
+    requestAnimationFrame(tick);
   });
 })();
 

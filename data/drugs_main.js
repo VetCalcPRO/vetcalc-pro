@@ -5065,7 +5065,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "トランサミン250mg",
-    "category": "止血・造血・ホルモン",
+    "category": "内分泌・血液",
     "conc": 50,
     "concText": "250mg/5ml（注射） / 250mg錠（内服）",
     "species": {
@@ -5169,7 +5169,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "アドナ",
-    "category": "止血・造血・ホルモン",
+    "category": "内分泌・血液",
     "conc": 5,
     "concText": "5mg/ml",
     "species": {
@@ -5369,7 +5369,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "エスポー",
-    "category": "止血・造血・ホルモン",
+    "category": "内分泌・血液",
     "conc": 1400,
     "concText": "750IU/0.5ml",
     "species": {
@@ -5417,7 +5417,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "エポジン",
-    "category": "止血・造血・ホルモン",
+    "category": "内分泌・血液",
     "conc": 1400,
     "concText": "750IU/0.5ml",
     "species": {
@@ -9255,7 +9255,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "ノボリンN",
-    "category": "止血・造血・ホルモン",
+    "category": "内分泌・血液",
     "conc": null,
     "concText": "記載なし",
     "species": {
@@ -9303,7 +9303,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "ランタス",
-    "category": "止血・造血・ホルモン",
+    "category": "内分泌・血液",
     "conc": null,
     "concText": "記載なし",
     "species": {
@@ -9351,7 +9351,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "レベミル",
-    "category": "止血・造血・ホルモン",
+    "category": "内分泌・血液",
     "conc": null,
     "concText": "記載なし",
     "species": {
@@ -9934,7 +9934,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "センベルゴ(ベラグリフロジン)",
-    "category": "止血・造血・ホルモン",
+    "category": "内分泌・血液",
     "conc": 15,
     "concText": "経口液剤 15mg/mL",
     "species": {
@@ -11902,7 +11902,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "オキシトシン",
-    "category": "止血・造血・ホルモン",
+    "category": "内分泌・血液",
     "conc": 10,
     "concText": "注射剤10IU/ml",
     "species": {
@@ -13320,7 +13320,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "ダルベポエチンアルファ（ネスプ）",
-    "category": "止血・造血・ホルモン",
+    "category": "内分泌・血液",
     "conc": 0.06,
     "concText": "30μg/0.5ml",
     "species": {
@@ -13841,7 +13841,7 @@ var MASTER_DRUG_DB = [
 },
 {
   "name": "トランサミン250mg（トラネキサム酸）経口",
-  "category": "止血・造血・ホルモン",
+  "category": "内分泌・血液",
   "conc": 250,
   "concText": "250mg/錠",
   "species": {
@@ -13861,7 +13861,7 @@ var MASTER_DRUG_DB = [
 },
 {
   "name": "アドナ10/30mg（カルバゾクロム）経口",
-  "category": "止血・造血・ホルモン",
+  "category": "内分泌・血液",
   "conc": 10,
   "concText": "10mg/錠",
   "species": {

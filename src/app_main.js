@@ -1,8 +1,8 @@
 //========== DATA ==========
 var MASTER = (typeof MASTER_DRUG_DB !== 'undefined' ? MASTER_DRUG_DB : []);
 var SPECIES = ['犬','猫','ウサギ','フェレット','モルモット','ハリネズミ','ハムスター'];
-var CATS = ['循環器','鎮静','鎮痛','麻酔','局所麻酔','緊急・救急','抗生剤','NSAIDs','ステロイド','アレルギー・皮膚科','神経・てんかん','消化器','呼吸器','眼・耳・皮膚','ビタミン・補液','肝臓・代謝','ホルモン','止血・造血・ホルモン','抗真菌薬','駆虫薬','その他'];
-var CCOLOR = {'循環器':'#ff453a','鎮静':'#ff9f0a','鎮痛':'#f5c518','麻酔':'#bf5af2','抗生剤':'#4cd4ff','NSAIDs':'#ff6b35','ステロイド':'#e879f9','アレルギー・皮膚科':'#3b82f6','神経・てんかん':'#06b6d4','消化器':'#34c759','呼吸器':'#84cc16','眼・耳・皮膚':'#94a3b8','ビタミン・補液':'#fb923c','肝臓・代謝':'#10b981','ホルモン':'#f472b6','局所麻酔':'#a78bfa','抗真菌薬':'#fbbf24','止血・造血・ホルモン':'#ec4899','緊急・救急':'#ef4444','駆虫薬':'#22c55e','その他':'#6b7590'};
+var CATS = ['循環器','鎮静','鎮痛','麻酔','局所麻酔','緊急・救急','抗菌薬','NSAIDs','ステロイド','アレルギー・皮膚科','神経・てんかん','消化器','呼吸器','眼・耳・皮膚','ビタミン・補液','肝臓・代謝','内分泌・血液','抗真菌薬','駆虫薬','その他'];
+var CCOLOR = {'循環器':'#ff453a','鎮静':'#ff9f0a','鎮痛':'#f5c518','麻酔':'#bf5af2','抗菌薬':'#4cd4ff','NSAIDs':'#ff6b35','ステロイド':'#e879f9','アレルギー・皮膚科':'#3b82f6','神経・てんかん':'#06b6d4','消化器':'#34c759','呼吸器':'#84cc16','眼・耳・皮膚':'#94a3b8','ビタミン・補液':'#fb923c','肝臓・代謝':'#10b981','内分泌・血液':'#f472b6','局所麻酔':'#a78bfa','抗真菌薬':'#fbbf24','緊急・救急':'#ef4444','駆虫薬':'#22c55e','その他':'#6b7590'};
 var LS_KEY = 'vetcalc_v4';
 
 var DRUGS = [];
@@ -142,6 +142,19 @@ var MODE_CFG = {
 
 //========== STORAGE ==========
 function dc(x){ return JSON.parse(JSON.stringify(x)); }
+var CATEGORY_MIGRATION = {
+  'ホルモン': '内分泌・血液',
+  '止血・造血・ホルモン': '内分泌・血液',
+  '抗生剤': '抗菌薬',
+  '消化器系薬': '消化器',
+  '抗寄生虫薬': '駆虫薬'
+};
+var CATEGORY_MIGRATION_BY_NAME = {
+  'アトロピン硫酸塩水和物': '循環器',
+  'ジアゼパム': '鎮静',
+  '酒石酸ブトルファノール': '鎮痛',
+  'ブプレノルフィン塩酸塩': '鎮痛'
+};
 function loadData(){
   try {
     var raw = localStorage.getItem(LS_KEY);
@@ -151,7 +164,21 @@ function loadData(){
         // MASTERのpdf_url・sourceをマージ（既存データに欠落している場合）
         var masterMap = {};
         for(var i=0;i<MASTER.length;i++) masterMap[MASTER[i].name] = MASTER[i];
+        var catMigrated = false;
         for(var i=0;i<p.length;i++){
+          // カテゴリー移行（旧表記→新表記、2026-08-15統合分）
+          if(p[i].category === '鎮静・麻酔薬'){
+            if(CATEGORY_MIGRATION_BY_NAME[p[i].name]){
+              p[i].category = CATEGORY_MIGRATION_BY_NAME[p[i].name];
+            } else {
+              console.warn('[category migration] 未知の鎮静・麻酔薬エントリを検出、鎮静にフォールバック:', p[i].name);
+              p[i].category = '鎮静';
+            }
+            catMigrated = true;
+          } else if(CATEGORY_MIGRATION[p[i].category]){
+            p[i].category = CATEGORY_MIGRATION[p[i].category];
+            catMigrated = true;
+          }
           var m = masterMap[p[i].name];
           if(m){
             if(!p[i].pdf_url && m.pdf_url) p[i].pdf_url = m.pdf_url;
@@ -172,7 +199,9 @@ function loadData(){
             }
           }
         }
-        DRUGS=p; return;
+        DRUGS=p;
+        if(catMigrated){ try{ saveData(); }catch(e){} }
+        return;
       }
     }
   } catch(e){}
@@ -2637,6 +2666,8 @@ function refreshCatOptions(){
   for(var i=0;i<cats.length;i++) optHTML += '<option>'+cats[i]+'</option>';
   document.getElementById('eCat').innerHTML = optHTML;
   document.getElementById('aCat').innerHTML = optHTML;
+  var eaCatEl = document.getElementById('ea-cat');
+  if(eaCatEl){ eaCatEl.innerHTML = '<option value="">選択してください</option>' + optHTML; }
 }
 
 //========== INIT ==========
@@ -2889,11 +2920,7 @@ function onSubFont(v){ szCfg.subFont=parseInt(v); applySizeCss(); }
 var sortCurrentCat = null;
 
 function openSort(){
-  var cats = [];
-  for(var i=0;i<DRUGS.length;i++){
-    if(DRUGS[i] && DRUGS[i].category && cats.indexOf(DRUGS[i].category)<0)
-      cats.push(DRUGS[i].category);
-  }
+  var cats = getCats();
   if(cats.length===0){ toast('薬剤がありません'); return; }
   sortCurrentCat = cats[0];
   renderCatList(cats);
@@ -3742,6 +3769,7 @@ var EA_ROUTE_LBL={injectable:'注射',oral:'内服',topical:'外用'};
 
 function openEasyAdd(){
   eaState={name:'',route:'injectable',concVal:'',concUnit:'mg/ml',category:'',memo:'',selectedSp:['犬','猫'],doses:{}};
+  refreshCatOptions();
   document.getElementById('ea-name').value='';
   document.getElementById('ea-conc-val').value='';
   document.getElementById('ea-conc-unit').value='mg/ml';

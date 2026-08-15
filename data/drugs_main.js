@@ -4161,7 +4161,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "サラゾピリン500mg（スルファサラジン）",
-    "category": "抗生剤",
+    "category": "抗菌薬",
     "conc": 500,
     "concText": "500mg",
     "species": {
@@ -6627,7 +6627,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "アミペニックス1000mg/10ml",
-    "category": "抗生剤",
+    "category": "抗菌薬",
     "conc": 100,
     "concText": "1000mg/10ml",
     "species": {
@@ -6731,7 +6731,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "コンベニア80mg/ml（セフォベシンナトリウム）",
-    "category": "抗生剤",
+    "category": "抗菌薬",
     "conc": 80,
     "concText": "80mg/ml",
     "species": {
@@ -6779,7 +6779,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "ペントシリン（ピペラシリンナトリウム）",
-    "category": "抗生剤",
+    "category": "抗菌薬",
     "conc": 250,
     "concText": "2g",
     "species": {
@@ -6827,7 +6827,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "アモキシクリア、アモリン\n(アモキシシリン）",
-    "category": "抗生剤",
+    "category": "抗菌薬",
     "conc": 100,
     "concText": "100mg",
     "species": {
@@ -6875,7 +6875,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "オーグメンチン250mg\n（アモキシシリン＋クラブラン酸カリウム）",
-    "category": "抗生剤",
+    "category": "抗菌薬",
     "conc": 250,
     "concText": "250mg",
     "species": {
@@ -6923,7 +6923,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "パセトシン250mg",
-    "category": "抗生剤",
+    "category": "抗菌薬",
     "conc": 250,
     "concText": "250mg",
     "species": {
@@ -6971,7 +6971,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "セファメジンα注 0.25,0.5g（セファゾリンナトリウム）",
-    "category": "抗生剤",
+    "category": "抗菌薬",
     "conc": 500,
     "concText": "0.5g",
     "species": {
@@ -7019,7 +7019,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "セフゾン（セフジニル）",
-    "category": "抗生剤",
+    "category": "抗菌薬",
     "conc": null,
     "concText": "記載なし",
     "species": {
@@ -7067,7 +7067,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "ケフラール（セファクロル）",
-    "category": "抗生剤",
+    "category": "抗菌薬",
     "conc": null,
     "concText": "記載なし",
     "species": {
@@ -7115,7 +7115,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "ゲンタマイシン",
-    "category": "抗生剤",
+    "category": "抗菌薬",
     "conc": 40,
     "concText": "40mg/ml（標準注射剤）",
     "species": {
@@ -7163,7 +7163,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "ラリキシン250mg,リレキシペット\n（セファレキシン）",
-    "category": "抗生剤",
+    "category": "抗菌薬",
     "conc": 250,
     "concText": "250mg",
     "species": {
@@ -7211,7 +7211,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "シンプリセフ（セフポドキシム）",
-    "category": "抗生剤",
+    "category": "抗菌薬",
     "conc": 100,
     "concText": "100mg",
     "species": {
@@ -7259,7 +7259,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "タイロシン",
-    "category": "抗生剤",
+    "category": "抗菌薬",
     "conc": null,
     "concText": "記載なし",
     "species": {
@@ -7307,7 +7307,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "エリスロシン（エリスロマイシン）",
-    "category": "抗生剤",
+    "category": "抗菌薬",
     "conc": null,
     "concText": "記載なし",
     "species": {
@@ -7355,7 +7355,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "ジスロマック250mg（アジスロマイシン）",
-    "category": "抗生剤",
+    "category": "抗菌薬",
     "conc": 250,
     "concText": "250mg",
     "species": {
@@ -7403,7 +7403,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "クラリス、クラリシッド、クラロイシン\n（クラリスロマシシン）",
-    "category": "抗生剤",
+    "category": "抗菌薬",
     "conc": 200,
     "concText": "200mg",
     "species": {
@@ -7451,7 +7451,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "バイトリル（エンロフロキサシン）",
-    "category": "抗生剤",
+    "category": "抗菌薬",
     "conc": 25,
     "concText": "25mg/ml",
     "species": {
@@ -7565,7 +7565,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "ゼナキル50mg（マルボフロキサシン)",
-    "category": "抗生剤",
+    "category": "抗菌薬",
     "conc": 50,
     "concText": "50mg",
     "species": {
@@ -7613,7 +7613,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "ビクタス（オルビフロキサシン）",
-    "category": "抗生剤",
+    "category": "抗菌薬",
     "conc": 25,
     "concText": "25mg/ml",
     "species": {
@@ -7727,7 +7727,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "シプロキサン（シプロフロキサシン）",
-    "category": "抗生剤",
+    "category": "抗菌薬",
     "conc": 100,
     "concText": "100/200mg",
     "species": {
@@ -7775,7 +7775,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "ミノマイシン（ミノサイクリン）",
-    "category": "抗生剤",
+    "category": "抗菌薬",
     "conc": 50,
     "concText": "50/100mg",
     "species": {
@@ -7891,7 +7891,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "ビブラマシシン50mg（ドキシサイクリン）",
-    "category": "抗生剤",
+    "category": "抗菌薬",
     "conc": 50,
     "concText": "50mg",
     "species": {
@@ -7939,7 +7939,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "アンチローブ25（クリンダマイシン）",
-    "category": "抗生剤",
+    "category": "抗菌薬",
     "conc": 25,
     "concText": "25mg",
     "species": {
@@ -8055,7 +8055,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "ホスミシン（ホスホマイシン）",
-    "category": "抗生剤",
+    "category": "抗菌薬",
     "conc": 500,
     "concText": "500mg",
     "species": {
@@ -8103,7 +8103,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "フラジール250mg（メトロニダゾール）",
-    "category": "抗生剤",
+    "category": "抗菌薬",
     "conc": 250,
     "concText": "250mg",
     "species": {
@@ -8151,7 +8151,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "チエナム（イミペネム）",
-    "category": "抗生剤",
+    "category": "抗菌薬",
     "conc": 500,
     "concText": "500mg/10ml",
     "species": {
@@ -8199,7 +8199,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "ファロム（ファロペネムナトリウム）",
-    "category": "抗生剤",
+    "category": "抗菌薬",
     "conc": 150,
     "concText": "150/200mg",
     "species": {
@@ -8247,7 +8247,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "アプシードシロップ5%(スルファジメトキシン）",
-    "category": "抗生剤",
+    "category": "抗菌薬",
     "conc": 50,
     "concText": "5%",
     "species": {
@@ -9063,7 +9063,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "ビクタスMTクリーム",
-    "category": "抗生剤",
+    "category": "抗菌薬",
     "conc": null,
     "concText": "記載なし",
     "species": {
@@ -10270,7 +10270,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "ペニシリンG（ベンジルペニシリン）",
-    "category": "抗生剤",
+    "category": "抗菌薬",
     "conc": 100000,
     "concText": "10万/ml",
     "species": {
@@ -10318,7 +10318,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "テトラサイクリン",
-    "category": "抗生剤",
+    "category": "抗菌薬",
     "conc": 250,
     "concText": "250mg",
     "species": {
@@ -10366,7 +10366,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "クロラムフェニコール",
-    "category": "抗生剤",
+    "category": "抗菌薬",
     "conc": 25,
     "concText": "25mg/ml注射剤（または錠剤250mg）",
     "species": {
@@ -10414,7 +10414,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "ネオマイシン",
-    "category": "抗生剤",
+    "category": "抗菌薬",
     "conc": null,
     "concText": "外用・散剤",
     "species": {
@@ -10462,7 +10462,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "アミカシン（硫酸アミカシン）",
-    "category": "抗生剤",
+    "category": "抗菌薬",
     "conc": 50,
     "concText": "注射剤",
     "species": {
@@ -10510,7 +10510,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "ミノサイクリン（ミノマイシン）",
-    "category": "抗生剤",
+    "category": "抗菌薬",
     "conc": null,
     "concText": "錠剤50/100mg",
     "species": {
@@ -10558,7 +10558,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "クラリスロマイシン（クラリス・クラリシッド）",
-    "category": "抗生剤",
+    "category": "抗菌薬",
     "conc": 200,
     "concText": "200mg",
     "species": {
@@ -11998,7 +11998,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "クロルテトラサイクリン（オーレオマイシン）",
-    "category": "抗生剤",
+    "category": "抗菌薬",
     "conc": null,
     "concText": "散剤・軟膏",
     "species": {
@@ -12586,7 +12586,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "アルベンダゾール",
-    "category": "抗寄生虫薬",
+    "category": "駆虫薬",
     "conc": null,
     "concText": "",
     "species": {
@@ -12606,7 +12606,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "チアベンダゾール",
-    "category": "抗寄生虫薬",
+    "category": "駆虫薬",
     "conc": null,
     "concText": "",
     "species": {
@@ -12636,7 +12636,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "フェンベンダゾール",
-    "category": "抗寄生虫薬",
+    "category": "駆虫薬",
     "conc": null,
     "concText": "",
     "species": {
@@ -12676,7 +12676,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "メトロニダゾール",
-    "category": "抗寄生虫薬",
+    "category": "駆虫薬",
     "conc": null,
     "concText": "",
     "species": {
@@ -12716,7 +12716,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "イベルメクチン",
-    "category": "抗寄生虫薬",
+    "category": "駆虫薬",
     "conc": null,
     "concText": "",
     "species": {
@@ -12756,7 +12756,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "ピペラジン",
-    "category": "抗寄生虫薬",
+    "category": "駆虫薬",
     "conc": null,
     "concText": "",
     "species": {
@@ -12781,7 +12781,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "ピランテルパモ酸塩",
-    "category": "抗寄生虫薬",
+    "category": "駆虫薬",
     "conc": null,
     "concText": "",
     "species": {
@@ -12821,7 +12821,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "塩酸レバミゾール",
-    "category": "抗寄生虫薬",
+    "category": "駆虫薬",
     "conc": null,
     "concText": "",
     "species": {
@@ -12846,7 +12846,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "オメプラゾール",
-    "category": "消化器系薬",
+    "category": "消化器",
     "conc": null,
     "concText": "",
     "species": {
@@ -12881,7 +12881,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "シサプリド",
-    "category": "消化器系薬",
+    "category": "消化器",
     "conc": null,
     "concText": "",
     "species": {
@@ -12916,7 +12916,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "シメチジン",
-    "category": "消化器系薬",
+    "category": "消化器",
     "conc": null,
     "concText": "",
     "species": {
@@ -12956,7 +12956,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "塩酸メトクロプラミド",
-    "category": "消化器系薬",
+    "category": "消化器",
     "conc": null,
     "concText": "",
     "species": {
@@ -12996,7 +12996,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "ロペラミド塩酸塩",
-    "category": "消化器系薬",
+    "category": "消化器",
     "conc": null,
     "concText": "",
     "species": {
@@ -13036,7 +13036,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "アトロピン硫酸塩水和物",
-    "category": "鎮静・麻酔薬",
+    "category": "循環器",
     "conc": null,
     "concText": "",
     "species": {
@@ -13076,7 +13076,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "ジアゼパム",
-    "category": "鎮静・麻酔薬",
+    "category": "鎮静",
     "conc": null,
     "concText": "",
     "species": {
@@ -13116,7 +13116,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "酒石酸ブトルファノール",
-    "category": "鎮静・麻酔薬",
+    "category": "鎮痛",
     "conc": null,
     "concText": "",
     "species": {
@@ -13156,7 +13156,7 @@ var MASTER_DRUG_DB = [
   },
   {
     "name": "ブプレノルフィン塩酸塩",
-    "category": "鎮静・麻酔薬",
+    "category": "鎮痛",
     "conc": null,
     "concText": "",
     "species": {
@@ -13721,7 +13721,7 @@ var MASTER_DRUG_DB = [
 },
 {
   "name": "バイトリル15/150/250mg（エンロフロキサシン）経口",
-  "category": "抗生剤",
+  "category": "抗菌薬",
   "conc": 15,
   "concText": "15/150/250mg/錠",
   "species": {
@@ -13741,7 +13741,7 @@ var MASTER_DRUG_DB = [
 },
 {
   "name": "ビクタス10/40mg（オルビフロキサシン）経口",
-  "category": "抗生剤",
+  "category": "抗菌薬",
   "conc": 10,
   "concText": "10/40mg/錠",
   "species": {

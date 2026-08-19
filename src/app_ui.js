@@ -897,7 +897,7 @@ const CRI_DRUGS = {
     concVal: 20,
     unit: 'μg/kg/min',
     unitType: 'ug_kg_min',
-    defaultDose: 50,
+    defaultDose: 25,
     doseMin: 25,
     doseMax: 100,
     doseStep: 5,
@@ -1729,6 +1729,11 @@ function renderParallel(name, bw, dose, concVal) {
         <span class="m-label">バッグ内濃度</span>
         <span class="m-val" style="font-size:13px;color:var(--mu);">${concInBag}</span>
       </div>
+      <div style="margin-top:10px;padding:10px 12px;background:rgba(168,85,247,.1);border-radius:8px;font-size:12px;line-height:1.8;color:var(--tx);">
+        <div>① バッグから <b>${discard.toFixed(2)}ml</b> を抜く</div>
+        <div>② ${name}原液 <b>${bagAdd.toFixed(2)}ml</b> を追加</div>
+        <div>③ <b>${fr.toFixed(1)}ml/h</b> で流す</div>
+      </div>
     `;
   } else {
     bagEl.className = 'method-body';
@@ -1758,6 +1763,10 @@ function renderParallel(name, bw, dose, concVal) {
         <span class="m-val" style="font-size:15px;">${sv} <span class="unit">ml</span></span>
       </div>
       <div class="m-row">
+        <span class="m-label">初期流量（${currentSpecies==='cat'?'猫 0.6':'犬 1'}ml/kg/h）</span>
+        <span class="m-val" style="font-size:15px;">${initFr.toFixed(1)} <span class="unit">ml/h</span></span>
+      </div>
+      <div class="m-row">
         <span class="m-label">✅ 薬液添加量</span>
         <span class="m-val big">${syAdd.toFixed(2)} <span class="unit">ml</span></span>
       </div>
@@ -1768,6 +1777,11 @@ function renderParallel(name, bw, dose, concVal) {
       <div class="m-row">
         <span class="m-label">薬液濃度</span>
         <span class="m-val" style="font-size:13px;color:var(--mu);">${syConcStr}</span>
+      </div>
+      <div style="margin-top:10px;padding:10px 12px;background:rgba(168,85,247,.1);border-radius:8px;font-size:12px;line-height:1.8;color:var(--tx);">
+        <div>① ${name}原液 <b>${syAdd.toFixed(2)}ml</b> を吸う</div>
+        <div>② 生食 <b>${(sv - syAdd).toFixed(2)}ml</b> を足す</div>
+        <div>③ ポンプを <b>${initFr.toFixed(1)}ml/h</b> に（開始時。以降は下の調整スライダーで）</div>
       </div>
     `;
 

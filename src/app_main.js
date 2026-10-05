@@ -155,6 +155,28 @@ var CATEGORY_MIGRATION_BY_NAME = {
   '酒石酸ブトルファノール': '鎮痛',
   'ブプレノルフィン塩酸塩': '鎮痛'
 };
+// 用量数値の誤り修正（保存済み端末向け）
+// 保存値が旧誤値と完全一致する場合のみ置換＝ユーザー編集値は保持
+// [id, 動物種, 旧lo, 旧hi, 新lo, 新hi]
+var DOSE_FIXES = [
+  ['drug_023', '犬',        0.05, 0.015, 0.005, 0.015],
+  ['drug_023', 'ハリネズミ', 0.01, 0.1,   0.01,  0.01]
+];
+function applyDoseFixes(p, masterMap){
+  var fixed = false;
+  for(var i=0;i<p.length;i++){
+    var m = masterMap[p[i].name];
+    var pid = p[i].id || (m && m.id);
+    for(var f=0;f<DOSE_FIXES.length;f++){
+      var fx = DOSE_FIXES[f];
+      var ps = p[i].species && p[i].species[fx[1]];
+      if(pid===fx[0] && ps && ps.lo===fx[2] && ps.hi===fx[3]){
+        ps.lo = fx[4]; ps.hi = fx[5]; fixed = true;
+      }
+    }
+  }
+  return fixed;
+}
 function loadData(){
   try {
     var raw = localStorage.getItem(LS_KEY);
@@ -199,8 +221,9 @@ function loadData(){
             }
           }
         }
+        var doseFixed = applyDoseFixes(p, masterMap);
         DRUGS=p;
-        if(catMigrated){ try{ saveData(); }catch(e){} }
+        if(catMigrated || doseFixed){ try{ saveData(); }catch(e){} }
         return;
       }
     }

@@ -1186,9 +1186,9 @@ var MASTER_DRUG_DB = [
     "concText": "0.2mg/ml",
     "species": {
       "犬": {
-        "lo": 0.05,
+        "lo": 0.005,
         "hi": 0.015,
-        "note": "0.05-0.015mg/kg  q4-8h IV,IM,SC\n鎮痛0.03-0.04mg/kg SC　4-10時間おき"
+        "note": "0.005-0.015mg/kg  q4-8h IV,IM,SC\n鎮痛0.03-0.04mg/kg SC　4-10時間おき"
       },
       "猫": {
         "lo": 0.005,
@@ -1212,7 +1212,7 @@ var MASTER_DRUG_DB = [
       },
       "ハリネズミ": {
         "lo": 0.01,
-        "hi": 0.1,
+        "hi": 0.01,
         "note": "0.01mg/kg SC,IM q6h-q8h"
       },
       "ハムスター": {

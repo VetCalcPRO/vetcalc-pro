@@ -1226,7 +1226,7 @@ function buildDoseInput(drugName) {
     area.innerHTML = `
       <div style="font-size:12px;color:var(--mu);line-height:1.7;">
         体重(kg)を入力すると調製量と早見表を自動計算します。<br>
-        <span style="color:var(--wn);font-weight:700;">⚠ 犬: 2.2 U/kg/day　猫: 1.1 U/kg/day</span>
+        <span style="color:var(--wn);font-weight:700;">一日量の目安（Macintire法）：犬 2.2 U/kg/day・猫 1.1 U/kg/day</span>
       </div>`;
     return;
   }

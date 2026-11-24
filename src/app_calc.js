@@ -35,7 +35,7 @@ function tcCalc(){
   var emp = document.getElementById('tcEmpty');
   var mat = document.getElementById('tcMatrix');
   if(!days || days < 1){
-    res.style.display='none'; emp.style.display=''; mat.style.display='none'; return;
+    res.style.display='none'; emp.style.display=''; if(mat) mat.style.display='none'; return;
   }
   // メイン結果
   var total = (1/denom) * times * days;
@@ -44,11 +44,13 @@ function tcCalc(){
   document.getElementById('tcBreakdown').textContent =
     fracLabel + ' × ' + (times===0.5?'EOD':times+'回/日') + ' × ' + days + '日';
   res.style.display=''; emp.style.display='none';
-  // 12マスマトリクス
+  // 12マスマトリクス（画面にマトリクスの要素が無い場合は出さない）
+  var tbody = document.getElementById('tcMatBody');
+  var matDays = document.getElementById('tcMatDays');
+  if(!mat || !tbody) return;
   var denoms = [[1,'1錠'],[2,'1/2錠'],[4,'1/4錠'],[8,'1/8錠']];
   var timesArr = [1,2,3,0.5];
-  document.getElementById('tcMatDays').textContent = days;
-  var tbody = document.getElementById('tcMatBody');
+  if(matDays) matDays.textContent = days;
   var rows = '';
   denoms.forEach(function(d){
     var isSelDenom = d[0]===denom;

@@ -1,5 +1,5 @@
 // VetCalc PRO - Main Drug Database
-// 最終更新: 2026-11-23  薬剤数: 272件
+// 最終更新: 2026-11-24  薬剤数: 272件
 var MASTER_DRUG_DB = [
   {
     "name": "ボスミン1mg/ml（エピネフリン）",
@@ -1138,9 +1138,9 @@ var MASTER_DRUG_DB = [
     "concText": "15mg",
     "species": {
       "犬": {
-        "lo": 3.75,
-        "hi": 7.5,
-        "note": "3.75-7.5mg/kg PO"
+        "lo": 0.5,
+        "hi": 1.3,
+        "note": "胃運動障害：0.5-1mg/kg PO 1日1回\n腫瘍随伴症候群：1.1-1.3mg/kg PO 1日1回\n30mg/日を超えない"
       },
       "猫": {
         "lo": null,
@@ -1894,13 +1894,13 @@ var MASTER_DRUG_DB = [
     "concText": "3mg/head",
     "species": {
       "犬": {
-        "lo": 3,
-        "hi": 6,
+        "lo": null,
+        "hi": null,
         "note": "小型犬（8キロ以下）3mg\n中型（9-25キロ）6 mg\n大型（25キロ以上）9mg (VMN)"
       },
       "猫": {
-        "lo": 3,
-        "hi": 3,
+        "lo": null,
+        "hi": null,
         "note": "（記載なし）"
       },
       "ウサギ": {
@@ -4263,26 +4263,26 @@ var MASTER_DRUG_DB = [
     "species": {
       "犬": {
         "injectable": {
-          "lo": 50,
-          "hi": 100,
+          "lo": null,
+          "hi": null,
           "note": "50-100mg/head sid IV"
         },
         "oral": {
-          "lo": 50,
-          "hi": 50,
+          "lo": null,
+          "hi": null,
           "note": "50mg/head sid-bid PO"
         },
         "note": "（記載なし）"
       },
       "猫": {
         "injectable": {
-          "lo": 25,
-          "hi": 50,
+          "lo": null,
+          "hi": null,
           "note": "25-50mg/head sid IV"
         },
         "oral": {
-          "lo": 25,
-          "hi": 25,
+          "lo": null,
+          "hi": null,
           "note": "25mg/head sid PO"
         },
         "note": "（記載なし）"
@@ -4367,8 +4367,8 @@ var MASTER_DRUG_DB = [
     "species": {
       "犬": {
         "injectable": {
-          "lo": 0.5,
-          "hi": 2,
+          "lo": null,
+          "hi": null,
           "note": "0.5-2ml/kg bid IV\n2-10ml/head sid IV"
         },
         "oral": {
@@ -4566,14 +4566,14 @@ var MASTER_DRUG_DB = [
     "concText": "4150mg/包",
     "species": {
       "犬": {
-        "lo": 0.1,
-        "hi": 0.2,
+        "lo": null,
+        "hi": null,
         "note": "0.1-0.2g/kg PO BID"
       },
       "猫": {
-        "lo": 0.1,
-        "hi": 0.3,
-        "note": "0.1-0.3g/kg PO BID"
+        "lo": null,
+        "hi": null,
+        "note": "0.1-0.2g/kg PO BID"
       },
       "ウサギ": {
         "lo": null,
@@ -4615,26 +4615,26 @@ var MASTER_DRUG_DB = [
     "species": {
       "犬": {
         "injectable": {
-          "lo": 10,
-          "hi": 100,
+          "lo": null,
+          "hi": null,
           "note": "10-100mg/head sid PO\n12.5-50mg/head sid IM,SC"
         },
         "oral": {
-          "lo": 10,
-          "hi": 100,
+          "lo": null,
+          "hi": null,
           "note": "10-100mg/head sid PO\n12.5-50mg/head sid IM,SC"
         },
         "note": "（記載なし）"
       },
       "猫": {
         "injectable": {
-          "lo": 5,
-          "hi": 30,
+          "lo": null,
+          "hi": null,
           "note": "5-30mg/head sid PO\n(一日の上限量50mg/head)\n12.5-25mg/head sid IM,SC"
         },
         "oral": {
-          "lo": 5,
-          "hi": 30,
+          "lo": null,
+          "hi": null,
           "note": "5-30mg/head sid PO\n(一日の上限量50mg/head)\n12.5-25mg/head sid IM,SC"
         },
         "note": "（記載なし）"
@@ -5370,7 +5370,7 @@ var MASTER_DRUG_DB = [
   {
     "name": "エスポー",
     "category": "内分泌・血液",
-    "conc": 1400,
+    "conc": 1500,
     "concText": "750IU/0.5ml",
     "species": {
       "犬": {
@@ -5418,7 +5418,7 @@ var MASTER_DRUG_DB = [
   {
     "name": "エポジン",
     "category": "内分泌・血液",
-    "conc": 1400,
+    "conc": 1500,
     "concText": "750IU/0.5ml",
     "species": {
       "犬": {
@@ -5908,14 +5908,14 @@ var MASTER_DRUG_DB = [
         "note": "2-4mg/kg q12-24h PO"
       },
       "ウサギ": {
-        "lo": 0.4,
-        "hi": 0.4,
+        "lo": null,
+        "hi": null,
         "note": "0.4mg/head"
       },
       "モルモット": {
-        "lo": 0.4,
-        "hi": 0.4,
-        "note": "（記載なし）"
+        "lo": null,
+        "hi": null,
+        "note": "0.4mg/head（ウサギと同じ）"
       },
       "フェレット": {
         "lo": null,
@@ -8152,7 +8152,7 @@ var MASTER_DRUG_DB = [
   {
     "name": "チエナム（イミペネム）",
     "category": "抗菌薬",
-    "conc": 500,
+    "conc": 50,
     "concText": "500mg/10ml",
     "species": {
       "犬": {
@@ -8353,8 +8353,8 @@ var MASTER_DRUG_DB = [
         "note": "2.2万単位kg/day\n5-15万単位/head tid PO"
       },
       "猫": {
-        "lo": 100000,
-        "hi": 100000,
+        "lo": null,
+        "hi": null,
         "note": "10万単位/head q6h PO"
       },
       "ウサギ": {
@@ -10661,12 +10661,12 @@ var MASTER_DRUG_DB = [
       "犬": {
         "lo": 0.2,
         "hi": 0.4,
-        "note": "疥癬・ニキビダニ：0.2-0.4mg/kg SC（計算値はこの用量）\nフィラリア予防：0.006mg/kg PO 月1回"
+        "note": "フィラリア予防：0.006-0.012mg/kg PO 30日1回\n疥癬：0.2-0.4mg/kg PO,SC 7日1回 4-6週（計算値はこの用量）\nニキビダニ症：0.3-0.6mg/kg PO 1日1回\n耳ヒゼンダニ症：0.2-0.3mg/kg PO,SC 1-2週1回"
       },
       "猫": {
         "lo": 0.2,
         "hi": 0.4,
-        "note": "0.2-0.4mg/kg SC q14d（耳ダニ・疥癬）"
+        "note": "フィラリア予防：0.024mg/kg PO 30-45日1回\n疥癬：0.2-0.4mg/kg PO,SC 7日1回 4-6週（計算値はこの用量）\n耳ヒゼンダニ症：0.2-0.3mg/kg PO,SC 1-2週1回"
       },
       "ウサギ": {
         "lo": 0.2,
@@ -11106,8 +11106,8 @@ var MASTER_DRUG_DB = [
         "note": "200mg/kg PO q14d で繰り返す"
       },
       "モルモット": {
-        "lo": 4,
-        "hi": 7,
+        "lo": null,
+        "hi": null,
         "note": "4-7mg/mL 飲水投与 q24h"
       },
       "フェレット": {
@@ -11121,8 +11121,8 @@ var MASTER_DRUG_DB = [
         "note": "（記載なし）"
       },
       "ハムスター": {
-        "lo": 3,
-        "hi": 5,
+        "lo": null,
+        "hi": null,
         "note": "3-5mg/mL 飲水投与 7日投与し7日休薬を繰り返す"
       }
     },
@@ -13765,8 +13765,8 @@ var MASTER_DRUG_DB = [
   "conc": 0.1,
   "concText": "100μg/錠",
   "species": {
-    "犬": { "lo": 0.1, "hi": 0.2, "note": "100-200μg SID PO" },
-    "猫": { "lo": 0.05, "hi": 0.1, "note": "50-100μg SID PO" },
+    "犬": { "lo": null, "hi": null, "note": "100-200μg SID PO" },
+    "猫": { "lo": null, "hi": null, "note": "50-100μg SID PO" },
     "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
     "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
     "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },

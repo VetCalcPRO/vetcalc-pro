@@ -155,40 +155,92 @@ var CATEGORY_MIGRATION_BY_NAME = {
   '酒石酸ブトルファノール': '鎮痛',
   'ブプレノルフィン塩酸塩': '鎮痛'
 };
-// 用量数値の誤り修正（保存済み端末向け）
-// 保存値が旧誤値と完全一致する場合のみ置換＝ユーザー編集値は保持
-// [id, 動物種, 旧lo, 旧hi, 新lo, 新hi]
+// 保存済み端末向けの数値修正（台帳 ledger.json の承認済みの行と同じ内容）
+// 保存値が旧値と完全一致する場合のみ置換＝ユーザー編集値は保持
+// 置換した箇所は表示の文字（note・concText）も MASTER にそろえる（改名した薬剤もあるため id で照合）
+// [id, 動物種, 旧lo, 旧hi, 新lo, 新hi, route（注射・内服に分かれた薬剤のみ）]
 var DOSE_FIXES = [
+  // v50 レペタン
   ['drug_023', '犬',        0.05, 0.015, 0.005, 0.015],
   ['drug_023', 'ハリネズミ', 0.01, 0.1,   0.01,  0.01],
-  // v51: CRI専用薬はmL換算を出さない（μg/kg/minの値がmg/kgとして計算されていた）
-  ['drug_166', '犬',        5,    20,    null,  null],
+  // v51 mg/kg ではない値（μg/kg/min・1頭量・飲水濃度など）で計算していた → 計算停止（note を表示）
+  ['drug_166', '犬',        5,    20,    null,  null],   // ドブタミン
   ['drug_166', '猫',        2.5,  10,    null,  null],
   ['drug_166', 'ウサギ',    5,    15,    null,  null],
   ['drug_166', 'フェレット', 5,    10,    null,  null],
-  ['drug_003', '犬',        20,   80,    null,  null]
+  ['drug_003', '犬',        20,   80,    null,  null],   // DB-cAMP
+  ['drug_298', '犬',        0.1,  0.2,   null,  null],   // シアノコバラミン
+  ['drug_298', '猫',        0.05, 0.1,   null,  null],
+  ['drug_079', '犬',        10,   100,   null,  null, 'injectable'],  // フルスルチアミン
+  ['drug_079', '犬',        10,   100,   null,  null, 'oral'],
+  ['drug_079', '猫',        5,    30,    null,  null, 'injectable'],
+  ['drug_079', '猫',        5,    30,    null,  null, 'oral'],
+  ['drug_074', '犬',        50,   100,   null,  null, 'injectable'],  // グルタチオン
+  ['drug_074', '犬',        50,   50,    null,  null, 'oral'],
+  ['drug_074', '猫',        25,   50,    null,  null, 'injectable'],
+  ['drug_074', '猫',        25,   25,    null,  null, 'oral'],
+  ['drug_035', '犬',        3,    6,     null,  null],   // メラトニン
+  ['drug_035', '猫',        3,    3,     null,  null],
+  ['drug_075', '犬',        0.5,  2,     null,  null, 'injectable'],  // グリチルリチン
+  ['drug_192', 'モルモット', 4,    7,     null,  null],   // ピペラジン
+  ['drug_192', 'ハムスター', 3,    5,     null,  null],
+  ['drug_135', '猫',        100000, 100000, null, null], // ナイスタチン
+  ['drug_096', 'ウサギ',    0.4,  0.4,   null,  null],   // シプロヘプタジン
+  ['drug_096', 'モルモット', 0.4,  0.4,   null,  null],
+  ['drug_078', '犬',        0.1,  0.2,   null,  null],   // リーバクト
+  ['drug_078', '猫',        0.1,  0.3,   null,  null],
+  // v51 用量の訂正
+  ['drug_022', '犬',        3.75, 7.5,   0.5,   1.3],    // ミルタザピン
+  // v51 初期の版（5/30〜6/9）の値が残っている端末
+  ['drug_001', '犬',        0.1,  0.2,   0.01,  0.01],   // ボスミン
+  ['drug_001', '猫',        0.1,  0.2,   0.01,  0.01],
+  ['drug_060', '犬',        0.1,  0.2,   0.5,   1,     'injectable'],  // ファモチジン注
+  ['drug_096', '犬',        1,    1,     0.5,   1.1],    // シプロヘプタジン
+  ['drug_208', '犬',        0.005, 0.01, 0.0025, 0.005], // ジゴキシン
+  ['drug_094', '猫',        1.5,  1.5,   null,  null]    // プレビコックス（削除した用量）
 ];
-// [id, 旧conc, 新conc] 保存済みconcが旧値と一致する場合のみ置換（ユーザー編集値は保持）
+// [id, 旧conc, 新conc]
 var CONC_FIXES = [
-  ['drug_183', 1, 10],   // v51: イベルメクチン1% = 10mg/mL
-  ['drug_166', 5, 20]    // v51: ドブタミン 100mg/5mL = 20mg/mL
+  ['drug_183', 1,    10],    // v51: イベルメクチン 1% = 10mg/mL
+  ['drug_166', 5,    20],    // v51: ドブタミン 100mg/5mL = 20mg/mL
+  ['drug_131', 500,  50],    // v51: チエナム 500mg/10mL
+  ['drug_089', 1400, 1500],  // v51: エスポー 750IU/0.5mL
+  ['drug_090', 1400, 1500],  // v51: エポジン 750IU/0.5mL
+  // v51 初期の版（5/30〜6/9）の値が残っている端末
+  ['drug_001', 0.01, 1],     // ボスミン
+  ['drug_037', 5,    1],     // リズミナール・エナカルド
+  ['drug_038', 1,    0.5],   // エースワーカー
+  ['drug_068', 0.1,  100],   // アルサルミン
+  ['drug_208', 0.05, 0.005], // ジゴキシン
+  ['drug_273', 20,   100]    // イーケプラ注
 ];
 function applyDoseFixes(p, masterMap){
+  var byId = {};
+  for(var mi=0;mi<MASTER.length;mi++){ if(MASTER[mi] && MASTER[mi].id) byId[MASTER[mi].id] = MASTER[mi]; }
   var fixed = false;
   for(var i=0;i<p.length;i++){
+    if(!p[i]) continue;
     var m = masterMap[p[i].name];
     var pid = p[i].id || (m && m.id);
+    if(!pid) continue;
+    var mm = byId[pid];
     for(var f=0;f<DOSE_FIXES.length;f++){
       var fx = DOSE_FIXES[f];
-      var ps = p[i].species && p[i].species[fx[1]];
-      if(pid===fx[0] && ps && ps.lo===fx[2] && ps.hi===fx[3]){
+      if(pid!==fx[0]) continue;
+      var sps = p[i].species && p[i].species[fx[1]];
+      var ps = sps && (fx[6] ? sps[fx[6]] : sps);
+      if(ps && typeof ps === 'object' && ps.lo===fx[2] && ps.hi===fx[3]){
         ps.lo = fx[4]; ps.hi = fx[5]; fixed = true;
+        var msp = mm && mm.species && mm.species[fx[1]];
+        var mps = msp && (fx[6] ? msp[fx[6]] : msp);
+        if(mps && typeof mps.note === 'string') ps.note = mps.note;
       }
     }
     for(var c=0;c<CONC_FIXES.length;c++){
       var cx = CONC_FIXES[c];
       if(pid===cx[0] && p[i].conc===cx[1]){
         p[i].conc = cx[2]; fixed = true;
+        if(mm && mm.concText) p[i].concText = mm.concText;
       }
     }
   }
@@ -823,10 +875,6 @@ var PREG_DATA = {
 };
 function pregSetSp(sp){
   PREG_SP = sp;
-  ['dog','cat','rabbit'].forEach(function(s){
-    document.getElementById('pregSp'+s.charAt(0).toUpperCase()+s.slice(1)).classList.toggle('on', s===sp);
-  });
-  // fix button IDs
   document.getElementById('pregSpDog').classList.toggle('on', sp==='dog');
   document.getElementById('pregSpCat').classList.toggle('on', sp==='cat');
   document.getElementById('pregSpRab').classList.toggle('on', sp==='rabbit');
@@ -1540,8 +1588,8 @@ function kpRender(){
     // <2.0
     if(activeIdx<0 && val<2.0) activeIdx=4;
     // バッジ
-    if(val>5.5){
-      badge.className='kp-k-badge dn'; badge.textContent='高K 🚨 '+val.toFixed(1)+' mEq/L';
+    if(val>4.5){
+      badge.className='kp-k-badge'; badge.textContent='表の範囲外（4.5超） '+val+' mEq/L';
     } else if(val>=3.5){
       badge.className='kp-k-badge ok'; badge.textContent='正常域 '+val.toFixed(1)+' mEq/L';
     } else if(val>=2.5){
@@ -3540,13 +3588,13 @@ function printProto(){
     var sp2 = d.species[sp]||{};
     var val = ml || mg || (sp2.note ? sp2.note.split("\n")[0].substring(0,30) : '—');
     rows += '<div class="proto-print-row">'
-      +'<span>'+d.name.replace(/\n/g,' ')+'</span>'
-      +'<span style="font-weight:700">'+val+'</span>'
+      +'<span>'+esc(d.name.replace(/\n/g,' '))+'</span>'
+      +'<span style="font-weight:700">'+esc(val)+'</span>'
       +'</div>';
   }
   var el = document.getElementById('proto-print');
-  el.innerHTML = '<h2 style="margin-bottom:4px">'+p.name+'</h2>'
-    +'<p style="color:#666;font-size:12px;margin-bottom:16px">'+sp+' / '+dispW(sp,w)+' '+dispUnit(sp)+'</p>'
+  el.innerHTML = '<h2 style="margin-bottom:4px">'+esc(p.name)+'</h2>'
+    +'<p style="color:#666;font-size:12px;margin-bottom:16px">'+esc(sp)+' / '+esc(dispW(sp,w))+' '+esc(dispUnit(sp))+'</p>'
     + rows;
   window.print();
 }

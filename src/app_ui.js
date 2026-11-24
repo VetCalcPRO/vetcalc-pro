@@ -2065,9 +2065,10 @@ function onMetocloFrChange() {
 
 // ===== インスリン専用UI =====
 function renderInsulin(bw) {
-  // 調製：BW×1U / 50ml = 0.1U/ml（100U/ml製剤 → BW/100 ml添加）
+  // 調製：BW×1U / 50ml（100U/ml製剤 → BW/100 ml添加）→ バッグ内濃度 BW/50 U/ml
   const addMl   = bw / 100;          // ml of 100U/ml
-  const concUml = bw / 50;           // U/ml in bag (= BW×1U/50ml = 0.1U/ml 固定)
+  const concUml = bw / 50;           // U/ml in bag
+  const concTxt = String(+concUml.toFixed(4));
   const sp      = currentSpecies;
 
   // 早見表：流量0.5〜10 ml/h
@@ -2113,8 +2114,8 @@ function renderInsulin(bw) {
         <span class="m-val big">${addMl.toFixed(3)} <span class="unit">ml 添加</span></span>
       </div>
       <div class="m-row">
-        <span class="m-label">バッグ内濃度（固定）</span>
-        <span class="m-val" style="font-size:16px;color:var(--ac);">0.1 <span class="unit">U/ml</span></span>
+        <span class="m-label">バッグ内濃度</span>
+        <span class="m-val" style="font-size:16px;color:var(--ac);">${concTxt} <span class="unit">U/ml</span></span>
       </div>
       <div style="margin-top:6px;font-size:10px;color:var(--mu);">参考: 松木直章先生（まつき動物病院）のセミナーで得た知見を参考に</div>
       <div style="margin-top:10px;padding:8px 10px;background:rgba(255,77,109,.1);border-radius:8px;border-left:3px solid var(--dn);font-size:12px;line-height:1.7;">
@@ -2125,7 +2126,7 @@ function renderInsulin(bw) {
 
     <!-- 早見表 -->
     <div style="font-size:10px;color:var(--mu);font-weight:700;letter-spacing:.4px;margin-bottom:6px;">
-      📋 流量早見表（BW ${bw}kg　0.1U/ml）
+      📋 流量早見表（BW ${bw}kg　${concTxt}U/ml）
       <span style="margin-left:8px;color:var(--ac);">🐶=犬推奨</span>
       <span style="margin-left:6px;color:var(--ok);">🐱=猫推奨</span>
     </div>

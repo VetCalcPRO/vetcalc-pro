@@ -13,9 +13,19 @@ const ASSETS = [
 // インストール時：全アセットをキャッシュ
 // ※ skipWaiting()を削除 → 更新通知を出してからユーザー操作で切り替える
 self.addEventListener('install', e => {
+  // cache.addAll()はブラウザのHTTPキャッシュ経由で古い内容を取得することがあるため、
+  // {cache:'reload'}で明示的にネットワークから再取得する
   e.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => cache.addAll(ASSETS))
+    caches.open(CACHE_NAME).then(cache => {
+      return Promise.all(
+        ASSETS.map(url =>
+          fetch(url, { cache: 'reload' }).then(res => {
+            if (!res.ok) throw new Error('fetch failed: ' + url);
+            return cache.put(url, res);
+          })
+        )
+      );
+    })
   );
 });
 

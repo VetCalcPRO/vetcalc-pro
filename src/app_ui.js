@@ -2065,30 +2065,32 @@ function onMetocloFrChange() {
 
 // ===== インスリン専用UI =====
 function renderInsulin(bw) {
-  // 調製：BW×1U / 50ml（100U/ml製剤 → BW/100 ml添加）→ バッグ内濃度 BW/50 U/ml
-  const addMl   = bw / 100;          // ml of 100U/ml
-  const concUml = bw / 50;           // U/ml in bag
+  // 調製：50mLシリンジの生食50mLに、体重(kg)と同じ単位のレギュラーインスリン（100U/mL → BW/100 mL）
+  // 体重に合わせて作るので、流量 mL/h ＝ U/kg/h × 50 は体重に関係なく同じ
+  const addU    = bw;                // U
+  const addMl   = bw / 100;          // mL of 100U/mL
+  const concUml = bw / 50;           // U/mL in syringe
   const concTxt = String(+concUml.toFixed(4));
+  const uTxt    = String(+addU.toFixed(2));
   const sp      = currentSpecies;
 
-  // 早見表：流量0.5〜10 ml/h
-  const frList = [0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,6,7,8,9,10];
-  const rows = frList.map(fr => {
-    const uPerH    = fr * concUml;          // U/h
-    const uKgPerH  = uPerH / bw;           // U/kg/h
-    const uKgPerDay = uKgPerH * 24;        // U/kg/day
-    const isDog = uKgPerDay <= 2.2 && uKgPerDay >= 1.8;
-    const isCat = uKgPerDay <= 1.1 && uKgPerDay >= 0.9;
-    const isRec = isDog || isCat;
+  // 早見表：U/kg/h から引く（mL/h ＝ U/kg/h × 50）。印は開始量（犬 0.1・猫 0.05 U/kg/h）
+  const uList = [0.20,0.18,0.16,0.14,0.12,0.10,0.09,0.08,0.07,0.06,0.05,0.04,0.03,0.02,0.01];
+  const rows = uList.map(u => {
+    const mlh       = u * 50;          // mL/h（体重によらない）
+    const uPerH     = u * bw;          // U/h
+    const uKgPerDay = u * 24;          // U/kg/day
+    const isDog = u === 0.10;
+    const isCat = u === 0.05;
     const bg    = isDog ? 'background:rgba(76,142,255,.1);'
                 : isCat ? 'background:rgba(31,204,122,.1);' : '';
     const fc    = isDog ? 'color:var(--ac);font-weight:700;'
                 : isCat ? 'color:var(--ok);font-weight:700;' : '';
     const mark  = isDog ? '🐶' : isCat ? '🐱' : '';
     return `<tr style="border-bottom:1px solid var(--bd);${bg}">
-      <td style="padding:6px 8px;font-size:14px;${fc}">${fr}</td>
+      <td style="padding:6px 8px;font-size:14px;${fc}">${u.toFixed(2)}</td>
+      <td style="padding:6px 8px;text-align:right;font-size:14px;${fc}">${mlh.toFixed(1)}</td>
       <td style="padding:6px 8px;text-align:right;font-size:14px;${fc}">${uPerH.toFixed(3)}</td>
-      <td style="padding:6px 8px;text-align:right;font-size:14px;${fc}">${uKgPerH.toFixed(4)}</td>
       <td style="padding:6px 8px;text-align:right;font-size:13px;${fc}">${uKgPerDay.toFixed(2)} ${mark}</td>
     </tr>`;
   }).join('');
@@ -2108,34 +2110,40 @@ function renderInsulin(bw) {
   bagEl.innerHTML = `
     <!-- 調製カード -->
     <div style="background:rgba(255,176,32,.07);border:1.5px solid rgba(255,176,32,.3);border-radius:12px;padding:14px;margin-bottom:14px;">
-      <div style="font-size:10px;color:var(--wn);font-weight:700;letter-spacing:.5px;margin-bottom:10px;">📐 調製（レギュラーインスリン 100U/ml）</div>
-      <div class="m-row">
-        <span class="m-label">BW × 1U → 50ml生食に希釈</span>
-        <span class="m-val big">${addMl.toFixed(3)} <span class="unit">ml 添加</span></span>
+      <div style="font-size:10px;color:var(--wn);font-weight:700;letter-spacing:.5px;margin-bottom:10px;">📐 調製（レギュラーインスリン 100U/mL）</div>
+      <div style="font-size:12px;color:var(--mu);line-height:1.6;">① 50 mL シリンジの生食 50 mL に、体重と同じ単位を加える</div>
+      <div style="display:flex;align-items:baseline;justify-content:flex-end;gap:6px;margin:2px 0 4px;">
+        <span class="m-val big">${uTxt} <span class="unit">U</span></span>
+        <span style="font-size:13px;color:var(--mu);">（${addMl.toFixed(3)} mL）</span>
       </div>
-      <div class="m-row">
-        <span class="m-label">バッグ内濃度</span>
-        <span class="m-val" style="font-size:16px;color:var(--ac);">${concTxt} <span class="unit">U/ml</span></span>
+      <div style="margin-top:8px;padding:8px 10px;background:rgba(255,77,109,.1);border-radius:8px;border-left:3px solid var(--dn);font-size:12px;line-height:1.7;">
+        ⚠ ② 延長チューブを付けて、<b>10 mL 捨てる</b><br>
+        <span style="color:var(--mu);">（チューブ内をコーティングし、インスリンの付着を防ぐ）</span>
       </div>
+      <div class="m-row" style="margin-top:8px;">
+        <span class="m-label">③ 流量（体重に関係なく同じ）</span>
+        <span class="m-val" style="font-size:16px;color:var(--ac);">mL/h ＝ U/kg/h × 50</span>
+      </div>
+      <div style="font-size:12px;line-height:1.8;margin-top:2px;">
+        <span style="color:var(--ac);font-weight:700;">🐶 犬の開始量 0.1 U/kg/h → 5 mL/h</span><br>
+        <span style="color:var(--ok);font-weight:700;">🐱 猫の開始量 0.05 U/kg/h → 2.5 mL/h</span>
+      </div>
+      <div style="margin-top:6px;font-size:11px;color:var(--mu);">シリンジ内濃度 ${concTxt} U/mL（体重 ${bw}kg）</div>
       <div style="margin-top:6px;font-size:10px;color:var(--mu);">参考: 松木直章先生（まつき動物病院）のセミナーで得た知見を参考に</div>
-      <div style="margin-top:10px;padding:8px 10px;background:rgba(255,77,109,.1);border-radius:8px;border-left:3px solid var(--dn);font-size:12px;line-height:1.7;">
-        ⚠ <b>使用前に必ず</b> 50mlのインスリン溶液をチューブに流して捨てること<br>
-        <span style="color:var(--mu);">（チューブへの吸着防止）</span>
-      </div>
     </div>
 
     <!-- 早見表 -->
     <div style="font-size:10px;color:var(--mu);font-weight:700;letter-spacing:.4px;margin-bottom:6px;">
-      📋 流量早見表（BW ${bw}kg　${concTxt}U/ml）
-      <span style="margin-left:8px;color:var(--ac);">🐶=犬推奨</span>
-      <span style="margin-left:6px;color:var(--ok);">🐱=猫推奨</span>
+      📋 流量早見表（mL/h ＝ U/kg/h × 50　U/h は BW ${bw}kg）
+      <span style="margin-left:8px;color:var(--ac);">🐶=犬の開始量</span>
+      <span style="margin-left:6px;color:var(--ok);">🐱=猫の開始量</span>
     </div>
     <table style="width:100%;border-collapse:collapse;font-size:13px;font-family:'JetBrains Mono',monospace;margin-bottom:14px;">
       <thead>
         <tr style="border-bottom:1.5px solid var(--bd);background:var(--pn);">
-          <th style="text-align:left;padding:6px 8px;color:var(--mu);font-weight:700;font-size:11px;">ml/h</th>
+          <th style="text-align:left;padding:6px 8px;color:var(--mu);font-weight:700;font-size:11px;">U/kg/h</th>
+          <th style="text-align:right;padding:6px 8px;color:var(--mu);font-weight:700;font-size:11px;">mL/h</th>
           <th style="text-align:right;padding:6px 8px;color:var(--mu);font-weight:700;font-size:11px;">U/h</th>
-          <th style="text-align:right;padding:6px 8px;color:var(--mu);font-weight:700;font-size:11px;">U/kg/h</th>
           <th style="text-align:right;padding:6px 8px;color:var(--mu);font-weight:700;font-size:11px;">U/kg/day</th>
         </tr>
       </thead>

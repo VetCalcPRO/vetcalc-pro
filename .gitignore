@@ -7,3 +7,4 @@ node_modules/
 data/*.bak.*
 data/*.bak2.*
 data/*.bak*
+.tmp.drive*/

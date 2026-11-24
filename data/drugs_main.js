@@ -1,5 +1,5 @@
 // VetCalc PRO - Main Drug Database
-// 最終更新: 2026-07-09  薬剤数: 272件
+// 最終更新: 2026-11-23  薬剤数: 272件
 var MASTER_DRUG_DB = [
   {
     "name": "ボスミン1mg/ml（エピネフリン）",
@@ -104,9 +104,9 @@ var MASTER_DRUG_DB = [
     "concText": "60mg/ml",
     "species": {
       "犬": {
-        "lo": 20,
-        "hi": 80,
-        "note": "300mg/5mlに調整（60mg/ml)\n20～80μg/kg/min(20μgからスタート）\n5%グルコースに溶解、血管漏出注意\n※脈圧が正常～強い場合"
+        "lo": null,
+        "hi": null,
+        "note": "CRI専用（mL換算は表示しません）\n300mg/5mlに調整（60mg/ml)\n20～80μg/kg/min(20μgからスタート）\n5%グルコースに溶解、血管漏出注意\n※脈圧が正常～強い場合"
       },
       "猫": {
         "lo": null,
@@ -9838,26 +9838,26 @@ var MASTER_DRUG_DB = [
   {
     "name": "ドブタミン",
     "category": "緊急・救急",
-    "conc": 5,
-    "concText": "5mg/mL（250mg/50mLバイアル等）",
+    "conc": 20,
+    "concText": "20mg/mL（100mg/5mL）",
     "route": "injectable",
     "memo": "【低心拍出量・心原性ショックのCRI（持続点滴）】β1受容体刺激→心収縮力増強・心拍出量増加。末梢血管抵抗はほぼ不変（ドパミンとの違い）。必ずCRIで使用（ボーラス投与不可）。5%ブドウ糖液または生食で希釈。重篤な頻脈・不整脈では中止。猫は犬より感受性が高く低用量から開始。",
     "note": "CRI用量（μg/kg/min）: 犬5〜20、猫2.5〜10。希釈例: 体重(kg)×3mg を50mLに希釈→1mL/h = 1μg/kg/min",
     "species": {
       "犬": {
-        "lo": 5,
-        "hi": 20,
-        "note": "μg/kg/min でCRI。低用量から開始し効果をみながら増量"
+        "lo": null,
+        "hi": null,
+        "note": "μg/kg/min でCRI。低用量から開始し効果をみながら増量\nCRI計算：計算ツール → 💧CRI → ドブタミン"
       },
       "猫": {
-        "lo": 2.5,
-        "hi": 10,
-        "note": "μg/kg/min でCRI。犬より感受性高い→低用量から。痙攣報告あり→注意"
+        "lo": null,
+        "hi": null,
+        "note": "μg/kg/min でCRI。犬より感受性高い→低用量から。痙攣報告あり→注意\nCRI計算：計算ツール → 💧CRI → ドブタミン"
       },
       "ウサギ": {
-        "lo": 5,
-        "hi": 15,
-        "note": "μg/kg/min（承認外）"
+        "lo": null,
+        "hi": null,
+        "note": "μg/kg/min（承認外）\nCRI計算：計算ツール → 💧CRI → ドブタミン"
       },
       "モルモット": {
         "lo": null,
@@ -9865,9 +9865,9 @@ var MASTER_DRUG_DB = [
         "note": "承認外・用量不明"
       },
       "フェレット": {
-        "lo": 5,
-        "hi": 10,
-        "note": "μg/kg/min（承認外）"
+        "lo": null,
+        "hi": null,
+        "note": "μg/kg/min（承認外）\nCRI計算：計算ツール → 💧CRI → ドブタミン"
       },
       "ハリネズミ": {
         "lo": null,
@@ -10655,13 +10655,13 @@ var MASTER_DRUG_DB = [
   {
     "name": "イベルメクチン（イベルメク・ストロメクトール）",
     "category": "駆虫薬",
-    "conc": 1,
-    "concText": "注射剤1%（1mg/ml）・錠剤",
+    "conc": 10,
+    "concText": "注射剤1%（10mg/mL）・錠剤",
     "species": {
       "犬": {
         "lo": 0.2,
         "hi": 0.4,
-        "note": "0.2mg/kg PO（フィラリア予防）/ 0.2-0.4mg/kg SC（疥癬・ニキビダニ）"
+        "note": "疥癬・ニキビダニ：0.2-0.4mg/kg SC（計算値はこの用量）\nフィラリア予防：0.006mg/kg PO 月1回"
       },
       "猫": {
         "lo": 0.2,

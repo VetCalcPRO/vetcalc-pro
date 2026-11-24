@@ -160,7 +160,18 @@ var CATEGORY_MIGRATION_BY_NAME = {
 // [id, 動物種, 旧lo, 旧hi, 新lo, 新hi]
 var DOSE_FIXES = [
   ['drug_023', '犬',        0.05, 0.015, 0.005, 0.015],
-  ['drug_023', 'ハリネズミ', 0.01, 0.1,   0.01,  0.01]
+  ['drug_023', 'ハリネズミ', 0.01, 0.1,   0.01,  0.01],
+  // v51: CRI専用薬はmL換算を出さない（μg/kg/minの値がmg/kgとして計算されていた）
+  ['drug_166', '犬',        5,    20,    null,  null],
+  ['drug_166', '猫',        2.5,  10,    null,  null],
+  ['drug_166', 'ウサギ',    5,    15,    null,  null],
+  ['drug_166', 'フェレット', 5,    10,    null,  null],
+  ['drug_003', '犬',        20,   80,    null,  null]
+];
+// [id, 旧conc, 新conc] 保存済みconcが旧値と一致する場合のみ置換（ユーザー編集値は保持）
+var CONC_FIXES = [
+  ['drug_183', 1, 10],   // v51: イベルメクチン1% = 10mg/mL
+  ['drug_166', 5, 20]    // v51: ドブタミン 100mg/5mL = 20mg/mL
 ];
 function applyDoseFixes(p, masterMap){
   var fixed = false;
@@ -172,6 +183,12 @@ function applyDoseFixes(p, masterMap){
       var ps = p[i].species && p[i].species[fx[1]];
       if(pid===fx[0] && ps && ps.lo===fx[2] && ps.hi===fx[3]){
         ps.lo = fx[4]; ps.hi = fx[5]; fixed = true;
+      }
+    }
+    for(var c=0;c<CONC_FIXES.length;c++){
+      var cx = CONC_FIXES[c];
+      if(pid===cx[0] && p[i].conc===cx[1]){
+        p[i].conc = cx[2]; fixed = true;
       }
     }
   }
@@ -1518,12 +1535,14 @@ function kpRender(){
   if(!isNaN(val)){
     for(var i=0;i<KP_ROWS.length;i++){
       var r = KP_ROWS[i];
-      if(val >= r.lo && val < r.hi){ activeIdx=i; break; }
+      if(val >= r.lo && (val < r.hi || (i===0 && val===r.hi))){ activeIdx=i; break; }
     }
     // <2.0
     if(activeIdx<0 && val<2.0) activeIdx=4;
     // バッジ
-    if(val>=3.5){
+    if(val>5.5){
+      badge.className='kp-k-badge dn'; badge.textContent='高K 🚨 '+val.toFixed(1)+' mEq/L';
+    } else if(val>=3.5){
       badge.className='kp-k-badge ok'; badge.textContent='正常域 '+val.toFixed(1)+' mEq/L';
     } else if(val>=2.5){
       badge.className='kp-k-badge wn'; badge.textContent='低K ⚠ '+val.toFixed(1)+' mEq/L';

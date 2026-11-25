@@ -13457,8 +13457,8 @@ var MASTER_DRUG_DB = [
   "conc": 10,
   "concText": "10mg/錠",
   "species": {
-    "犬": { "lo": 0.1, "hi": 0.2, "note": "0.1-0.2mg/kg q12h PO" },
-    "猫": { "lo": 0.1, "hi": 0.2, "note": "0.1-0.2mg/kg q12h PO" },
+    "犬": { "lo": 0.5, "hi": 1, "note": "0.5-1mg/kg q12h PO" },
+    "猫": { "lo": 0.5, "hi": 1, "note": "0.5-1mg/kg q12h PO" },
     "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
     "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
     "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },

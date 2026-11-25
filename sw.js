@@ -1,5 +1,5 @@
 // VetCalc PRO - Service Worker
-const CACHE_NAME = 'vetcalc-pro-v51';
+const CACHE_NAME = 'vetcalc-pro-v52';
 const ASSETS = [
   './',
   './index.html',

@@ -197,7 +197,9 @@ var DOSE_FIXES = [
   ['drug_060', '犬',        0.1,  0.2,   0.5,   1,     'injectable'],  // ファモチジン注
   ['drug_096', '犬',        1,    1,     0.5,   1.1],    // シプロヘプタジン
   ['drug_208', '犬',        0.005, 0.01, 0.0025, 0.005], // ジゴキシン
-  ['drug_094', '猫',        1.5,  1.5,   null,  null]    // プレビコックス（削除した用量）
+  ['drug_094', '猫',        1.5,  1.5,   null,  null],   // プレビコックス（削除した用量）
+  // v52
+  ['drug_060', '犬',        0.1,  0.2,   0.5,   1,     'oral']        // ファモチジン 内服
 ];
 // [id, 旧conc, 新conc]
 var CONC_FIXES = [
@@ -212,8 +214,33 @@ var CONC_FIXES = [
   ['drug_038', 1,    0.5],   // エースワーカー
   ['drug_068', 0.1,  100],   // アルサルミン
   ['drug_208', 0.05, 0.005], // ジゴキシン
-  ['drug_273', 20,   100]    // イーケプラ注
+  ['drug_273', 20,   100],   // イーケプラ注
+  // v52
+  ['drug_208', 0.005, 0.25]  // ジゴキシン 0.25mg錠（上の 0.05→0.005 の後に続けて当てる）
 ];
+// 薬剤DBから消した薬：値を編集していない端末からだけ消す（直した後の値と完全一致した時だけ）
+var REMOVED_DRUGS = [
+  { id:'drug_001', name:'ボスミン1mg/ml（エピネフリン）', conc:1,   // v52: 緊急・救急のエピネフリン（drug_164）にまとめた
+    lohi:{'犬':[0.01,0.01],'猫':[0.01,0.01],'ウサギ':[0.2,0.2],'モルモット':[0.003,0.003],
+          'フェレット':[0.02,0.02],'ハリネズミ':[0.003,0.003],'ハムスター':[0.1,0.1]} }
+];
+function removeUntouchedDrugs(p){
+  var removed = false;
+  for(var r=0;r<REMOVED_DRUGS.length;r++){
+    var rd = REMOVED_DRUGS[r];
+    for(var i=p.length-1;i>=0;i--){
+      var d = p[i];
+      if(!d || (d.id ? d.id!==rd.id : d.name!==rd.name)) continue;
+      var same = d.conc===rd.conc;
+      for(var sp in rd.lohi){
+        var s = d.species && d.species[sp];
+        if(!s || s.lo!==rd.lohi[sp][0] || s.hi!==rd.lohi[sp][1]) same = false;
+      }
+      if(same){ p.splice(i,1); removed = true; }
+    }
+  }
+  return removed;
+}
 function applyDoseFixes(p, masterMap){
   var byId = {};
   for(var mi=0;mi<MASTER.length;mi++){ if(MASTER[mi] && MASTER[mi].id) byId[MASTER[mi].id] = MASTER[mi]; }
@@ -222,6 +249,7 @@ function applyDoseFixes(p, masterMap){
     if(!p[i]) continue;
     var m = masterMap[p[i].name];
     var pid = p[i].id || (m && m.id);
+    if(!pid){ for(var rr=0;rr<REMOVED_DRUGS.length;rr++){ if(REMOVED_DRUGS[rr].name===p[i].name) pid = REMOVED_DRUGS[rr].id; } }
     if(!pid) continue;
     var mm = byId[pid];
     for(var f=0;f<DOSE_FIXES.length;f++){
@@ -291,6 +319,7 @@ function loadData(){
           }
         }
         var doseFixed = applyDoseFixes(p, masterMap);
+        if(removeUntouchedDrugs(p)) doseFixed = true;
         DRUGS=p;
         if(catMigrated || doseFixed){ try{ saveData(); }catch(e){} }
         return;

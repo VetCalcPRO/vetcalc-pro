@@ -2,54 +2,6 @@
 // 最終更新: 2026-11-24  薬剤数: 272件
 var MASTER_DRUG_DB = [
   {
-    "name": "ボスミン1mg/ml（エピネフリン）",
-    "category": "循環器",
-    "conc": 1,
-    "concText": "1mg/mL",
-    "species": {
-      "犬": {
-        "lo": 0.01,
-        "hi": 0.01,
-        "note": "心停止：0.0025mg/kg IV\n気管支拡張：0.025mg/kg\n生食９ml＋ボスミン1ml＝10ml(10倍希釈）\n心停止：0.2ml/kg IV (3-5分毎）\nアナフィラキシー：0.1-0.2ml/kg IV IM SC"
-      },
-      "猫": {
-        "lo": 0.01,
-        "hi": 0.01,
-        "note": "0.1-0.2ml,IV\n0.1ml,IV,IM,SC"
-      },
-      "ウサギ": {
-        "lo": 0.2,
-        "hi": 0.2,
-        "note": "0.2mg/kg IV（心停止時）"
-      },
-      "モルモット": {
-        "lo": 0.003,
-        "hi": 0.003,
-        "note": "0.003mg/kg IV（心停止）"
-      },
-      "フェレット": {
-        "lo": 0.02,
-        "hi": 0.02,
-        "note": "0.02mg/kg SC,IM,IV"
-      },
-      "ハリネズミ": {
-        "lo": 0.003,
-        "hi": 0.003,
-        "note": "0.003mg/kg IV"
-      },
-      "ハムスター": {
-        "lo": 0.1,
-        "hi": 0.1,
-        "note": "0.1mg/kg IV"
-      }
-    },
-    "memo": "記載なし",
-    "route": "injectable",
-    "pdf_url": "https://www.pmda.go.jp/PmdaSearch/iyakuSearch/?iyakuName=%E3%82%A8%E3%83%94%E3%83%8D%E3%83%95%E3%83%AA%E3%83%B3&nameKbn=1&nameMatch=1",
-    "source": "PMDA",
-    "id": "drug_001"
-  },
-  {
     "name": "イノバン（ドパミン塩酸塩）",
     "category": "循環器",
     "conc": null,
@@ -3351,12 +3303,12 @@ var MASTER_DRUG_DB = [
         "injectable": {
           "lo": 0.5,
           "hi": 1.0,
-          "note": "0.1-0.2mg/kg q12h PO IV SC"
+          "note": "0.5-1mg/kg q12h PO IV SC"
         },
         "oral": {
-          "lo": 0.1,
-          "hi": 0.2,
-          "note": "0.1-0.2mg/kg q12h PO IV SC"
+          "lo": 0.5,
+          "hi": 1,
+          "note": "0.5-1mg/kg q12h PO IV SC"
         },
         "note": "（記載なし）"
       },
@@ -11855,7 +11807,7 @@ var MASTER_DRUG_DB = [
   {
     "name": "ジゴキシン",
     "category": "循環器",
-    "conc": 0.005,
+    "conc": 0.25,
     "concText": "0.25mg錠",
     "species": {
       "犬": {

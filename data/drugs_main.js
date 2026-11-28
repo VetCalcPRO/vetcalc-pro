@@ -4671,27 +4671,27 @@ var MASTER_DRUG_DB = [
     "species": {
       "犬": {
         "injectable": {
-          "lo": 0.25,
-          "hi": 0.5,
-          "note": "100-200μg sid PO\n250-500μg sid IMまたはSC"
+          "lo": null,
+          "hi": null,
+          "note": "100-200μg/頭 sid PO\n250-500μg/頭 週1回 IMまたはSC"
         },
         "oral": {
-          "lo": 0.1,
-          "hi": 0.2,
-          "note": "100-200μg sid PO\n250-500μg sid IMまたはSC"
+          "lo": null,
+          "hi": null,
+          "note": "100-200μg/頭 sid PO\n250-500μg/頭 週1回 IMまたはSC"
         },
         "note": "（記載なし）"
       },
       "猫": {
         "injectable": {
-          "lo": 0.25,
-          "hi": 0.25,
-          "note": "50-100μg sid PO\n250μg sid IMまたはSC"
+          "lo": null,
+          "hi": null,
+          "note": "50-100μg/頭 sid PO\n250μg/頭 週1回 IMまたはSC"
         },
         "oral": {
-          "lo": 0.05,
-          "hi": 0.1,
-          "note": "50-100μg sid PO\n250μg sid IMまたはSC"
+          "lo": null,
+          "hi": null,
+          "note": "50-100μg/頭 sid PO\n250μg/頭 週1回 IMまたはSC"
         },
         "note": "（記載なし）"
       },
@@ -4893,9 +4893,9 @@ var MASTER_DRUG_DB = [
         "note": "（記載なし）"
       },
       "モルモット": {
-        "lo": 50,
-        "hi": 100,
-        "note": "50-100mg/動物 PO,SC q24h（欠乏症・必須）"
+        "lo": null,
+        "hi": null,
+        "note": "50-100mg/頭 PO,SC q24h（欠乏症・必須）"
       },
       "フェレット": {
         "lo": null,
@@ -5855,9 +5855,9 @@ var MASTER_DRUG_DB = [
         "note": "0.5-1.1mg/kg q8-12h PO"
       },
       "猫": {
-        "lo": 2,
-        "hi": 4,
-        "note": "2-4mg/kg q12-24h PO"
+        "lo": null,
+        "hi": null,
+        "note": "2-4mg/頭 q12-24h PO"
       },
       "ウサギ": {
         "lo": null,
@@ -6064,14 +6064,14 @@ var MASTER_DRUG_DB = [
       },
       "猫": {
         "injectable": {
-          "lo": 2,
-          "hi": 4,
-          "note": "2-4mg/kg q6-8h PO, 1mg/kg q8h IV,IM"
+          "lo": null,
+          "hi": null,
+          "note": "2-4mg/頭 q6-8h PO, 1mg/kg q8h IV,IM"
         },
         "oral": {
-          "lo": 2,
-          "hi": 4,
-          "note": "2-4mg/kg q6-8h PO, 1mg/kg q8h IV,IM"
+          "lo": null,
+          "hi": null,
+          "note": "2-4mg/頭 q6-8h PO, 1mg/kg q8h IV,IM"
         },
         "note": "（記載なし）"
       },
@@ -9896,9 +9896,9 @@ var MASTER_DRUG_DB = [
         "note": "（記載なし）"
       },
       "猫": {
-        "lo": 2,
-        "hi": 2,
-        "note": "2mg/cat q24h PO（固定用量・体重2.3-12.5kg対象）"
+        "lo": 1,
+        "hi": 1,
+        "note": "1mg/kg PO SID（毎日ほぼ同時刻・専用シリンジ0.5kg刻み）\n副作用が持続する場合は0.5mg/kgまで減量可（NVAL添付文書）"
       },
       "ウサギ": {
         "lo": null,
@@ -13638,7 +13638,7 @@ var MASTER_DRUG_DB = [
   "concText": "2mg/錠",
   "species": {
     "犬": { "lo": 2.2, "hi": 2.2, "note": "2.2mg/kg q8-12h PO" },
-    "猫": { "lo": 2, "hi": 4, "note": "2-4mg/kg q6-8h PO" },
+    "猫": { "lo": null, "hi": null, "note": "2-4mg/頭 q6-8h PO" },
     "ウサギ": { "lo": null, "hi": null, "note": "（記載なし）" },
     "フェレット": { "lo": null, "hi": null, "note": "（記載なし）" },
     "モルモット": { "lo": null, "hi": null, "note": "（記載なし）" },
